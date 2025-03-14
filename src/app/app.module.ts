@@ -8,12 +8,9 @@ import { HeaderComponent } from './header/header.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { FooterComponent } from './footer/footer.component';
-<<<<<<< HEAD
 import { IngresarComponent } from './ingresar/ingresar.component';
-=======
 import { ContactoComponent } from './contacto/contacto.component';
 
->>>>>>> origin/master
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,11 +19,9 @@ import { ContactoComponent } from './contacto/contacto.component';
     CursosComponent,
     NosotrosComponent,
     FooterComponent,
-<<<<<<< HEAD
-    IngresarComponent
-=======
+    IngresarComponent,
     ContactoComponent
->>>>>>> origin/master
+
   ],
   imports: [
     BrowserModule,
