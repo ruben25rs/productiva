@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './inicio/inicio.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { IngresarComponent } from './ingresar/ingresar.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
     path: 'nosotros',
     component: NosotrosComponent,
     data: { title: 'Nosotros' }
+  },
+  {
+  path:'ingresar',
+  component: IngresarComponent,
+  data: {title: 'Ingresar'}
   },
   { path: '',   redirectTo: '/', pathMatch: 'full' },
 ];
