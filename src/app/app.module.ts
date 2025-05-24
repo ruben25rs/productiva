@@ -10,6 +10,7 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { FooterComponent } from './footer/footer.component';
 import { IngresarComponent } from './ingresar/ingresar.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { DetallecursoComponent } from './detallecurso/detallecurso.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ContactoComponent } from './contacto/contacto.component';
     NosotrosComponent,
     FooterComponent,
     IngresarComponent,
-    ContactoComponent
+    ContactoComponent,
+    DetallecursoComponent
 
   ],
   imports: [
