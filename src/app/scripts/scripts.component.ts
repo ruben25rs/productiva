@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./scripts.component.css']
 })
 export class ScriptsComponent {
+
   activar_class(){
 
     let elem = document.getElementsByClassName('iniciomn')
@@ -14,7 +15,7 @@ export class ScriptsComponent {
 
     if(path=="/"){
 
-      
+
       elem[0].className ="headermenu iniciomn active-link";
 
     }else{

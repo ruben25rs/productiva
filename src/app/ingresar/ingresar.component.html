@@ -1,58 +1,55 @@
 <app-scripts></app-scripts>
 <section id="hero">
+<div class="container">
+    <div id="main-container">
+      <div class="login-register" id="login-register" #loginregister style="background-color: rgb(135, 35, 98);">
+        <div class="nav-buttons">
+          <button #loginBtn id="loginBtn" class="active" (click)="loginBtnclick()">Iniciar sesión </button>
+          <button #registerBtn id="registerBtn" class="" (click)="registerBtnclick()">Registrarse</button>
+        </div>
+        <div class="form-group">
 
-    <div class="container">
-      <div id="main-container">
-        <div class="login-register" id="login-register">
-            <div class="nav-buttons">
-                <button id="loginBtn" class='active' >Iniciar sesión </button>
-                <button id="registerBtn" >Registrarse</button>
-            </div>
-            <div class="form-group">
+          <form method="post" action="loginp.php" id="loginform" #loginform style="left: 0px; opacity: 1;">
+            <label for="username">Correo Electrónico</label>
+            <input type="text" id="username" name="username" required="">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required="">
+            <input type="submit" value="Iniciar sesión" class="submit">
 
-                <form method="post" action="loginp.php" id="loginform">
-                    <label for="username">Correo Electrónico</label>
-                    <input type="text" id="username" name="username" required>
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password" required>
-                    <input type="submit" value="Iniciar sesión" class="submit">
-                   
-                </form>
-                <form method="post" action="daralta.php" id="registerform">
-                
-                  <div class="search-box">
-                  <label for="fullname">Nombre </label>
-                  <input type="text" id="fullname" name="fullname" required>
-                  <label for="empresa">Empresa Asociada:</label>
-                  <input id="buscar" name="buscar" type="text" autocomplete="off" required oninvalid="setCustomValidity('Si no esta asociado a una, ingresa NA')" 
-                    oninput="setCustomValidity('')"/>
-                
-                  <div class="result"></div>
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" required>
-                  <label for="password">Contraseña</label>
-                  <input type="password" id="password" name="password" >
-                      <!--   pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$" 
-                        onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Debe contener entre 8 y 16 caracteres:(Dígitos,Mayusculas,  Minúsculas y simbolos)':'');
-                        if(this.checkValidity()) form.confirm_password.pattern=this.value; "> -->
-                    <label for="confirmpassword">Confirmar contraseña</label>
-                    <input type="password" id="confirmpassword" name="confirmpassword" >
-                           <!-- pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$">-->
-                      
+          </form>
 
-                      <li id="checkterminos" style="list-style: none;">
-                          <input id="chkbxtyc" type="checkbox" required>
-                          <label for="c1"><a href="../indexterminos.html">Aceptar Términos y Condiciones</a> </label>
-                      </li>
-                       
-                  </div>  
-                    
-                  <input type="submit" value="Registrar" class="submit">
-                  
-              </form>
-              <div id="forgot">
-                <a href="forgot.php" >¿Olvidaste tu contraseña?</a>
-            </div>
+          <form method="post" action="daralta.php" id="registerform" #registerform style="opacity: 0;">
+
+            <div class="search-box">
+              <label for="fullname">Nombre </label>
+              <input type="text" id="fullname" name="fullname" required="">
+              <label for="empresa">Empresa Asociada:</label>
+              <input id="buscar" name="buscar" type="text" autocomplete="off" required="" oninvalid="setCustomValidity('Si no esta asociado a una, ingresa NA')" oninput="setCustomValidity('')">
+
+              <div class="result"></div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required="">
+              <label for="password">Contraseña</label>
+              <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Debe contener entre 8 y 16 caracteres:(Dígitos,Mayusculas,  Minúsculas y simbolos)':'');
+              if(this.checkValidity()) form.confirm_password.pattern=this.value; ">
+              <label for="confirmpassword">Confirmar contraseña</label>
+              <input type="password" id="confirmpassword" name="confirmpassword" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$">
+
+
+              <li id="checkterminos" style="list-style: none;">
+                <input id="chkbxtyc" type="checkbox" required="">
+                <label for="c1"><a href="../indexterminos.html">Aceptar Términos y Condiciones</a> </label>
+              </li>
+
+            </div>  
+
+
+            <input type="submit" value="Registrar" class="submit">
+
+          </form>
+          <div id="forgot" #forgot style="left: 0px; opacity: 1;">
+            <a href="forgot.php">¿Olvidaste tu contraseña?</a>
+          </div>
         </div>
       </div>
     </div>
@@ -62,38 +59,4 @@
   
      <script src="jquery.js"></script>
      <script src2="password.js"></script>
-      <script type='text/javascript'>
       
-        var loginBtn = document.getElementById('loginBtn');
-        var registerBtn = document.getElementById('registerBtn');
-        var loginform = document.getElementById('loginform');
-        var registerform = document.getElementById('registerform');
-        var loginregister = document.getElementById('login-register');
-
-        registerBtn.onclick= function() {
-            registerform.style.left='0px';
-            registerform.style.opacity='1';
-            loginform.style.left='-500px';
-            loginform.style.opacity='0';
-            forgot.style.left='-500px';
-            forgot.style.opacity='0';
-            registerBtn.classList.add('active');
-            loginBtn.classList.remove('active');
-            loginregister.style.backgroundColor='#2E49C1';
-
-        }
-
-        loginBtn.onclick= function() {
-            loginform.style.left='0px';
-            loginform.style.opacity='1';
-            forgot.style.left='0px';
-            forgot.style.opacity='1';
-            registerform.style='500px';
-            loginBtn.classList.add('active');
-            registerBtn.classList.remove('active');
-            registerform.style.opacity='0';            
-            loginregister.style.backgroundColor='#872362';
-        }
-       
-
-</script>
