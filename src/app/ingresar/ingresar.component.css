@@ -183,6 +183,15 @@ a {
     padding-left: ;
 
 }
+.ng-valid:not(form).ng-touched   {
+    border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form).ng-touched  {
+    border-left: 5px solid #a94442; /* red */
+}
+
+
 @media screen and (max-width:700px){
     /*inicia pie de pagina*/
     #footer .footer {

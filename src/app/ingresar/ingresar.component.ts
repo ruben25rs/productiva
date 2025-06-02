@@ -1,4 +1,9 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
+import { FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { AccesoService } from '../services/acceso.service';
+import { LoginResponse } from '../interfaces/LoginResponse';
+import { ResponseAcceso } from '../interfaces/ResponseAcceso';
 
 @Component({
   selector: 'app-ingresar',
@@ -7,6 +12,14 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 })
 export class IngresarComponent implements AfterViewInit{
 
+  private accesoService = inject(AccesoService);
+
+  loginError:string="";
+
+  loginForm=this.formBuilder.group({
+    email:['rubend@gmail.comoo',[Validators.required,Validators.email]],
+    password: ['',Validators.required],
+  })
 
   @ViewChild("loginBtn") loginBtn!: ElementRef;
   @ViewChild("registerBtn") registerBtn!: ElementRef;
@@ -15,7 +28,7 @@ export class IngresarComponent implements AfterViewInit{
   @ViewChild("loginregister") loginregister!: ElementRef;
   @ViewChild("forgot") forgot!: ElementRef;
 
-  constructor (){
+  constructor (private formBuilder:FormBuilder, private router:Router){
 
   }
 
@@ -40,7 +53,44 @@ export class IngresarComponent implements AfterViewInit{
     this.registerform.nativeElement.style='500px';
     this.loginBtn.nativeElement.classList.add('active');
     this.registerBtn.nativeElement.classList.remove('active');
-    this.registerform.nativeElement.style.opacity='0';            
+    this.registerform.nativeElement.style.opacity='0';   
+    this.loginregister.nativeElement.style.backgroundColor='#872362';         
+  }
+
+  login(){
+    if(this.loginForm.valid){
+      this.loginError="";
+      this.accesoService.login(this.loginForm.value as ResponseAcceso).subscribe({
+        next: (userData) => {
+          console.log(userData);
+        },
+        error: (errorData) => {
+          console.error(errorData);
+          this.loginError=errorData;
+          alert(errorData)
+        },
+        complete: () => {
+          console.info("Login completo");
+          this.router.navigateByUrl('/ingresar');
+          this.loginForm.reset();
+        }
+      })
+
+    }
+    else{
+      this.loginForm.markAllAsTouched();
+      alert("Error al ingresar los datos.");
+    }
+  }
+
+
+  get email(){
+    return this.loginForm.controls.email;
+  }
+
+  get password()
+  {
+    return this.loginForm.controls.password;
   }
 
 

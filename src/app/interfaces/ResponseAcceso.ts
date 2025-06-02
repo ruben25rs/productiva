@@ -1,4 +1,9 @@
+import { TokenU } from "./TokenU";
+
+
 export interface ResponseAcceso{
      isSuccess:boolean,
-     token:string
+     success: true,
+     message: string,
+     data:TokenU[]
 }
