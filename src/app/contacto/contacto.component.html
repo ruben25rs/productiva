@@ -1,0 +1,40 @@
+<section id="hero">
+  <section id="formulariocontacto">
+    <div id="izquierdacontacto">
+      <div id="izquierdacontacto2">
+        <h3 id="texto1contacto">Fortalece a tu equipo y apertura nuevas propuestas.</h3>
+        <p id="texto2contacto">Estamos aquí para aclarar todas tus dudas y
+        guíarte de la mejor manera, somos tu equipo</p>
+      </div>
+      <div class="login-register" id="login-register">
+        <div class="form-group" id="contactoform">
+          <form method="post" action="contacto.php" id="contacto">
+            <table class="tablecontact">
+              <tr>
+                <td class="textoscontacto"><label for="username">Nombre:</label></td>
+                <td class="textoscontacto"><label for="apellidos">Apellido:</label></td>
+              </tr>
+              <tr>
+                <td class="entradacontacto"><input type="text" id="name" name="name" required></td>
+                <td class="entradacontacto"><input type="text" id="apellido" name="apellido" required></td>
+              </tr>
+              <tr>
+                <td class="textoscontacto"><label for="email">Email:</label></td>
+                <td class="textoscontacto"><label for="numero">Número de telefono:</label></td>
+              </tr>
+              <tr>
+                <td class="entradacontacto"><input type="email" id="email" name="email" required></td>
+                <td class="entradacontacto"><input type="text" id="numero" name="numero" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(10, this.maxLength);"maxlength="10"  pattern="[0-9]{10}"  required></td>
+              </tr>
+              <tr>
+                <td colspan="2" id="centrobtncontactar"><input type="submit" value="ENVÍAR" class="submit" id="btncontactar"></td>
+              </tr>
+            </table>                  
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<app-scripts></app-scripts>
+
