@@ -1,3 +1,5 @@
+<app-header></app-header>
+<app-header-p></app-header-p>
 <section id="hero">
 
 	<div class="slideshow-container">
@@ -79,7 +81,8 @@
   	</div>
   </div>
 </div>
-
+<h2 *ngIf="!userLoginOn" class="alert alert-danger">Usuario NO autenticado</h2>
+<h2 *ngIf="userLoginOn" class="alert alert-success">Usuario Autenticado</h2>
 <h2 id="parrafo4bienvenida">La plataforma que centraliza el conocimiento y crecimiento profesional</h2>
 <div class="divvercursos">
 	<a href="indexcursos.html" type="button" class="btnvercursos">VER CURSOS</a>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AccesoService } from '../services/acceso.service';
 
 @Component({
   selector: 'app-scripts',
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./scripts.component.css']
 })
 export class ScriptsComponent {
+
+  userLoginOn:boolean=false;
+  banderaInvitado:boolean=true;
+
+  constructor(private accesoService:AccesoService) { 
+  }
 
   activar_class(){
 
@@ -28,5 +35,17 @@ export class ScriptsComponent {
 
   ngOnInit(){       
     this.activar_class();
+
+    this.accesoService.currentUserLoginOn.subscribe({
+      next:(userLoginOn) => {
+        this.userLoginOn=userLoginOn;
+        console.log(this.userLoginOn)
+
+        if(location.pathname=="/panel"){
+          this.banderaInvitado= false
+          this.userLoginOn=true
+        }
+      }
+    });
   }
 }
