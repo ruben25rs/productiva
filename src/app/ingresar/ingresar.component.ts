@@ -71,7 +71,7 @@ export class IngresarComponent implements AfterViewInit{
         },
         complete: () => {
           console.info("Login completo");
-          this.router.navigateByUrl('/ingresar');
+          this.router.navigateByUrl('/panel');
           this.loginForm.reset();
         }
       })

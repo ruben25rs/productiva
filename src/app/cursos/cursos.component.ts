@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AreacursosService } from '../services/areacursos.service';
 import { Areacursos } from '../interfaces/Areacursos';
 import { AccesoService } from '../services/acceso.service';
+import { appsettings } from '../settings/appsettings';
+
 
 @Component({
   selector: 'app-cursos',
@@ -14,14 +16,15 @@ export class CursosComponent {
   private areacursosService = inject(AreacursosService);
 
   public cursos: Areacursos[] = []
+  public baseUrl: string = appsettings.urlImg;
 
   bandera = false
 
   imgOver(img:any, urlimg: any){
-    img.target.src = "assets/img/imgcursos/"+urlimg
+    img.target.src = this.baseUrl+"img/imgareacursos/"+urlimg
   }
   imgOverOut(img:any, urlimg: any){
-    img.target.src = "assets/img/imgcursos/"+urlimg
+    img.target.src = this.baseUrl+"img/imgareacursos/"+urlimg
   }
 
   listar(){
@@ -36,7 +39,7 @@ export class CursosComponent {
       
 
     }, error:(error) =>{
-      console.log(error.message);
+      console.log(error.message); 
     }
   })
 

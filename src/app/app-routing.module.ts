@@ -5,6 +5,7 @@ import { CursosComponent } from './cursos/cursos.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { IngresarComponent } from './ingresar/ingresar.component';
+import { PanelComponent } from './panel/panel.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
   path:'ingresar',
   component: IngresarComponent,
   data: {title: 'Ingresar'}
+  },
+  {
+  path:'panel',
+  component: PanelComponent,
+  data: {title: 'Panel'}
   },
   { path: '',   redirectTo: '/', pathMatch: 'full' },
 ];
