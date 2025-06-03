@@ -17,7 +17,7 @@ export class IngresarComponent implements AfterViewInit{
   loginError:string="";
 
   loginForm=this.formBuilder.group({
-    email:['rubend@gmail.comoo',[Validators.required,Validators.email]],
+    email:['',[Validators.required,Validators.email]],
     password: ['',Validators.required],
   })
 
