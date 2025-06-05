@@ -14,7 +14,6 @@ import { IngresarComponent } from './ingresar/ingresar.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { DetallecursoComponent } from './detallecurso/detallecurso.component';
 import { ScriptsComponent } from './scripts/scripts.component';
-import { HeaderPComponent } from './header-p/header-p.component';
 import { PanelComponent } from './panel/panel.component';
 
 @NgModule({
@@ -29,7 +28,6 @@ import { PanelComponent } from './panel/panel.component';
     ContactoComponent,
     DetallecursoComponent,
     ScriptsComponent,
-    HeaderPComponent,
     PanelComponent
 
   ],
