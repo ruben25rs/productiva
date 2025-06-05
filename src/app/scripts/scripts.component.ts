@@ -20,7 +20,7 @@ export class ScriptsComponent {
 
     let path = location.pathname
 
-    if(path=="/"){
+    if(path=="/"||path=="/inicio"){
 
 
       elem[0].className ="headermenu iniciomn active-link";
@@ -41,11 +41,11 @@ export class ScriptsComponent {
         this.userLoginOn=userLoginOn;
         console.log(this.userLoginOn)
 
-        if(location.pathname=="/panel"){
-          this.banderaInvitado= false
-          this.userLoginOn=true
-        }
+        
       }
     });
+
+
+    
   }
 }

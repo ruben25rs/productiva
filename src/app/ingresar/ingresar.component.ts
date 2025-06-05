@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
-import { FormBuilder, Validators} from '@angular/forms';
+import { FormBuilder, Validators, AbstractControl, FormControl, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccesoService } from '../services/acceso.service';
 import { LoginResponse } from '../interfaces/LoginResponse';
@@ -16,10 +16,52 @@ export class IngresarComponent implements AfterViewInit{
 
   loginError:string="";
 
+  password = new FormControl(null, [
+    (c: AbstractControl) => Validators.required(c),
+    Validators.pattern(
+      /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/
+    ),
+  ]);
+
+  password2 = new FormControl(null, [
+    (c: AbstractControl) => Validators.required(c),
+  ]);
+
+
+  c_password = new FormControl(null, [
+    (c: AbstractControl) => Validators.required(c),
+    Validators.pattern(
+      /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/
+    ),
+  ]);
+
+  nombre = new FormControl(null, [(c: AbstractControl) => Validators.required(c)]);
+
+  empresa = new FormControl(null, [(c: AbstractControl) => Validators.required(c)]);
+
+  terminos = new FormControl(null, [(c: AbstractControl) => Validators.requiredTrue(c)]);
+
+  email = new FormControl(null, [(c: AbstractControl) => Validators.required(c), (c: AbstractControl) => Validators.email(c)]);
+
   loginForm=this.formBuilder.group({
-    email:['rubend@gmail.comoo',[Validators.required,Validators.email]],
-    password: ['',Validators.required],
+    email:this.email,
+    password: this.password2,
   })
+
+  regForm=this.formBuilder.group(
+    {
+      nombre: this.nombre,
+      empresa:this.empresa,
+      email:this.email,
+      terminos: this.terminos,
+      tipousuario_id: [3],
+      password: this.password,
+      c_password: this.c_password,
+    },
+    {
+      validator: this.ConfirmedValidator('password', 'c_password'),
+    }
+  )
 
   @ViewChild("loginBtn") loginBtn!: ElementRef;
   @ViewChild("registerBtn") registerBtn!: ElementRef;
@@ -36,6 +78,7 @@ export class IngresarComponent implements AfterViewInit{
   registerBtnclick() {
     this.registerform.nativeElement.style.left='0px';
     this.registerform.nativeElement.style.opacity='1';
+    this.registerform.nativeElement.style.zIndex='9999';
     this.loginform.nativeElement.style.left='-500px';
     this.loginform.nativeElement.style.opacity='0';
     this.forgot.nativeElement.style.left='-500px';
@@ -57,6 +100,8 @@ export class IngresarComponent implements AfterViewInit{
     this.loginregister.nativeElement.style.backgroundColor='#872362';         
   }
 
+
+
   login(){
     if(this.loginForm.valid){
       this.loginError="";
@@ -71,7 +116,8 @@ export class IngresarComponent implements AfterViewInit{
         },
         complete: () => {
           console.info("Login completo");
-          this.router.navigateByUrl('/panel');
+          //this.router.navigateByUrl('/panel');
+          window.location.href="/panel";
           this.loginForm.reset();
         }
       })
@@ -83,19 +129,59 @@ export class IngresarComponent implements AfterViewInit{
     }
   }
 
-
-  get email(){
-    return this.loginForm.controls.email;
+  register(){
+    if(this.regForm.valid){
+      this.accesoService.register(this.regForm.value as ResponseAcceso).subscribe({
+        next: (userData) => {
+          console.log(userData);
+        },
+        error: (errorData) => {
+          console.error(errorData);
+          this.loginError=errorData;
+          alert(errorData)
+        },
+        complete: () => {
+          console.info("Register completo");
+          //this.router.navigateByUrl('/panel');
+          //window.location.href="/panel";
+          this.regForm.reset();
+        }
+      })
+    }else{
+      this.regForm.markAllAsTouched();
+      console.log("error registerform")
+    }
   }
 
-  get password()
-  {
-    return this.loginForm.controls.password;
+
+
+
+ 
+ 
+
+
+  ConfirmedValidator(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
+      if (
+        matchingControl.errors &&
+        !matchingControl.errors
+      ) {
+        return;
+      }
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ confirmedValidator: true });
+      } else {
+        matchingControl.setErrors(null);
+      }
+    };
   }
 
 
+  ngOnInit(){    
 
-  ngOnInit(){       
+  
 
   }
 

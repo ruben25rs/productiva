@@ -9,6 +9,7 @@ import { AccesoService } from '../services/acceso.service';
 export class InicioComponent {
   
   userLoginOn:boolean=false;
+  banderaInvitado:boolean=false;
 
   constructor(private accesoService:AccesoService) { 
   }
@@ -18,8 +19,14 @@ export class InicioComponent {
       next:(userLoginOn) => {
         this.userLoginOn=userLoginOn;
         console.log(this.userLoginOn)
+
+
       }
     });
+
+    this.banderaInvitado = this.accesoService.banderaPathname
+
+
   }
 
 

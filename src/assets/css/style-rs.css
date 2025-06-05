@@ -74,6 +74,12 @@ img#logoinicio {
     padding: 15px 30px;
     display: block;
 }
+.headermenu.iniciomn {
+  color: #000 !important;
+}
+.iniciomn.active-link {
+  color: #fff !important;
+}
 #fondoinicio {
     background-color: #872362;
 }

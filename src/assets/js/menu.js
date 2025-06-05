@@ -1,4 +1,3 @@
-
 var menutogle  = document.getElementById(".menu-toggle");
 if(menutogle)
 {
@@ -9,6 +8,5 @@ if(menutogle)
         this.classList.toggle('active');
     });
 }
-
 
 

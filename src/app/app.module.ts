@@ -14,7 +14,16 @@ import { IngresarComponent } from './ingresar/ingresar.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { DetallecursoComponent } from './detallecurso/detallecurso.component';
 import { ScriptsComponent } from './scripts/scripts.component';
+import { HeaderPComponent } from './header-p/header-p.component';
 import { PanelComponent } from './panel/panel.component';
+import { HomeComponent } from './panel/home/home.component';
+import { UsuariosComponent } from './panel/usuarios/usuarios.component';
+import { AlumnosComponent } from './panel/alumnos/alumnos.component';
+import { EncuestaComponent } from './panel/encuesta/encuesta.component';
+import { AdministrarComponent } from './panel/administrar/administrar.component';
+import { ContactopComponent } from './panel/contactop/contactop.component';
+import { CapacitadorComponent } from './panel/capacitador/capacitador.component';
+import { ListarCursosComponent } from './cursos/listar-cursos/listar-cursos.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +37,16 @@ import { PanelComponent } from './panel/panel.component';
     ContactoComponent,
     DetallecursoComponent,
     ScriptsComponent,
-    PanelComponent
+    HeaderPComponent,
+    PanelComponent,
+    HomeComponent,
+    UsuariosComponent,
+    AlumnosComponent,
+    EncuestaComponent,
+    AdministrarComponent,
+    ContactopComponent,
+    CapacitadorComponent,
+    ListarCursosComponent
 
   ],
   imports: [

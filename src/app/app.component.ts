@@ -4,15 +4,17 @@ import { AccesoService } from './services/acceso.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: [
+    './app.component.css',
+  ]
 })
 export class AppComponent {
   title = 'productiva';
 
   userLoginOn:boolean=false;
-  banderaInvitado:boolean=true;
+  banderaInvitado:boolean=false;
 
-  constructor(private accesoService:AccesoService) { 
+  constructor(public accesoService:AccesoService) { 
   }
 
   ngOnInit(): void {
@@ -20,11 +22,11 @@ export class AppComponent {
       next:(userLoginOn) => {
         this.userLoginOn=userLoginOn;
         console.log(this.userLoginOn)
-
-        if(location.pathname=="/panel"){
-          
-        }
       }
     });
+
+
+    this.banderaInvitado=this.accesoService.banderaPathname
+
   }
 }

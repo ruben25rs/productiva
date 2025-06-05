@@ -1,0 +1,11 @@
+
+
+.nav-link {
+  font-size: 15px;
+}
+.dropdown-item {
+  font-size: 15px;
+}
+.main-sidebar.sidebar-dark-primary.elevation-4 {
+  position: fixed;
+}

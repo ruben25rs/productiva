@@ -1,0 +1,19 @@
+.section-title span {
+  color: #4720b7;
+  font-size: xxx-large;
+  font-family: 'Montserrat';
+  font-weight: 600;
+}
+
+
+.row-cursos-list-rs {
+  position: relative;
+  width: 85%;
+}
+.curso-item-rs {
+  width: 23%;
+  background: antiquewhite;
+  height: 200px;
+  margin: 10px;
+  display: inline-block;
+}
