@@ -1,6 +1,5 @@
-<app-header></app-header>
 <!-- Service Section -->
-<section id="hero" class="services heroservices">
+<section id="hero" class="services ">
   <div class="services container-s">
     <div class="cursosp1">
       <div class="imgcursosp1">
@@ -15,7 +14,7 @@
     <div id="divtablacursos">
       <table>
         <tr class="filacentrada">
-          <td *ngFor="let curso of cursos;" class="celdacategoria"><a href="homecursos/cursoxarea.php?ida=1&name=Productividad Laboral"><img src="{{baseUrl}}img/imgareacursos/{{curso.imagen}}" class="imagenesareas" (mouseenter)="imgOver($event, curso.imagen2)" (mouseleave)="imgOverOut($event, curso.imagen)"></a></td>
+          <td *ngFor="let curso of cursos;" class="celdacategoria"><a routerLink="/curso/{{curso.id}}"><img src="{{baseUrl}}img/imgareacursos/{{curso.imagen}}" class="imagenesareas" (mouseenter)="imgOver($event, curso.imagen2)" (mouseleave)="imgOverOut($event, curso.imagen)"></a></td>
           </tr>
         </table>
 

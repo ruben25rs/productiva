@@ -1,5 +1,5 @@
 export interface Areacursos {
-     idAreaCursos:number,
+     id:number,
      NombreArea:string,
      Descripcion:string,
      Otro: number,

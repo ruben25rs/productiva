@@ -6,9 +6,10 @@
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li>
-      <a class="nav-link text-white"  href="./" role="button"> <b>Dashboard Admin</b></a>
+      <a class="nav-link text-white"  routerLink="/panel" role="button"><b>Dashboard Admin</b></a>
     </li>
   </ul>
+
   <ul class="navbar-nav ml-auto">
     <!--Sliderbar name user--> 
     <div class="topbar-divider d-none d-sm-block"></div>
@@ -18,9 +19,12 @@
       </a>
     </li> 
     <li class="nav-item dropdown no-arrow">
+
       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
       aria-haspopup="true" aria-expanded="false"></a>
+
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
           <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -31,3 +35,119 @@
   </ul>
 </nav>
 <!-- /.navbar -->
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #563d7c">
+  <div class="dropdown">
+    <a href="" class="brand-link" data-toggle="dropdown" aria-expanded="true" style="background-color: #563d7c">
+
+      <!-- <span class="brand-image img-circle elevation-3 d-flex justify-content-center align-items-center bg-primary text-white font-weight-500" style="width: 38px;height:50px"><?php ?></span> -->
+      <span class="brand-text font-weight-light"></span>
+
+    </a>
+
+  </div>
+  <div class="sidebar">
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item dropdown">
+          <a routerLink="/panel" class="nav-link nav-home">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Dashboard
+            </p>
+          </a>
+
+        </li>    
+        <li class="nav-item">
+          <a href="#" class="nav-link nav-edit_user">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              Usuarios
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+
+              <a routerLink="/panel/capacitador" class="nav-link nav-new_user tree-item">
+
+                <i class="fas fa-angle-right nav-icon"></i>
+                <p>Capacitador </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/panel/alumnos" class="nav-link nav-user_list tree-item">
+
+                <i class="fas fa-angle-right nav-icon"></i>
+                <p>Alumnos</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link nav-is-tree nav-edit_survey nav-view_survey">
+            <i class="nav-icon fa fa-poll-h"></i>
+            <p>
+              Encuestas
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a routerLink="/panel/encuesta" class="nav-link nav-new_survey tree-item">
+                <i class="fas fa-angle-right nav-icon"></i>
+                <p>Agregar Nueva Encuesta</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/panel/administrar" class="nav-link nav-survey_list tree-item">
+                <i class="fas fa-angle-right nav-icon"></i>
+                <p>Administrar</p>
+
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link nav-edit_user">
+            <i class="nav-icon fas fa-address-book"></i>
+            <p>
+              Contacto
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a routerLink="/panel/contacto" class="nav-link nav-new_survey tree-item">
+                <i class="fas fa-angle-right nav-icon"></i>
+                <p>contacto</p>
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+        
+
+        
+        <li class="nav-item">
+          <a href="./panel.php?page=survey_report" class="nav-link nav-survey_report">
+            <i class="nav-icon fas fa-poll"></i>
+            <p>
+              Reporte de Encuesta
+            </p>
+          </a>
+        </li>    
+        <li class="nav-item">
+          <a href="./panel.php?page=survey_widget" class="nav-link nav-survey_widget nav-answer_survey">
+            <i class="nav-icon fas fa-poll-h"></i>
+            <p>
+              Lista de Encuestas
+            </p>
+          </a>
+        </li>  
+      </ul>
+    </nav>
+  </div>
+</aside>

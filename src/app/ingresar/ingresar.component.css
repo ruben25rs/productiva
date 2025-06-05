@@ -6,13 +6,20 @@ html,body, body * {
     color:inherit;
     background-color:inherit;
     box-sizing: border-box;
+    
+}
+#loginimg{
+    background-image: url('/assets/img/fondologin.png');
+    background-image: url('/assets/img/fondologin.png');
+    background-size: cover;
+    background-position: center center;
 }
 #hero {
-    background-image: url('/assets/img/fondologin.png');
+    
     background-size:  contain;
     background-position:center center;
     display: block;
-    margin: 0;
+    margin: 0 auto;
 }
 .container {
   width: auto;
@@ -86,7 +93,7 @@ button.active {
     padding-left: 15px;
     border: none;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 7px;
     background: rgba(255,255,255,.2);
 }
 .form-group label {
@@ -126,9 +133,14 @@ form#loginform {
 
 form#registerform {
     left:500px;
-    top:-230px;
+    top:-190px;
     opacity: 0;;
 } 
+.text-danger {
+  font-size: 11.5px;
+  color: #ff6f6f;
+  padding-bottom: 7px;
+}
 /*style footer*/
 #divfooter{
 	display: flex;

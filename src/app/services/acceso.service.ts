@@ -16,12 +16,16 @@ export class AccesoService {
      private http = inject(HttpClient);
      private baseUrl: string = appsettings.apiUrl;
 
+     banderaPathname = false
+
      currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
      currentUserData: BehaviorSubject<String> =new BehaviorSubject<String>("");
 
      constructor() { 
           this.currentUserLoginOn=new BehaviorSubject<boolean>(sessionStorage.getItem("token")!=null);
           this.currentUserData=new BehaviorSubject<String>(sessionStorage.getItem("token") || "");
+
+          this.validarPathname();
      }
 
      login(credentials:ResponseAcceso):Observable<any>{
@@ -32,6 +36,17 @@ export class AccesoService {
                sessionStorage.setItem("token", userData.data.token);
                this.currentUserData.next(userData.data.token);
                this.currentUserLoginOn.next(true);
+          }),
+          map((userData)=> userData.data.token),
+          catchError(this.handleError)
+          );
+     }
+     register(credentials:ResponseAcceso):Observable<any>{
+          return this.http.post<any>(this.baseUrl+"register",credentials).pipe(
+          tap( (userData) => {
+               
+               console.log(userData)
+              
           }),
           map((userData)=> userData.data.token),
           catchError(this.handleError)
@@ -53,6 +68,40 @@ export class AccesoService {
           return throwError(()=> new Error('Algo falló. Por favor intente nuevamente.'));
      }
 
+     validarPathname(){
+
+          
+
+          switch (location.pathname) {
+               case "/panel":
+               // code
+                    this.banderaPathname=true
+               break;
+            case "/panel/alumnos":
+               // code
+                    this.banderaPathname=true
+               break;
+            case "/panel/capacitador":
+               // code
+                    this.banderaPathname=true
+               break;
+            case "/panel/encuesta":
+               // code
+                    this.banderaPathname=true
+               break;
+            case "/panel/administrar":
+               // code
+                    this.banderaPathname=true
+               break;
+            case "/panel/contacto":
+               // code
+                    this.banderaPathname=true
+               break;
+            
+          }
+
+     }
+
      get userData():Observable<String>{
           return this.currentUserData.asObservable();
      }
@@ -63,6 +112,9 @@ export class AccesoService {
 
      get userToken():String{
           return this.currentUserData.value;
+     }
+     get banderaPath():boolean{
+          return this.banderaPathname;
      }
 
 }
