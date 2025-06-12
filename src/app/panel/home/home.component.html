@@ -1,1 +1,15 @@
-<p>home works!</p>
+
+<div class="container-rs">
+	<div id="divtablacursos">
+		<table>
+			<tr class="filacentrada">
+				<td *ngFor="let curso of cursos;"  class="celdacategoria">
+					<a routerLink="/curso/{{curso.id}}">
+						<img src="{{baseUrl}}img/imgareacursos/{{curso.imagen}}" class="imagenesareas" (mouseenter)="imgOver($event, curso.imagen2)" (mouseleave)="imgOverOut($event, curso.imagen)">
+					</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+

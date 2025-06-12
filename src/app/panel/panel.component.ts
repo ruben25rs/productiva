@@ -6,7 +6,6 @@ import { AccesoService } from '../services/acceso.service';
   templateUrl: './panel.component.html',
   styleUrls: [
     './panel.component.css', 
-    '../../assets/css/panel/css/adminlte.min.css'
   ]
 })
 export class PanelComponent {

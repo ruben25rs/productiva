@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core'; 
 import { FormBuilder, Validators, AbstractControl, FormControl, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccesoService } from '../services/acceso.service';

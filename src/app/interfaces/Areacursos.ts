@@ -1,9 +1,10 @@
 export interface Areacursos {
      id:number,
-     NombreArea:string,
-     Descripcion:string,
-     Otro: number,
+     nombrearea:string,
+     slug_a:string,
+     descripcion:string,
+     otro: number,
      imagen: string,
      imagen2: string,
-     iEstatus:number
+     estatus:number
 }

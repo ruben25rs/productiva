@@ -339,7 +339,9 @@ section#hero {
     text-align: center;
 }
 .celdacategoria {
-    height: 30em;
+    height: auto;
+	width: 23%;
+	display: inline-block;
 }
 .imagenesareas {
     padding: 1em 1.5em;

@@ -20843,7 +20843,7 @@ a.u-button-style.u-border-9 {
 .u-border-10,
 .u-separator-10:after,
 .u-text.u-border-10,
-/*a.u-button-style.u-border-10 */{
+a.u-button-style.u-border-10 {
   border-width: 10px;
 }
 .u-shape-svg.u-border-10 {
