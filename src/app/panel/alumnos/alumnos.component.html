@@ -1,1 +1,122 @@
-<p>alumnos works!</p>
+<div class="container-fluid" id="container-wrapper">
+	<div class="d-sm-flex align-items-center justify-content-between mb-4">
+
+		<h1 class="h3 mb-0 text-gray-800">Informacion General</h1>
+
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="./">Home</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Panel</li>
+		</ol>
+	</div>
+	<div class="row">
+		<div class="table-responsive">
+			<table #users id="users" class="table table-bordered table-striped table-hover">
+				<thead>
+					<tr>
+						<th scope="col">Nombre</th>
+						<th scope="col">Email</th>
+						<th scope="col">Estatus</th>
+						<th scope="col">Empresas</th>
+						<th scope="col">Acción</th> 
+						<th scope="col">Tiempo de Conexión</th>
+						<th scope="col">Ultima de Conexión</th>
+						<th scope="col">Tipo</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let user of usuarios;">
+						<td>{{user.nombre}} {{user.apellido_p}} {{user.apellido_m}}</td>
+						<td>{{user.email}}</td>
+						<td>{{user.estatus}}</td>
+						<td>{{user.empresa}}</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editusuario" (click)="editarU(user.id)">
+								Modificar
+							</button> <br><br>
+							<button type="button" class="btn btn-warning" data-toggle="modal"  data-target="#cursomodal">
+								Agregar Curso
+							</button> 
+						</td>
+						<td>Femenino</td>
+						<td>Femenino</td>
+						<td>
+							<ng-template [ngIf]="user.tipousuario_id==1" >
+								Administrador
+							</ng-template>
+							<ng-template [ngIf]="user.tipousuario_id==2" >
+								Profesor
+							</ng-template>
+							<ng-template [ngIf]="user.tipousuario_id==3" >
+								Alumno
+							</ng-template>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="modal fade" id="editusuario"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #563d7c !important;">
+						<h6 class="modal-title" style="color: #fff; text-align: center;">
+							Modificar Información.
+						</h6>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<form [formGroup]="editForm">
+						<input type="hidden" name="idusuario" >
+						<input type="hidden" name="tiposuario"   >
+						<div class="modal-body" id="cont_modal">
+							<div class="form-group">
+								<label for="nombre" class="col-form-label">Nombre(s):</label>
+								<input formControlName="nombre" type="text" name="nombre" class="form-control" value="nombre">
+							</div>
+							<div class="form-group">
+								<label for="apellido_p" class="col-form-label">Apellido Paterno:</label>
+								<input formControlName="apellido_p" type="text" name="apellido_p" class="form-control"  >
+							</div>
+							<div class="form-group">
+								<label for="apellido_m" class="col-form-label">Apellido Materno:</label>
+								<input formControlName="apellido_m" type="text" name="apellido_m" class="form-control"  >
+							</div>
+							<div class="form-group">
+								<label for="email" class="col-form-label">Correo:</label>
+								<input formControlName="email" type="email" name="email" class="form-control" >
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-form-label">Password:</label>
+								<input formControlName="password" type="password" name="password" class="form-control"  >
+							</div>
+							<div class="form-group">
+								<label for="telefono" class="col-form-label">Telefono:</label>
+								<input formControlName="telefono" type="number" name="telefono" class="form-control"  >
+							</div>
+							<div>
+								<input type="radio" formControlName="genero" value=0> Femenino<br>
+								<input type="radio" formControlName="genero" value=1 > Masculino<br>
+								<input type="radio" formControlName="genero" value=2> No especificar<br>
+							</div>
+							<div class="form-group">
+								<label class="col-form-label" for="fecha_alta">Fecha de alta</label>
+								<input formControlName="fecha_alta" type="date" name="fecha_alta" class="form-control" >
+							</div>
+							<div>
+								<select formControlName="empresa" name="empresa" id="empresa">
+									<option>Empresa procedente</option>
+								</select>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-primary"   onclick="">Guardar Cambios</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
