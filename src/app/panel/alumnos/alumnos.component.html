@@ -10,7 +10,7 @@
 	</div>
 	<div class="row">
 		<div class="table-responsive">
-			<table #users id="users" class="table table-bordered table-striped table-hover">
+			<table   id="users" class="table table-bordered table-striped table-hover">
 				<thead>
 					<tr>
 						<th scope="col">Nombre</th>
@@ -74,35 +74,78 @@
 							<div class="form-group">
 								<label for="nombre" class="col-form-label">Nombre(s):</label>
 								<input formControlName="nombre" type="text" name="nombre" class="form-control" value="nombre">
+								<div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="text-danger">
+					                <div *ngIf="nombre.errors?.['required']">
+					                  El nombre es requerido.
+					                </div>
+					            </div>
 							</div>
 							<div class="form-group">
 								<label for="apellido_p" class="col-form-label">Apellido Paterno:</label>
 								<input formControlName="apellido_p" type="text" name="apellido_p" class="form-control"  >
+								<div *ngIf="apellido_p.invalid && (apellido_p.dirty || apellido_p.touched)" class="text-danger">
+					                <div *ngIf="apellido_p.errors?.['required']">
+					                  El apellido paterno es requerido.
+					                </div>
+					            </div>
 							</div>
 							<div class="form-group">
 								<label for="apellido_m" class="col-form-label">Apellido Materno:</label>
 								<input formControlName="apellido_m" type="text" name="apellido_m" class="form-control"  >
+								<div *ngIf="apellido_m.invalid && (apellido_m.dirty || apellido_m.touched)" class="text-danger">
+					                <div *ngIf="apellido_m.errors?.['required']">
+					                  El apellido materno es requerido.
+					                </div>
+					            </div>
 							</div>
 							<div class="form-group">
 								<label for="email" class="col-form-label">Correo:</label>
 								<input formControlName="email" type="email" name="email" class="form-control" >
+								<div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+					                <div *ngIf="email.errors?.['required']">
+					                  El email es requerido.
+					                </div>
+					                <div *ngIf="email.errors?.['email']">
+					                  El email debe tener un formato válido.
+					                </div>
+					            </div>
 							</div>
 							<div class="form-group">
 								<label for="password" class="col-form-label">Password:</label>
 								<input formControlName="password" type="password" name="password" class="form-control"  >
+								<div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+					                <div *ngIf="password.errors?.['required']">
+					                  El password es requerido.
+					                </div>
+					            </div>
 							</div>
 							<div class="form-group">
 								<label for="telefono" class="col-form-label">Telefono:</label>
 								<input formControlName="telefono" type="number" name="telefono" class="form-control"  >
+								<div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="text-danger">
+					                <div *ngIf="telefono.errors?.['required']">
+					                  El telefono es requerido.
+					                </div>
+					            </div>
 							</div>
 							<div>
 								<input type="radio" formControlName="genero" value=0> Femenino<br>
 								<input type="radio" formControlName="genero" value=1 > Masculino<br>
 								<input type="radio" formControlName="genero" value=2> No especificar<br>
+								<div *ngIf="genero.invalid && (genero.dirty || genero.touched)" class="text-danger">
+					                <div *ngIf="genero.errors?.['required']">
+					                  El genero es requerido.
+					                </div>
+					            </div>
 							</div>
 							<div class="form-group">
 								<label class="col-form-label" for="fecha_alta">Fecha de alta</label>
 								<input formControlName="fecha_alta" type="date" name="fecha_alta" class="form-control" >
+								<div *ngIf="fecha_alta.invalid && (fecha_alta.dirty || fecha_alta.touched)" class="text-danger">
+					                <div *ngIf="fecha_alta.errors?.['required']">
+					                  La fecha es requerido.
+					                </div>
+					            </div>
 							</div>
 							<div>
 								<select formControlName="empresa" name="empresa" id="empresa">
@@ -112,7 +155,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-							<button type="submit" class="btn btn-primary"   onclick="">Guardar Cambios</button>
+							<button type="submit" class="btn btn-primary"   (click)="actualizar()">Guardar Cambios</button>
 						</div>
 					</form>
 				</div>
