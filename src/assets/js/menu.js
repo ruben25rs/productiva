@@ -21,47 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-$(document).ready(function() {
-    
-    setTimeout(function(){
-
-        $('#users').DataTable({
-            dom: 'Bfrtip',
-            responsive: true,
-            buttons: [
-                {
-                    extend: 'copy',
-                    exportOptions: {
-
-                    }
-                },
-                {
-                    extend: 'csv',
-                    exportOptions: {
-
-                    }
-                },
-                {
-                    extend: 'excel',
-                    exportOptions: {
-
-                    }
-                },
-                {
-                    extend: 'pdf',
-                    exportOptions: {
-
-                    }
-                },
-            ],
-            columnDefs: [
-                { width: '30%', targets: 0 }, // Sets the first column to 200px
-                        
-            ]
-        });
-
-
-
-    }, 800)
-    
+$(window).on('popstate', function(event) {
+    document.title = "Patch Up";
+    console.log("sssss"+location.pathname)
 });
+document.addEventListener("popstate", (event) => {
+  console.log("sssss"+location.pathname)
+});
+
+
+
+
