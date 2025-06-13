@@ -44,5 +44,5 @@ export function userdatatable(){
 }
 
 export function hola(){
-    
+    console.log('hola')
 }
