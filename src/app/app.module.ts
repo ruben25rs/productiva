@@ -54,7 +54,8 @@ import { ListarCursosComponent } from './cursos/listar-cursos/listar-cursos.comp
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

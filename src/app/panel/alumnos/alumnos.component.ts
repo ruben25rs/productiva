@@ -3,8 +3,6 @@ import { FormBuilder, Validators} from '@angular/forms';
 import { UsuariosService } from '../../services/usuarios.service';
 import { User } from '../../interfaces/User';
 import { appsettings } from '../../settings/appsettings';
-import DataTable from 'datatables.net-bs4';
-
 
 import  * as functRS  from '../../../assets/js/funcionesrs';
 
