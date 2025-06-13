@@ -20,6 +20,8 @@ export class AlumnosComponent {
   public baseUrl: string = appsettings.urlImg;
   resultado:any
 
+
+
   editForm=this.formBuilder.group({
     id:[''],
     nombre:['',[Validators.required]],
@@ -154,6 +156,7 @@ export class AlumnosComponent {
   ngOnInit(): void {
     //this.cargar_table()
     this.listar()
+    functRS.hola()
     console.log(functRS.userdatatable())
   }
 
