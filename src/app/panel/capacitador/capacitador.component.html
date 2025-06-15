@@ -1,1 +1,39 @@
-<p>capacitador works!</p>
+<div class="container-fluid" id="container-wrapper">
+	<div class="d-sm-flex align-items-center justify-content-between mb-4">
+
+		<h1 class="h3 mb-0 text-gray-800">Capacitadores </h1>
+
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="./">Home</a></li>
+			<li class="breadcrumb-item " aria-current="page">Panel</li>
+			<li class="breadcrumb-item active" aria-current="page">Capacitadores</li>
+		</ol>
+	</div>
+	<div class="row">
+		<div class="table-responsive">
+			<div class="table-responsive">
+				<table id="users" class="table table-bordered table-striped table-hover">
+					<thead>
+						<tr>
+							<th scope="col">Nombre</th>
+							<th scope="col">Correo</th>
+							<th scope="col">Estatus</th>
+							<th scope="col">Telefono</th>
+							<th scope="col">Genero</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let usuario of usuario" class="filacentrada">
+							<td>{{usuario.nombre_largo}}</td>
+							<td>{{usuario.email}}</td>
+							<td><span  class="badge badge-success"><a class="text-white">{{usuario.estatus== 1 ? 'Activo' : 'Inactivo' }}</a></span></td>
+							<td>{{usuario.telefono}}</td>
+							<td>{{usuario.genero== 1 ? 'Masculino' : 'Femenino' }}</td> 
+
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+	</div>
+</div>
