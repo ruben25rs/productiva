@@ -13,12 +13,9 @@ import { AdministrarComponent } from './panel/administrar/administrar.component'
 import { ContactopComponent } from './panel/contactop/contactop.component';
 import { CapacitadorComponent } from './panel/capacitador/capacitador.component';
 import { ListarCursosComponent } from './cursos/listar-cursos/listar-cursos.component';
-
-<<<<<<< HEAD
 import { AlumnoComponent } from './alumno/alumno.component';
 
-=======
->>>>>>> 2ba20efdc45ddd705fcb78ab732358d68b77950e
+
 const routes: Routes = [
   //{ path: '',   redirectTo: '/inicio', pathMatch: 'full' },
   {
@@ -52,14 +49,13 @@ const routes: Routes = [
     data: {title: 'Ingresar'}
   },
   {
-<<<<<<< HEAD
+
     path: 'alumno',
     component: AlumnoComponent,
     data: { title: 'Alumno' }
   },
   {
-=======
->>>>>>> 2ba20efdc45ddd705fcb78ab732358d68b77950e
+
     path:'panel',
     component: PanelComponent,
     data: {title: 'Panel'},

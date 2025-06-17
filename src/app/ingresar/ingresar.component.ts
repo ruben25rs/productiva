@@ -4,16 +4,10 @@ import { Router } from '@angular/router';
 import { AccesoService } from '../services/acceso.service';
 import { LoginResponse } from '../interfaces/LoginResponse';
 import { ResponseAcceso } from '../interfaces/ResponseAcceso';
-
-<<<<<<< HEAD
-
-
 import { Usuarios } from '../interfaces/Usuarios';
 import { UsuariosService } from './../services/usuarios.service';
 
 
-=======
->>>>>>> 2ba20efdc45ddd705fcb78ab732358d68b77950e
 @Component({
   selector: 'app-ingresar',
   templateUrl: './ingresar.component.html',
@@ -109,13 +103,12 @@ export class IngresarComponent implements AfterViewInit{
     this.loginregister.nativeElement.style.backgroundColor='#872362';         
   }
 
-<<<<<<< HEAD
+
   //listar usuarios maestros
 private usuarioServices = inject(UsuariosService);
 public usuario: Usuarios[] = []
-=======
 
->>>>>>> 2ba20efdc45ddd705fcb78ab732358d68b77950e
+
 
   login(){
     if(this.loginForm.valid){
@@ -131,7 +124,7 @@ public usuario: Usuarios[] = []
         },
         complete: () => {
           console.info("Login completo");
-<<<<<<< HEAD
+
 
           
           this.usuarioServices.getDatosLogin(String(this.email.value)).subscribe({
@@ -165,10 +158,6 @@ public usuario: Usuarios[] = []
          // console.info(this.usuario);
           //this.router.navigateByUrl('/panel');
           //window.location.href="/panel";
-=======
-          //this.router.navigateByUrl('/panel');
-          window.location.href="/panel";
->>>>>>> 2ba20efdc45ddd705fcb78ab732358d68b77950e
           this.loginForm.reset();
         }
       })
