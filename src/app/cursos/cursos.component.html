@@ -1,0 +1,26 @@
+<!-- Service Section -->
+<section id="hero" class="services ">
+  <div class="services container-s">
+    <div class="cursosp1">
+      <div class="imgcursosp1">
+        <img src="assets/img/cursos/imgcursosp1.jpg" class="" >
+      </div>
+      <h1 id="texto1cursos">ESPECIALIZATE HOY MISMO</h1>
+      <h2 id="texto2cursos">Forjando equipos para tener una especialización te brinda la oportunidad de destacar, aumentar tu empleabilidad y desarrollar habilidades valiosas que pueden abrir puertas a una carrera exitosa y satisfactoria preparados para el mañana.</h2>
+    </div>
+    <div class="titulocategoriascursos">
+      <h1 id="titulocategorias"> Nuestras categorías de cursos</h1>
+    </div>
+    <div id="divtablacursos">
+      <table>
+        <tr class="filacentrada">
+          <td *ngFor="let curso of cursos;" class="celdacategoria"><a routerLink="/curso/{{curso.slug_a}}"><img src="{{baseUrl}}img/imgareacursos/{{curso.imagen}}" class="imagenesareas" (mouseenter)="imgOver($event, curso.imagen2)" (mouseleave)="imgOverOut($event, curso.imagen)"></a></td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+  </section>
+  <!-- End Service Section -->
+
+  <app-scripts></app-scripts>

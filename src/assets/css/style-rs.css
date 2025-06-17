@@ -1,0 +1,1131 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+@font-face {
+	font-family: Acumin;
+	src: url(AcuminVariableConcept.ttf);
+}
+@font-face {
+	font-family: MonserratBold;
+	src: url(Montserrat-Bold.ttf);
+}
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+	font-family: 'Montserrat', sans-serif;
+	scroll-behavior: smooth;
+}
+img {
+	width: 100%;
+} 
+p {
+    
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+}
+a {
+    text-decoration: none;
+}
+/*** CSS MENU  **/
+#header {
+    position: fixed;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+.header.container {
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+    transition: 0.3s ease background-color;
+}
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+img#logoinicio {
+    width: 220px;
+}
+.headermenu {
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+    color: #000000;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    display: block;
+}
+.headermenucursos {
+    font-size: 1em;
+    letter-spacing: 0.16rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #000000;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    display: block;
+}
+.headermenu.iniciomn {
+  color: #000 !important;
+}
+.iniciomn.active-link {
+  color: #fff !important;
+}
+#fondoinicio {
+    background-color: #872362;
+}
+.initext{
+	color: #000 !important;
+}
+
+section#hero {
+    margin-top: 60px;
+}
+
+/*** CSS SLIDER  **/
+.slideshow-container {
+    position: relative;
+    width: 100%;
+}
+.mySlides.fade {
+    height: max-content;
+    display: flex;
+    position: relative;
+}
+#text1, #text2, #text3 {
+    position: absolute;
+	left: 0;
+	width: 100%;
+	padding: 0 8%;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
+	bottom: 13%;
+}
+.text2{
+	text-align: right;
+	left: initial !important;
+	right: 15%;
+	bottom: 25% !important;
+}
+#btncontactanos {
+    width: 270px;
+    height: 45px;
+    background-color: #001c9bed;
+    border-radius: 4em;
+    color: white;
+    border: 2.7em;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    bottom: 15%;
+}
+#btncontactanos:hover{
+	background-color: #0d4ee7;
+}
+#btncontactanos2 {
+    width: 270px;
+    height: 45px;
+    background-color: #001c9bed;
+    border-radius: 4em;
+    color: white;
+    border: 2.7em;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    bottom: 15%;
+}
+#btncontactanos2:hover{
+	background-color: #0d4ee7;
+}
+#btncursos {
+    width: 270px;
+    height: 45px;
+    background-color: #001c9bed;
+    border-radius: 4em;
+    color: white;
+    border: 2.7em;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    bottom: 15%;
+}
+#btncursos:hover{
+	background-color: #0D1566;
+}
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 1s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+/* The dots/bullets/indicators */
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 9px 2px 24px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+
+/*** CSS BIENVENIDA  **/
+#bienvenida {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+.container-rs {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+.bv-row-rs {
+    width: 84%;
+    margin: auto;
+    padding: 40px 35px;
+    background: #872362;
+    border-radius: 4em;
+    display: flex;
+    align-items: center;
+}
+.content-rs {
+    padding: 45px 12px;
+}
+
+.ctrs-1 {
+    border-right: 2px solid #fff;
+}
+.col-rs {
+    float: left;
+}
+.col-rs1 {
+    width: 50%;
+}
+.col-rs2 {
+    width: 45%;
+}
+.col-rs3 {
+    width: 55%;
+}
+.col-rs4 {
+    width: 20%;
+}
+.col-rs5 {
+    width: 40%;
+}
+#parrafo1bienvenida {
+    color: white;
+    font-size: 150%;
+	text-align: left;
+}
+#parrafo2bienvenida {
+    color: white;
+    font-size: 3.2em;
+	padding-top: 4%;
+    font-family: 'MonserratBold';
+	text-align: left;
+}
+#parrafo3bienvenida {
+    color: white;
+    font-size: 1.6em;
+    text-align: justify;
+    font-weight: 500;
+    padding: 0 0 0 30px;
+}
+#parrafo4bienvenida {
+    text-align: center;
+    font-size: 4em;
+    padding: 0em 6em;
+    color: #1CC4EA;
+    font-family: 'MonserratBold';
+    margin-top: 4%;
+    margin-bottom: 3%;
+}
+.divvercursos {
+    width: 250px;
+    background-color: #2E49C1;
+    text-align: center;
+    border-radius: 10em;
+    padding: 10px 0px;
+    margin: 0 auto 70px;
+}
+.btnvercursos {
+    text-align: center;
+    font-size: 1.4em;
+    color: white;
+    font-weight: 600;
+}
+.banersinicio {
+    margin: 60px 0;
+}
+
+/* Cursos Section */
+
+.container-s {
+    min-height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+#hero .services {
+    flex-direction: column;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    margin-top: 10em;
+    margin-bottom: 6%;
+}
+.imgcursosp1 {
+    height: auto;
+}
+#texto1cursos {
+    color: #872362;
+    padding-top: 1.5%;
+    font-size: 400%;
+    font-family: MonserratBold;
+    margin: 2.2% 0%;
+}
+/*#hero h2 {
+    font-size: 190%;
+    padding: 0.8em 9em;
+    margin-bottom: 5%;
+    text-align: left;
+} */
+.titulocategoriascursos {
+    width: 90%;
+    margin-bottom: 3%;
+}
+#titulocategorias {
+    color: #2E49C1;
+    font-family: MonserratBold;
+    font-size: 400%;
+    margin-top: 0.3em;
+    text-align: left;
+}
+#divtablacursos {
+    width: auto;
+}
+.filacentrada {
+    text-align: center;
+}
+.celdacategoria {
+    height: auto;
+	width: 23%;
+	display: inline-block;
+}
+.imagenesareas {
+    padding: 1em 1.5em;
+    border-radius: 2.9em;
+    height: 100%;
+}
+/* End Cursos Section */
+
+
+
+/* About Section */
+#about{
+	padding-top: 9em;
+}
+#about .about {
+	flex-direction: column-reverse;
+	text-align: center;
+	margin-right: 20px;
+	padding: 100px 20px;
+}
+#about .col-left {
+	width: 250px;
+	height: 360px;
+}
+#about .col-right {
+	width: 100%;
+}
+#about .col-right h2 {
+	font-size: 1.8rem;
+	font-weight: 500;
+	letter-spacing: 0.2rem;
+	margin-bottom: 10px;
+}
+#about .col-right p {
+	margin-bottom: 20px;
+}
+#about .col-right .cta {
+	color: black;
+	margin-bottom: 50px;
+	padding: 10px 20px;
+	font-size: 2rem;
+}
+#about .col-left .about-img {
+	
+	width: 80%;
+	position: relative;
+	border: 10px solid white;
+}
+#about .col-left .about-img::after {
+	content: '';
+	position: absolute;
+	left: -33px;
+	top: 19px;
+	height: 98%;
+	width: 98%;
+	border: 7px solid #4720b7;
+	z-index: -1;
+}
+
+.cuadroazul{
+	height: 40em;
+    /* vertical-align: middle; */
+    background-color: #2E49C1;
+    /*padding: 5.5em 20em;*/
+    margin: 3em 7em;
+    border-radius: 4em;
+}
+#texto1nosotros{
+	font-size: 350%;
+    text-align: center;
+    /* margin-top: 8em; */
+    padding: 7% 11%;
+    font-weight: 550;
+    height: 50%;
+    color: white;
+}
+
+.texto2nosotros{
+	font-size: 150%;
+	color: white;
+	text-align: center;
+	font-weight: 450;
+	padding: 3% 16%;
+}
+#texto3nosotros{
+	text-align: center;
+    font-size: 300%;
+    margin-top: 6.5%;
+    margin-bottom: 6%;
+	font-family: 'MonserratBold';
+}
+#imgmision{
+	width: 22%;
+	padding-left: 5em;
+}
+#imgvision{
+	margin-top: 3em;
+	width: 130%;
+	margin-bottom: 5em;
+}
+#valores{
+	font-size: 250%;
+    font-weight: 550;
+}
+#imgvalores{
+	width: 52%;
+}
+
+.misionvision {
+    font-weight: 300;
+    color: black;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    margin-top: 5em;
+}
+#imgmision {
+    width: 22%;
+    padding-left: 5em;
+}
+#parrafosmision {
+    background-color: #872362;
+    padding: 15px 0;
+}
+.parrafomision {
+    margin-right: 4em;
+    margin-left: 4em;
+    color: white;
+    font-size: 2.3em;
+    font-weight: 500;
+    text-align: justify;
+}
+#imgvision {
+    margin-top: 3em;
+    width: 130%;
+    margin-bottom: 5em;
+}
+#imgvalores {
+    width: 52%;
+}
+#valores {
+    font-size: 250%;
+    font-weight: 550;
+}
+.section-title {
+    font-size: 4rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    /* text-transform: uppercase; */
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+#capacitorestitle {
+    color: #2E49C1;
+    padding-top: 5%;
+    font-weight: 700;
+    font-family: 'MonserratBold';
+}
+.banernosotros {
+    margin-top: 8%;
+    margin-bottom: 5em;
+}
+/* End About Section */
+
+/* contact Section */
+#contact .contact {
+	flex-direction: column;
+	margin: 0 auto;
+	width: 100%;
+	padding: 6em 0;
+}
+#contact .contact-items {
+	/* max-width: 400px; */
+	width: 100%;
+	padding-top: 5em;
+}
+#contact .contact-item {
+	width: 80%;
+	padding: 20px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 30px;
+	margin: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: 0px 0px 18px 0 #0000002c;
+	transition: 0.3s ease box-shadow;
+}
+#contact .contact-item:hover {
+	box-shadow: 0px 0px 5px 0 #0000002c;
+}
+#contact .icon {
+	width: 70px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+#contact .contact-info h1 {
+	font-size: 2.5rem;
+	font-weight: 500;
+	margin-bottom: 5px;
+	font-family: Acumin;
+}
+#contact .contact-info h2 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 500;
+}
+.tablecontact{
+	width: 100%;
+}
+#formulariocontacto {
+    width: 100%;
+    position: relative;
+}
+#izquierdacontacto {
+    min-height: 65vh;
+    display: flex;
+    margin: 10% 0;
+}
+#izquierdacontacto2 {
+    background-color: #872362;
+    width: 50%;
+}
+#texto1contacto {
+    font-size: 330%;
+    color: white;
+    padding-top: 15%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+#texto2contacto {
+    font-size: 1.8em;
+    color: white;
+    padding: 3% 20%;
+}
+#texto2cursos{
+	font-size: 2em;
+    padding: 2em 11em;
+}
+
+#login-register {
+    width: 50%;
+}
+#contactoform {
+    width: 90%;
+    text-align: left;
+    margin: 16% auto;
+}
+.textoscontacto {
+    font-size: 1.4em;
+    font-weight: 600;
+    padding-left: 2.3em;
+}
+.form-group input {
+    border: solid 0.13em;
+    border-color: #872362;
+    height: 2.5em;
+    width: 15em;
+    border-radius: 1em;
+    outline: none;
+    padding-left: 4%;
+}
+.entradacontacto {
+    padding-left: 2.5em;
+    padding-bottom: 3em;
+}
+#centrobtncontactar {
+    text-align: center;
+}
+#btncontactar {
+    text-align: center;
+    font-size: 1.3em;
+    background-color: #2E49C1;
+    color: white;
+    border: none;
+	padding-left: 0;
+}
+/*End contact Section */
+
+
+
+/* Footer Section */
+#footer {
+    width: 100%;
+    position: relative;
+    background: #872362;
+}
+#divfooter {
+    display: flex;
+    width: 98%;
+    margin: auto;
+    padding: 30px 0;
+    /*align-items: center;*/
+	height: 20.7em;
+}
+#divfootercursos {
+    display: flex;
+    width: 98%;
+    margin: auto;
+    padding: 30px 0;
+    /*align-items: center;*/
+	height: auto;
+}
+#logopie {
+    padding: 0 90px;
+    padding-left: 2%;
+}
+#logopiecursos {
+    padding-left: 2%;
+    width: 39%;
+	margin-top: 2.6%;
+}
+#imgpie {
+    width: 90%;
+	margin-top: 16%;
+	max-width: 300px;
+}
+#footer p {
+	color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 16px;
+}
+#texto1pie {
+    padding-right: 13%;
+    padding-left: 64px;
+}
+#texto1piecursos {
+    padding-right: 15%;
+    padding-left: 178px;
+}
+#texto2pie {
+    padding-left: 14px;
+    padding-right: 60px;
+}
+#terminosycon {
+    color: #fff;
+    text-decoration: underline;
+}
+#parrafoter, #parrafodireccion {
+    line-height: 1.4;
+}
+
+.pie-rs1 {
+    width: 25%;
+}
+.pie-rs2 {
+    width: 50%;
+}
+.pie-rs3 {
+    width: 25%;
+}
+
+
+#tituloterminos{
+	margin-top: 9%;
+	font-size: 190%;
+    text-align: center;
+}
+.terminos{
+	text-align: justify;
+	margin: 0 5%;
+}
+.terminos h4{
+	color: #000000;
+	padding-bottom: 0;
+	font-size: 165%;
+	padding-top: 1.2%;
+	padding-bottom: 0.5%;
+}
+.terminos p{
+	font-weight: 500;
+	font-size: 130%;
+    line-height: 175%;
+}
+
+
+
+@media(min-width: 1500px){
+
+
+	#hero {
+	    max-width: 1550px;
+    	margin: auto;
+	}
+	#imgpie {
+	    width: 75%;
+	}
+
+}
+
+@media(min-width: 1800px){
+
+
+	.heroservices {
+		min-height: 1950px;
+	}
+
+}
+
+@media(min-width: 2000px){
+
+
+	#imgpie {
+	    width: 70%;
+	}
+	.heroservices {
+		min-height: 2250px;
+	}
+	/*#footer {
+        position: absolute;
+        bottom: 0;
+    }*/
+	
+	#header {
+		text-align: -webkit-center;
+		text-align: -moz-center;
+	}
+	.header.container {
+		max-width: 1550px;
+	}
+	#divfooter {
+		max-width: 1550px;
+	}
+	#divfootercursos {
+		max-width: 1550px;
+	}
+	#projects {
+		text-align: -webkit-center;
+	}
+    #projects .projects {
+        max-width: 1550px;
+        text-align: left;
+    }
+	#izquierdacontacto {
+		min-height: 10vh;
+	}
+	#services{
+		text-align: -webkit-center;
+	}
+	.services.container {
+		max-width: 1550px;
+	}
+
+
+}
+
+@media(min-width: 2300px){
+	#footer {
+        position: absolute;
+        /*bottom: 0;*/
+    }
+	.footershort {
+        bottom: 0;
+    }
+	.heroservices {
+		min-height: 2400px;
+	}
+
+}	
+@media(max-width: 1400px){
+
+
+	#hero {
+	    max-width: 1440px;
+	}
+
+}
+@media(max-width: 1200px){
+
+}
+@media(max-width: 992px){
+
+	.headermenu {
+	    padding: 15px 12px;
+	}
+	.form-group input {
+	    width: 10em;
+	}
+	.tablecontact {
+	    width: 88%;
+	    margin: auto;
+	}
+	#texto1nosotros {
+	    padding: 7% 6.2%;
+	}
+
+}
+@media(max-width: 850px){
+
+	.headermenu {
+	    padding: 15px 7px;
+	    letter-spacing: 1px;
+	    font-size: 1.55rem;
+	}
+	.text2 {
+	    right: 12%;
+	}
+	#parrafo4bienvenida {
+	    padding: 0em 1em;
+	}
+	.bv-row-rs {
+	    width: 90%;
+	    padding: 5px 18px;
+	    display: inline-block;
+	}
+	.col-rs1 {
+	    width: 100%;
+	}
+	.ctrs-1 {
+	    border-right: none;
+	    border-bottom: 2px solid #fff;
+        padding: 2px 2px;
+	}
+    .ctrs-2 {
+        padding: 2px 2px;
+	}
+    #parrafo1bienvenida {
+        font-size: 120%;
+    }
+    #parrafo2bienvenida {
+        font-size: 2.1em;
+    }
+    #valores {
+	    font-size: 20px;
+	    font-weight: 550;
+	    letter-spacing: .01rem;
+	}
+	.celdacategoria {
+	    height: auto;
+	}
+	.imgcursosp1 {
+	    margin-top: 12%;
+	    height: auto;
+	}
+	#texto2pie {
+        padding: 0;
+    }
+    #logopie {
+        padding: 0;
+    }
+	#logopiecursos {
+        padding: 0;
+    }
+	#divfooter {
+		height: 21em;
+	}
+	#divfootercursos {
+		height: 21em;
+	}
+	#imgpie {
+        margin-top: 0;
+    }
+	#texto1pie {
+		padding-right: 4%;
+		padding-left: 0;
+	}
+	#texto1piecursos {
+		padding-right: 4%;
+		padding-left: 0;
+	}
+
+}
+@media(max-width: 768px){
+
+	#btncursos, #btncontactanos, #btncontactanos2 {
+	    width: 120px;
+	    height: 22px;
+	}
+	#texto1pie {
+	    padding: 0 20px;
+	}
+	#texto1piecursos {
+	    padding: 0 20px;
+	}
+	#imgpie {
+	    width: 100%;
+		margin-top: 0;
+	}
+	#izquierdacontacto {
+	    display: block;
+	}
+	#izquierdacontacto2, #login-register {
+	    width: 100%;
+	    padding-bottom: 20px;
+	}
+	.form-group input {
+	    width: 15em;
+	}
+	#texto1contacto, #texto2contacto {
+	    padding-left: 10%;
+	    padding-right: 10%;
+	}
+	#texto1nosotros {
+	    padding: 7% 6.2% 0;
+	    font-size: 28.4px;
+	}
+	#texto3nosotros {
+	    font-size: 22px;
+	}
+	.parrafomision {
+	    font-size: 1.7em;
+	}
+	#valores {
+	    font-size: 16px;
+	}
+	.texto2nosotros {
+	    padding: 3% 11%;
+	}
+	#capacitorestitle {
+	    font-size: 25px;
+	}
+	.celdacategoria {
+	    height: auto;
+	    display: flex;
+	    margin-top: 5%;
+	}
+	#texto1cursos {
+	    font-size: 250%;
+	    margin: 5% 0%;
+	}
+	#hero h2 {
+	    font-size: 1.5em;
+	    padding: 0.8em 2em;
+	    /*margin-top: 0%;*/
+		padding-top: 0;
+		text-align: center;
+	}
+	#titulocategorias {
+	    text-align: center;
+	    font-size: 250%;
+	}
+	#imgmision {
+		width: auto;
+		padding-left: 0em;
+	}
+	#texto2pie {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#logopie {
+		padding: 0;
+	}
+	#logopiecursos {
+		padding: 0;
+	}
+	
+}
+@media(max-width: 580px){
+
+	.text2 {
+	    right: 3%;
+	    bottom: 15% !important;
+	}
+	.bv-row-rs {
+	    width: 100%;
+	    padding: 5px 18px;
+	    display: inline-block;
+	    border-radius: 1;
+	}
+	#parrafo3bienvenida {
+	    padding: 0.5em;
+        font-size: 1.4em;
+        line-height: normal;
+	}
+	#divfooter {
+	    display: inline-block;
+	    text-align: center;
+		height: auto;
+	}
+	#divfootercursos {
+	    display: inline-block;
+	    text-align: center;
+		height: auto;
+	}
+	#logopie {
+		padding: 0;
+		padding-left: 0;
+	}
+	#logopiecursos {
+		padding: 0;
+		padding-left: 0;
+	}
+	.pie-rs1, .pie-rs2, .pie-rs3 {
+	    width: 102%;
+	}
+	#texto2pie {
+		/*padding: 15px 20px 10px;*/
+		padding: 0 20px;
+	}
+	#imgpie {
+	    width: 160px;
+	    padding-bottom: 10px;
+		margin-top: 0;
+	}
+	#parrafo4bienvenida {
+	    padding: 1em 0.4em 0;
+	    font-size: 2.5em;
+	}
+
+	#izquierdacontacto {
+	    display: block;
+	}
+	#izquierdacontacto2, #login-register {
+	    width: 100%;
+	}
+	#texto1contacto, #texto2contacto {
+	    padding-left: 7%;
+	    padding-right: 7%;
+	    text-align: center;
+	}
+	#texto1contacto {
+	    font-size: 21px;
+	    padding-top: 19%;
+	}
+	.tablecontact {
+	    width: 94%;
+	    margin: auto;
+	}
+	.textoscontacto {
+		padding-left: 0;
+	}
+	.entradacontacto {
+	    padding-left: 0;
+	    padding-bottom: 3em;
+	}
+	.form-group input {
+	    width: 12em;
+	}
+	img#logoinicio {
+	    width: 150px;
+	}
+	.parrafomision {
+	    font-size: 13px;
+	    margin: 0 15px;
+	    letter-spacing: normal;
+	    line-height: normal;
+	}
+	.cuadroazul {
+	    margin: 0;
+	    height: 30em;
+	}
+	#texto1nosotros {
+	    padding: 7% 5% 0;
+	    font-size: 22.4px;
+	}
+	.texto2nosotros {
+	    padding: 1% 5%;
+	    font-size: 14px;
+	}
+	#valores {
+	    font-size: 14px;
+	}
+	#footer p {
+		line-height: 120%;
+    	font-weight: 500;
+    	font-size: 1.2em;
+	}
+	#tituloterminos {
+		margin-top: 27%;
+	}
+
+}
+@media(max-width: 460px){
+
+	#texto1nosotros {
+	    padding: 7% 5% 0;
+	    font-size: 21.4px;
+	}
+	.texto2nosotros {
+	    padding: 3% 4%;
+	    font-size: 14px;
+	}
+	.cuadroazul {
+	    margin: 0;
+	    padding-bottom: 5%;
+    	height: auto;
+	}
+	#valores {
+	    font-size: 10.5px;
+	}
+
+}
+

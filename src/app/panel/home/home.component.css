@@ -1,0 +1,27 @@
+
+.container-rs {
+  min-height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+#divtablacursos {
+    width: auto;
+}
+.filacentrada {
+    text-align: center;
+}
+.celdacategoria {
+    height: auto;
+	width: 23%;
+	display: inline-block;
+}
+.imagenesareas {
+    padding: 1em 1.5em;
+    border-radius: 2.9em;
+    height: 100%;
+}
+img{
+    width: 100%;
+}

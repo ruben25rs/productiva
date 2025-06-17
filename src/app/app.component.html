@@ -1,0 +1,6 @@
+
+<app-header *ngIf="!banderaInvitado"></app-header>
+<app-header-p *ngIf="banderaInvitado"></app-header-p>
+<router-outlet></router-outlet>
+
+<app-footer *ngIf="!banderaInvitado"></app-footer>

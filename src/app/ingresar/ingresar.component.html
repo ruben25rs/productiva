@@ -1,0 +1,108 @@
+<app-scripts></app-scripts>
+<div id="loginimg">
+  <section id="hero">
+    <div class="container">
+      <div id="main-container">
+        <div class="login-register" id="login-register" #loginregister style="background-color: rgb(135, 35, 98);">
+          <p class="text-danger">{{loginError}}</p>
+          <div class="nav-buttons">
+            <button #loginBtn id="loginBtn" class="active" (click)="loginBtnclick()">Iniciar sesión </button>
+            <button #registerBtn id="registerBtn" class="" (click)="registerBtnclick()">Registrarse</button>
+          </div>
+          <div class="form-group">
+
+            <form [formGroup]="loginForm" id="loginform" #loginform style="left: 0px; opacity: 1;">
+              <label for="username">Correo Electrónico</label>
+              <input formControlName="email" type="email" required="">
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                <div *ngIf="email.errors?.['required']">
+                  El Email es requerido.
+                </div>
+                <div *ngIf="email.errors?.['email']">
+                  El Email debe tener un formato válido.
+                </div>
+              </div>
+              <label for="password">Contraseña</label>
+              <input formControlName="password" type="password" id="password" name="password" required="">
+              <div *ngIf="password2.invalid && (password2.dirty || password2.touched)" class="text-danger">
+                <div *ngIf="password2.errors?.['required']">
+                  El Password es requerido.
+                </div>
+              </div> 
+              <input type="submit" value="Iniciar sesión" class="submit" (click)="login()">
+
+            </form>
+
+            <form  [formGroup]="regForm" id="registerform" #registerform style="opacity: 0;">
+              <div class="search-box">
+                <label for="nombre">Nombre </label>
+                <input formControlName="nombre" type="text" id="nombre" name="nombre" required="">
+                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="text-danger">
+                  <div *ngIf="nombre.errors?.['required']">
+                    El campo Nombre es requerido.
+                  </div>
+                </div>
+                <label for="empresa">Empresa Asociada:</label>
+                <input formControlName="empresa" id="" name="empresa" type="text" required="">
+                <div *ngIf="empresa.invalid && (empresa.dirty || empresa.touched)" class="text-danger">
+                  <div *ngIf="empresa.errors?.['required']">
+                    El campo Empresa es requerido.
+                  </div>
+                </div>
+                <div class="result"></div>
+                <label for="email">Email</label>
+                <input formControlName="email" type="email" id="email" name="email" required="">
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                  <div *ngIf="email.errors?.['required']">
+                    El Email es requerido.
+                  </div>
+                  <div *ngIf="email.errors?.['email']">
+                    El Email debe tener un formato válido.
+                  </div>
+                </div>
+                <label for="password">Contraseña</label>
+                <input formControlName="password" type="password" id="password" name="password">
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                  <div *ngIf="password.errors?.['required']">
+                    El Password es requerido.
+                  </div>
+                  <div *ngIf="password.errors?.['pattern']">
+                    La Contraseña debe contener entre 8 y 16 caracteres:(Dígitos, Mayusculas, Minúsculas y simbolos)
+                  </div>
+                </div> 
+                <label for="c_password">Confirmar contraseña</label>
+                <input formControlName="c_password" type="password" id="c_password" name="c_password">
+                <div *ngIf="c_password.invalid && (c_password.dirty || c_password.touched)" class="text-danger">
+                  <div *ngIf="c_password.errors?.['required']">
+                    El Password es requerido.
+                  </div>
+                  <div *ngIf="c_password.errors?.['pattern']">
+                    La Contraseña debe contener entre 8 y 16 caracteres:(Dígitos, Mayusculas, Minúsculas y simbolos)
+                  </div>
+                  <div *ngIf="c_password.errors?.['confirmedValidator']">
+                    Las contraseñas no coinciden verifique por favor..
+                  </div>
+                </div> 
+                <li id="checkterminos" style="list-style: none;">
+                  <input formControlName="terminos" id="chkbxtyc" type="checkbox" name="c1">
+                  <label for="c1"><a href="/terminos">Aceptar Términos y Condiciones</a> </label>
+                  <div *ngIf="terminos.invalid && (terminos.dirty || terminos.touched)" class="text-danger">
+                    <div *ngIf="terminos.errors?.['required']">
+                      Por favor marque la casilla para aceptar los terminos y condiciones
+                    </div>
+                  </div> 
+                </li>
+              </div>  
+              <input type="submit" value="Registrar" class="submit" (click)="register()">
+            </form>
+            <div id="forgot" #forgot style="left: 0px; opacity: 1;">
+              <a href="forgot.php">¿Olvidaste tu contraseña?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+

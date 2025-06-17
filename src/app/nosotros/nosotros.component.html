@@ -1,0 +1,231 @@
+<app-scripts></app-scripts>
+<section id="hero">
+  <!-- About Section -->
+  <section id="about">
+    <div class="nosotrosp1">
+      <div class="cuadroazul">
+        <h3 id="texto1nosotros">Nuestra plataforma se destaca por ofrecer una experiencia de aprendizaje única y adaptable a tus necesidades</h3>
+        <h4 class="texto2nosotros">Aprender a tu propio ritmo, desde cualquier lugar y en cualquier momento, otorgándote la flexibilidad que necesitas para alcanzar tus metas profesionales. Únete a nosotros y descubre por qué miles de personas confían en nuestra plataforma de capacitación para impulsar su crecimiento profesional.
+        <br/>¡Elige la excelencia, elige nuestro espacio educativo líder!</h4>
+      </div>
+      <h2 id="texto3nosotros">Forjando equipos preparados para el mañana.</h2>
+    </div>
+    <div id="misionvision" class="misionvision">
+      <table>
+        <tr id="">
+          <td id="imgmision"><img src="assets/img/nosotros/mision.png" ></td>
+          <td id="parrafosmision">
+            <p class="parrafomision">Nuestra misión es democratizar el acceso al conocimiento y empoderar a las personas a través de la educación en línea.</p>
+            <br/>
+            <p class="parrafomision">Nos esforzamos por ofrecer cursos de alta calidad, relevantes y accesibles para todos, sin importar su ubicación geográfica o su nivel de experiencia.</p>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="assets/img/nosotros/vision.png" id="imgvision"></td>
+          <td>
+            <img src="assets/img/nosotros/valores.png" id="imgvalores">
+			<br/>
+            <p id="valores">Respeto  |  Equidad  |  Innovación  |  Comprimiso</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <div class="projects-header" id="conocecapacitores">
+      <h1 class="section-title" id="capacitorestitle">CONOCE A NUESTROS CAPACITADORES</h1>
+  </div>
+
+  <div class="divbody">
+  <div class="wrapper">
+    <i #leftArrow id="left" class="fa-solid fa-angle-left"></i>
+    <div #carousel class="carousel">
+      <video src="assets/img/nosotros/ADRIANVP.mp4" poster="assets/img/nosotros/slideradrian.PNG" controls draggable="false" playsinline controlsList="nodownload"></video>
+      <video src="assets/img/nosotros/ADRIANVP.mp4" poster="assets/img/nosotros/sliderjess.PNG" controls draggable="false" playsinline controlsList="nodownload"></video>
+      <video src="assets/img/nosotros/ALFREDOVP.mp4" poster="assets/img/nosotros/slideralfredo.PNG" controls draggable="false" playsinline controlsList="nodownload"></video>
+      <video src="assets/img/nosotros/MARISOLVP.mp4" poster="assets/img/nosotros/slidermarisol.PNG" controls draggable="false" playsinline controlsList="nodownload"></video>
+      <video src="assets/img/nosotros/MIGUELVP.mp4" poster="assets/img/nosotros/slidermiguel.PNG" controls draggable="false" playsinline controlsList="nodownload"></video>
+      <video src="assets/img/nosotros/WENDYVP.mp4" poster="assets/img/nosotros/sliderwendi.PNG" controls draggable="false" playsinline controlsList="nodownload"></video>
+    </div>
+    <i #rightArrow id="right" class="fa-solid fa-angle-right"></i>
+  </div>
+</div>
+<!--<app-nosotros></app-nosotros>-->
+
+  <!-- End About Section -->
+  <!-- Side Video 
+  <style>
+    .divbody{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 3.5%;
+    }
+  .wrapper{
+      display: flex;
+      max-width: 1800px;
+      position: relative;
+    }
+    .wrapper i{
+    top: 50%;
+    height: 44px;
+    width: 44px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.15rem;
+    position: absolute;
+    text-align: center;
+    line-height: 44px;
+    background: #343F4F;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+    }
+    .wrapper i:active{
+    transform: translateY(-50%) scale(0.9);
+    }
+    .wrapper i:hover{
+    background: #343F4F
+    }
+    .wrapper i:first-child{
+    left: 1px;
+    z-index: 1;
+    }
+    .wrapper i:last-child{
+    right: 1px;
+    }
+    .wrapper .carousel{
+    font-size: 0px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    }
+    .carousel.dragging{
+    cursor: grab;
+    scroll-behavior: auto;
+    }
+    .carousel.dragging video{
+    pointer-events: none;
+    }
+    .carousel video{
+    /*height: 340px;*/
+    object-fit: cover;
+    user-select: none;
+    margin-left: 14px;
+    width: calc(100% / 3);
+    }
+    .carousel video:first-child{
+    margin-left: 0px;
+    }
+
+    @media screen and (max-width: 900px) {
+    .carousel video{
+    width: calc(100% / 2);
+    }
+    }
+
+    @media screen and (max-width: 550px) {
+    .carousel video{
+    width: 100%;
+    }
+    }
+  </style>
+
+
+  <div class="divbody">
+    <div class="wrapper">
+      <i id="left" class="fa-solid fa-angle-left"></i>
+      <div class="carousel">
+          <video src="assets/img/nosotros/ADRIANVP.mp4"  poster="assets/img/nosotros/slideradrian.PNG"  controls  alt="img" draggable="false" playsinline controls controlsList="nodownload"></video>
+          <video src="assets/img/nosotros/JESSVP.mp4"  poster="assets/img/nosotros/sliderjess.PNG"   controls  alt="img"  draggable="false" playsinline controls controlsList="nodownload"></video>
+          <video src="assets/img/nosotros/ALFREDOVP.mp4"  poster="assets/img/nosotros/slideralfredo.PNG"  controls  alt="img" draggable="false" playsinline controls controlsList="nodownload"></video>
+          <video src="assets/img/nosotros/MARISOLVP.mp4"  poster="assets/img/nosotros/slidermarisol.PNG" controls   alt="img" draggable="false" playsinline controls controlsList="nodownload"></video>
+          <video src="assets/img/nosotros/MIGUELVP.mp4"  poster="assets/img/nosotros/slidermiguel.PNG" controls   alt="img" draggable="false" playsinline controls controlsList="nodownload"></video>
+          <video src="assets/img/nosotros/WENDYVP.mp4"  poster="assets/img/nosotros/sliderwendi.PNG" controls alt="img" draggable="false" playsinline controls controlsList="nodownload"></video>
+      </div>
+      <i id="right" class="fa-solid fa-angle-right"></i>
+    </div>
+  </div>
+  <script>
+    const carousel = document.querySelector(".carousel"),
+    firstImg = carousel.querySelectorAll("video")[0],
+    arrowIcons = document.querySelectorAll(".wrapper i");
+
+          let isDragStart = false, isDragging = false, prevPageX, prevScrollLeft, positionDiff;
+
+          const showHideIcons = () => {
+              // showing and hiding prev/next icon according to carousel scroll left value
+              let scrollWidth = carousel.scrollWidth - carousel.clientWidth; // getting max scrollable width
+              arrowIcons[0].style.display = carousel.scrollLeft == 0 ? "none" : "block";
+              arrowIcons[1].style.display = carousel.scrollLeft == scrollWidth ? "none" : "block";
+          }
+
+          arrowIcons.forEach(icon => {
+              icon.addEventListener("click", () => {
+                  let firstImgWidth = firstImg.clientWidth + 14; // getting first img width & adding 14 margin value
+                  // if clicked icon is left, reduce width value from the carousel scroll left else add to it
+                  carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
+                  setTimeout(() => showHideIcons(), 60); // calling showHideIcons after 60ms
+              });
+          });
+
+          const autoSlide = () => {
+              // if there is no image left to scroll then return from here
+              if(carousel.scrollLeft - (carousel.scrollWidth - carousel.clientWidth) > -1 || carousel.scrollLeft <= 0) return;
+
+              positionDiff = Math.abs(positionDiff); // making positionDiff value to positive
+              let firstImgWidth = firstImg.clientWidth + 14;
+              // getting difference value that needs to add or reduce from carousel left to take middle img center
+              let valDifference = firstImgWidth - positionDiff;
+
+              if(carousel.scrollLeft > prevScrollLeft) { // if user is scrolling to the right
+                  return carousel.scrollLeft += positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
+              }
+              // if user is scrolling to the left
+              carousel.scrollLeft -= positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
+          }
+
+          const dragStart = (e) => {
+              // updatating global variables value on mouse down event
+              isDragStart = true;
+              prevPageX = e.pageX || e.touches[0].pageX;
+              prevScrollLeft = carousel.scrollLeft;
+          }
+
+          const dragging = (e) => {
+              // scrolling images/carousel to left according to mouse pointer
+              if(!isDragStart) return;
+              e.preventDefault();
+              isDragging = true;
+              carousel.classList.add("dragging");
+              positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
+              carousel.scrollLeft = prevScrollLeft - positionDiff;
+              showHideIcons();
+          }
+
+          const dragStop = () => {
+              isDragStart = false;
+              carousel.classList.remove("dragging");
+
+              if(!isDragging) return;
+              isDragging = false;
+              autoSlide();
+          }
+
+          carousel.addEventListener("mousedown", dragStart);
+          carousel.addEventListener("touchstart", dragStart);
+
+          document.addEventListener("mousemove", dragging);
+          carousel.addEventListener("touchmove", dragging);
+
+          document.addEventListener("mouseup", dragStop);
+          carousel.addEventListener("touchend", dragStop);
+  </script>-->
+  <div class="banernosotros">
+    <img src="assets/img/nosotros/banernosotros.jpg">
+  </div>
+    
+  </section>
+  <!-- end Side Video 
+  <script src="assets/js/prueba.js"></script>-->
