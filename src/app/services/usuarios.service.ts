@@ -49,10 +49,15 @@ export class UsuariosService {
         return throwError(()=> new Error('Algo falló. Por favor intente nuevamente.'));
     }
 
+<<<<<<< HEAD
      getDatosLogin(email:string) : Observable<any>{
         return  this.http.get<any>(`${this.baseUrl}usuarios/getDatosLogin/`+email)
     }
     
 
 
+=======
+    
+
+>>>>>>> 2ba20efdc45ddd705fcb78ab732358d68b77950e
 }

@@ -25,8 +25,11 @@ import { AdministrarComponent } from './panel/administrar/administrar.component'
 import { ContactopComponent } from './panel/contactop/contactop.component';
 import { CapacitadorComponent } from './panel/capacitador/capacitador.component';
 import { ListarCursosComponent } from './cursos/listar-cursos/listar-cursos.component';
+<<<<<<< HEAD
 import { AlumnoComponent } from './alumno/alumno.component';
 import { InstructorComponent } from './instructor/instructor.component';
+=======
+>>>>>>> 2ba20efdc45ddd705fcb78ab732358d68b77950e
 
 @NgModule({
   declarations: [
@@ -49,9 +52,13 @@ import { InstructorComponent } from './instructor/instructor.component';
     AdministrarComponent,
     ContactopComponent,
     CapacitadorComponent,
+<<<<<<< HEAD
     ListarCursosComponent,
     AlumnoComponent,
     InstructorComponent
+=======
+    ListarCursosComponent
+>>>>>>> 2ba20efdc45ddd705fcb78ab732358d68b77950e
 
   ],
   imports: [

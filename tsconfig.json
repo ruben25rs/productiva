@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* To learn more about this file see: https://angular.io/config/tsconfig. */        
+=======
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+>>>>>>> 2ba20efdc45ddd705fcb78ab732358d68b77950e
 {
   "compileOnSave": false,
   "compilerOptions": {
