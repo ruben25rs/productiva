@@ -4,7 +4,7 @@ import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.moduleP';
 import { AppComponent} from './app.componentP';
-import { HeaderComponentP } from './headerP/headerP.component';
+import { HeaderPComponent } from './header-p/header-p.component';
 import { FooterComponentP } from './footerP/footerP.component';
 import { PanelComponent } from './panel/panel.component';
 
@@ -12,6 +12,8 @@ import { PanelComponent } from './panel/panel.component';
   declarations: [
     AppComponent,
     PanelComponent,
+    HeaderPComponent,
+    FooterComponentP
   
   ],
   imports: [
