@@ -13,7 +13,7 @@ import { AdministrarComponent } from './panel/administrar/administrar.component'
 import { ContactopComponent } from './panel/contactop/contactop.component';
 import { CapacitadorComponent } from './panel/capacitador/capacitador.component';
 import { ListarCursosComponent } from './cursos/listar-cursos/listar-cursos.component';
-import { AlumnoComponent } from './alumno/alumno.component';
+
 
 
 const routes: Routes = [
@@ -49,13 +49,6 @@ const routes: Routes = [
     data: {title: 'Ingresar'}
   },
   {
-
-    path: 'alumno',
-    component: AlumnoComponent,
-    data: { title: 'Alumno' }
-  },
-  {
-
     path:'panel',
     component: PanelComponent,
     data: {title: 'Panel'},
