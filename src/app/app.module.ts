@@ -25,8 +25,6 @@ import { AdministrarComponent } from './panel/administrar/administrar.component'
 import { ContactopComponent } from './panel/contactop/contactop.component';
 import { CapacitadorComponent } from './panel/capacitador/capacitador.component';
 import { ListarCursosComponent } from './cursos/listar-cursos/listar-cursos.component';
-import { AlumnoComponent } from './alumno/alumno.component';
-import { InstructorComponent } from './instructor/instructor.component';
 
 @NgModule({
   declarations: [
@@ -49,9 +47,7 @@ import { InstructorComponent } from './instructor/instructor.component';
     AdministrarComponent,
     ContactopComponent,
     CapacitadorComponent,
-    ListarCursosComponent,
-    AlumnoComponent,
-    InstructorComponent
+    ListarCursosComponent
 
   ],
   imports: [

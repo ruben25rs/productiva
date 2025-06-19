@@ -3,18 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.moduleP';
-import { AppComponentP} from './app.componentP';
+import { AppComponentA} from './app.componentA';
 import { AlumnoComponent } from './alumno/alumno.component';
 import { InstructorComponent } from './instructor/instructor.component';
 import { HeaderAComponent } from './header-a/header-a.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
-    AppComponentP,
+    AppComponentA,
     InstructorComponent,
     AlumnoComponent,
-    HeaderAComponent
+    HeaderAComponent,
+    FooterComponent
   
   ],
   imports: [
@@ -22,6 +24,6 @@ import { HeaderAComponent } from './header-a/header-a.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponentP]
+  bootstrap: [AppComponentA]
 })
 export class AppModule { }

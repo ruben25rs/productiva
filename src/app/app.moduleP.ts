@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.moduleP';
-import { AppComponent} from './app.componentP';
+import { AppComponentP} from './app.componentP';
 import { HeaderPComponent } from './header-p/header-p.component';
 import { FooterComponentP } from './footerP/footerP.component';
 import { PanelComponent } from './panel/panel.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponentP,
     PanelComponent,
     HeaderPComponent,
     FooterComponentP
@@ -21,6 +21,6 @@ import { PanelComponent } from './panel/panel.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponentP]
 })
 export class AppModule { }
