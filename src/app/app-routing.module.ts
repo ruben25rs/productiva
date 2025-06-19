@@ -14,6 +14,8 @@ import { ContactopComponent } from './panel/contactop/contactop.component';
 import { CapacitadorComponent } from './panel/capacitador/capacitador.component';
 import { ListarCursosComponent } from './cursos/listar-cursos/listar-cursos.component';
 
+import { AlumnoComponent } from './alumno/alumno.component';
+import { InstructorComponent } from './instructor/instructor.component';
 
 
 const routes: Routes = [
@@ -48,6 +50,40 @@ const routes: Routes = [
     component: IngresarComponent,
     data: {title: 'Ingresar'}
   },
+  {
+  path: 'alumno',
+      component: AlumnoComponent,
+      data: { title: 'Alumno' },
+        children: [
+          {
+            path:'',
+            component: HomeComponent
+          },
+          {
+          path:'home',
+          component: HomeComponent
+          },
+           {
+          path:'cursos',
+          component: CursosComponent
+          },
+          ]
+    },
+    {
+      path: 'instructor',
+      component: InstructorComponent, 
+      data: { title: 'Instructor' },
+        children: [
+          {
+            path:'',
+            component: HomeComponent
+          },
+          {
+          path:'home',
+          component: HomeComponent
+          },
+          ]
+    },
   {
     path:'panel',
     component: PanelComponent,

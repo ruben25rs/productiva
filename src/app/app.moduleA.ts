@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.moduleP';
+import { AppRoutingModuleA } from './app-routing.moduleA';
 import { AppComponentA} from './app.componentA';
 import { AlumnoComponent } from './alumno/alumno.component';
 import { InstructorComponent } from './instructor/instructor.component';
@@ -21,7 +21,7 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModuleA
   ],
   providers: [],
   bootstrap: [AppComponentA]
