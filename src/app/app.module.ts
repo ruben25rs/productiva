@@ -27,6 +27,8 @@ import { CapacitadorComponent } from './panel/capacitador/capacitador.component'
 import { ListarCursosComponent } from './cursos/listar-cursos/listar-cursos.component';
 
 import { AlumnoComponent } from './alumno/alumno.component';
+import { HomeAComponent } from './alumno/homeA/homeA.component';
+import { HeaderAComponent } from './header-a/header-a.component';
 import { InstructorComponent } from './instructor/instructor.component';
 
 @NgModule({
@@ -52,6 +54,8 @@ import { InstructorComponent } from './instructor/instructor.component';
     CapacitadorComponent,
     ListarCursosComponent,
     AlumnoComponent,
+    HomeAComponent,
+    HeaderAComponent,
      InstructorComponent
 
   ],
