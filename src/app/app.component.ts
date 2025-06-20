@@ -13,7 +13,6 @@ export class AppComponent {
 
   userLoginOn:boolean=false;
   banderaInvitado:boolean=false;
-  banderaAlumno:boolean=true;
 
   constructor(public accesoService:AccesoService) { 
   }
@@ -28,7 +27,6 @@ export class AppComponent {
 
 
     this.banderaInvitado=this.accesoService.banderaPathname
-    //this.banderaAlumno=this.accesoService.banderaAlumnoPathname;
 
   }
 }
