@@ -8,26 +8,59 @@
       </div>
       <div class="login-register" id="login-register">
         <div class="form-group" id="contactoform">
-          <form method="post" action="contacto.php" id="contacto">
+          <form [formGroup]="regForm" id="contacto">
             <table class="tablecontact">
               <tr>
                 <td class="textoscontacto"><label for="username">Nombre:</label></td>
                 <td class="textoscontacto"><label for="apellidos">Apellido:</label></td>
               </tr>
               <tr>
-                <td class="entradacontacto"><input type="text" id="name" name="name" required></td>
-                <td class="entradacontacto"><input type="text" id="apellido" name="apellido" required></td>
+                <td class="entradacontacto">
+                  
+                  <input formControlName="nombre" type="text" id="name" name="name" required >
+                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="text-danger">
+					                <div *ngIf="nombre.errors?.['required']">
+					                  El nombre es requerido.
+					                </div>
+					      </div>
+                </td>
+
+                <td class="entradacontacto">
+                  <input formControlName="apellidos" type="text" id="apellidos" name="apellidos" required>
+                  <div *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)" class="text-danger">
+					                <div *ngIf="apellidos.errors?.['required']">
+					                  El apellido es requerido.
+					                </div>
+					        </div>
+                </td>
               </tr>
               <tr>
                 <td class="textoscontacto"><label for="email">Email:</label></td>
                 <td class="textoscontacto"><label for="numero">Número de telefono:</label></td>
               </tr>
               <tr>
-                <td class="entradacontacto"><input type="email" id="email" name="email" required></td>
-                <td class="entradacontacto"><input type="text" id="numero" name="numero" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(10, this.maxLength);"maxlength="10"  pattern="[0-9]{10}"  required></td>
+                <td class="entradacontacto">
+                  <input formControlName="email" type="email" id="email" name="email" required>
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+					                <div *ngIf="email.errors?.['required']">
+					                  El email es requerido.
+					                </div>
+                          <div *ngIf="email.errors?.['email']">
+					                  El email debe tener un formato válido.
+					                </div>
+					      </div>
+                </td>
+                <td class="entradacontacto">
+                  <input formControlName="telefono" type="text" id="numero" name="numero" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(10, this.maxLength);" maxlength="10"  pattern="[0-9]{10}"  required>
+                  <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="text-danger">
+					                <div *ngIf="telefono.errors?.['required']">
+					                  El teléfono es requerido.
+					                </div>
+					        </div>
+                </td>
               </tr>
               <tr>
-                <td colspan="2" id="centrobtncontactar"><input type="submit" value="ENVÍAR" class="submit" id="btncontactar"></td>
+                <td colspan="2" id="centrobtncontactar"><input type="submit" value="ENVÍAR" class="submit" id="btncontactar" (click)="register()"></td>
               </tr>
             </table>                  
           </form>
