@@ -21,10 +21,12 @@ export class AccesoService {
 
      currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
      currentUserData: BehaviorSubject<String> =new BehaviorSubject<String>("");
+     currentUserInfo: BehaviorSubject<String> = new BehaviorSubject<String>("");
 
      constructor() { 
           this.currentUserLoginOn=new BehaviorSubject<boolean>(sessionStorage.getItem("token")!=null);
           this.currentUserData=new BehaviorSubject<String>(sessionStorage.getItem("token") || "");
+          this.currentUserInfo=new BehaviorSubject<String>(sessionStorage.getItem("token") || "");
 
           this.validarPathname();
      }
@@ -37,6 +39,7 @@ export class AccesoService {
                sessionStorage.setItem("token", userData.data.token);
                this.currentUserData.next(userData.data.token);
                this.currentUserLoginOn.next(true);
+               this.currentUserInfo.next(userData.data.tipousuario_id);
           }),
           map((userData)=> userData.data.token),
           catchError(this.handleError)

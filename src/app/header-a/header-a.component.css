@@ -1,0 +1,472 @@
+
+
+#planmarketing{
+	margin-left: 20px;
+}
+
+#logotipo{
+	text-align: left;
+}
+#logo{
+	position: relative;
+	width: 53%;
+	padding-top: 2%;
+}
+
+#encabezado{
+	/*background-color: rgb(216, 210, 227);*/
+	position: sticky;
+	top: 0px;
+	margin: 0%;
+	width: 100%;
+	/*text-align: center;*/
+}
+#tituloprincipal{
+	margin: 0%;
+	color: #000000;
+}
+#menu{
+	background-color: white;
+	margin-top: 0%;
+	margin-left: 0%;
+	font-family: sans-serif;
+	margin-bottom: 0%;
+	/*height: 6.5em;*/
+}
+.menus{
+	display: inline-block;
+	font-size: 1.1em;
+	text-align: center;
+	width: 20%;
+	vertical-align: top;
+	padding: 1em;
+}
+.menuster{
+	display: inline-block;
+	font-size: 1.75em;
+	text-align: center;
+	width: 20%;
+	vertical-align: top;
+	padding: 1em;
+}
+.menusvacio{
+	display: inline-block;
+	font-size: 1.1em;
+	text-align: center;
+	width: 20%;
+	vertical-align: top;
+	padding: 1em;
+}
+.logo{
+	display: inline-block;
+	font-size: 1.3em;
+	text-align: left;
+	width: 17%;
+}
+a{
+	color: #000000;
+	font-family: Acumin;
+}
+#miperfil{
+	color: white;
+}
+#miperfilfondo{
+	background-color: #872362;
+}
+a:hover {
+	color: #630ba3;
+	cursor: pointer;
+  }
+
+h1{
+	color: #000000;
+}
+
+.section-title {
+	font-size: 4rem;
+	font-weight: 300;
+	color: #872362;
+	margin-bottom: 10px;
+	/*text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;*/
+	margin-left: 1.3rem;
+}
+.section-title span {
+	/*color: #4720b7;*/
+	
+}
+
+.letrasmenu{
+	font-family: Acumin;
+}
+
+h2{
+	color: #000000;
+}
+.section-eva{
+	font-size: 2rem;
+	font-weight: 300;
+	color: rgb(146, 26, 201);
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+}
+#divcursosinscritos{
+	flex-direction: row;
+}
+
+/*style footer*/
+
+#footer{
+	background-color: #872362;
+}
+#divfooter{
+	display: flex;
+	height: 13em;
+}
+#logopie{
+	width: 20%;
+    padding: 2% 3%;
+}
+#imglogopie{
+	height: 50%;
+	margin-top: 20%;
+}
+#texto1pie{
+	width: 50%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2.5%;
+	font-family: 'Montserrat';
+}
+#parrafodireccion{
+	line-height: 110%;
+}
+.parrafosfooter{
+	font-weight: 550;
+	color: white;
+}
+#texto2pie{
+	width: 32%;
+    padding: 2% 5%;
+	font-family: 'Montserrat';
+    margin-top: 2.6%;
+}
+#parrafoter{
+	line-height: 110%;
+}
+#terminosycon{
+	text-decoration: underline;
+}
+
+#divcategorias{
+	margin: 0 0%;
+}
+#titulocategorias{
+	margin-left: 0%;
+}
+#tdfotoperfil {
+	text-align: center;
+	font-size: 0.8em;
+}
+#iconoinscritos{
+	width: 90%;
+}
+#iconofinalizados{
+	width: 90%;
+}
+#divbotonescontinuar{
+	flex-shrink: initial;
+}
+#menuterminos{
+	background-color: white;
+}
+#logoterminos{
+	position: relative;
+    width: 60%;
+    padding-top: 2%;
+    padding-left: 9%;
+}
+.menusvacioter{
+	display: inline-block;
+    font-size: 1.1em;
+    text-align: center;
+    width: 21%;
+    vertical-align: top;
+    padding: 1em;
+}
+#services .services {
+	margin-top: 0;
+}
+
+#divguardarfoto{
+	text-align: -webkit-center;
+}
+
+.cursostres{
+	width: 75%;
+    margin-left: 12%;
+}
+
+@media(min-width: 2000px){
+	body{
+		max-width: 1550px;
+	}
+	html{
+		text-align: -webkit-center;
+	}
+	#footer {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+
+
+@media screen and (max-width:850px){
+	#logopie {
+		padding: 0% 3%;
+	}
+	#imglogopie {
+		height: 30%;
+		margin-top: 11%;
+	}
+	#texto1pie {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#texto2pie {
+		padding: 0% 3%;
+	}
+	#carousel_0852 {
+		padding-top: 0;
+	}
+	
+}
+
+@media screen and (max-width:700px){
+	/*menu*/
+	#encabezado {
+		text-align: right;
+	}
+	.menus {
+		display: inline-block;
+		font-size: 75%;
+		text-align: center;
+		width: 26%;
+		vertical-align: top;
+		padding: 0.9em;
+	}
+	.menusvacio {
+		display: inline-block;
+		width: 0%;
+		padding: 0;
+	}
+	#logo {
+		position: relative;
+		width: 100%;
+		padding-top: 11%;
+	}
+	#menucatalogo{
+		padding-top: 2%;
+	}
+	/* termina menu*/
+	/*perfil usuario*/
+	#divperfil{
+		margin: 0;
+    	display: inline;
+	}
+	#tdfotoperfil{
+		text-align: center;
+    	font-size: 0.7em;
+	}
+	#fotoperfil{
+		margin-left: 0%;
+		width: 10em;
+	}
+	#divguardarfoto{
+		width: auto;
+    	text-align: -webkit-center;
+	}
+	#guardarfotoperfil{
+   		margin-left: 0;
+	}
+
+	div#div_file {
+		width: 8em;
+    	margin-left: 0;
+	}
+	#titulomiscursos {
+		font-size: 1.6em;
+		margin-bottom: 3%;
+    	margin-left: 20px;
+	}
+	#divcursosinscritos{
+		flex-direction: column;
+    	height: 70%;
+	}
+	#titulocursoinscrito {
+		margin-left: 0em;
+		margin-bottom: 5%;
+		font-weight: 500;
+		font-size: 1.3em;
+	}
+	#btncontinuarcurso {
+		margin-left: 0em;
+		/*padding: 2% 9%;*/
+	}
+	#iconoinscritos{
+		width: 0.7em;
+	}
+	#iconofinalizados{
+		width: 0.7em;
+	}
+	#divcursosins{
+		width: auto;
+	}
+	.filacentrada {
+		display: flex;
+		flex-direction: column;
+	}
+
+	/* footer*/
+	#logopie {
+		width: 22%;
+		padding: 3% 2%;
+		padding-left: 0;
+	}
+	#imglogopie {
+		height: 22%;
+		margin-top: 0;
+	}
+	#texto1pie {
+		width: 55%;
+		padding: 3% 1%;
+	}
+	#footer{
+		margin-top: 2.5em;
+	}
+	#footer p {
+		font-size: 60%;
+		margin-bottom: 3.3%;
+		line-height: 120%;		
+		font-weight: 400;
+	}
+	#texto2pie {
+		width: 32%;
+		padding: 1% 0%;
+	}
+	.parrafosfooter {
+		font-weight: 400;
+	}
+	#divfooter{
+		height: 8em;
+	}
+	#footer{
+	    margin-top: 2.5em;
+	    width: auto;
+    }
+	/*end footer*/
+	/*
+	#divbotonescontinuar{
+		text-align: center;
+	}
+	
+	.u-section-2 .u-icon-4 {
+		margin-left: 30%;
+	}*/
+	#divinscritosmargin{
+		margin-bottom: 1em;
+		height: auto;
+	}
+	.menuster {
+		display: inline-table;
+		font-size: 1.5em;
+		width: 30%;
+		vertical-align: middle;
+	}
+	.u-section-2 .u-icon-4 {
+	margin-left: 0;
+	}
+	#menu {
+		padding-left: 0;
+	}
+	#menuterminos {
+		padding-left: 0;
+		display: flex;
+		height: 10em;
+    	background-color: white;
+	}
+	#logoterminos {
+		position: relative;
+    	width: auto;
+    	padding-top: 11%;
+    	height: 36%;
+	}
+}
+
+@media (min-width: 1370px){
+	.imagenxarea{
+		width: auto;
+	}
+	#divcategorias{
+		margin: 0 4%;
+	}
+	#titulocategorias{
+		margin-left: 5.5%;
+	}
+	
+}
+
+@media (min-width: 1540px){
+	.imagenxarea{
+		width: auto;
+	}
+	#divcategorias{
+		margin: 0 1%;
+	}
+	#titulocategorias{
+		margin-left: 2.5%;
+	}
+	.parrafosfooter {
+		font-size: 115%;
+	}
+	#divfooter {
+		display: flex;
+		height: 15em;
+		text-align: left;
+		font-size: 90%;
+	}
+}
+
+/*
+@media screen and (max-width:850px){
+	#logo {
+		width: 100%;
+	}
+	div#div_file {
+		margin-left: 27%;
+	}
+	.u-section-2 .u-icon-4 {
+		margin-left: 0em;
+	}
+	/*start footer*/
+/*	#logopie {
+		width: 25%;
+		padding: 2% 3%;
+	}
+	#imgpie{
+		height: 40%;
+    	margin-top: 20%;
+	}
+	#texto1pie {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	#texto2pie {
+		padding: 2% 4%;
+	}
+	/*end footer*/
+/*}*/

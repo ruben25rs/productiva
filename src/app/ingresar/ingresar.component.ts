@@ -138,7 +138,7 @@ public usuario: Usuarios[] = []
                     window.location.href="/panel";
                    break;
                  case 2: 
-                   window.location.href="/capacitador";
+                   window.location.href="/capacitador/HomeA";
         
                    break; 
                   case 3: 
