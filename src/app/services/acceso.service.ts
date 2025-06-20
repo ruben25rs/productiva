@@ -17,6 +17,7 @@ export class AccesoService {
      private baseUrl: string = appsettings.apiUrl;
 
      banderaPathname = false
+     banderaAlumnoPathname = false;
 
      currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
      currentUserData: BehaviorSubject<String> =new BehaviorSubject<String>("");
