@@ -3,5 +3,6 @@ export interface Cursos {
      nombrecurso:string,
      slug:string,
      descripcion:string,
-     areacurso_id:number
+     areacurso_id:number,
+     icono: string,
 }

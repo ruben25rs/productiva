@@ -4,24 +4,11 @@
 		
 		<h1 class="section-title"> <span>Titulo</span></h1>
 		<div class="row-cursos-list-rs">
-			<div class="curso-item-rs">
-
+			<div class="curso-item-rs" *ngFor="let curso of cursos;">
+				<img src="{{baseUrl}}{{curso.icono}}">
+				<h4 class="">{{curso.nombrecurso}}</h4>
 			</div>
-			<div class="curso-item-rs">
-
-			</div>
-			<div class="curso-item-rs">
-
-			</div>
-			<div class="curso-item-rs">
-
-			</div>
-			<div class="curso-item-rs">
-
-			</div>
-			<div class="curso-item-rs">
-
-			</div>
+			
 		</div>
 	</div>
 </section>
