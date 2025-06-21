@@ -15,6 +15,7 @@ import { CapacitadorComponent } from './panel/capacitador/capacitador.component'
 import { ListarCursosComponent } from './cursos/listar-cursos/listar-cursos.component';
 
 import { AlumnoComponent } from './alumno/alumno.component';
+import { HomeAComponent } from './alumno/homeA/homeA.component';
 import { InstructorComponent } from './instructor/instructor.component';
 
 
@@ -57,11 +58,11 @@ const routes: Routes = [
         children: [
           {
             path:'',
-            component: HomeComponent
+            component: HomeAComponent
           },
           {
-          path:'home',
-          component: HomeComponent
+          path:'homeA',
+          component: HomeAComponent
           },
            {
           path:'cursos',
