@@ -142,11 +142,11 @@ public usuario: Usuarios[] = []
         
                    break; 
                   case 3: 
-                   window.location.href="/alumno";
+                   window.location.href="/alumno/HomeA";
                       //this.router.navigateByUrl('/alumno');
                     break; 
                   default:
-                      this.router.navigateByUrl('/alumno');
+                      this.router.navigateByUrl('/alumno/HomeA');
                     break;
                }
                  

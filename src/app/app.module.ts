@@ -30,7 +30,8 @@ import { AlumnoComponent } from './alumno/alumno.component';
 import { HomeAComponent } from './alumno/homeA/homeA.component';
 import { HeaderAComponent } from './header-a/header-a.component';
 import { InstructorComponent } from './instructor/instructor.component';
-
+import { CursosaComponent } from './alumno/cursosa/cursosa.component';
+import { HomeIComponent } from './instructor/homeI/homeI.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,8 +57,9 @@ import { InstructorComponent } from './instructor/instructor.component';
     AlumnoComponent,
     HomeAComponent,
     HeaderAComponent,
-     InstructorComponent
-
+    InstructorComponent,
+    CursosaComponent,
+    HomeIComponent,
   ],
   imports: [
     BrowserModule,
