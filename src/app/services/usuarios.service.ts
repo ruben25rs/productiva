@@ -21,7 +21,9 @@ export class UsuariosService {
     listaUsers() : Observable<ResponseUsuarios>{
         return  this.http.get<ResponseUsuarios>(`${this.baseUrl}usuarios/listar`)
     }
-
+    showUserProfile(id:number) : Observable<ResponseUsuarios>{
+            return  this.http.get<ResponseUsuarios>(`${this.baseUrl}usuarios/showUserProfile/`+id)
+        }
     getUsers(id:number) : Observable<any>{
         return  this.http.get<any>(`${this.baseUrl}usuario/listar/`+id)
     }

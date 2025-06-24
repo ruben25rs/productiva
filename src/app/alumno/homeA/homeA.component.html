@@ -1,74 +1,59 @@
-<div class="u-expanded-width u-list u-list-1">
-          <h1 class="section-title" id="titulomiscursos"> <span>Mis cursos:</span></h1>
+<div >
+  <h1 class="section-title" id="titulomiscursos"> <span>Mis cursos:</span></h1>
+<div >
+  <table  [border]="1">
+    <tr *ngFor="let user of usuarios;">
+      <td rowspan=3 id="tdfotoperfil">
+             <img id=fotoperfil src={{user.profile}} width="42%">
+              <p>Examinar</p>
+               <input type="file" (change)="onFileSelected($event)" accept="image/*" class="form-control mt-2"> 
+      </td>
+      <td>
+           <h3 class="u-text u-text-2 animated customAnimationIn-played" 
+               data-animation-name="customAnimationIn" 
+               data-animation-duration="1500" 
+               data-animation-delay="500" 
+               style="will-change: transform, opacity; animation-duration: 1500ms;">
+                    {{user.nombre}} {{user.apellido_p}} {{user.apellido_m}}
+              <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16"  data-toggle="modal" data-target="#modalEdit" >
+                  <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+              </svg>
+          </h3>
+        </td>
+    </tr>
+    <tr>
+        <td >
+            <p class="u-text u-text-3 animated customAnimationIn-played" 
+            data-animation-name="customAnimationIn" data-animation-duration="1500" 
+            data-animation-delay="500" 
+            style="will-change: transform, opacity; animation-duration: 1500ms;"> 
+            </p>
+        </td>
+    </tr>
 
-            <img 
-                        [src]="previewUrl || 'assets/img/default-profile.png'" 
-                        alt="Foto de perfil" 
-                        class="img-thumbnail"
-                        width="150" height="150">
+    <tr>
+        <td >
+            <img src="../../../assets/img/alumno/docusin.svg" id="iconoinscritos" width="30" height="30">
+        </td>
+        <td>
+            <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms; margin-bottom: 0.06em;"> 
+                Cursos Inscritos: 
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td width="3%">
+            <img src="../../../assets/img/alumno/docu.png" id="iconofinalizados" width="30" height="30">
+        </td>
+        <td>
+            <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms; margin-bottom: 0em;">
+                Cursos Finalizados: 
+            </p>
+        </td>
+    </tr>    
+  </table>
 
-                      <input type="file" (change)="onFileSelected($event)" accept="image/*" class="form-control mt-2">
-
-          <div class="u-repeater u-repeater-1" id="divcursosins">
-          <table class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
-              <tr>        
-              <form action="subir.php" method="POST" enctype="multipart/form-data">
-                  <td rowspan=6 id="tdfotoperfil">
-                  
-                      <div id="divguardarfoto">
-                      <div id="div_file">
-                          <input type="file" name="file1" id="file1"> 
-                          <p id="texto">Examinar</p>
-                      </div>
-                      <br>
-                      <button type="submit" id="guardarfotoperfil"style="border:transparent; background-color: white;">
-                          Guardar
-                      </button>
-                      </div>
-                  </td>
-                      <td width="65%" colspan=2>
-                          <h3 class="u-text u-text-2 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
-                          ' . $consulta['cUsuario'] . '
-                              <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16"  data-toggle="modal" data-target="#modalEdit" >
-                                  <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
-                              </svg>
-                          </h3>
-                        
-                      </td>
-                  
-
-              </form>
-
-              <tr>
-                  <td colspan=2>
-                      <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
-                            Correo: ' . $consulta['cCorreo'] . '
-                      </p>
-                  </td>
-              </tr>
-              <tr>
-                  <td width="3%">
-                      <img src="img/docusin.png" id="iconoinscritos">
-                  </td>
-                  <td>
-                      <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms; margin-bottom: 0.06em;"> 
-                          Cursos Inscritos: '.$nInscrito.'
-                      </p>
-                  </td>
-              </tr>
-              <tr>
-                  <td width="3%">
-                      <img src="img/docu.png" id="iconofinalizados">
-                  </td>
-                  <td>
-                      <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms; margin-bottom: 0em;">
-                          Cursos Finalizados: '.$final.'
-                      </p>
-                  </td>
-              </tr>    
-          </table>
-  </div>
-</div>
+  
 
 <script language="javascript">
     function showLogIn() {

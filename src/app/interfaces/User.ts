@@ -12,4 +12,6 @@ export interface User {
     email:string;
     empresa:string;
     tipousuario_id: number;
+    profile: string;
+   
 }
