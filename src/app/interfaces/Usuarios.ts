@@ -13,4 +13,5 @@ export interface Usuarios {
     empresa: number;
     codigo: string;
     
+    
 }
