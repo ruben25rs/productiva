@@ -54,6 +54,11 @@ export class UsuariosService {
      getDatosLogin(email:string) : Observable<any>{
         return  this.http.get<any>(`${this.baseUrl}usuarios/getDatosLogin/`+email)
     }
+
+    uploadImage(FormData: FormData): Observable<any> {
+        return this.http.post(`${this.baseUrl}usuarios/upload`, FormData)
+     
+    }
     
 
 }
