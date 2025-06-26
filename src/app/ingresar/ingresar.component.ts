@@ -135,18 +135,21 @@ public usuario: Usuarios[] = []
                // this.usuario = data['value']
                switch (data['value'][0].tipousuario_id) {
                  case 1:
-                    window.location.href="/panel";
+                     //this.router.navigateByUrl('/alumno');
+                   // window.location.href="/panel";
+                   this.router.navigateByUrl('/panel');
                    break;
                  case 2: 
-                   window.location.href="/capacitador/HomeA";
-        
+                   //window.location.href="/Intructor/homeI";
+         this.router.navigate(["/intructor/homeI", data['value'][0].id]); 
                    break; 
                   case 3: 
-                   window.location.href="/alumno/HomeA";
+                   //window.location.href="/alumno/homeA";
                       //this.router.navigateByUrl('/alumno');
+                      this.router.navigate(["/alumno/homeA", data['value'][0].id]); 
                     break; 
                   default:
-                      this.router.navigateByUrl('/alumno/HomeA');
+                      this.router.navigate(["/alumno/homeA", data['value'][0].id]); 
                     break;
                }
                  

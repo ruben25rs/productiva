@@ -1,27 +1,30 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject  } from '@angular/core';
 import { appsettings } from '../../settings/appsettings';
 import { UsuariosService } from '../../services/usuarios.service';
 import { User } from '../../interfaces/User';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './homeA.component.html',
   styleUrls: ['./homeA.component.css']
 })
+
 export class HomeAComponent {
+
+constructor(private route: ActivatedRoute) {}
 
   private usuariosService = inject(UsuariosService);
 
   public usuarios: User[] = []
   public user: Array<any> = []
   public baseUrl: string = appsettings.urlImg;
-
+   public  id:number =1; 
   selectedFile: File | null = null;
   previewUrl: string | ArrayBuffer | null = null;
 
 
    showUsuer(){
-    this.usuariosService.showUserProfile(7).subscribe({
+    this.usuariosService.showUserProfile(this.id).subscribe({
      next: (data) =>{
 
         //console.log(data['value'])
@@ -57,10 +60,17 @@ onFileSelected(event: any) {
       error: (err) => console.error('Error al subir imagen', err)
     });
   }
-
+  obtenerparametro() {
+      this.route.params.subscribe(params => {
+      this.id=params['id'];
+          console.log('ID recibido:', this.id);
+        });
+  }
  
 ngOnInit(): void {
+    this.obtenerparametro();
     this.showUsuer();
+
     //this.cargar_table();
   }
   

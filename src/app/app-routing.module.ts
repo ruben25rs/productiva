@@ -61,7 +61,7 @@ const routes: Routes = [
             component: HomeAComponent
           },
           {
-          path:'homeA',
+          path:'homeA/:id',
           component: HomeAComponent
           },
            {
