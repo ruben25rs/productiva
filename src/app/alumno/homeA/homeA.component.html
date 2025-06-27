@@ -4,11 +4,17 @@
       <td rowspan=6 id="tdfotoperfil">
 <!--           <img id=fotoperfil src={{user.profile}} width="42%">
                 <p>Examinar</p>
+
                <input type="file" (change)="onFileSelected($event)" accept="image/*" class="form-control mt-2">  -->
+<<<<<<< HEAD
                
+=======
+               <form [formGroup]="imgForm">
+>>>>>>> origin/master
                <img *ngIf="previewUrl" [src]="previewUrl" alt="Vista previa" width="200"><br> 
-               <input type="file" (change)="onFileSelected($event)" ><br><br>
-               <button (click)="uploadImage()">Subir</button>
+               <input type="file"  (change)="onFileChange($event)"><br><br>
+               <input type="submit" value="Subir Imagen" class="submit" (click)="subirimagen()">
+                </form>
       </td>
       <td width="65%" colspan=2>
            <h3 class="u-text u-text-2 animated customAnimationIn-played" 

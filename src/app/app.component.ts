@@ -17,8 +17,7 @@ export class AppComponent {
   userLoginOn:boolean=false;
   userData: String = "";
   banderaInvitado:boolean=false;
-  banderaAlumno:boolean=false;
-  banderaAdmin:boolean=false;
+  tipoUser:number = 0;
 
   constructor(public accesoService:AccesoService) { 
   }
@@ -33,6 +32,11 @@ public usuario: Usuarios[] = []
 
         this.userLoginOn=userLoginOn;
 
+        if (this.userLoginOn==true) {
+          this.tipoUser = Number(sessionStorage.getItem("tipoUser"))
+        }
+        console.log(sessionStorage.getItem("tipoUser")+"uuuu")
+
 /*         this.accesoService.currentUserInfo.subscribe({
           next:(userData) => {
             this.userData=userData;
@@ -44,8 +48,6 @@ public usuario: Usuarios[] = []
       }
     });
 
-
-    this.banderaInvitado=this.accesoService.banderaPathname
 
   }
 }

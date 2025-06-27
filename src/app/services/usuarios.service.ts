@@ -55,9 +55,17 @@ export class UsuariosService {
         return  this.http.get<any>(`${this.baseUrl}usuarios/getDatosLogin/`+email)
     }
 
-    uploadImage(FormData: FormData): Observable<any> {
-        return this.http.post(`${this.baseUrl}usuarios/upload`, FormData)
-     
+
+    subirImage(request:any):Observable<any>{
+        return this.http.post<any>(this.baseUrl+"usuario/updateimg/", request).pipe(
+        tap( (userData) => {
+               
+            console.log(userData)
+              
+        }),
+        map((userData)=> userData),
+        catchError(this.handleError)
+        );
     }
     
 

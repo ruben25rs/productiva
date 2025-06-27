@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { AccesoService } from '../services/acceso.service';
 
 @Component({
@@ -11,7 +13,9 @@ export class ScriptsComponent {
   userLoginOn:boolean=false;
   banderaInvitado:boolean=true;
 
-  constructor(private accesoService:AccesoService) { 
+  tipouser: Number = Number(sessionStorage.getItem("tipoUser"))
+
+  constructor(private accesoService:AccesoService, private router:Router) { 
   }
 
   activar_class(){
@@ -20,14 +24,26 @@ export class ScriptsComponent {
 
     let path = location.pathname
 
-    if(path=="/"||path=="/inicio"){
+    if (this.tipouser==0||this.tipouser==null) {
+
+      if(path=="/"||path=="/inicio"){
 
 
-      elem[0].className ="headermenu iniciomn active-link";
+        elem[0].className ="headermenu iniciomn active-link";
 
-    }else{
-      elem[0].className ="headermenu iniciomn initext";
+      }else{
+        elem[0].className ="headermenu iniciomn initext";
+      }
     }
+    if (this.tipouser==3) {
+      this.router.navigate(['/alumno/homeA']);
+    }
+    if (this.tipouser==1) {
+      this.router.navigate(['/panel']);
+    }
+
+    
+
 
     console.log(path)
   }
@@ -39,11 +55,13 @@ export class ScriptsComponent {
     this.accesoService.currentUserLoginOn.subscribe({
       next:(userLoginOn) => {
         this.userLoginOn=userLoginOn;
-        console.log(this.userLoginOn)
+        
 
         
       }
     });
+
+
 
 
     

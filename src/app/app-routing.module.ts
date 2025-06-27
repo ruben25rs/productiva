@@ -125,7 +125,9 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(
       routes,
-      { enableTracing: false } // <-- debugging purposes only
+      { 
+        enableTracing: false,
+        onSameUrlNavigation: 'reload' } // <-- debugging purposes only
       )
   ],
   exports: [

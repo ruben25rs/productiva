@@ -1,7 +1,23 @@
+<div *ngIf="!userLoginOn">
+	<app-header></app-header>
+	<router-outlet></router-outlet>
+	<app-footer></app-footer>
+</div>
+<div *ngIf="userLoginOn">
+	<div *ngIf="(tipoUser==1)">
+		<app-header-p></app-header-p>
+		<router-outlet></router-outlet>
+	</div>
+	<div *ngIf="(tipoUser==3)">
+		<app-header-a></app-header-a>
+		<router-outlet></router-outlet>
+	</div>
+</div>
+<!-- <app-header *ngIf="!banderaInvitado"></app-header>
+<app-header-p *ngIf="banderaInvitado"></app-header-p>
 
-<app-header *ngIf="false"></app-header>
-<app-header-p *ngIf="false"></app-header-p>
-<app-header-a *ngIf="true"></app-header-a>
+<app-header-a *ngIf="banderaAlumno"></app-header-a>
 <router-outlet></router-outlet>
 
-<app-footer *ngIf="banderaInvitado"></app-footer>
+<app-footer *ngIf="!banderaInvitado"></app-footer>
+ -->

@@ -18,7 +18,7 @@ export class InicioComponent {
     this.accesoService.currentUserLoginOn.subscribe({
       next:(userLoginOn) => {
         this.userLoginOn=userLoginOn;
-        console.log(this.userLoginOn)
+        //console.log(this.userLoginOn)
 
 
       }

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import { Component, inject  } from '@angular/core';
+=======
+import { Component, inject } from '@angular/core';
+import { FormBuilder, Validators} from '@angular/forms';
+>>>>>>> origin/master
 import { appsettings } from '../../settings/appsettings';
 import { UsuariosService } from '../../services/usuarios.service';
 import { User } from '../../interfaces/User';
@@ -18,9 +23,23 @@ constructor(private route: ActivatedRoute) {}
   public usuarios: User[] = []
   public user: Array<any> = []
   public baseUrl: string = appsettings.urlImg;
+<<<<<<< HEAD
    public  id:number =1; 
+=======
+
+  idUser: Number = Number(sessionStorage.getItem("id"))
+
+>>>>>>> origin/master
   selectedFile: File | null = null;
   previewUrl: string | ArrayBuffer | null = null;
+
+  imgForm=this.formBuilder.group({
+    id:[this.idUser],
+    profile:[null],
+  })
+
+  constructor(private formBuilder:FormBuilder) { 
+  }
 
 
    showUsuer(){
@@ -38,27 +57,37 @@ constructor(private route: ActivatedRoute) {}
   })
   }
 
-onFileSelected(event: any) {
-  const file = event.target.files[0];
-  if (file) {
-    this.selectedFile = file;
-
-    // Vista previa (opcional)
-    const reader = new FileReader();
-    reader.onload = () => this.previewUrl = reader.result;
-    reader.readAsDataURL(file);
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+      this.imgForm.patchValue({ profile: file });
+    }
   }
-}
 
-  uploadImage() {
-    if (!this.selectedFile) return;
+  subirimagen(){
 
     const formData = new FormData();
-    formData.append('image', this.selectedFile);
-    this.usuariosService.uploadImage(formData).subscribe({
-      next: (res) => console.log('Imagen subida', res),
-      error: (err) => console.error('Error al subir imagen', err)
-    });
+    formData.append('id', String(this.idUser));
+    formData.append('profile', this.selectedFile!);
+
+    this.usuariosService.subirImage(formData).subscribe({
+        next: (user) =>{
+          console.log(user)
+          
+
+        }, error:(error) =>{
+          console.log(error.message); 
+        },
+        complete: () => {
+          console.info("Update completo");
+          //this.router.navigateByUrl('/panel');
+          //window.location.href="/panel";
+         
+          
+          
+        }
+      })
   }
   obtenerparametro() {
       this.route.params.subscribe(params => {

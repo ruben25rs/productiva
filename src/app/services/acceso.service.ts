@@ -17,6 +17,7 @@ export class AccesoService {
      private baseUrl: string = appsettings.apiUrl;
 
      banderaPathname = false
+     banderaAlumno = false
      //banderaAlumnoPathname = false;
 
      currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -36,10 +37,13 @@ export class AccesoService {
           tap( (userData) => {
                
                console.log(userData.data.token)
+               console.log(userData.data.id)
                sessionStorage.setItem("token", userData.data.token);
+               sessionStorage.setItem("id", userData.data.id);
+               sessionStorage.setItem("tipoUser", userData.data.tipouser);
+
                this.currentUserData.next(userData.data.token);
                this.currentUserLoginOn.next(true);
-               this.currentUserInfo.next(userData.data.tipousuario_id);
           }),
           map((userData)=> userData.data.token),
           catchError(this.handleError)
@@ -101,6 +105,11 @@ export class AccesoService {
                // code
                     this.banderaPathname=true
                break;
+          case "/alumno/homeA":
+               // code
+                    this.banderaPathname=true
+                    this.banderaAlumno=true
+               break;
             
           }
 
@@ -113,6 +122,7 @@ export class AccesoService {
      get userLoginOn(): Observable<boolean>{
           return this.currentUserLoginOn.asObservable();
      }
+    
 
      get userToken():String{
           return this.currentUserData.value;
@@ -120,5 +130,7 @@ export class AccesoService {
      get banderaPath():boolean{
           return this.banderaPathname;
      }
+     
+
 
 }
