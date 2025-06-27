@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-import { Component, inject  } from '@angular/core';
-=======
+
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
->>>>>>> origin/master
 import { appsettings } from '../../settings/appsettings';
 import { UsuariosService } from '../../services/usuarios.service';
 import { User } from '../../interfaces/User';
@@ -15,21 +12,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class HomeAComponent {
-
-constructor(private route: ActivatedRoute) {}
+/* 
+constructor(private route: ActivatedRoute) {} */
 
   private usuariosService = inject(UsuariosService);
 
   public usuarios: User[] = []
   public user: Array<any> = []
   public baseUrl: string = appsettings.urlImg;
-<<<<<<< HEAD
-   public  id:number =1; 
-=======
+  public  id:number =1; 
+
 
   idUser: Number = Number(sessionStorage.getItem("id"))
 
->>>>>>> origin/master
+
   selectedFile: File | null = null;
   previewUrl: string | ArrayBuffer | null = null;
 
@@ -43,10 +39,10 @@ constructor(private route: ActivatedRoute) {}
 
 
    showUsuer(){
-    this.usuariosService.showUserProfile(this.id).subscribe({
+    this.usuariosService.showUserProfile(this.idUser).subscribe({
      next: (data) =>{
 
-        //console.log(data['value'])
+        console.log("original-->"+data['value'])
         //console.log(data.value.length)
       if (data.value.length > 0) {
         this.usuarios = data['value']
@@ -73,7 +69,7 @@ constructor(private route: ActivatedRoute) {}
 
     this.usuariosService.subirImage(formData).subscribe({
         next: (user) =>{
-          console.log(user)
+          console.log("rs-->"+user)
           
 
         }, error:(error) =>{
@@ -89,15 +85,15 @@ constructor(private route: ActivatedRoute) {}
         }
       })
   }
-  obtenerparametro() {
+ /*  obtenerparametro() {
       this.route.params.subscribe(params => {
       this.id=params['id'];
           console.log('ID recibido:', this.id);
         });
-  }
+  } */
  
 ngOnInit(): void {
-    this.obtenerparametro();
+    //this.obtenerparametro();
     this.showUsuer();
 
     //this.cargar_table();

@@ -145,16 +145,10 @@ public usuario: Usuarios[] = []
          this.router.navigate(["/intructor/homeI", data['value'][0].id]); 
                    break; 
                   case 3: 
-<<<<<<< HEAD
                    //window.location.href="/alumno/homeA";
                       //this.router.navigateByUrl('/alumno');
                       this.router.navigate(["/alumno/homeA", data['value'][0].id]); 
-=======
-                   // window.location.href="/alumno/homeA";
-                      //this.router.navigateByUrl('/alumno');
-                      this.router.navigate(['/alumno/homeA']);
-                      // this.router.navigateByUrl('/alumno/HomeA');
->>>>>>> origin/master
+
                     break; 
                   default:
                       this.router.navigate(["/alumno/homeA", data['value'][0].id]); 
