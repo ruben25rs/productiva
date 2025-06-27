@@ -18,6 +18,7 @@ export class IngresarComponent implements AfterViewInit{
   private accesoService = inject(AccesoService);
 
   loginError:string="";
+  tipouser: Number = Number(sessionStorage.getItem("tipoUser"))
 
   password = new FormControl(null, [
     (c: AbstractControl) => Validators.required(c),
@@ -130,7 +131,7 @@ public usuario: Usuarios[] = []
           this.usuarioServices.getDatosLogin(String(this.email.value)).subscribe({
             next: (data) =>{
              
-            console.log('log:'+ data['value'][0].tipousuario_id);
+            console.log(data['value'][0].tipousuario_id);
               if (data.value.length > 0) {
                // this.usuario = data['value']
                switch (data['value'][0].tipousuario_id) {
@@ -142,8 +143,10 @@ public usuario: Usuarios[] = []
         
                    break; 
                   case 3: 
-                   window.location.href="/alumno/HomeA";
+                   // window.location.href="/alumno/homeA";
                       //this.router.navigateByUrl('/alumno');
+                      this.router.navigate(['/alumno/homeA']);
+                      // this.router.navigateByUrl('/alumno/HomeA');
                     break; 
                   default:
                       this.router.navigateByUrl('/alumno/HomeA');
