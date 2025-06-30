@@ -136,19 +136,13 @@ public usuario: Usuarios[] = []
                // this.usuario = data['value']
                switch (data['value'][0].tipousuario_id) {
                  case 1:
-                     //this.router.navigateByUrl('/alumno');
-                   // window.location.href="/panel";
                    this.router.navigateByUrl('/panel');
                    break;
                  case 2: 
-                   //window.location.href="/Intructor/homeI";
-         this.router.navigate(["/intructor/homeI", data['value'][0].id]); 
+                    this.router.navigate(["/intructor/homeI", data['value'][0].id]); 
                    break; 
                   case 3: 
-                   //window.location.href="/alumno/homeA";
-                      //this.router.navigateByUrl('/alumno');
                       this.router.navigate(["/alumno/homeA", data['value'][0].id]); 
-
                     break; 
                   default:
                       this.router.navigate(["/alumno/homeA", data['value'][0].id]); 
@@ -160,9 +154,7 @@ public usuario: Usuarios[] = []
               console.log(error.message); 
             }
           })
-         // console.info(this.usuario);
-          //this.router.navigateByUrl('/panel');
-          //window.location.href="/panel";
+        
           this.loginForm.reset();
         }
       })

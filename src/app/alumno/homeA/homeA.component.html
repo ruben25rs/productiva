@@ -9,7 +9,7 @@
 
                <form [formGroup]="imgForm">
 
-               <img *ngIf="previewUrl" [src]="previewUrl" alt="Vista previa" width="200"><br> 
+               <img  [src]="user.profile"  alt="Vista previa" width="200"><br> 
                <input type="file"  (change)="onFileChange($event)"><br><br>
                <input type="submit" value="Subir Imagen" class="submit" (click)="subirimagen()">
                 </form>

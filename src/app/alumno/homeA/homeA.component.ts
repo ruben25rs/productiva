@@ -22,6 +22,7 @@ constructor(private route: ActivatedRoute) {} */
   public baseUrl: string = appsettings.urlImg;
   public  id:number =1; 
 
+public rutatemp : string="";
 
   idUser: Number = Number(sessionStorage.getItem("id"))
 
@@ -35,17 +36,20 @@ constructor(private route: ActivatedRoute) {} */
   })
 
   constructor(private formBuilder:FormBuilder) { 
+
+    
   }
 
 
    showUsuer(){
     this.usuariosService.showUserProfile(this.idUser).subscribe({
      next: (data) =>{
-
-        console.log("original-->"+data['value'])
+      this.rutatemp = this.baseUrl + data['value'][0].profile;
+        console.log("original-->"+data['value'][0].profile)
         //console.log(data.value.length)
       if (data.value.length > 0) {
         this.usuarios = data['value']
+       
       }
     }, error:(error) =>{
         //console.log(error.message); 
@@ -69,7 +73,7 @@ constructor(private route: ActivatedRoute) {} */
 
     this.usuariosService.subirImage(formData).subscribe({
         next: (user) =>{
-          console.log("rs-->"+user)
+          console.log(user)
           
 
         }, error:(error) =>{
