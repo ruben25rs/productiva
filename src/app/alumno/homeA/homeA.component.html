@@ -2,6 +2,7 @@
   <table   *ngFor="let user of usuarios;">
     <tr >
       <td rowspan=6 id="tdfotoperfil">
+    
 <!--           <img id=fotoperfil src={{user.profile}} width="42%">
                 <p>Examinar</p>
 
@@ -9,7 +10,8 @@
 
                <form [formGroup]="imgForm">
 
-               <img  [src]="user.profile"  alt="Vista previa" width="200"><br> 
+               <img  [src]="'https://api.carasoftweb.com/'+ user.profile ? 'https://api.carasoftweb.com/'+ user.profile :'https://api.carasoftweb.com/public/img/users/avatar.png'"  alt="Vista previa" width="200">
+                <br><br> 
                <input type="file"  (change)="onFileChange($event)"><br><br>
                <input type="submit" value="Subir Imagen" class="submit" (click)="subirimagen()">
                 </form>

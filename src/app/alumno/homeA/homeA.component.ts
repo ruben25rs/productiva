@@ -62,9 +62,11 @@ public rutatemp : string="";
     if (file) {
       this.selectedFile = file;
       this.imgForm.patchValue({ profile: file });
+       
     }
   }
 
+  
   subirimagen(){
 
     const formData = new FormData();
@@ -83,7 +85,7 @@ public rutatemp : string="";
           console.info("Update completo");
           //this.router.navigateByUrl('/panel');
           //window.location.href="/panel";
-         
+         window.location.reload();
           
           
         }
