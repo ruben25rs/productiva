@@ -56,17 +56,6 @@ export class UsuariosService {
     }
 
 
-    subirImage(request:any):Observable<any>{
-        return this.http.post<any>(this.baseUrl+"usuario/updateimg/", request).pipe(
-        tap( (userData) => {
-               
-            console.log(userData)
-              
-        }),
-        map((userData)=> userData),
-        catchError(this.handleError)
-        );
-    }
     
 
 }

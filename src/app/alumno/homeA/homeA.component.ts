@@ -45,7 +45,7 @@ public rutatemp : string="";
     this.usuariosService.showUserProfile(this.idUser).subscribe({
      next: (data) =>{
       this.rutatemp = this.baseUrl + data['value'][0].profile;
-        console.log("original-->"+data['value'][0].profile)
+        console.log("original-->https://api.carasoftweb.com/"+data['value'][0].profile)
         //console.log(data.value.length)
       if (data.value.length > 0) {
         this.usuarios = data['value']
@@ -85,7 +85,7 @@ public rutatemp : string="";
           console.info("Update completo");
           //this.router.navigateByUrl('/panel');
           //window.location.href="/panel";
-         window.location.reload();
+          this.showUsuer();
           
           
         }
