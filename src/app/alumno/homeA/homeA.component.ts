@@ -5,6 +5,13 @@ import { appsettings } from '../../settings/appsettings';
 import { UsuariosService } from '../../services/usuarios.service';
 import { User } from '../../interfaces/User';
 import { ActivatedRoute } from '@angular/router';
+
+import { AreacursosService } from '../../services/areacursos.service';
+import { Areacursos } from '../../interfaces/Areacursos';
+
+import { Inscripcion } from 'src/app/interfaces/Inscripcion';
+import { InscripcionService } from 'src/app/services/inscripcion.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './homeA.component.html',
@@ -16,28 +23,31 @@ export class HomeAComponent {
 constructor(private route: ActivatedRoute) {} */
 
   private usuariosService = inject(UsuariosService);
-
+  private inscripcionService = inject(InscripcionService);
+  private areacursosService = inject(AreacursosService);
+  public cursos: Areacursos[] = []
   public usuarios: User[] = []
   public user: Array<any> = []
+  public Inscripcion: Inscripcion[] = [];
+
   public baseUrl: string = appsettings.urlImg;
   public  id:number =1; 
+  public rutatemp : string="";
 
-public rutatemp : string="";
+
+  public totalinscritos : number = 0;
+  public totalterminados: number = 0;
 
   idUser: Number = Number(sessionStorage.getItem("id"))
-
-
   selectedFile: File | null = null;
   previewUrl: string | ArrayBuffer | null = null;
-
   imgForm=this.formBuilder.group({
     id:[this.idUser],
     profile:[null],
   })
 
   constructor(private formBuilder:FormBuilder) { 
-
-    
+ 
   }
 
 
@@ -65,6 +75,47 @@ public rutatemp : string="";
        
     }
   }
+
+inscritosCurso(){
+
+  this.areacursosService.listaC().subscribe({
+     next: (data) =>{
+      
+      for (let i = 1; i < data.value.length; i++) {
+
+       this.inscripcionService.inscritosCurso(data['value'][i].id, this.idUser).subscribe({
+        next: (inscritos) =>{
+              
+          this.Inscripcion = inscritos['value']
+          this.totalinscritos= this.totalinscritos+1//inscritos['value'].length;
+
+         
+        }, error:(error) =>{
+          console.log(error.message); 
+        }
+      })
+       console.log("total inscritos.."+this.totalinscritos)
+      this.inscripcionService.inscritosRecursos(data['value'][i].id, this.idUser).subscribe({
+        next: (terminados) =>{  
+          this.totalterminados = terminados['value'].length;
+          console.log("total terminados.."+this.totalterminados)
+        }
+        , error:(error) =>{
+          console.log(error.message); 
+        } 
+      })
+    }//final for
+
+      //Final  CURSOS
+    }, error:(error) =>{
+      console.log(error.message); 
+    }
+  })
+
+
+
+}
+
 
   
   subirimagen(){
@@ -99,10 +150,10 @@ public rutatemp : string="";
   } */
  
 ngOnInit(): void {
-    //this.obtenerparametro();
+   
     this.showUsuer();
-
-    //this.cargar_table();
+    this.inscritosCurso()
+ 
   }
   
 }
