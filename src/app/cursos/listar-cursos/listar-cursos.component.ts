@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Cursos } from '../../interfaces/Cursos';
+import { Cursos } from '../../interfaces/Cursos'; 
 import { CursosService } from '../../services/cursos.service';
 import { appsettings } from '../../settings/appsettings';
 

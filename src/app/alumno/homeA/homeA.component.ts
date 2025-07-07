@@ -84,7 +84,7 @@ public rutatemp : string="";
           //this.router.navigateByUrl('/panel');
           //window.location.href="/panel";
          
-          
+          this.showUsuer();
           
         }
       })

@@ -1,1 +1,68 @@
-<p>administrar works!</p>
+<div class="container-fluid" id="container-wrapper">
+	<div class="d-sm-flex align-items-center justify-content-between mb-4">
+
+		<h1 class="h3 mb-0 text-gray-800">Administrar Encuestas</h1>
+
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="./">Home</a></li>
+			<li class="breadcrumb-item active" >Panel</li>
+			<li class="breadcrumb-item active" aria-current="page">Administrar encuestas</li>
+		</ol>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card card-outline card-primary">
+				<div class="card-header">
+					<div class="card-tools">
+						<a class="btn btn-block btn-sm btn-default btn-flat border-primary" routerLink="/panel/encuesta"><i class="fa fa-plus"></i> Agregar Nueva Encuesta</a>
+					</div>
+				</div>
+				<div class="card-body">
+					<table class="table tabe-hover table-bordered" id="list">
+						<colgroup>
+							<col width="5%">
+							<col width="20%">
+							<col width="20%">
+							<col width="20%">
+							<col width="20%">
+							<col width="15%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th class="text-center">#</th>
+								<th>Titulo</th>
+								<th>Descripción</th>
+								<th>Inicio</th>
+								<th>Fin</th>
+								<th>Acción</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let encuesta of encuestas; let i = index">
+								<th class="text-center">{{ i + 1}}</th>
+								<td><b>{{encuesta.titulo}}</b></td>
+								<td><b class="truncate">{{encuesta.descripcion}}</b></td>
+								<td><b>{{encuesta.start_date}}</b></td>
+								<td><b>{{encuesta.end_date}}</b></td>
+								<td class="text-center">
+									<div class="btn-group">
+										<a href="./panel.php?page=edit_survey&id=<?php echo $row['id'] ?>" class="btn btn-primary btn-flat">
+											<i class="fas fa-edit"></i>
+										</a>
+										<a  routerLink="/panel/ver-encuesta/{{encuesta.id}}" class="btn btn-info btn-flat">
+											<i class="fas fa-eye"></i>
+										</a>
+										<button type="button" class="btn btn-danger btn-flat delete_survey" (click)="eliminar(encuesta.id)">
+											<i class="fas fa-trash"></i>
+										</button>
+									</div>
+								</td>
+							</tr>	
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

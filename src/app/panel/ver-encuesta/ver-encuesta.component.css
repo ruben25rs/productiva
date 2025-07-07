@@ -1,0 +1,14 @@
+input[type="radio"] {
+
+	margin-right: 5px !important;
+
+}
+
+input[type="checkbox"] {
+
+	margin-right: 5px !important;
+
+}
+.options-rs{
+	margin-bottom: 4px;
+}

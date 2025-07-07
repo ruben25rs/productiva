@@ -1,0 +1,85 @@
+<div class="content-header">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-6">
+				<h1 class="m-0">Encuesta</h1>
+			</div><!-- /.col -->
+
+		</div><!-- /.row -->
+		<hr class="border-primary">
+	</div><!-- /.container-fluid -->
+</div>
+<section class="content">
+	<div class="container-fluid">
+		<div class="col-lg-12">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="card card-outline card-primary">
+						<div class="card-header">
+							<h3 class="card-title">Detalles de Encuestas</h3>
+						</div>
+						<div class="card-body p-0 py-2">
+							<div class="container-fluid" >
+								<p>Titulo: <b>{{encuesta?.titulo}}</b></p>
+								<p class="mb-0">Descripción:</p>
+								<small>{{encuesta?.descripcion}}</small>
+								<p>Inicio:: <b>{{encuesta?.start_date}}</b></p>
+								<p>Fin: <b>{{encuesta?.end_date}}</b></p>
+								<p>Han tomado: <b></b></p>
+
+							</div>
+							<hr class="border-primary">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="card card-outline card-success">
+						<div class="card-header">
+							<h3 class="card-title"><b>Cuestionario de encuesta</b></h3>
+							<div class="card-tools">
+								<button class="btn btn-block btn-sm btn-default btn-flat border-success new_question" type="button"><i class="fa fa-plus"></i> Agregar nueva pregunta</button>
+							</div>
+						</div>
+						<form action="" id="manage-sort">
+							<div class="card-body ui-sortable">
+								<div class="callout callout-info" *ngFor="let question of questions; let i = index">
+									<div class="row">
+										<div class="col-md-12">	
+											<span class="dropleft float-right">
+												<a class="fa fa-ellipsis-v text-dark" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+												<div class="dropdown-menu" style="">
+													<a class="dropdown-item edit_question text-dark" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Editar</a>
+													<div class="dropdown-divider"></div>
+													<a class="dropdown-item delete_question text-dark" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Borrar</a>
+												</div>
+											</span>	
+										</div>	
+									</div>	
+									<h5>{{question.question}}</h5>	
+									<div class="col-md-12">
+										<input type="hidden" name="" value="">	
+										<div class="icheck-primary" *ngIf="question.type === 'radio'">
+											<div *ngFor="let opt of question.options" class="options-rs">
+												<input type="radio" id="{{opt}}" name="answer[{{i+1}}]" value="">
+												<label for="{{opt}}">{{opt}}</label>
+											</div>
+										</div>
+										<div class="icheck-primary" *ngIf="question.type === 'checkbox'">
+											<div *ngFor="let opt of question.options" class="options-rs">
+												<input type="checkbox" id="{{opt}}_chk" name="answer[][]" value="">
+												<label for="{{opt}}_chk">{{opt}}</label>
+											</div>
+										</div>
+										<div class="form-group" *ngIf="question.type === 'text'">
+											<textarea name="answer" id="" cols="30" rows="4" class="form-control" placeholder="Escribe algo aqui.." disabled></textarea>
+										</div>
+									</div>	
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
