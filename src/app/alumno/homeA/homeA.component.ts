@@ -37,6 +37,9 @@ constructor(private route: ActivatedRoute) {} */
 
   public totalinscritos : number = 0;
   public totalterminados: number = 0;
+  public totalmodulos: number = 0;
+  public totalrecursos: number = 0;
+
 
   idUser: Number = Number(sessionStorage.getItem("id"))
   selectedFile: File | null = null;
@@ -87,7 +90,7 @@ inscritosCurso(){
         next: (inscritos) =>{
               
           this.Inscripcion = inscritos['value']
-          this.totalinscritos= this.totalinscritos+1//inscritos['value'].length;
+          this.totalmodulos= inscritos['value'].length;
 
          
         }, error:(error) =>{
@@ -95,23 +98,39 @@ inscritosCurso(){
         }
       })
        console.log("total inscritos.."+this.totalinscritos)
-      this.inscripcionService.inscritosRecursos(data['value'][i].id, this.idUser).subscribe({
+      
+       this.inscripcionService.inscritosRecursos(data['value'][i].id, this.idUser).subscribe({
         next: (terminados) =>{  
-          this.totalterminados = terminados['value'].length;
-          console.log("total terminados.."+this.totalterminados)
+          
+          this.totalrecursos = terminados['value'].length;
+          console.log("total RECURSOS.."+this.totalrecursos)
         }
         , error:(error) =>{
           console.log(error.message); 
         } 
       })
-    }//final for
 
+
+      
+    }//final for
+if (this.totalmodulos== this.totalrecursos) {
+        this.totalterminados = this.totalterminados + 1;
+        console.log("total terminados.."+this.totalterminados)
+      }
       //Final  CURSOS
     }, error:(error) =>{
       console.log(error.message); 
     }
   })
-
+//inscritoscurso
+this.inscripcionService.cursosxalumno(this.idUser).subscribe({
+    next: (cursosxal) =>{  
+      this.totalinscritos = this.totalinscritos +1
+      console.log(this.cursos)
+    } , error:(error) =>{
+      console.log(error.message); 
+    }
+  })
 
 
 }
