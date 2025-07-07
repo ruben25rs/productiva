@@ -2,6 +2,7 @@
   <table   *ngFor="let user of usuarios;">
     <tr >
       <td rowspan=6 id="tdfotoperfil">
+    
 <!--           <img id=fotoperfil src={{user.profile}} width="42%">
                 <p>Examinar</p>
 
@@ -10,6 +11,8 @@
                <form [formGroup]="imgForm">
 
                <img  src="{{baseUrl}}{{user.profile}}"  alt="Vista previa" width="200"><br> 
+               <img  [src]="'https://api.carasoftweb.com/public/'+ user.profile ? 'https://api.carasoftweb.com/public/'+ user.profile :'https://api.carasoftweb.com/public/img/users/avatar.png'"  alt="Vista previa" width="200">
+                <br><br> 
                <input type="file"  (change)="onFileChange($event)"><br><br>
                <input type="submit" value="Subir Imagen" class="submit" (click)="subirimagen()">
                 </form>
@@ -40,7 +43,7 @@
         </td>
         <td>
             <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms; margin-bottom: 0.06em;"> 
-                Cursos Inscritos: 
+                Cursos Inscritos: {{totalinscritos}}
             </p>
         </td>
     </tr>
@@ -50,7 +53,7 @@
         </td>
         <td>
             <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms; margin-bottom: 0em;">
-                Cursos Finalizados: 
+                Cursos Finalizados: {{totalterminados}}
             </p>
         </td>
     </tr>    
