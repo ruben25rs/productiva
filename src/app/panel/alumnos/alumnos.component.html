@@ -1,11 +1,14 @@
 <div class="container-fluid" id="container-wrapper">
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 
-		<h1 class="h3 mb-0 text-gray-800">Informacion General</h1>
+		<h1 class="h3 mb-0 text-gray-800">Alumnos</h1>
 
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="./">Home</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Panel</li>
+			<li class="breadcrumb-item">
+				<a routerLink="/panel">Home</a>
+			</li>
+			<li class="breadcrumb-item">Alumnos</li>
+			<li class="breadcrumb-item active" aria-current="page">Administrar</li>
 		</ol>
 	</div>
 	<div class="row">
@@ -20,26 +23,36 @@
 						<th scope="col">Acción</th> 
 						<th scope="col">Tiempo de Conexión</th>
 						<th scope="col">Ultima de Conexión</th>
-						<th scope="col">Tipo</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr *ngFor="let user of usuarios;">
 						<td>{{user.nombre}} {{user.apellido_p}} {{user.apellido_m}}</td>
 						<td>{{user.email}}</td>
-						<td>{{user.estatus}}</td>
+						<td>
+							<ng-template [ngIf]="user.estatus==1" >
+								<span  class="badge badge-success" > 
+									<a style="cursor: pointer;" class="text-white" (click)="estatus(user.id)">Activo</a>
+								</span>
+							</ng-template>
+							<ng-template [ngIf]="user.estatus==0" >
+								<span  class="badge badge-danger" > 
+									<a style="cursor: pointer;" class="text-white" (click)="estatus(user.id)">Inactivo</a>
+								</span>
+							</ng-template>
+						</td>
 						<td>{{user.empresa}}</td>
 						<td>
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editusuario" (click)="editarU(user.id)">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editusuario" (click)="editarU(user.id)" style="margin-bottom: 2px;">
 								Modificar
-							</button> <br><br>
+							</button > 
 							<button type="button" class="btn btn-warning" data-toggle="modal"  data-target="#cursomodal">
 								Agregar Curso
 							</button> 
 						</td>
 						<td>Femenino</td>
 						<td>Femenino</td>
-						<td>
+						<!-- <td>
 							<ng-template [ngIf]="user.tipousuario_id==1" >
 								Administrador
 							</ng-template>
@@ -49,7 +62,7 @@
 							<ng-template [ngIf]="user.tipousuario_id==3" >
 								Alumno
 							</ng-template>
-						</td>
+						</td> -->
 					</tr>
 				</tbody>
 			</table>
@@ -148,7 +161,7 @@
 					            </div>
 							</div>
 							<div>
-								<select formControlName="empresa" name="empresa" id="empresa">
+								<select formControlName="empresa_id" name="empresa" id="empresa">
 									<option>Empresa procedente</option>
 								</select>
 							</div>

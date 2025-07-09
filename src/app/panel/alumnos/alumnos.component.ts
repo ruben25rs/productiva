@@ -28,11 +28,11 @@ export class AlumnosComponent {
     apellido_p:['',Validators.required],
     apellido_m:['',Validators.required],
     email:['',Validators.required],
-    password:['',Validators.required],
+    password:[''],
     telefono:['',Validators.required],
     genero:['',Validators.required],
     fecha_alta:['',Validators.required],
-    empresa:[''],
+    empresa_id:[''],
   })
 
   constructor(private formBuilder:FormBuilder) { 
@@ -48,7 +48,7 @@ export class AlumnosComponent {
   }
 
   listar(){
-    this.usuariosService.listaUsers().subscribe({
+    this.usuariosService.listaUsersA().subscribe({
      next: (data) =>{
 
         //console.log(data['value'])
@@ -74,7 +74,7 @@ export class AlumnosComponent {
         this.editForm.controls.telefono.setValue(user.value.telefono)
         this.editForm.controls.genero.setValue(user.value.genero.toString())
         this.editForm.controls.fecha_alta.setValue(user.value.fecha_alta)
-        this.editForm.controls.empresa.setValue(user.value.empresa)
+        this.editForm.controls.empresa_id.setValue(user.value.empresa)
 
       }, error:(error) =>{
         console.log(error.message); 
@@ -99,7 +99,7 @@ export class AlumnosComponent {
           this.editForm.controls.telefono.setValue(user.value.telefono)
           this.editForm.controls.genero.setValue(user.value.genero.toString())
           this.editForm.controls.fecha_alta.setValue(user.value.fecha_alta)
-          this.editForm.controls.empresa.setValue(user.value.empresa)
+          this.editForm.controls.empresa_id.setValue(user.value.empresa)
 
         }, error:(error) =>{
           console.log(error.message); 
@@ -116,6 +116,16 @@ export class AlumnosComponent {
     }else{
       this.editForm.markAllAsTouched();
     }
+  }
+
+  estatus(id:any){
+    this.usuariosService.userEstatus(id).subscribe({
+      next: (user) =>{
+        location.reload()
+      }, error:(error) =>{
+        console.log(error.message); 
+      }
+    })
   }
 
   

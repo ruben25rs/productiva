@@ -18,8 +18,11 @@ export class UsuariosService {
           return  this.http.get<ResponseUsuarios>(`${this.baseUrl}usuarios/capacitadorlist`);
     }
 
-    listaUsers() : Observable<ResponseUsuarios>{
-        return  this.http.get<ResponseUsuarios>(`${this.baseUrl}usuarios/listar`)
+    listaUsersA() : Observable<ResponseUsuarios>{
+        return  this.http.get<ResponseUsuarios>(`${this.baseUrl}usuarios/listar/`+"3")
+    }
+    listaUsersC() : Observable<ResponseUsuarios>{
+        return  this.http.get<ResponseUsuarios>(`${this.baseUrl}usuarios/listar/`+"2")
     }
     showUserProfile(id:Number) : Observable<ResponseUsuarios>{
             return  this.http.get<ResponseUsuarios>(`${this.baseUrl}usuarios/showUserProfile/`+id)
@@ -27,6 +30,12 @@ export class UsuariosService {
     getUsers(id:number) : Observable<any>{
         return  this.http.get<any>(`${this.baseUrl}usuario/listar/`+id)
     }
+    userEstatus(id:number) : Observable<any>{
+        return  this.http.get<any>(`${this.baseUrl}usuario/estatus/`+id)
+    }
+    
+
+   
 
     editUser(request:any):Observable<any>{
         return this.http.put<any>(this.baseUrl+"usuario/update/", request).pipe(

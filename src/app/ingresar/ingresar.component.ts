@@ -61,6 +61,7 @@ export class IngresarComponent implements AfterViewInit{
       tipousuario_id: [3],
       password: this.password,
       c_password: this.c_password,
+      estatus: 1,
     },
     {
       validator: this.ConfirmedValidator('password', 'c_password'),
