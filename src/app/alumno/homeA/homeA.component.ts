@@ -114,7 +114,7 @@ inscritosCurso(){
 
       
     }//final for
-if (this.totalmodulos== this.totalrecursos) {
+      if (this.totalmodulos== this.totalrecursos) {
         this.totalterminados = this.totalterminados + 1;
       //  console.log("total terminados.."+this.totalterminados)
       }
@@ -123,26 +123,21 @@ if (this.totalmodulos== this.totalrecursos) {
       console.log(error.message); 
     }
   })
-//inscritoscurso
-this.inscripcionService.cursosxalumno(this.idUser).subscribe({
-    next: (data) =>{  
-      this.totalinscritos = this.totalinscritos +1
-        if (data.value.length > 0) {
-       // this.cInscritos = data['value']
-        console.log("Esta  inscrito en cursos"+data.value.length)
-        }
-          
-console.log(" No entro"+data.value.length)
-      
-      //console.log(this.cursos)
-    } , error:(error) =>{
-      console.log(error.message); 
-    }
-  })
+  
 
 
 }
-
+cursoxalumno(){
+  this.inscripcionService.cursosxalumno(this.idUser).subscribe({
+    next: (data) =>{  
+      
+        this.cInscritos = data['value']
+     
+    }, error:(error) =>{
+        console.log(error.message);   
+    }
+  })
+}
 
   
   subirimagen(){
@@ -180,6 +175,7 @@ ngOnInit(): void {
    
     this.showUsuer();
     this.inscritosCurso()
+    this.cursoxalumno();
  
   }
   
