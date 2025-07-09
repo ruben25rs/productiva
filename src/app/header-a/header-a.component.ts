@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-a.component.css']
 })
 export class HeaderAComponent {
-
+idUser: Number = Number(sessionStorage.getItem("id"))
 }
