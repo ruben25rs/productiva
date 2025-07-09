@@ -17,6 +17,7 @@ import { ListarCursosComponent } from './cursos/listar-cursos/listar-cursos.comp
 import { AlumnoComponent } from './alumno/alumno.component';
 import { HomeAComponent } from './alumno/homeA/homeA.component';
 import { InstructorComponent } from './instructor/instructor.component';
+import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.component';
 
 
 const routes: Routes = [
@@ -52,39 +53,39 @@ const routes: Routes = [
     data: {title: 'Ingresar'}
   },
   {
-  path: 'alumno',
-      component: AlumnoComponent,
-      data: { title: 'Alumno' },
-        children: [
-          {
-            path:'',
-            component: HomeAComponent
-          },
-          {
-          path:'homeA/:id',
-          component: HomeAComponent
-          },
-           {
-          path:'cursos',
-          component: CursosComponent
-          },
-          ]
-    },
-    {
-      path: 'instructor',
-      component: InstructorComponent, 
-      data: { title: 'Instructor' },
-        children: [
-          {
-            path:'',
-            component: HomeComponent
-          },
-          {
-          path:'home',
-          component: HomeComponent
-          },
-          ]
-    },
+    path: 'alumno',
+    component: AlumnoComponent,
+    data: { title: 'Alumno' },
+    children: [
+      {
+        path:'',
+        component: HomeAComponent
+      },
+      {
+        path:'homeA/:id',
+        component: HomeAComponent
+      },
+      {
+        path:'cursos',
+        component: CursosComponent
+      },
+    ]
+  },
+  {
+    path: 'instructor',
+    component: InstructorComponent, 
+    data: { title: 'Instructor' },
+    children: [
+      {
+        path:'',
+        component: HomeComponent
+      },
+      {
+        path:'home',
+        component: HomeComponent
+      },
+    ]
+  },
   {
     path:'panel',
     component: PanelComponent,
@@ -105,6 +106,14 @@ const routes: Routes = [
       {
         path:'encuesta',
         component: EncuestaComponent
+      },
+      {
+        path:'encuesta/:id',
+        component: EncuestaComponent
+      },
+      {
+        path:'ver-encuesta/:id',
+        component: VerEncuestaComponent
       },
       {
         path:'administrar',
@@ -128,7 +137,7 @@ const routes: Routes = [
       { 
         enableTracing: false,
         onSameUrlNavigation: 'reload' } // <-- debugging purposes only
-      )
+        )
   ],
   exports: [
     RouterModule

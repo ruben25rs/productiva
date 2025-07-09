@@ -27,7 +27,7 @@ export class InscripcionService {
         }
    
     cursosxalumno(id:Number) : Observable<ResponseCInscritos>{
-            return  this.http.get<ResponseCInscritos>(`${this.baseUrl}inscripcion/cursosxalumno/`+{id})
+            return  this.http.get<ResponseCInscritos>(`${this.baseUrl}inscripcion/cursosxalumno/`+id)
         }
     
 

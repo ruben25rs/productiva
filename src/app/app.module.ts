@@ -32,6 +32,7 @@ import { HeaderAComponent } from './header-a/header-a.component';
 import { InstructorComponent } from './instructor/instructor.component';
 import { CursosaComponent } from './alumno/cursosa/cursosa.component';
 import { HomeIComponent } from './instructor/homeI/homeI.component';
+import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { HomeIComponent } from './instructor/homeI/homeI.component';
     InstructorComponent,
     CursosaComponent,
     HomeIComponent,
+    VerEncuestaComponent,
   ],
   imports: [
     BrowserModule,

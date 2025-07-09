@@ -30,7 +30,7 @@ constructor(private route: ActivatedRoute) {} */
   public usuarios: User[] = []
   public user: Array<any> = []
   public Inscripcion: Inscripcion[] = [];
-  public cInscritos: CInscrito[] = [];
+  public cInscrito: CInscrito[] = [];
 
   public baseUrl: string = appsettings.urlImg;
   public  id:number =1; 
@@ -56,19 +56,19 @@ constructor(private route: ActivatedRoute) {} */
   }
 
 
-   showUsuer(){
-    this.usuariosService.showUserProfile(this.idUser).subscribe({
-     next: (data) =>{
-      this.rutatemp = this.baseUrl + data['value'][0].profile;
+  showUsuer(){
+      this.usuariosService.showUserProfile(this.idUser).subscribe({
+      next: (data) =>{
+        this.rutatemp = this.baseUrl + data['value'][0].profile;
+          
+        if (data.value.length > 0) {
+          this.usuarios = data['value']
         
-      if (data.value.length > 0) {
-        this.usuarios = data['value']
-       
+        }
+      }, error:(error) =>{
+          //console.log(error.message); 
       }
-    }, error:(error) =>{
-        //console.log(error.message); 
-    }
-  })
+    })
   }
 
   onFileChange(event: any) {
@@ -98,7 +98,7 @@ inscritosCurso(){
           console.log(error.message); 
         }
       })
-       //console.log("total i//nscritos.."+this.totalinscritos)
+     
       
        this.inscripcionService.inscritosRecursos(data['value'][i].id, this.idUser).subscribe({
         next: (terminados) =>{  
@@ -111,12 +111,11 @@ inscritosCurso(){
         } 
       })
 
-
-      
     }//final for
+
       if (this.totalmodulos== this.totalrecursos) {
         this.totalterminados = this.totalterminados + 1;
-      //  console.log("total terminados.."+this.totalterminados)
+    
       }
       //Final  CURSOS
     }, error:(error) =>{
@@ -127,12 +126,15 @@ inscritosCurso(){
 
 
 }
-cursoxalumno(){
+cursoxalumno(){ 
+ 
   this.inscripcionService.cursosxalumno(this.idUser).subscribe({
-    next: (data) =>{  
-      
-        this.cInscritos = data['value']
-     
+    next: (cursosinscritos) =>{  
+       this.totalinscritos = this.totalinscritos +1
+      this.cInscrito = cursosinscritos['value']
+
+     console.info("Cursos inscritos: " + cursosinscritos['value']);
+
     }, error:(error) =>{
         console.log(error.message);   
     }
@@ -156,10 +158,8 @@ cursoxalumno(){
         },
         complete: () => {
           console.info("Update completo");
-          //this.router.navigateByUrl('/panel');
-          //window.location.href="/panel";
-          this.showUsuer();
           
+          this.showUsuer();
           
         }
       })

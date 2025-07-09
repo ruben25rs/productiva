@@ -1,1 +1,73 @@
-<p>encuesta works!</p>
+<div class="content-header">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-6">
+				<h1 class="m-0">Encuesta</h1>
+			</div><!-- /.col -->
+
+		</div><!-- /.row -->
+		<hr class="border-primary">
+	</div><!-- /.container-fluid -->
+</div>
+<section class="content">
+	<div class="container-fluid">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<form [formGroup]="encForm" id="manage_survey">
+						<input type="hidden" name="id" value="">
+						<div class="row">
+							<div class="col-md-6 border-right">
+								<div class="form-group">
+									<label for="" class="control-label">Titulo</label>
+									<input type="text" formControlName="titulo" class="form-control form-control-sm" >
+									<div *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)" class="text-danger">
+						                <div *ngIf="titulo.errors?.['required']">
+						                  El titulo es requerido.
+						                </div>
+						            </div>
+								</div>
+								<div class="form-group">
+									<label for="" class="control-label">Inicio</label>
+									<input type="date" formControlName="start_date" class="form-control form-control-sm" >
+									<div *ngIf="start_date.invalid && (start_date.dirty || start_date.touched)" class="text-danger">
+						                <div *ngIf="start_date.errors?.['required']">
+						                  La fecha de inicio es requerido.
+						                </div>
+						            </div>
+								</div>
+								<div class="form-group">
+									<label for="" class="control-label">Final</label>
+									<input type="date" formControlName="end_date" class="form-control form-control-sm">
+									<div *ngIf="end_date.invalid && (end_date.dirty || end_date.touched)" class="text-danger">
+						                <div *ngIf="end_date.errors?.['required']">
+						                  La fecha final es requerido.
+						                </div>
+						            </div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Descripcion</label>
+									<textarea formControlName="descripcion" id="" cols="30" rows="4" class="form-control" ></textarea>
+									<div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="text-danger">
+						                <div *ngIf="descripcion.errors?.['required']">
+						                  La descripcion es requerido.
+						                </div>
+						            </div>
+								</div>
+							</div>
+
+						</div>
+						<hr>
+						<div class="col-lg-12 text-right justify-content-center d-flex">
+							<button class="btn btn-primary mr-2" (click)="actualizar_encuesta()" *ngIf="this.idEncuesta!=0">Actualizar</button>
+							<button class="btn btn-primary mr-2" (click)="registrar_encuesta()" *ngIf="this.idEncuesta==0">Guardar</button>
+							<button class="btn btn-secondary" type="button" onclick="location.href = 'panel.php?page=survey_list'">Cancelar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

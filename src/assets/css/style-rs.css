@@ -629,7 +629,7 @@ section#hero {
 #footer {
     width: 100%;
     position: relative;
-    background: #872362;
+    background: #1d264f;
 }
 #divfooter {
     display: flex;
@@ -657,7 +657,7 @@ section#hero {
 	margin-top: 2.6%;
 }
 #imgpie {
-    width: 90%;
+    width: 110%;
 	margin-top: 16%;
 	max-width: 300px;
 }
