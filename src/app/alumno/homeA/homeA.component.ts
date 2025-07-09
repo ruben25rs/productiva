@@ -11,6 +11,7 @@ import { Areacursos } from '../../interfaces/Areacursos';
 
 import { Inscripcion } from 'src/app/interfaces/Inscripcion';
 import { InscripcionService } from 'src/app/services/inscripcion.service';
+import { CInscrito } from 'src/app/interfaces/CInscrito';
 
 @Component({
   selector: 'app-home',
@@ -29,6 +30,7 @@ constructor(private route: ActivatedRoute) {} */
   public usuarios: User[] = []
   public user: Array<any> = []
   public Inscripcion: Inscripcion[] = [];
+  public cInscritos: CInscrito[] = [];
 
   public baseUrl: string = appsettings.urlImg;
   public  id:number =1; 
@@ -58,8 +60,7 @@ constructor(private route: ActivatedRoute) {} */
     this.usuariosService.showUserProfile(this.idUser).subscribe({
      next: (data) =>{
       this.rutatemp = this.baseUrl + data['value'][0].profile;
-        console.log("original-->https://api.carasoftweb.com/"+data['value'][0].profile)
-        //console.log(data.value.length)
+        
       if (data.value.length > 0) {
         this.usuarios = data['value']
        
@@ -89,7 +90,7 @@ inscritosCurso(){
        this.inscripcionService.inscritosCurso(data['value'][i].id, this.idUser).subscribe({
         next: (inscritos) =>{
               
-          this.Inscripcion = inscritos['value']
+          //this.Inscripcion = inscritos['value']
           this.totalmodulos= inscritos['value'].length;
 
          
@@ -97,13 +98,13 @@ inscritosCurso(){
           console.log(error.message); 
         }
       })
-       console.log("total inscritos.."+this.totalinscritos)
+       //console.log("total i//nscritos.."+this.totalinscritos)
       
        this.inscripcionService.inscritosRecursos(data['value'][i].id, this.idUser).subscribe({
         next: (terminados) =>{  
           
           this.totalrecursos = terminados['value'].length;
-          console.log("total RECURSOS.."+this.totalrecursos)
+         // console.log("total RECURSOS.."+this.totalrecursos)
         }
         , error:(error) =>{
           console.log(error.message); 
@@ -115,7 +116,7 @@ inscritosCurso(){
     }//final for
 if (this.totalmodulos== this.totalrecursos) {
         this.totalterminados = this.totalterminados + 1;
-        console.log("total terminados.."+this.totalterminados)
+      //  console.log("total terminados.."+this.totalterminados)
       }
       //Final  CURSOS
     }, error:(error) =>{
@@ -124,9 +125,16 @@ if (this.totalmodulos== this.totalrecursos) {
   })
 //inscritoscurso
 this.inscripcionService.cursosxalumno(this.idUser).subscribe({
-    next: (cursosxal) =>{  
+    next: (data) =>{  
       this.totalinscritos = this.totalinscritos +1
-      console.log(this.cursos)
+        if (data.value.length > 0) {
+       // this.cInscritos = data['value']
+        console.log("Esta  inscrito en cursos"+data.value.length)
+        }
+          
+console.log(" No entro"+data.value.length)
+      
+      //console.log(this.cursos)
     } , error:(error) =>{
       console.log(error.message); 
     }

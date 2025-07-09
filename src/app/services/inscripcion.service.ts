@@ -2,7 +2,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { appsettings } from '../settings/appsettings'; //archivo de configurtacion de la ruta del servidor api
 import { ResponseUsuarios } from '../interfaces/ResponseUsuarios';
-import { Inscripcion } from '../interfaces/Inscripcion';
+import { ResponseCInscritos } from '../interfaces/ResponseCInscritos';
+import { CInscrito } from '../interfaces/CInscrito';
+
 import { Observable, throwError, catchError, BehaviorSubject , tap, map} from 'rxjs';
 import { ResponseInscripcion } from '../interfaces/ResponseInscripcion';
 
@@ -24,8 +26,8 @@ export class InscripcionService {
             return  this.http.get<ResponseInscripcion>(`${this.baseUrl}inscripcion/inscritosRecursos/`+{id}+`/`+{idalumno})
         }
    
-cursosxalumno(id:Number) : Observable<ResponseInscripcion>{
-            return  this.http.get<ResponseInscripcion>(`${this.baseUrl}inscripcion/cursosxalumno/`+{id})
+    cursosxalumno(id:Number) : Observable<ResponseCInscritos>{
+            return  this.http.get<ResponseCInscritos>(`${this.baseUrl}inscripcion/cursosxalumno/`+{id})
         }
     
 
