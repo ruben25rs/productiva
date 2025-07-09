@@ -57,6 +57,7 @@ import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.componen
     ListarCursosComponent,
     AlumnoComponent,
     HomeAComponent,
+    CursosaComponent,
     HeaderAComponent,
     InstructorComponent,
     CursosaComponent,
