@@ -12,3 +12,6 @@ input[type="checkbox"] {
 .options-rs{
 	margin-bottom: 4px;
 }
+.block-valid {
+    border-left: inherit !important;
+}

@@ -27,7 +27,7 @@ export class QuestionService {
 
    
      registrar(datos:ResponseQuestions):Observable<any>{
-          return this.http.post<any>(this.baseUrl+"encuesta",datos).pipe(
+          return this.http.post<any>(this.baseUrl+"question",datos).pipe(
           tap( (questionData) => {
                
                console.log(questionData)

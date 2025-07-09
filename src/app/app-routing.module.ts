@@ -108,6 +108,10 @@ const routes: Routes = [
         component: EncuestaComponent
       },
       {
+        path:'encuesta/:id',
+        component: EncuestaComponent
+      },
+      {
         path:'ver-encuesta/:id',
         component: VerEncuestaComponent
       },

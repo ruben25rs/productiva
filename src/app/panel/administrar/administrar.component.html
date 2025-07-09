@@ -46,7 +46,7 @@
 								<td><b>{{encuesta.end_date}}</b></td>
 								<td class="text-center">
 									<div class="btn-group">
-										<a href="./panel.php?page=edit_survey&id=<?php echo $row['id'] ?>" class="btn btn-primary btn-flat">
+										<a routerLink="/panel/encuesta/{{encuesta.id}}" class="btn btn-primary btn-flat">
 											<i class="fas fa-edit"></i>
 										</a>
 										<a  routerLink="/panel/ver-encuesta/{{encuesta.id}}" class="btn btn-info btn-flat">

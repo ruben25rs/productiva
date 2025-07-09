@@ -17,13 +17,27 @@ export class EncuestaService {
      constructor() { 
           
      }
-
+     listarEncuesta(id:any) : Observable<any>{
+          return  this.http.get<any>(`${this.baseUrl}encuesta/listar/`+id)
+     }
      listarEncuestas() : Observable<ResponseEncuestas>{
           return  this.http.get<ResponseEncuestas>(`${this.baseUrl}encuesta/listar`)
      }
      eliminarEncuesta(id:any) : Observable<ResponseEncuestas>{
           return  this.http.get<ResponseEncuestas>(`${this.baseUrl}encuesta/eliminar/`+id)
      }
+
+     actualizar(request:any):Observable<any>{
+        return this.http.put<any>(this.baseUrl+"encuesta/update", request).pipe(
+        tap( (encuestaData) => {
+               
+            console.log(encuestaData)
+              
+        }),
+        map((encuestaData)=> encuestaData),
+        catchError(this.handleError)
+        );
+    }
 
    
      registrar(datos:ResponseEncuestas):Observable<any>{
