@@ -31,7 +31,9 @@ export function userdatatable(){
                     },
                 ],
                 columnDefs: [
-                { width: '30%', targets: 0 }, // Sets the first column to 200px
+                { width: '20%', targets: 0 }, // Sets the first column to 200px
+                { width: '5%', targets: 2 }, // Sets the first column to 200px
+                { width: '15%', targets: 4 }, // Sets the first column to 200px
 
             ]
         });
