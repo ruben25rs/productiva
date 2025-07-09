@@ -27,7 +27,7 @@ export class VerEncuestaComponent {
   public encuesta?: Encuestas;
 
   userId: Number = Number(sessionStorage.getItem("id"))
- 
+
 
   
   questionForm!: FormGroup;
@@ -63,11 +63,47 @@ export class VerEncuestaComponent {
         },
         complete: () => {
           console.info("Registro completo");
-          Swal.fire('¡Hola!', 'Encuesta registrado exitosamente', 'success');
+          Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'success',
+            title: 'Pregunta Agregada',
+            showConfirmButton: false,
+            timer: 3000
+          });
           this.listar(Number(this.idEncuesta))
-          this.router.navigateByUrl('/panel/ver-encuesta/'+Number(this.idEncuesta));
-          //window.location.href="/panel";
+          this.questionForm.reset()
+          this.opciones.clear()
           this.cerrarModal()
+        }
+      })
+    }else{
+      this.questionForm.markAllAsTouched();
+    }
+  }
+  actualizar_preg(){
+    if(this.questionForm.valid){
+      this.questionService.actualizar(this.questionForm.value as ResponseQuestions).subscribe({
+        next: (questionData) =>{
+          console.log(questionData)
+
+        }, error:(error) =>{
+          console.log(error.message); 
+        },
+        complete: () => {
+          console.info("Actualizacion completo");
+          Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'success',
+            title: 'Pregunta actualizada',
+            showConfirmButton: false,
+            timer: 3000
+          });
+          this.listar(Number(this.idEncuesta))
+          this.questionForm.reset()
+          this.opciones.clear()
+          $('#pregunta_edit').modal('hide');
         }
       })
     }else{
@@ -102,6 +138,30 @@ export class VerEncuestaComponent {
         
       }
     });
+  }
+  mostrar_preg(id:any){
+    this.questionService.listarQuestion(id).subscribe({
+      next: (questionData) =>{
+        console.log(questionData)
+        this.questionForm.get('id')?.setValue(questionData.value.id);
+        this.questionForm.get('question')?.setValue(questionData.value.question);
+        this.questionForm.get('type')?.setValue(questionData.value.type);
+
+        this.opciones.clear(); // Limpia cualquier opción anterior
+
+        questionData.value.options.forEach((op: string) => {
+          this.opciones.push(this.formBuilder.control(op, Validators.required));
+        });
+
+          
+      }, error:(error) =>{
+        console.log(error.message); 
+      },
+      complete: () => {
+        
+
+      }
+    })
   }
 
   get question()
@@ -144,6 +204,7 @@ export class VerEncuestaComponent {
   ngOnInit(){  
     this.idEncuesta = Number(this.route.snapshot.paramMap.get('id'));
     this.questionForm=this.formBuilder.group({
+      id:[''],
       question:['',[Validators.required]],
       type:['',[Validators.required]],
       options: this.formBuilder.array([],minOptionsRequired(() => this.questionForm?.get('type')?.value)),

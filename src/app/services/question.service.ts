@@ -17,14 +17,26 @@ export class QuestionService {
      constructor() { 
           
      }
-
+     listarQuestion(id:any) : Observable<any>{
+          return  this.http.get<any>(`${this.baseUrl}question/listar/`+id)
+     }
      listarQuestions(id:any) : Observable<ResponseQuestions>{
           return  this.http.get<ResponseQuestions>(`${this.baseUrl}questions/listar/`+id)
      }
      eliminarQuestion(id:any) : Observable<ResponseQuestions>{
           return  this.http.get<ResponseQuestions>(`${this.baseUrl}question/eliminar/`+id)
      }
-
+     actualizar(request:any):Observable<any>{
+        return this.http.put<any>(this.baseUrl+"question/update", request).pipe(
+        tap( (questionData) => {
+               
+            console.log(questionData)
+              
+        }),
+        map((encuestaData)=> encuestaData),
+        catchError(this.handleError)
+        );
+    }
    
      registrar(datos:ResponseQuestions):Observable<any>{
           return this.http.post<any>(this.baseUrl+"question",datos).pipe(
