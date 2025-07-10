@@ -212,7 +212,7 @@ section#hero {
     width: 84%;
     margin: auto;
     padding: 40px 35px;
-    background: #872362;
+    background: #1d264f;
     border-radius: 4em;
     display: flex;
     align-items: center;
@@ -265,14 +265,14 @@ section#hero {
     text-align: center;
     font-size: 4em;
     padding: 0em 6em;
-    color: #1CC4EA;
+    color: #f25f29;
     font-family: 'MonserratBold';
     margin-top: 4%;
     margin-bottom: 3%;
 }
 .divvercursos {
     width: 250px;
-    background-color: #2E49C1;
+    background-color: #113a8c;
     text-align: center;
     border-radius: 10em;
     padding: 10px 0px;
