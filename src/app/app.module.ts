@@ -33,6 +33,7 @@ import { InstructorComponent } from './instructor/instructor.component';
 import { CursosaComponent } from './alumno/cursosa/cursosa.component';
 import { HomeIComponent } from './instructor/homeI/homeI.component';
 import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.component';
+import { AreaComponent } from './alumno/area/area.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +64,7 @@ import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.componen
     CursosaComponent,
     HomeIComponent,
     VerEncuestaComponent,
+    AreaComponent,
   ],
   imports: [
     BrowserModule,
