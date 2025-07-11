@@ -6,4 +6,7 @@ export interface Cursos {
      areacurso_id:number,
      icono: string,
      imagen2: string,
+     areacurso_nombre: string,
+     ruta2: string, 
+     ruta: string,
 }

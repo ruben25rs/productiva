@@ -1,0 +1,74 @@
+    
+    <h1 id="tituloprincipal">{{nombrearea}}</h1>
+    
+    <table  id=tablarecursos >
+        <tr id="columnainfocursos" >
+            <td id="imagentemario">
+                <img src="{{baseUrl}}{{ruta2}}" id="imagentemar" ?>">
+            </td>
+           
+           </tr>
+            <tr>
+                <td id="celdavaciainfocursos">
+
+                </td>
+                <td id="celdainfocursos">
+                    <h2 id="titulocurso">
+                        {{nombrecurso}}
+                    </h2>
+                    <h3 id="descricpiontemario">
+                        {{descripcion}}
+                    </h3>
+                
+                    
+                </td>
+            </tr>
+            <tr>    
+                <h2 id="titulotemario">TEMARIO</h2>
+            </tr>
+            <tr *ngFor="let modulo of modulos">
+                <td class=sangriavinetas></td>
+                <td class=titulostemario2><span id="nmodulo">Módulo {{modulo.nombremodulo}}</span>
+                     {{modulo.nombremodulo}}</td>
+            </tr>                 
+            <tr>
+                <td>
+
+                </td>
+                <td class=celdasvacias2>
+                </td>
+            </tr>
+                
+                
+        </table>
+           
+                 
+    <!-- <div class="btnInscribirse">
+        <a href="../../alumno/inscripcion.php?curso='.$idc.'&usuario='.$_SESSION["id"].'" 
+        class="btnInscribirsebtn"
+        class="u-border-1 u-border-active-grey-70 u-border-black u-border-hover-grey-70 u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-style u-custom-item u-none u-radius-0 u-text-active-palette-2-base u-text-body-color u-text-hover-palette-2-base u-top-left-radius-0 u-top-right-radius-0 u-btn-2">
+        INSCRIBIRSE</a>
+    </div>';
+     -->
+
+    
+            <div class="btnInscribirse">
+            <a href="#" id="" class="btnInscribirsebtn" class="u-border-1 u-border-active-grey-70 u-border-black u-border-hover-grey-70 u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-style u-custom-item u-none u-radius-0 u-text-active-palette-2-base u-text-body-color u-text-hover-palette-2-base u-top-left-radius-0 u-top-right-radius-0 u-btn-2">
+            INSCRITO
+            </a>
+            </div>';  
+           
+ 
+      <!--  <div class="btnInscribirse" class="btnInscribirsebtn">
+            <a href="../../alumno/inscripcion.php?curso='.$idc.'&usuario='.$_SESSION["id"].'" 
+             class="u-border-1 u-border-active-grey-70 u-border-black u-border-hover-grey-70 u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-style u-custom-item u-none u-radius-0 u-text-active-palette-2-base u-text-body-color u-text-hover-palette-2-base u-top-left-radius-0 u-top-right-radius-0 u-btn-2">
+                INSCRIBIRSE
+            </a>
+        </div>
+       
+                   
+                    </td>
+                </tr>       
+                 -->
+           
+          

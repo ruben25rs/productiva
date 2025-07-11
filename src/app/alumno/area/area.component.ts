@@ -19,9 +19,10 @@ import { appsettings } from 'src/app/settings/appsettings';
   styleUrls: ['./area.component.css']
 })
 export class AreaComponent {
-  public urlTree: any;
-  public idcurso: number = 0;
-
+    public urlTree: any;
+    public idcurso: number = 0;
+   
+    
     private inscripcionService = inject(InscripcionService);
     private areacursosService = inject(AreacursosService);
     private cursosService = inject(CursosService);
@@ -34,9 +35,12 @@ export class AreaComponent {
     public cInscrito: CInscrito[] = [];
 
     idUser: Number = Number(sessionStorage.getItem("id"))
+    
     public inscrito : boolean = false;
 
     public totalcursos: number = 0;
+    public nombrearea: string = '';
+     public idarea: number = 0;
 
     constructor(private route: ActivatedRoute) {}
 
@@ -45,12 +49,14 @@ export class AreaComponent {
         this.cursosService.listaCursosId(this.idcurso).subscribe({
         next: (data) =>{  
               
-          this.cursos = data['value']
+           this.cursos = data['value']
             this.totalcursos = this.cursos.length;
-          console.log(data['value'])
+            console.log(data['value'])
           
           if (data.value.length > 0) {
             this.cursos = data['value']
+            this.nombrearea = data['value'][0].areacurso_nombre;
+           
           }
         }, error:(error) =>{
             console.log(error.message);   
@@ -70,10 +76,10 @@ export class AreaComponent {
       }
       
 
-    }, error:(error) =>{
-      console.log(error.message); 
-    }
-  })
+          }, error:(error) =>{
+            console.log(error.message); 
+          }
+        })
 
     }
     chunk(arr: any[], size: number): any[] {
