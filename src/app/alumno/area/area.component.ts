@@ -27,14 +27,16 @@ export class AreaComponent {
     private cursosService = inject(CursosService);
 
     public cursos: Cursos[] = []
-      public AreaCurso: Areacursos[] = []
-public baseUrl: string = appsettings.urlImg;
+    public AreaCurso: Areacursos[] = []
+    public baseUrl: string = appsettings.urlImg;
 
     public Inscripcion: Inscripcion[] = [];
     public cInscrito: CInscrito[] = [];
 
     idUser: Number = Number(sessionStorage.getItem("id"))
     public inscrito : boolean = false;
+
+    public totalcursos: number = 0;
 
     constructor(private route: ActivatedRoute) {}
 
@@ -44,7 +46,7 @@ public baseUrl: string = appsettings.urlImg;
         next: (data) =>{  
               
           this.cursos = data['value']
-
+            this.totalcursos = this.cursos.length;
           console.log(data['value'])
           
           if (data.value.length > 0) {
@@ -73,6 +75,18 @@ public baseUrl: string = appsettings.urlImg;
     }
   })
 
+    }
+    chunk(arr: any[], size: number): any[] {
+    const chunked_arr = [];
+    for (let i = 0; i < arr.length; i++) {
+      const last = chunked_arr[chunked_arr.length - 1];
+      if (!last || last.length === size) {
+        chunked_arr.push([arr[i]]);
+      } else {
+        last.push(arr[i]);
+      }
+    }
+    return chunked_arr;
   }
  
   ngOnInit(): void {
