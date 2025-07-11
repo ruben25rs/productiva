@@ -9,7 +9,7 @@
       <table>
         <tr class="filacentrada">
           <td *ngFor="let curso of cursos;" class="celdacategoria">
-              <a routerLink="/curso/{{curso.slug_a}}">
+              <a routerLink="/alumno/area/{{curso.id}}/">
                 <img src="{{baseUrl}}img/imgareacursos/{{curso.imagen}}" class="imagenesareas" 
                 (mouseenter)="imgOver($event, curso.imagen2)" (mouseleave)="imgOverOut($event, curso.imagen)" width="100%" height="100%">
               </a>

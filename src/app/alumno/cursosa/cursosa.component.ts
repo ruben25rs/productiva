@@ -13,6 +13,8 @@ export class CursosaComponent {
     private areacursosService = inject(AreacursosService);
     public cursos: Areacursos[] = []
     public baseUrl: string = appsettings.urlImg;
+
+    public idcurso: number = 0;
   
      imgOver(img:any, urlimg: any){
       img.target.src = this.baseUrl+"img/imgareacursos/"+urlimg
@@ -22,13 +24,14 @@ export class CursosaComponent {
     }
 
      listar(){
-    this.areacursosService.listaC().subscribe({
-     next: (data) =>{
-      
-      console.log(data['value'])
+        this.areacursosService.listaC().subscribe({
+        next: (data) =>{
+          
+          console.log(data['value'])
 
-      if (data.value.length > 0) {
-        this.cursos = data['value']
+          if (data.value.length > 0) {
+            this.cursos = data['value']
+            
       }
       
 

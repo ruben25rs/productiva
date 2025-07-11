@@ -16,6 +16,10 @@ export class CursosService {
     listaCursos(slug:string) : Observable<ResponseCursos>{
         return  this.http.get<ResponseCursos>(`${this.baseUrl}curso/listarslug/`+slug)
     }
+    
+    listaCursosId(id:Number) : Observable<ResponseCursos>{
+            return  this.http.get<ResponseCursos>(`${this.baseUrl}curso/listar/`+id)
+        }
 
     
 

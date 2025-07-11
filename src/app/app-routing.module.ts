@@ -19,6 +19,7 @@ import { HomeAComponent } from './alumno/homeA/homeA.component';
 import { CursosaComponent } from './alumno/cursosa/cursosa.component';
 import { InstructorComponent } from './instructor/instructor.component';
 import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.component';
+import { AreaComponent } from './alumno/area/area.component';
 
 
 const routes: Routes = [
@@ -69,6 +70,10 @@ const routes: Routes = [
       {
         path:'cursosa',
         component: CursosaComponent
+      },
+      {
+        path: 'area/:id',
+        component: AreaComponent,
       },
     ]
   },

@@ -5,4 +5,5 @@ export interface Cursos {
      descripcion:string,
      areacurso_id:number,
      icono: string,
+     imagen2: string,
 }
