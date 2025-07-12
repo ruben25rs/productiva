@@ -52,11 +52,7 @@ a {
 }
 
 img#logoinicio {
-<<<<<<< HEAD
     width: 200px;
-=======
-    width: 220px;
->>>>>>> origin/master
 	margin-top: 8px;
 }
 .headermenu {
@@ -343,6 +339,11 @@ section#hero {
 }
 .filacentrada {
     text-align: center;
+}
+.filacentrada2 {
+    text-align: center;
+	display: inline-block;
+    width: 25%;
 }
 .celdacategoria {
     height: auto;

@@ -1,3 +1,15 @@
 .table-row {
   height: 30px !important;
 }
+#carousel_0852{
+  margin: 10% 8% 5% 8%;
+}
+.filacentrada {
+  text-align: center;
+display: inline-block;
+  width: 25%;
+}
+.active-link {
+  background-color: #1d264f;
+  color: #fff;
+}
