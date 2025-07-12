@@ -20,7 +20,7 @@ import { appsettings } from 'src/app/settings/appsettings';
 })
 export class AreaComponent {
     public urlTree: any;
-    public idcurso: number = 0;
+    public idareacurso: number = 0;
    
     
     private inscripcionService = inject(InscripcionService);
@@ -46,11 +46,11 @@ export class AreaComponent {
 
       cursoxalumno(){ 
     
-        this.cursosService.listaCursosId(this.idcurso).subscribe({
+        this.cursosService.listaCursosId(this.idareacurso).subscribe({
         next: (data) =>{  
               
-           this.cursos = data['value']
-            this.totalcursos = this.cursos.length;
+          // this.cursos = data['value']
+           // this.totalcursos = this.cursos.length;
             console.log(data['value'])
           
           if (data.value.length > 0) {
@@ -68,7 +68,7 @@ export class AreaComponent {
         this.areacursosService.listaC().subscribe({
         next: (detallecurso) =>{
           
-          console.log(detallecurso['value'])
+         // console.log(detallecurso['value'])
 
           if (detallecurso.value.length > 0) {
             this.AreaCurso = detallecurso['value']
@@ -98,11 +98,11 @@ export class AreaComponent {
   ngOnInit(): void {
     
 
-   this.idcurso = Number(this.route.snapshot.paramMap.get('id'));
+   this.idareacurso = Number(this.route.snapshot.paramMap.get('id'));
 
    this.cursoxalumno();
     this.detallarCurso();
-    console.log("curso...."+this.idcurso)
+    console.log("area curso valor idarea=...."+this.idareacurso)
   }
 
 }
