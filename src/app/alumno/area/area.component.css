@@ -5,11 +5,13 @@
   margin: 10% 8% 5% 8%;
 }
 .filacentrada {
-  text-align: center;
-display: inline-block;
+  text-align: left;
+  display: inline-block;
   width: 25%;
 }
-.active-link {
-  background-color: #1d264f;
-  color: #fff;
+h4{
+  margin-left: 10%;
+}
+a:hover {
+  margin-left: 3%;
 }
