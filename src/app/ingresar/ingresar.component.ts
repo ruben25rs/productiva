@@ -90,7 +90,7 @@ export class IngresarComponent implements AfterViewInit{
     this.forgot.nativeElement.style.opacity='0';
     this.registerBtn.nativeElement.classList.add('active');
     this.loginBtn.nativeElement.classList.remove('active');
-    this.loginregister.nativeElement.style.backgroundColor='#2E49C1';
+    this.loginregister.nativeElement.style.backgroundColor='#f28d35';
   }
 
   loginBtnclick(){
@@ -102,7 +102,7 @@ export class IngresarComponent implements AfterViewInit{
     this.loginBtn.nativeElement.classList.add('active');
     this.registerBtn.nativeElement.classList.remove('active');
     this.registerform.nativeElement.style.opacity='0';   
-    this.loginregister.nativeElement.style.backgroundColor='#872362';         
+    this.loginregister.nativeElement.style.backgroundColor='#113a8c';         
   }
 
 
