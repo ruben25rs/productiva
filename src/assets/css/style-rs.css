@@ -52,7 +52,11 @@ a {
 }
 
 img#logoinicio {
+<<<<<<< HEAD
     width: 200px;
+=======
+    width: 220px;
+>>>>>>> origin/master
 	margin-top: 8px;
 }
 .headermenu {
