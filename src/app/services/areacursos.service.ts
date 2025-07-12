@@ -14,7 +14,7 @@ export class AreacursosService {
      constructor() { }
 
      listaC() : Observable<ResponseAreacursos>{
-          return  this.http.get<ResponseAreacursos>(`${this.baseUrl}cursos/listar`)
+          return  this.http.get<ResponseAreacursos>(`${this.baseUrl}areacursos/listar`)
      }
 
     
