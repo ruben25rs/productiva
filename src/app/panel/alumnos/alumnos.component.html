@@ -46,7 +46,7 @@
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editusuario" (click)="editarU(user.id)" style="margin-bottom: 2px;">
 								Modificar
 							</button > 
-							<button type="button" class="btn btn-warning" data-toggle="modal"  data-target="#cursomodal">
+							<button type="button" class="btn btn-warning" data-toggle="modal"  data-target="#cursomodal" (click)="asignarUser(user.id)">
 								Agregar Curso
 							</button> 
 						</td>
@@ -169,6 +169,44 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 							<button type="submit" class="btn btn-primary"   (click)="actualizar()">Guardar Cambios</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="modal fade" id="cursomodal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #563d7c !important;">
+						<h6 class="modal-title" style="color: #fff; text-align: center;">
+							Agregar Curso.
+						</h6>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<form [formGroup]="cursoForm">
+						<div class="modal-body" id="cont_modal">
+							
+							
+							<div class="form-group">
+								<label class="col-form-label" for="fecha_alta">Seleccione el curso</label><br>
+								<select formControlName="curso_id" name="curso_id" id="curso_id" class="form-control" >
+									<option value="" disabled selected>Selecciona una opción</option>
+									<option *ngFor="let curso of cursos; let i = index" value="{{curso.id}}">{{curso.nombrecurso}} --- {{curso.nombrearea}}</option>
+								</select>
+								<div *ngIf="curso_id.invalid && (curso_id.dirty || curso_id.touched)" class="text-danger">
+									<div *ngIf="curso_id.errors?.['required']">
+										Seleccione una opcion.
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-primary"  (click)="agregarCurso()" >Guardar Cambios</button>
 						</div>
 					</form>
 				</div>

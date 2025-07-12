@@ -18,8 +18,11 @@ export class CursosService {
     }
     
     listaCursosId(id:Number) : Observable<ResponseCursos>{
-            return  this.http.get<ResponseCursos>(`${this.baseUrl}curso/listar/`+id)
-        }
+        return  this.http.get<ResponseCursos>(`${this.baseUrl}curso/listar/`+id)
+    }
+    listaCursosAll() : Observable<ResponseCursos>{
+        return  this.http.get<ResponseCursos>(`${this.baseUrl}cursos/listar/`)
+    }
 
     
 

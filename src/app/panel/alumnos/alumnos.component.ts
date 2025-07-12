@@ -1,9 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
 import { UsuariosService } from '../../services/usuarios.service';
+import { InscripcionService } from '../../services/inscripcion.service';
+import { ResponseInscripcion } from '../../interfaces/ResponseInscripcion';
+import { CursosService } from '../../services/cursos.service';
 import { User } from '../../interfaces/User';
+import { Inscripcion } from '../../interfaces/Inscripcion';
+import { Cursos } from '../../interfaces/Cursos'; 
 import { appsettings } from '../../settings/appsettings';
-
 import  * as functRS  from '../../../assets/js/funcionesrs';
 
 @Component({
@@ -14,8 +18,13 @@ import  * as functRS  from '../../../assets/js/funcionesrs';
 export class AlumnosComponent {
 
   private usuariosService = inject(UsuariosService);
+  private cursosService = inject(CursosService);
+  private inscripcionService = inject(InscripcionService);
 
   public usuarios: User[] = []
+
+  public cursos: Cursos[] = [];
+  public inscripcion: Inscripcion[] = [];
   public user: Array<any> = []
   public baseUrl: string = appsettings.urlImg;
   resultado:any
@@ -33,6 +42,12 @@ export class AlumnosComponent {
     genero:['',Validators.required],
     fecha_alta:['',Validators.required],
     empresa_id:[''],
+  })
+
+  cursoForm=this.formBuilder.group({
+    id:[''],
+    curso_id:['',[Validators.required]],
+    alumno_id:[''],
   })
 
   constructor(private formBuilder:FormBuilder) { 
@@ -81,6 +96,24 @@ export class AlumnosComponent {
       }
     })
   }
+  asignarUser(id:any){
+    this.cursoForm.controls.alumno_id.setValue(id)
+
+    this.cursosService.listaCursosAll().subscribe({
+      next: (cursosData) =>{
+
+        console.log(cursosData['value'])
+        if (cursosData.value.length > 0) {
+          this.cursos = cursosData['value']
+        }
+
+      }, error:(error) =>{
+        console.log(error.message); 
+      }
+    })
+
+
+  }
 
   editarU(id:number){
     this.getUser(id)
@@ -115,6 +148,29 @@ export class AlumnosComponent {
       })
     }else{
       this.editForm.markAllAsTouched();
+    }
+  }
+  agregarCurso(){
+    if(this.cursoForm.valid){
+      this.inscripcionService.registrar(this.cursoForm.value as ResponseInscripcion).subscribe({
+        next: (cursosData) =>{
+          console.log(cursosData)
+          
+
+        }, error:(error) =>{
+          console.log(error.message); 
+        },
+        complete: () => {
+          console.info("Inscripcion completo");
+          //this.router.navigateByUrl('/panel');
+          //window.location.href="/panel";
+          location.reload()
+          
+          
+        }
+      })
+    }else{
+      this.cursoForm.markAllAsTouched();
     }
   }
 
@@ -160,6 +216,10 @@ export class AlumnosComponent {
   get fecha_alta()
   {
     return this.editForm.controls.fecha_alta;
+  }
+  get curso_id()
+  {
+    return this.cursoForm.controls.curso_id;
   }
   
 
