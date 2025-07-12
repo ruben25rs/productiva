@@ -31,42 +31,44 @@ export class TemarioComponent {
 
     constructor(private route: ActivatedRoute) {}
   
- cursoxalumno(){ 
-    
-        this.cursosService.listaCursosId(this.idcurso).subscribe({
-        next: (data) =>{  
-              
-          if (data.value.length > 0) {
+  cursoxalumno(){ 
+      
+          this.cursosService.listaCursosId(this.idcurso).subscribe({
+          next: (data) =>{  
+                
+            if (data.value.length > 0) {
 
-            this.cursos = data['value']
-            this.nombrearea = data['value'][0].areacurso_nombre;
-            this.nombrecurso = data['value'][0].nombrecurso;
-            this.descripcion = data['value'][0].descripcion;
-            this.ruta2 = data['value'][0].ruta2;
+              this.cursos = data['value']
+              this.nombrearea = data['value'][0].areacurso_nombre;
+              this.nombrecurso = data['value'][0].nombrecurso;
+              this.descripcion = data['value'][0].descripcion;
+              this.ruta2 = data['value'][0].ruta2;
+              console.log("idcurso: "+this.ruta2);
+            }
+          }, error:(error) =>{
+              console.log(error.message);   
           }
-        }, error:(error) =>{
-            console.log(error.message);   
-        }
-      })
-     }
+        })
+      }
 
-     listarModuloid(){
-      this.modulosService.listarModulosId(this.idcurso).subscribe({
-        next: (modulos) => {
-          if (modulos.value.length > 0) {
-            this.modulos = modulos['value'];
+      listarModuloid(){
+        this.modulosService.listarModulosId(this.idcurso).subscribe({
+          next: (modulos) => {
+            if (modulos.value.length > 0) {
+              this.modulos = modulos['value'];
+            }
+          },
+          error: (error) => {
+            console.log(error.message);
           }
-        },
-        error: (error) => {
-          console.log(error.message);
-        }
-      });
-     }
+        });
+      }
 
       ngOnInit(): void {
         
         
          this.idcurso = Number(this.route.snapshot.paramMap.get('id'));
+         this.listarModuloid()
           this.cursoxalumno()
       }
 
