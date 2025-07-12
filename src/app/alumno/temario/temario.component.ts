@@ -29,13 +29,14 @@ export class TemarioComponent {
     private modulosService = inject(ModulosService);
     public modulos: Modulos[] = [];
 
+    public totalmodulos: number = 0;
     constructor(private route: ActivatedRoute) {}
   
   cursoxalumno(){ 
       
           this.cursosService.listaCursosId(this.idcurso).subscribe({
           next: (data) =>{  
-                
+                this.totalmodulos=data.value.length 
             if (data.value.length > 0) {
 
               this.cursos = data['value']
@@ -43,7 +44,7 @@ export class TemarioComponent {
               this.nombrecurso = data['value'][0].nombrecurso;
               this.descripcion = data['value'][0].descripcion;
               this.ruta2 = data['value'][0].ruta2;
-              console.log("idcurso: "+this.ruta2);
+              //console.log("idcurso: "+this.ruta2);
             }
           }, error:(error) =>{
               console.log(error.message);   

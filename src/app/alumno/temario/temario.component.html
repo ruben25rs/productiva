@@ -1,48 +1,32 @@
     
  <h1 class="section-title"> <span>{{nombrearea}}</span></h1>
 
+    <table>
+	<tbody>
+		<tr>
+			<td rowspan=10>
+                  <img  style="width: 500px; height: auto;" src="{{baseUrl}}/img/imgcruta/{{ruta2}}" >
+            </td>
+			<td>
+                <h1 id="titulocurso">{{nombrecurso}}</h1>
+                <h3 id="descricpiontemario">{{descripcion}}</h3>
+            </td>
+		</tr>
+		<tr>
+			<td>
+                  <h2 id="titulotemario">TEMARIO</h2>
+            </td>
+		</tr>
+        <tr *ngFor="let modulo of modulos; let i = index">
+            <td>
+                <span style=" font-size: 22px;">Módulo {{i+1}}:</span>
+                <br><span style=" font-size: 20px;">{{modulo.nombremodulo}}</span>
+              
+            </td>
+        </tr>
+	</tbody>
+</table>
     
-    <table  id="tablarecursos" [border]="1" >
-        
-        <tr id="columnainfocursos" >
-            <td id="imagentemario">
-                <img src="{{baseUrl}}/img/imgcruta/{{ruta2}}" id="imagentemar" width="100%" height="100%" >
-            </td>
-        </tr>
-        <tr>
-            <td id="celdavaciainfocursos">
-
-            </td>
-            <td id="celdainfocursos">
-                <h2 id="titulocurso">
-                    {{nombrecurso}}
-                </h2>
-                <h3 id="descricpiontemario">
-                    {{descripcion}}
-                </h3>
-            
-                
-            </td>
-        </tr>
-            <tr>    
-                <h2 id="titulotemario">TEMARIO</h2>
-            </tr>
-            <tr *ngFor="let modulo of modulos">
-                <td class=sangriavinetas></td>
-                <td class=titulostemario2><span id="nmodulo">Módulo {{modulo.nombremodulo}}</span>
-                     {{modulo.nombremodulo}}</td>
-            </tr>                 
-            <tr>
-                <td>
-
-                </td>
-                <td class=celdasvacias2>
-                </td>
-            </tr>
-                
-                
-        </table>
-           
                  
     <!-- <div class="btnInscribirse">
         <a href="../../alumno/inscripcion.php?curso='.$idc.'&usuario='.$_SESSION["id"].'" 
