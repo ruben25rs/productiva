@@ -17,6 +17,7 @@ import { ListarCursosComponent } from './cursos/listar-cursos/listar-cursos.comp
 import { AlumnoComponent } from './alumno/alumno.component';
 import { HomeAComponent } from './alumno/homeA/homeA.component';
 import { CursosaComponent } from './alumno/cursosa/cursosa.component';
+import { HomeIComponent } from './instructor/homeI/homeI.component';
 import { InstructorComponent } from './instructor/instructor.component';
 import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.component';
 import { AreaComponent } from './alumno/area/area.component';
@@ -89,11 +90,7 @@ const routes: Routes = [
     children: [
       {
         path:'',
-        component: HomeComponent
-      },
-      {
-        path:'home',
-        component: HomeComponent
+        component: HomeIComponent
       },
     ]
   },

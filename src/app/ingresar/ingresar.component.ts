@@ -140,14 +140,11 @@ public usuario: Usuarios[] = []
                    this.router.navigateByUrl('/panel');
                    break;
                  case 2: 
-                    this.router.navigate(["/intructor/homeI", data['value'][0].id]); 
+                    this.router.navigateByUrl('/instructor');
                    break; 
                   case 3: 
                       this.router.navigate(["/alumno/homeA", data['value'][0].id]); 
                     break; 
-                  default:
-                      this.router.navigate(["/alumno/homeA", data['value'][0].id]); 
-                    break;
                }
                  
               }

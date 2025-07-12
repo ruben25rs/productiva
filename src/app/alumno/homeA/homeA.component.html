@@ -1,128 +1,56 @@
+<div id="container-wrapper" class="container topalumno">
+    <div class="container">
+        <div class="row  perfil-ct u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
+            <div class="col-3" *ngFor="let user of usuarios;">
+                <form [formGroup]="imgForm">
 
-  <table   *ngFor="let user of usuarios;">
-    <tr >
-      <td rowspan=6 id="tdfotoperfil">
-    
+                    <img  src="{{baseUrl}}{{user.profile}}"  alt="Vista previa" width="200"><br><br><br>          
+                    <div id="divguardarfoto">
+                        <div id="div_file">
 
-               <form [formGroup]="imgForm">
-
-               <img  src="{{baseUrl}}{{user.profile}}"  alt="Vista previa" width="200"><br> 
-
-                <br>          
-              
-
-               <input type="file"  (change)="onFileChange($event)"><br><br>
-               <input type="submit" value="Subir Imagen" class="submit" (click)="subirimagen()">
-                </form>
-      </td>
-      <td width="65%" colspan=2>
-           <h3 class="u-text u-text-2 animated customAnimationIn-played" 
-               data-animation-name="customAnimationIn" 
-               data-animation-duration="1500" 
-               data-animation-delay="500" 
-               style="will-change: transform, opacity; animation-duration: 1500ms;">
-                    {{user.nombre_largo}}
-              <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16"  data-toggle="modal" data-target="#modalEdit" >
-                  <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
-              </svg>
-          </h3>
-        </td>
-    </tr>
-    <tr>
-        <td colspan=2>
-            <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
-                  Correo: {{user.email}}
-            </p>
-        </td>
-    </tr>
-    <tr>
-        <td width="3%">
-            <img src="../../../assets/img/alumno/docusin.svg" id="iconoinscritos" width="30" height="30">
-        </td>
-        <td>
-            <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms; margin-bottom: 0.06em;"> 
-                Cursos Inscritos: {{totalinscritos}}
-            </p>
-        </td>
-    </tr>
-    <tr>
-        <td width="3%">
-            <img src="../../../assets/img/alumno/docu.png" id="iconofinalizados" width="30" height="30">
-        </td>
-        <td>
-            <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms; margin-bottom: 0em;">
-                Cursos Finalizados: {{totalterminados}}
-            </p>
-        </td>
-    </tr>    
-  </table>
-
-   <div class="u-expanded-width u-list u-list-1"  >
-          <h1 class="section-title" id="titulomiscursos"> <span>Mis cursos:</span></h1>
-           <table  *ngFor="let cursoinscrito of cInscrito;" >
-            <tr>
-                <td>
-                        <span class="u-custom-item u-file-icon u-icon u-text-palette-3-base u-icon-4 animated customAnimationIn-played" 
-                            data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750" 
-                            style="will-change: transform, opacity; animation-duration: 1500ms;">
-                            <img src="{{baseUrl}}img/imgcursos/{{cursoinscrito.ruta2}}"alt="" width="300" height="200">
-                        </span>
-                </td> 
-                <td>
-                     <div id="divbotonescontinuar">  
-                            <h4 id="titulocursoinscrito" class="u-text u-text-8" style="color: black"> 
-                              {{cursoinscrito.nombrecurso}}
-                            </h4>
-                            <span id="btncontinuarcurso">
-       
-                                    <a href="../cursoa/{{cursoinscrito.id}} '/'" 
-                                        class="u-border-1 u-border-active-grey-70 u-border-black u-border-hover-grey-70 u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-style u-custom-item u-none u-radius-0 u-text-active-palette-3-base u-text-body-color u-text-hover-palette-3-base u-top-left-radius-0 u-top-right-radius-0 u-btn-5">
-                                        Continuar
-                                    </a>
-                            </span>
-                            <a href="#" id={{cursoinscrito.id}} class="u-border-1 u-border-active-grey-70 u-border-black u-border-hover-grey-70 u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-style u-custom-item u-none u-radius-0 u-text-active-palette-3-base u-text-body-color u-text-hover-palette-3-base u-top-left-radius-0 u-top-right-radius-0 u-btn-5">
-
-                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Eliminar
-                            </a>
-                     </div>
-                    
-                </td>
-            </tr>
-
-           </table>
-
-          <!-- <div class="u-repeater u-repeater-1" id="divcursosins" *ngFor="let cursoinscrito of Inscripcion;">
-          
-                <div id="divinscritosmargin" class="u-align-left u-border-10 u-border-no-left u-border-no-right u-border-no-top u-border-palette-3-base u-container-style u-custom-item u-list-item u-repeater-item u-shape-rectangle u-video-cover u-white u-list-item-4 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250" style="will-change: transform, opacity; animation-duration: 1500ms;">
-                    <div id="divcursosinscritos" class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
-                        <span class="u-custom-item u-file-icon u-icon u-text-palette-3-base u-icon-4 animated customAnimationIn-played" 
-                            data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750" 
-                            style="will-change: transform, opacity; animation-duration: 1500ms;">
-                            <img src='{{cursoinscrito.ruta}}' alt="">
-                        </span>
-                        <div id="divbotonescontinuar">  
-                            <h4 id="titulocursoinscrito" class="u-text u-text-8" style="color: black"> 
-                              {{cursoinscrito.nombrecurso}}
-                            </h4>
-                            <span id="btncontinuarcurso">
-                
-                                    <a href="../cursos/detailcurso.php?pidc={{cursoinscrito.id}}" class="u-border-1 u-border-active-grey-70 u-border-black u-border-hover-grey-70 u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-style u-custom-item u-none u-radius-0 u-text-active-palette-3-base u-text-body-color u-text-hover-palette-3-base u-top-left-radius-0 u-top-right-radius-0 u-btn-5">
-                                        Continuar
-                                    </a>
-                            </span>
-                                <a href="#" class="u-border-1 u-border-active-grey-70 u-border-black u-border-hover-grey-70 u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-style u-custom-item u-none u-radius-0 u-text-active-palette-3-base u-text-body-color u-text-hover-palette-3-base u-top-left-radius-0 u-top-right-radius-0 u-btn-5">
-
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Eliminar
-                                </a>
+                            <input type="file" id="file1" (change)="onFileChange($event)"/>
+                            <p id="texto">Examinar</p>
                         </div>
-                    </div>
-                </div>
-          </div> -->
-    </div>
-  
 
-<script language="javascript">
-    function showLogIn() {
-        $("#modalEdit").modal();
-    }
-</script>
+                        <input type="submit" value="Subir Imagen" class="submit btn btn-primary" (click)="subirimagen()"/>
+                    </div>
+                </form>
+            </div>
+            <div class="col-9" *ngFor="let user of usuarios;">
+                <h3 class="u-text u-text-2 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity;animation-duration: 1500ms;">
+                    {{user.nombre}} {{user.apellido_p}}
+                    <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16"  data-toggle="modal" data-target="#modalEdit" ><path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/></svg>
+                </h3>
+                <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
+                Correo: {{user.email}}</p>
+                <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
+                Empresa: {{user.empresa}}</p>
+                <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
+                    <img src="/assets/img/alumno/docusin.svg" id="iconoinscritos" style="width:30px; height: 30px;">
+                    Cursos Inscritos: {{totalinscritos}}
+                </p>
+                <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
+                    <img src="/assets/img/alumno/docu.png" id="iconofinalizados" style="width:30px; height: 30px;">
+                    Cursos Finalizados: {{totalterminados}}
+                </p>
+            </div>
+        </div>
+        <div class="row perfil-ct" style="padding-top: 50px; padding-bottom: 20px;">
+            <h1 class="title-enc">Mis Cursos:</h1>
+            <div class="col-12" *ngIf="(cInscrito.length==0)">Por el momento no se ha inscrito a ningun curso</div>
+        </div>
+        <div class="row curso-ct" *ngFor="let cursoinscrito of cInscrito;" >
+            <div class="col-4">
+                <img src="{{baseUrl}}img/imgcursos/{{cursoinscrito.ruta2}}"alt=""  class="img-ct">
+            </div>
+            <div class="col-8">
+                <h4 class="title-enc" style="color: #000; margin: 20px 0"> {{cursoinscrito.nombrecurso}}</h4>
+                <span class="btn btn-primary btn-custom">
+                    <a href="../cursoa/{{cursoinscrito.id}} '/'" 
+                    class="enlace-ct" style="color: #fff;">Continuar</a>
+                </span>
+                <a href="#" id={{cursoinscrito.id}} class="enlace-ct" style="color: #000;">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>

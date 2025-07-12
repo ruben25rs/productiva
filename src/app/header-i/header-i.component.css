@@ -5,7 +5,6 @@
 .headermenu {
     padding: 18px 120px;
     display: block;
-    text-decoration: none;
 }
 .navbar {
     display: flex;
@@ -17,7 +16,4 @@
 
 img#logoinicio {
     width: 165px;
-}
-section#header {
-    background-color: #fff;
 }

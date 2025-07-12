@@ -35,6 +35,7 @@ import { HomeIComponent } from './instructor/homeI/homeI.component';
 import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.component';
 import { AreaComponent } from './alumno/area/area.component';
 import { TemarioComponent } from './alumno/temario/temario.component';
+import { HeaderIComponent } from './header-i/header-i.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { TemarioComponent } from './alumno/temario/temario.component';
     VerEncuestaComponent,
     AreaComponent,
     TemarioComponent,
+    HeaderIComponent,
   ],
   imports: [
     BrowserModule,
