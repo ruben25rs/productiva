@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-a',
@@ -7,5 +8,15 @@ import { Component } from '@angular/core';
 })
 export class HeaderAComponent {
 
+  currentUrl: string = '';
+
   idUser: Number = Number(sessionStorage.getItem("id"))
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(() => {
+      this.currentUrl = this.router.url;
+    });
+  }
+
+
 }

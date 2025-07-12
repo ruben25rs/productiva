@@ -1,17 +1,42 @@
 .table-row {
   height: 30px !important;
 }
-#carousel_0852{
-  margin: 10% 8% 5% 8%;
+
+.topalumno{
+  padding-top: 120px;
+  min-height: 740px;
 }
-.filacentrada {
+.section-title {
+  font-size: 4rem;
+  font-weight: 600;
+  color: #061d63;
+}
+.curso-item {
+  height: 370px;
+  background: #f6f6f6;
+  margin-bottom: 25px;
+}
+.buttons-curso {
+  padding: 10px 18px;
+  text-align: center;
+}
+h4.title-curso {
+  font-size: 20px;
   text-align: left;
-  display: inline-block;
-  width: 25%;
 }
-h4{
-  margin-left: 10%;
+.enlace-ct {
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+  width: 100%;
+  position: relative;
 }
-a:hover {
-  margin-left: 3%;
+.link-ct{
+  color: #000;
+}
+.link-temario:hover{
+  color: #e37218;
+}
+.text-ct {
+    height: 100px;
 }

@@ -1,17 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { Cursos } from '../../interfaces/Cursos'; 
+import { CursosService } from '../../services/cursos.service';
+import { appsettings } from '../../settings/appsettings';
+import { Router } from '@angular/router';
 
-import { Inscripcion } from 'src/app/interfaces/Inscripcion';
-import { InscripcionService } from 'src/app/services/inscripcion.service';
-import { CInscrito } from 'src/app/interfaces/CInscrito';
-
-import { AreacursosService } from 'src/app/services/areacursos.service';
-import { Areacursos } from '../../interfaces/Areacursos';
-
-import { Cursos } from 'src/app/interfaces/Cursos';
-import { CursosService } from 'src/app/services/cursos.service';
-import { appsettings } from 'src/app/settings/appsettings';
 
 @Component({
   selector: 'app-area',
@@ -19,90 +12,42 @@ import { appsettings } from 'src/app/settings/appsettings';
   styleUrls: ['./area.component.css']
 })
 export class AreaComponent {
-    public urlTree: any;
-    public idareacurso: number = 0;
-   
-    
-    private inscripcionService = inject(InscripcionService);
-    private areacursosService = inject(AreacursosService);
-    private cursosService = inject(CursosService);
 
-    public cursos: Cursos[] = []
-    public AreaCurso: Areacursos[] = []
-    public baseUrl: string = appsettings.urlImg;
+  idArea?: String
+  
 
-    public Inscripcion: Inscripcion[] = [];
-    public cInscrito: CInscrito[] = [];
+  private cursosService = inject(CursosService);
 
-    idUser: Number = Number(sessionStorage.getItem("id"))
-    
-    public inscrito : boolean = false;
+  public cursos: Cursos[] = []
+  public baseUrl: string = appsettings.urlImg;
 
-    public totalcursos: number = 0;
-    public nombrearea: string = '';
-     public idarea: number = 0;
+  constructor(private route: ActivatedRoute, private router: Router) {
 
-    constructor(private route: ActivatedRoute) {}
 
-      cursoxalumno(){ 
-    
-        this.cursosService.listaCursosId(this.idareacurso).subscribe({
-        next: (data) =>{  
-              
-          // this.cursos = data['value']
-           // this.totalcursos = this.cursos.length;
-            console.log(data['value'])
-          
-          if (data.value.length > 0) {
-            this.cursos = data['value']
-            this.nombrearea = data['value'][0].areacurso_nombre;
-           
-          }
-        }, error:(error) =>{
-            console.log(error.message);   
+  }
+
+
+  listar(){
+    this.cursosService.listaCursos(String(this.idArea)).subscribe({
+      next: (data) =>{
+
+        console.log(data['value'])
+        if (data.value.length > 0) {
+          this.cursos = data['value']
         }
-      })
-     }
+        
 
-     detallarCurso(){
-        this.areacursosService.listaC().subscribe({
-        next: (detallecurso) =>{
-          
-         // console.log(detallecurso['value'])
-
-          if (detallecurso.value.length > 0) {
-            this.AreaCurso = detallecurso['value']
-            
+      }, error:(error) =>{
+        console.log(error.message); 
       }
-      
-
-          }, error:(error) =>{
-            console.log(error.message); 
-          }
-        })
-
-    }
-    chunk(arr: any[], size: number): any[] {
-    const chunked_arr = [];
-    for (let i = 0; i < arr.length; i++) {
-      const last = chunked_arr[chunked_arr.length - 1];
-      if (!last || last.length === size) {
-        chunked_arr.push([arr[i]]);
-      } else {
-        last.push(arr[i]);
-      }
-    }
-    return chunked_arr;
-  }
- 
-  ngOnInit(): void {
-    
-
-   this.idareacurso = Number(this.route.snapshot.paramMap.get('id'));
-
-   this.cursoxalumno();
-    this.detallarCurso();
-    console.log("area curso valor idarea=...."+this.idareacurso)
+    })
   }
 
+  ngOnInit(){       
+    this.idArea = String(this.route.snapshot.paramMap.get('id'));
+    console.log(this.idArea)
+
+    this.listar()
+  }
 }
+

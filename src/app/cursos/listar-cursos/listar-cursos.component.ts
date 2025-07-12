@@ -14,7 +14,7 @@ import { appsettings } from '../../settings/appsettings';
 })
 export class ListarCursosComponent {
 
-  idArea?: number
+  idArea?: String
 
   private cursosService = inject(CursosService);
 
@@ -25,7 +25,7 @@ export class ListarCursosComponent {
 
 
   listar(){
-    this.cursosService.listaCursos("productividad-laboral").subscribe({
+    this.cursosService.listaCursos(String(this.idArea)).subscribe({
      next: (data) =>{
       
       console.log(data['value'])
@@ -43,7 +43,7 @@ export class ListarCursosComponent {
   }
 
   ngOnInit(){       
-    this.idArea = Number(this.route.snapshot.paramMap.get('id'));
+    this.idArea = String(this.route.snapshot.paramMap.get('id'));
     console.log(this.idArea)
 
     this.listar()

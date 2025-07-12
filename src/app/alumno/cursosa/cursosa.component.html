@@ -1,5 +1,5 @@
 <!-- Service Section -->
-<section id="hero" class="services ">
+<section id="hero" class="services container ">
   <div class="services container-s">
    
     <div class="titulocategoriascursos">
@@ -9,7 +9,7 @@
       <table>
         <tr class="filacentrada">
           <td *ngFor="let curso of cursos;" class="celdacategoria">
-              <a routerLink="/alumno/area/{{curso.id}}/">
+              <a routerLink="/alumno/area/{{curso.slug_a}}/">
                 <img src="{{baseUrl}}img/imgareacursos/{{curso.imagen}}" class="imagenesareas" 
                 (mouseenter)="imgOver($event, curso.imagen2)" (mouseleave)="imgOverOut($event, curso.imagen)" width="100%" height="100%">
               </a>
