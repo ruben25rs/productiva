@@ -8,9 +8,14 @@
 		<app-header-p></app-header-p>
 		<router-outlet></router-outlet>
 	</div>
+	<div *ngIf="(tipoUser==2)">
+		<app-header-i></app-header-i>
+		<router-outlet></router-outlet>
+	</div>
 	<div *ngIf="(tipoUser==3)">
 		<app-header-a></app-header-a>
 		<router-outlet></router-outlet>
+		<app-footer></app-footer>
 	</div>
 </div>
 <!-- <app-header *ngIf="!banderaInvitado"></app-header>

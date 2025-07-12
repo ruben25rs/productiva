@@ -20,32 +20,35 @@ export class ScriptsComponent {
 
   activar_class(){
 
-    let elem = document.getElementsByClassName('iniciomn')
+    // let elem = document.getElementsByClassName('iniciomn')
 
-    let path = location.pathname
+    // let path = location.pathname
 
-    if (this.tipouser==0||this.tipouser==null) {
+    // if (this.tipouser==0||this.tipouser==null) {
 
-      if(path=="/"||path=="/inicio"){
+    //   if(path=="/"||path=="/inicio"){
 
 
-        elem[0].className ="headermenu iniciomn active-link";
+    //     elem[0].className ="headermenu iniciomn active-link";
 
-      }else{
-        elem[0].className ="headermenu iniciomn initext";
-      }
-    }
-    if (this.tipouser==3) {
-      this.router.navigate(['/alumno/homeA']);
-    }
-    if (this.tipouser==1) {
-      this.router.navigate(['/panel']);
-    }
+    //   }else{
+    //     elem[0].className ="headermenu iniciomn initext";
+    //   }
+    // }
+    // if (this.tipouser==3) {
+    //   this.router.navigate(['/alumno/homeA']);
+    // }
+    // if (this.tipouser==2) {
+    //   this.router.navigate(['/instructor']);
+    // }
+    // if (this.tipouser==1) {
+    //   this.router.navigate(['/panel']);
+    // }
 
     
 
 
-    console.log(path)
+    
   }
 
 

@@ -44,6 +44,7 @@ constructor(private route: ActivatedRoute) {} */
 
 
   idUser: Number = Number(sessionStorage.getItem("id"))
+
   selectedFile: File | null = null;
   previewUrl: string | ArrayBuffer | null = null;
   imgForm=this.formBuilder.group({
@@ -60,7 +61,7 @@ constructor(private route: ActivatedRoute) {} */
       this.usuariosService.showUserProfile(this.idUser).subscribe({
       next: (data) =>{
         this.rutatemp = this.baseUrl + data['value'][0].profile;
-          
+        
         if (data.value.length > 0) {
           this.usuarios = data['value']
         
@@ -172,6 +173,8 @@ cursoxalumno(){
   } */
  
 ngOnInit(): void {
+
+    console.log(this.idUser)
    
     this.showUsuer();
     this.inscritosCurso()
