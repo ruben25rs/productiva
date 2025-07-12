@@ -3,7 +3,7 @@
   <section id="hero">
     <div class="container">
       <div id="main-container">
-        <div class="login-register" id="login-register" #loginregister style="background-color: rgb(135, 35, 98);">
+        <div class="login-register" id="login-register" #loginregister style="background-color: #113a8c;">
           <p class="text-danger">{{loginError}}</p>
           <div class="nav-buttons">
             <button #loginBtn id="loginBtn" class="active" (click)="loginBtnclick()">Iniciar sesión </button>
@@ -29,7 +29,8 @@
                   El Password es requerido.
                 </div>
               </div> 
-              <input type="submit" value="Iniciar sesión" class="submit" (click)="login()">
+              <input type="submit" value="Iniciar sesión" class="submit" style="border-radius: 20px;
+              background-color: #1d264f;" (click)="login()">
 
             </form>
 
@@ -93,7 +94,8 @@
                   </div> 
                 </li>
               </div>  
-              <input type="submit" value="Registrar" class="submit" (click)="register()">
+              <input type="submit" value="Registrar" class="submit" style="border-radius: 20px;
+              background-color: #f25f29;" (click)="register()">
             </form>
             <div id="forgot" #forgot style="left: 0px; opacity: 1;">
               <a href="forgot.php">¿Olvidaste tu contraseña?</a>

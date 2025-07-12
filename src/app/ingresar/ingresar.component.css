@@ -45,9 +45,10 @@ html,body, body * {
     box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
     overflow: hidden; 
     /*background: linear-gradient(180deg, rgba(65,4,119,1) 40%, rgba(22,147,198,1) 80%, rgba(22,147,198,1) 85%);*/
-    background-color: #872362;
+    background-color: #113a8c;
     color:#ffffff;
 }
+
 
 /* Nav Buttons  */
 .nav-buttons {
@@ -138,7 +139,7 @@ form#registerform {
 } 
 .text-danger {
   font-size: 11.5px;
-  color: #ff6f6f;
+  color: #e1dada;
   padding-bottom: 7px;
 }
 /*style footer*/
@@ -200,7 +201,7 @@ a {
 }
 
 .ng-invalid:not(form).ng-touched  {
-    border-left: 5px solid #a94442; /* red */
+    border-left: 5px; /* red */
 }
 
 
