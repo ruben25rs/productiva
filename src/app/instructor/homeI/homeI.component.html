@@ -1,1 +1,46 @@
-<p>home works!</p>
+<div id="container-wrapper" class="container topalumno">
+	<div class="container">
+		<div class="row  perfil-ct u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
+			<div class="col-3" *ngFor="let user of usuarios;">
+				<form [formGroup]="imgForm">
+
+					<img  src="{{baseUrl}}{{user.profile}}"  alt="Vista previa" width="200"><br><br><br>          
+					<div id="divguardarfoto">
+
+						<div id="div_file">
+
+							<input type="file" id="file1" (change)="onFileChange($event)"/>
+							<p id="texto">Examinar</p>
+						</div>
+						<input type="submit" value="Subir Imagen" class="submit btn btn-primary" (click)="subirimagen()"/>
+					</div>
+				</form>
+			</div>
+			<div class="col-9" *ngFor="let user of usuarios;">
+				<h3 class="u-text u-text-2 animated customAnimationIn-played" >
+					{{user.nombre}} {{user.apellido_p}}
+					<svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16"  data-toggle="modal" data-target="#modalEdit" ><path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/></svg>
+				</h3>
+				<p class=" u-text-3 " >Correo: {{user.email}}</p>
+				<p class=" u-text-3 " ><img src="/assets/img/docusin.png" class="ic-encuesta"> Encuestas asignadas: {{encuestas.length}}</p>
+			</div>
+		</div>
+		<div class="row" style="padding-top: 50px; padding-bottom: 20px;">
+			<h1 class="title-enc">Encuestas asignadas:</h1>
+			<div class="col-12" *ngIf="(encuestas.length==0)">Por el momento no tiene encuesta asignadas</div>
+		</div>
+		<div class="row" style="padding-top: 20px; border-top: 1.5px solid #000" *ngFor="let encuesta of encuestas;" >
+			<div class="col-10">
+				<h3 class="title-enc">{{encuesta.titulo}}</h3>
+				<p class="descripcion">Descripcion: {{encuesta.descripcion}}</p>
+			</div>
+			<div class="col-2">
+				<div class="buttons-enc">
+					<button class="btn btn-primary" *ngIf="(encuesta.estatus==1)">Realizada</button>
+					<button class="btn btn-primary" *ngIf="(encuesta.estatus!=1)">Responder</button>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

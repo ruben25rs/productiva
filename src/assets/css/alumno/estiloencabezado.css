@@ -1,0 +1,296 @@
+/* inicia el estilo para el encabezado*/
+@font-face {
+	font-family: Acumin;
+	src: url(AcuminVariableConcept.ttf);
+}
+
+#planmarketing{
+	margin-left: 20px;
+}
+
+#logotipo{
+	text-align: left;
+}
+#logo{
+	position: relative;
+	width: 53%;
+	padding-top: 2%;
+}
+
+#encabezado{
+	/*background-color: rgb(216, 210, 227);*/
+	position: sticky;
+	top: 0px;
+	margin: 0%;
+	width: 100%;
+	/*text-align: center;*/
+}
+#tituloprincipal{
+	margin: 0%;
+	color: #000000;
+}
+#menu{
+	background-color: white;
+	margin-top: 0%;
+	margin-left: 0%;
+	font-family: sans-serif;
+	margin-bottom: 0%;
+	/*height: 6.5em;*/
+}
+.menus{
+	display: inline-block;
+	font-size: 1.1em;
+	text-align: center;
+	width: 20%;
+	vertical-align: top;
+	padding: 1em;
+}
+.logo{
+	display: inline-block;
+	font-size: 1.3em;
+	text-align: left;
+	width: 17%;
+}
+.menusvacio {
+    display: inline-block;
+    font-size: 1.1em;
+    text-align: center;
+    width: 40%;
+    vertical-align: top;
+    padding: 1em;
+}
+a{
+	color: #000000;
+	font-family: Acumin;
+}
+#miperfil{
+	color: white;
+}
+#miperfilfondo{
+	background-color: #872362;
+}
+a:hover {
+	color: #630ba3;
+	cursor: pointer;
+  }
+
+h1{
+	color: #000000;
+}
+
+.section-title {
+	font-size: 4rem;
+	font-weight: 300;
+	color: #872362;
+	margin-bottom: 10px;
+	/*text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;*/
+	margin-left: 1.3rem;
+}
+.section-title span {
+	/*color: #4720b7;*/
+	
+}
+
+.letrasmenu{
+	font-family: Acumin;
+}
+
+h2{
+	color: #000000;
+}
+.section-eva{
+	font-size: 2rem;
+	font-weight: 300;
+	color: rgb(146, 26, 201);
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+}
+
+/*style footer*/
+
+#footer{
+	background-color: #872362;
+}
+#divfooter{
+	display: flex;
+	height: 13em;
+}
+#logopie{
+	/*width: 20%;*/
+    padding: 2% 3%;
+}
+#imglogopie{
+	height: 50%;
+	margin-top: 20%;
+}
+#texto1pie{
+	width: 50%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2.5%;
+	font-family: 'Montserrat';
+}
+#parrafodireccion{
+	line-height: 110%;
+}
+.parrafosfooter{
+	font-weight: 550;
+	color: white;
+}
+#texto2pie{
+	width: 32%;
+    padding: 2% 5%;
+	font-family: 'Montserrat';
+    margin-top: 2.6%;
+}
+#parrafoter{
+	line-height: 110%;
+}
+#terminosycon{
+	text-decoration: underline;
+}
+#iconoinscritos{
+	width: 90%;
+}
+#tdfotoperfil {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+@media(min-width: 2000px){
+	body{
+		max-width: 1550px;
+	}
+	html{
+		text-align: -webkit-center;
+	}
+	#footer {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+@media screen and (max-width:850px){
+	#logopie {
+		padding: 0% 3%;
+	}
+	#imglogopie {
+		height: 30%;
+		margin-top: 11%;
+	}
+	#texto1pie {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#texto2pie {
+		padding: 0% 3%;
+	}
+	#carousel_0852 {
+		padding-top: 0;
+	}
+	
+}
+
+@media screen and (max-width:700px){
+	.logo {
+		/*display: none;*/
+		width: 36%;
+	}
+	.menus {
+		display: inline-block;
+		font-size: 90%;
+		text-align: center;
+		width: 25%;
+		vertical-align: top;
+		padding: 1em;
+	}
+	.menusvacio {
+		display: inline-block;
+		width: 0%;
+	}
+	#divperfil{
+		margin: 0;
+    	display: inline;
+	}
+	#tdfotoperfil{
+		text-align: left;
+    	font-size: 0.7em;
+	}
+	#fotoperfil{
+		margin-left: 28%;
+	}
+	#guardarfotoperfil{
+		margin-left: 28%;
+	}
+
+	div#div_file {
+		width: 8em;
+		margin-left: 1.8em;
+	}
+	#titulomiscursos {
+		font-size: 1.6em;
+	}
+	#divcursosinscritos{
+		flex-direction: column;
+    	height: 70%;
+	}
+	#titulocursoinscrito {
+		margin-left: 2em;
+		margin-bottom: 5%;
+		font-weight: 500;
+		font-size: 1.3em;
+	}
+	#btncontinuarcurso {
+		margin-left: 1em;
+		padding: 2% 9%;
+	}
+	#iconoinscritos{
+		width: 0.7em;
+	}
+	#iconofinalizados{
+		width: 0.7em;
+	}
+	#menu {
+		text-align: right;
+	}
+	#tablaencuestas {
+		width: auto;
+		padding-left: 0;
+	}
+	#encuestarealizada {
+		width: auto;
+	}
+
+	/* footer*/
+	#logopie {
+		width: 22%;
+		padding: 2% 2%;
+		padding-left: 0;
+	}
+	#imglogopie {
+		height: 22%;
+		margin-top: 50%;
+	}
+	#texto1pie {
+		width: 50%;
+		padding: 3% 0%;
+	}
+	#footer p {
+		font-size: 70%;
+		margin-bottom: 3.3%;
+		line-height: 120%;
+	}
+	#texto2pie {
+		width: 32%;
+		padding: 1% 1%;
+	}
+	#divfooter{
+		height: 10em;
+	}
+	/*end footer*/
+}
+

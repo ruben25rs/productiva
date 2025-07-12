@@ -2,9 +2,17 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
 import { UsuariosService } from '../../services/usuarios.service';
 import { User } from '../../interfaces/User';
+import { EncuestaService } from '../../services/encuesta.service';
+import { ResponseEncuestas } from '../../interfaces/ResponseEncuestas';
+import { DetalleencuestaService } from '../../services/detalleencuesta.service';
+import { ResponseDetalleencuestas } from '../../interfaces/ResponseDetalleencuestas';
+import { Encuestas } from '../../interfaces/Encuestas';
 import { appsettings } from '../../settings/appsettings';
 
 import  * as functRS  from '../../../assets/js/funcionesrs';
+import Swal from 'sweetalert2';
+
+declare var $: any;
 
 @Component({
   selector: 'app-capacitador',
@@ -14,7 +22,10 @@ import  * as functRS  from '../../../assets/js/funcionesrs';
 export class CapacitadorComponent {
 
   private usuariosService = inject(UsuariosService);
-
+  private encuestaService = inject(EncuestaService);
+  private detalleencuestaService = inject(DetalleencuestaService);
+  
+  public encuestas: Encuestas[] = [];
   public usuarios: User[] = []
   public user: Array<any> = []
   public baseUrl: string = appsettings.urlImg;
@@ -33,6 +44,12 @@ export class CapacitadorComponent {
     genero:['',Validators.required],
     fecha_alta:['',Validators.required],
     empresa_id:[''],
+  })
+
+  detEncForm=this.formBuilder.group({
+    id:[''],
+    encuesta_id:['',[Validators.required]],
+    usuario_id:['']
   })
 
   constructor(private formBuilder:FormBuilder) { 
@@ -85,6 +102,9 @@ export class CapacitadorComponent {
   editarU(id:number){
     this.getUser(id)
   }
+  encuestaUser(id:number){
+    this.detEncForm.controls.usuario_id.setValue(String(id))
+  }
 
   actualizar(){
     if(this.editForm.valid){
@@ -128,6 +148,62 @@ export class CapacitadorComponent {
     })
   }
 
+
+  listar_enc(){
+    this.encuestaService.listarEncuestas().subscribe({
+      next: (data) =>{
+        console.log(data['value'])
+        if (data.value.length > 0) {
+          this.encuestas = data['value']
+        }
+
+      }, error:(error) =>{
+        console.log(error.message); 
+      }
+    })
+  }
+
+  actualizar_enc(){
+    if(this.detEncForm.valid){
+      this.detalleencuestaService.registrar(this.detEncForm.value as ResponseDetalleencuestas).subscribe({
+        next: (detalleEnc) =>{
+          console.log(detalleEnc)
+          
+
+        }, error:(error) =>{
+          console.log(error.messageper); 
+          Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'info',
+            title: error.messageper,
+            showConfirmButton: false,
+            timer: 3500
+          });
+        },
+        complete: () => {
+          console.info("Update completo");
+          //this.router.navigateByUrl('/panel');
+          //window.location.href="/panel";
+          $('#encuestamodal').modal('hide');
+          Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'success',
+            title: 'Encuesta Agregada',
+            showConfirmButton: false,
+            timer: 3000
+          });
+          
+          
+          
+        }
+      })
+    }else{
+      this.detEncForm.markAllAsTouched();
+    }
+  }
+
   
   get nombre()
   {
@@ -161,13 +237,18 @@ export class CapacitadorComponent {
   {
     return this.editForm.controls.fecha_alta;
   }
+  get encuesta_id()
+  {
+    return this.detEncForm.controls.encuesta_id;
+  }
   
 
   ngOnInit(): void {
     //this.cargar_table()
     this.listar()
+    this.listar_enc()
     functRS.hola()
-    console.log(functRS.userdatatable())
+    console.log(functRS.capdatatable())
   }
 
 
