@@ -9,5 +9,6 @@ export interface Cursos {
      areacurso_nombre: string,
      ruta2: string, 
      ruta: string,
-     nombrearea: string
+     nombrearea: string,
+     inscrito: number
 }

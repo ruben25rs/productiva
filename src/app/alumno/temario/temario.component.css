@@ -238,3 +238,9 @@ img.img-check {
     height: 100%;
     object-fit: cover;
 }
+.inscrito{
+    padding: 4px 30px;
+}
+.link-temario {
+    padding: 4px 30px;
+}

@@ -54,7 +54,7 @@ export class DetallecursoComponent {
       next: (data) =>{
         console.log(data)
         this.listarRecursos()
-        this.router.navigateByUrl('/alumno/recurso/'+idRecurso);
+        window.open('/alumno/recurso/' + idRecurso, '_blank');
       }, error:(error) =>{
         console.log(error.message); 
       }

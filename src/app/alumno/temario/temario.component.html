@@ -22,12 +22,14 @@
                     
                     <div *ngFor="let recurso of modulo.recursos; let k = index">
                         
-                        <a href="/alumno/recurso/{{recurso['id']}}" class="title-mod" (click)="visto_recurso(recurso['id'])">{{modulo.nombremodulo}}</a>
+                        <a  class="title-mod" >{{modulo.nombremodulo}}</a>
                     </div>
                     <br>
                     
                 </div>
-                <a  class="btn btn-primary btn-examen">Inscrito</a>
+                <a *ngIf="activarInscripcion" class="btn btn-primary enlace-ct link-temario inscrito
+                        " style=" border-radius: 1em;"> Inscrito</a>
+                <button *ngIf="!activarInscripcion" (click)="inscribirse()" class="btn btn-primary enlace-ct link-temario" style="background-color: #00b0ff; border-radius: 1em;"> Inscribirse</button>
             </div>
         </div>
         <div class="row">
