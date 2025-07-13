@@ -1,59 +1,37 @@
-    
- <h1 class="section-title"> <span>{{nombrearea}}</span></h1>
-
-    <table>
-	<tbody>
-		<tr>
-			<td rowspan=10>
-                  <img  style="width: 500px; height: auto;" src="{{baseUrl}}/img/imgcruta/{{ruta2}}" >
-            </td>
-			<td>
-                <h1 id="titulocurso">{{nombrecurso}}</h1>
-                <h3 id="descricpiontemario">{{descripcion}}</h3>
-            </td>
-		</tr>
-		<tr>
-			<td>
-                  <h2 id="titulotemario">TEMARIO</h2>
-            </td>
-		</tr>
-        <tr *ngFor="let modulo of modulos; let i = index">
-            <td>
-                <span style=" font-size: 22px;">Módulo {{i+1}}:</span>
-                <br><span style=" font-size: 20px;">{{modulo.nombremodulo}}</span>
-              
-            </td>
-        </tr>
-	</tbody>
-</table>
-    
-                 
-    <!-- <div class="btnInscribirse">
-        <a href="../../alumno/inscripcion.php?curso='.$idc.'&usuario='.$_SESSION["id"].'" 
-        class="btnInscribirsebtn"
-        class="u-border-1 u-border-active-grey-70 u-border-black u-border-hover-grey-70 u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-style u-custom-item u-none u-radius-0 u-text-active-palette-2-base u-text-body-color u-text-hover-palette-2-base u-top-left-radius-0 u-top-right-radius-0 u-btn-2">
-        INSCRIBIRSE</a>
-    </div>';
-     -->
-
-    
-            <div class="btnInscribirse">
-            <a href="#" id="" class="btnInscribirsebtn" class="u-border-1 u-border-active-grey-70 u-border-black u-border-hover-grey-70 u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-style u-custom-item u-none u-radius-0 u-text-active-palette-2-base u-text-body-color u-text-hover-palette-2-base u-top-left-radius-0 u-top-right-radius-0 u-btn-2">
-            INSCRITO
-            </a>
-            </div>';  
-           
- 
-      <!--  <div class="btnInscribirse" class="btnInscribirsebtn">
-            <a href="../../alumno/inscripcion.php?curso='.$idc.'&usuario='.$_SESSION["id"].'" 
-             class="u-border-1 u-border-active-grey-70 u-border-black u-border-hover-grey-70 u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-style u-custom-item u-none u-radius-0 u-text-active-palette-2-base u-text-body-color u-text-hover-palette-2-base u-top-left-radius-0 u-top-right-radius-0 u-btn-2">
-                INSCRIBIRSE
-            </a>
+<div id="container-wrapper" class="container topalumno">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="title-enc" *ngIf="curso">{{curso.nombrecurso}}</h1>
+                <br><br>
+            </div>
         </div>
-       
-                   
-                    </td>
-                </tr>       
-                 -->
-           
-          
+        <div class="row">
+            <div class="col-5 row-img">
+                <div class="img-cursos">
+                    <img *ngIf="curso" src="{{baseUrl}}{{curso.icono}}" >
+                </div>
+                
+            </div>
+            <div class="col-7">
+                <div class="modulos-list" *ngFor="let modulo of modulos; let i = index">
+                    <h3 class="title-enc" >Módulo {{i+1}}.</h3>
+                    <div *ngIf="(modulo.recursos.length==0)">
+                        <a  class="title-mod">{{modulo.nombremodulo}}</a>
+                    </div>
+                    
+                    <div *ngFor="let recurso of modulo.recursos; let k = index">
+                        
+                        <a href="/alumno/recurso/{{recurso['id']}}" class="title-mod" (click)="visto_recurso(recurso['id'])">{{modulo.nombremodulo}}</a>
+                    </div>
+                    <br>
+                    
+                </div>
+                <a  class="btn btn-primary btn-examen">Inscrito</a>
+            </div>
+        </div>
+        <div class="row">
+            <br><br><br>
+        </div>
+    </div>
+</div>

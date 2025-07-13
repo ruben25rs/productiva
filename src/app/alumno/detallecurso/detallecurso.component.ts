@@ -9,12 +9,12 @@ import { Cursos } from '../../interfaces/Cursos';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-temario',
-  templateUrl: './temario.component.html',
-  styleUrls: ['./temario.component.css']
+  selector: 'app-detallecurso',
+  templateUrl: './detallecurso.component.html',
+  styleUrls: ['./detallecurso.component.css']
 })
-export class TemarioComponent {
-    
+export class DetallecursoComponent {
+
   idCurso?: Number;
   idUser: Number = Number(sessionStorage.getItem("id"))
 
@@ -24,8 +24,6 @@ export class TemarioComponent {
   public recursos: Recurso[] = [];
   public curso?: Cursos;
   public activarExamen = false;
-
-  public baseUrl: string = appsettings.urlImg;
 
   constructor(private route: ActivatedRoute, private router:Router) { 
   }
@@ -56,6 +54,7 @@ export class TemarioComponent {
       next: (data) =>{
         console.log(data)
         this.listarRecursos()
+        this.router.navigateByUrl('/alumno/recurso/'+idRecurso);
       }, error:(error) =>{
         console.log(error.message); 
       }

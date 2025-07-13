@@ -1,0 +1,39 @@
+<div id="container-wrapper" class="container topalumno">
+    <div class="container">
+    	<div class="row">
+    		<div class="col">
+    			<h1 class="title-enc" *ngIf="curso">{{curso.nombrecurso}}</h1>
+    			<br><br>
+    		</div>
+    	</div>
+    	<div class="row" *ngFor="let modulo of modulos; let i = index">
+    		<div class="col-1 row-img">
+    			<div *ngFor="let recursoV of modulo.recursos; let j = index">
+    				<img *ngIf="(recursoV['visto']==1)" src="/assets/img/checkcompleto.png" class="img-check">
+    				<img *ngIf="(recursoV['visto']==0)" src="/assets/img/checkvacio.png" class="img-check">
+    			</div>
+    			
+    		</div>
+    		<div class="col-11">
+    			
+    			<h3 class="title-enc" >Módulo {{i+1}}.</h3>
+    			<div *ngIf="(modulo.recursos.length==0)">
+    				<a  class="title-mod">{{modulo.nombremodulo}}</a>
+    			</div>
+    			
+    			<div *ngFor="let recurso of modulo.recursos; let k = index">
+    				
+    				<a style="cursor: pointer;" class="title-mod" (click)="visto_recurso(recurso['id'])">{{modulo.nombremodulo}}</a>
+    			</div>
+    			<br>
+    		</div>
+    	</div>
+    	<div class="row">
+    		<div class="col-1"></div>
+    		<div class="col-11">
+    			<a *ngIf="activarExamen" class="btn btn-primary btn-examen">Enviar evaluación</a>
+                <br><br>
+    		</div>
+    	</div>
+    </div>
+</div>
