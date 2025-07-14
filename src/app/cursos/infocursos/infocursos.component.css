@@ -1,0 +1,278 @@
+p #texto{
+    text-align: center;
+    color: white;
+  }
+  div#div_file{
+  text-align: center;
+  color: white;
+}
+
+
+input#file1{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+
+}
+div#div_file{
+    position: relative;
+    padding: 0.5em;
+    width: 9em;
+    height: 2em;
+    background-color: #00b0ff;
+    -webkit-border-radius:5px;
+  }
+  
+  input#file1{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  
+  
+  }
+  div#div_file{
+      position: relative;
+      padding: 5px;
+      width: 100%;
+      height: 39px;
+      background-color: #00b0ff;
+      -webkit-border-radius: 5px;
+      font-size: 17px;
+      color: #fff;
+      margin-bottom: 5px;
+  }
+  #divguardarfoto {
+      text-align: -webkit-center;
+  }
+  
+  h3.u-text {
+      font-size: 50px;
+      text-transform: uppercase;
+  }
+  .u-text-3 {
+      font-size: 20px;
+      color: #000;
+      font-weight: 400;
+  }
+  .bi-pencil{
+      cursor: pointer;
+  }
+  
+  
+  .topalumno{
+      padding-top: 120px;
+      min-height: 740px;
+  }
+  .row.perfil-ct {
+      width: 90%;
+      margin: auto;
+      position: relative;
+  }
+  .curso-ct{
+      width: 90%;
+      margin: auto;
+      position: relative;
+      background-color: #f6f6f6;
+      padding: 30px;
+      margin: 15px auto;
+  }
+  .img-ct{
+    width: 100%;
+    height: auto;
+  }
+  .enlace-ct{
+      text-decoration: none;
+      font-size: 17px;
+      text-transform: uppercase;
+  
+  }
+  span.btn.btn-primary.btn-custom {
+      padding: 5px 35px;
+      font-size: 17px;
+      border-radius: 1.3em;
+      margin-right: 20px;
+      color: #00b0ff;
+  }
+  img.ic-encuesta {
+      width: 25px;
+  }
+  
+  h1.title-enc {
+      color: #172d91;
+      font-size: 40px;
+  }
+  h3.title-enc {
+      color: #172d91;
+      font-size: 30px;
+  }
+  h4.title-enc {
+      color: #172d91;
+      font-size: 22px;
+  }
+  .buttons-enc{
+      padding-top: 6px;
+  }
+  button.btn {
+      font-size: 17px;
+  }
+  p.descripcion {
+      font-size: 17px;
+  }
+
+#divguardarfoto {
+    text-align: -webkit-center;
+}
+
+h3.u-text {
+    font-size: 50px;
+    text-transform: uppercase;
+}
+.u-text-3 {
+    font-size: 20px;
+    color: #000;
+    font-weight: 400;
+}
+.bi-pencil{
+    cursor: pointer;
+}
+
+
+.topalumno{
+    padding-top: 120px;
+    min-height: 740px;
+}
+.row.perfil-ct {
+    width: 90%;
+    margin: auto;
+    position: relative;
+}
+.curso-ct{
+    width: 90%;
+    margin: auto;
+    position: relative;
+    background-color: #f6f6f6;
+    padding: 30px;
+    margin: 15px auto;
+}
+.img-ct{
+  width: 100%;
+  height: auto;
+}
+.enlace-ct{
+    text-decoration: none;
+    font-size: 17px;
+    text-transform: uppercase;
+
+}
+span.btn.btn-primary.btn-custom {
+    padding: 5px 35px;
+    font-size: 17px;
+    border-radius: 1.3em;
+    margin-right: 20px;
+    color: #00b0ff;
+}
+img.ic-encuesta {
+    width: 25px;
+}
+
+h1.title-enc {
+    color: #113a8c;
+    font-size: 40px;
+}
+h3.title-enc {
+    margin-bottom: 0;
+    margin-top: 3%;
+    font-family: 'Montserrat';
+    font-size: 260%;
+    color: #f25f29;
+    font-weight: 900;
+}
+h4.title-enc {
+    color: #172d91;
+    font-size: 22px;
+}
+.buttons-enc{
+    padding-top: 6px;
+}
+button.btn {
+    font-size: 17px;
+}
+p.descripcion {
+    font-size: 17px;
+}
+a.title-mod {
+    text-decoration: none;
+    font-size: 22px;
+    color: #000;
+}
+.row-img{
+    justify-content: end;
+    align-items: center;
+    display: flex;
+}
+img.img-check {
+    width: 30px;
+    margin-top: -30px;
+}
+.btn-examen
+ {
+    font-size: 20px;
+    padding: 5px 35px;
+    border-radius: 1.5em;
+    text-decoration: none;
+}
+.img-cursos{
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.img-cursos img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.inscrito{
+    padding: 4px 30px;
+}
+.link-temario {
+    padding: 4px 30px;
+}
+p.text-enc {
+    text-align: justify;
+    margin-bottom: 0;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    line-height: 1.5em;
+    letter-spacing: -0.03em;
+    font-size: 150%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+@media (min-width: 1200px) {
+    .container, .container-sm, .container-md, .container-lg, .container-xl {
+        max-width: 1000px;
+    }
+}
+.numModulo{
+    font-size: 190%;
+    color: #000000;
+    font-weight: 400;
+}
+
+.nameModulo{
+    text-decoration: none;
+    font-size: 185%;
+    color: #000;
+    font-weight: 600;
+}

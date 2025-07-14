@@ -23,15 +23,18 @@ export class InfocursosComponent {
 
   idCurso?: Number;
   nombrearea: string = "";
+  icono: string = "";
+nombrecurso: string = "";
+descripcionCurso: string = "";
   idUser: Number = Number(sessionStorage.getItem("id"))
   public baseUrl: string = appsettings.urlImg;
   private recursosService = inject(RecursosService);
   public modulosService = inject(ModulosService);
-
+public cursosService = inject(CursosService);
   public inscripcion: Inscripcion[] = [];
   public modulos: Modulos[] = [];
   public recursos: Recurso[] = [];
-  public curso?: Cursos;
+  public cursos: Cursos[] = [];
   public areacurso?: Areacursos;
   public activarInscripcion = false;
 
@@ -53,11 +56,27 @@ error: (error) => {
   });
 
 }
+
+listarCursos(){
+  this.cursosService.listaCursosId(Number(this.idCurso)).subscribe({
+    next: (data) => {
+      if (data.value.length > 0) {
+        this.cursos = data['value'];
+       this.icono = data['value'][0].icono;
+       this.nombrecurso = data['value'][0].nombrecurso;
+        this.descripcionCurso = data['value'][0].descripcion;
+      }   
+    },
+    error: (error) => {
+      console.log(error.message);
+    }
+  });
+}
     ngOnInit(): void {
     //this.cargar_table()
     this.idCurso = Number(this.route.snapshot.paramMap.get('id'));
       this.nombrearea = this.route.snapshot.paramMap.get('nombrearea') || '';
- 
+  this.listarCursos();
    this.listarModulos()
 
     

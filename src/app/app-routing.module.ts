@@ -26,11 +26,9 @@ import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.
 import { DetallecursoComponent } from './alumno/detallecurso/detallecurso.component';
 import { RecursoComponent } from './alumno/recurso/recurso.component';
 import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
-<<<<<<< HEAD
 import { InfocursosComponent } from './cursos/infocursos/infocursos.component';
-=======
 import { ResultadoComponent } from './alumno/resultado/resultado.component';
->>>>>>> origin/master
+
 
 
 const routes: Routes = [
@@ -51,7 +49,7 @@ const routes: Routes = [
     data: { title: 'Listar Cursos' }
   },
   {
-     path: 'infocursos/:id/nombrearea',
+     path: 'infocursos/:id/:nombrearea',
     component: InfocursosComponent,
     data: { title: 'Información Cursos' }
     
