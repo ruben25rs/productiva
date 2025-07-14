@@ -1,0 +1,42 @@
+<div id="container-wrapper" class="container topalumno">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="title-enc" *ngIf="areacurso">{{areacurso.nombrearea}}</h1>
+                <br><br>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5 row-img">
+                <div class="img-cursos">
+                    <img *ngIf="curso" src="{{baseUrl}}{{curso.icono}}" >
+                </div>
+                
+            </div>
+            <div class="col-7">
+                <h3 class="title-enc" *ngIf="curso">{{curso.nombrecurso}}</h3>
+                <p class="text-enc" style="white-space: pre-line;" *ngIf="curso">{{curso.descripcion}}</p>
+                <div class="modulos-list" *ngFor="let modulo of modulos; let i = index">
+                    <h3 class="title-enc" class="numModulo" >Módulo {{i+1}}.</h3>
+                    <div *ngIf="(modulo.recursos.length==0)">
+                        <a  class="title-mod" class="nameModulo">{{modulo.nombremodulo}}</a>
+                    </div>
+                    
+                    <div *ngFor="let recurso of modulo.recursos; let k = index">
+                        
+                        <a  class="title-mod" class="nameModulo">{{modulo.nombremodulo}}</a>
+                    </div>
+                    <br>
+                    
+                </div>
+        
+                <button  class="btn btn-primary enlace-ct link-temario" style="background-color: #00b0ff; border-radius: 1em;" outerLink="/ingresar/" > Inscribirse</button>
+            </div>
+        </div>
+        <div class="row">
+            <br><br><br>
+        </div>
+    </div>
+</div>
+<app-scripts></app-scripts>

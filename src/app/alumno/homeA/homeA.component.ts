@@ -53,9 +53,7 @@ constructor(private route: ActivatedRoute) {} */
   })
 
   constructor(private formBuilder:FormBuilder) { 
-   window.addEventListener('beforeunload', () => {
-      sessionStorage.clear();
-    });
+  
   }
 
 
