@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { appsettings } from '../../settings/appsettings';
 
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-recurso',
   templateUrl: './recurso.component.html',
@@ -22,16 +24,26 @@ export class RecursoComponent {
 
   public rutaRecurso: string = "";
 
-  constructor(private route: ActivatedRoute, private router:Router) { 
+  pdfUrl!: SafeResourceUrl;
+
+  constructor(private route: ActivatedRoute, private router:Router, private sanitizer: DomSanitizer) { 
   }
 
   listarRecurso(){
     this.recursosService.listaRecursoId(Number(this.idRecurso)).subscribe({
       next: (data) =>{
+        this.recurso = data['value'];
         
-        this.rutaRecurso=this.baseUrl +(data['value'].ruta)
 
-        console.log(this.rutaRecurso)
+        if (data['value'].archivo=="pdf") {
+          this.recursosService.listaRecursoblobId(Number(this.idRecurso)).subscribe(blob => {
+            const blobUrl = URL.createObjectURL(blob);
+            this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(blobUrl);
+          });
+        }else{
+          this.rutaRecurso=this.baseUrl +(data['value'].ruta)
+        }
+        console.log(data)
 
       }, error:(error) =>{
         console.log(error.message); 

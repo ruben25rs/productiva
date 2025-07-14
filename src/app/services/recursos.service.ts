@@ -26,6 +26,12 @@ export class RecursosService {
         return  this.http.get<ResponseRecursos>(`${this.baseUrl}cursos/listar/`)
     }
 
+    listaRecursoblobId(idRecurso:Number): Observable<Blob> {
+        return this.http.get(`${this.baseUrl}recurso/listarblob/`+idRecurso, {
+            responseType: 'blob'  // 
+        });
+    }
+
     
 
 }

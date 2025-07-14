@@ -2,8 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="title-enc" *ngIf="curso">{{curso.nombrecurso}}</h1>
+                <h1 class="title-enc" *ngIf="areacurso">{{areacurso.nombrearea}}</h1>
                 <br><br>
+                
             </div>
         </div>
         <div class="row">
@@ -14,6 +15,8 @@
                 
             </div>
             <div class="col-7">
+                <h3 class="title-enc" *ngIf="curso">{{curso.nombrecurso}}</h3>
+                <p class="text-enc" style="white-space: pre-line;" *ngIf="curso">{{curso.descripcion}}</p>
                 <div class="modulos-list" *ngFor="let modulo of modulos; let i = index">
                     <h3 class="title-enc" >Módulo {{i+1}}.</h3>
                     <div *ngIf="(modulo.recursos.length==0)">

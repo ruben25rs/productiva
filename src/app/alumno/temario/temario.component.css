@@ -244,3 +244,8 @@ img.img-check {
 .link-temario {
     padding: 4px 30px;
 }
+p.text-enc {
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+}
