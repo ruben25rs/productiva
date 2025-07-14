@@ -37,7 +37,7 @@
 			<div class="col-2">
 				<div class="buttons-enc">
 					<button class="btn btn-primary" *ngIf="(encuesta.estatus==1)">Realizada</button>
-					<button class="btn btn-primary" *ngIf="(encuesta.estatus!=1)">Responder</button>
+					<button routerLink="/instructor/answer-survey/{{encuesta.id}}/" class="btn btn-primary" *ngIf="(encuesta.estatus!=1)">Responder</button>
 					
 				</div>
 			</div>

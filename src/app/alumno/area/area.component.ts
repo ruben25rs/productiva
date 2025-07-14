@@ -25,7 +25,13 @@ export class AreaComponent {
   public inscripcion: Inscripcion[] = [];
   public baseUrl: string = appsettings.urlImg;
 
+
+    public totalcursos: number = 0;
+    public nombrearea: string = '';
+     public idarea: number = 0;
+
   idUser: Number = Number(sessionStorage.getItem("id"))
+
 
   constructor(private route: ActivatedRoute, private router: Router) {
 
@@ -39,7 +45,8 @@ export class AreaComponent {
 
         console.log(data['value'])
         if (data.value.length > 0) {
-          this.cursos = data['value']
+         this.cursos = data['value']
+            this.nombrearea = data['value'][0].areacurso_nombre;
         }
         
 
@@ -48,6 +55,19 @@ export class AreaComponent {
       }
     })
   }
+  chunk(arr: any[], size: number): any[] {
+    const chunked_arr = [];
+    for (let i = 0; i < arr.length; i++) {
+      const last = chunked_arr[chunked_arr.length - 1];
+      if (!last || last.length === size) {
+        chunked_arr.push([arr[i]]);
+      } else {
+        last.push(arr[i]);
+      }
+    }
+    return chunked_arr;
+  }
+
 
   inscribirse(id:any){
 
