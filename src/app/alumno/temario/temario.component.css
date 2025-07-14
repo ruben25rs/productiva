@@ -187,12 +187,16 @@ img.ic-encuesta {
 }
 
 h1.title-enc {
-    color: #172d91;
+    color: #113a8c;
     font-size: 40px;
 }
 h3.title-enc {
-    color: #172d91;
-    font-size: 30px;
+    margin-bottom: 0;
+    margin-top: 3%;
+    font-family: 'Montserrat';
+    font-size: 260%;
+    color: #f25f29;
+    font-weight: 900;
 }
 h4.title-enc {
     color: #172d91;
@@ -245,7 +249,30 @@ img.img-check {
     padding: 4px 30px;
 }
 p.text-enc {
-    font-size: 15px;
+    text-align: justify;
+    margin-bottom: 0;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    line-height: 1.5em;
+    letter-spacing: -0.03em;
+    font-size: 150%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+@media (min-width: 1200px) {
+    .container, .container-sm, .container-md, .container-lg, .container-xl {
+        max-width: 1000px;
+    }
+}
+.numModulo{
+    font-size: 190%;
+    color: #000000;
     font-weight: 400;
+}
+
+.nameModulo{
+    text-decoration: none;
+    font-size: 185%;
     color: #000;
+    font-weight: 600;
 }
