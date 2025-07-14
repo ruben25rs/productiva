@@ -31,7 +31,11 @@
     	<div class="row">
     		<div class="col-1"></div>
     		<div class="col-11">
-    			<a *ngIf="activarExamen" class="btn btn-primary btn-examen">Enviar evaluación</a>
+                <div *ngIf="activarExamen">
+                    <div *ngIf="!banderaIntentos">
+    			     <button *ngIf="curso" (click)="validar_intento()" class="btn btn-primary btn-examen">Enviar evaluación</button>   
+                    </div>
+                </div>
                 <br><br>
     		</div>
     	</div>

@@ -24,6 +24,7 @@ import { AreaComponent } from './alumno/area/area.component';
 import { TemarioComponent } from './alumno/temario/temario.component';
 import { DetallecursoComponent } from './alumno/detallecurso/detallecurso.component';
 import { RecursoComponent } from './alumno/recurso/recurso.component';
+import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
 
 const routes: Routes = [
   //{ path: '',   redirectTo: '/inicio', pathMatch: 'full' },
@@ -78,17 +79,21 @@ const routes: Routes = [
         path: 'area/:id',
         component: AreaComponent,
       },
-       {
+      {
         path: 'temario/:id',
         component: TemarioComponent,
       },
-       {
+      {
         path: 'detallecurso/:id',
         component: DetallecursoComponent,
       },
-       {
+      {
         path: 'recurso/:id',
         component: RecursoComponent,
+      },
+      {
+        path: 'evaluacion/:id',
+        component: EvaluacionComponent,
       },
     ]
   },

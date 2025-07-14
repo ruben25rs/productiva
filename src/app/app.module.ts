@@ -37,6 +37,7 @@ import { AreaComponent } from './alumno/area/area.component';
 import { TemarioComponent } from './alumno/temario/temario.component';
 import { HeaderIComponent } from './header-i/header-i.component';
 import { RecursoComponent } from './alumno/recurso/recurso.component';
+import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { RecursoComponent } from './alumno/recurso/recurso.component';
     TemarioComponent,
     HeaderIComponent,
     RecursoComponent,
+    EvaluacionComponent,
   ],
   imports: [
     BrowserModule,
