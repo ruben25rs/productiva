@@ -41,6 +41,7 @@ import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.
 
 import { RecursoComponent } from './alumno/recurso/recurso.component';
 import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
+import { InfocursosComponent } from './cursos/infocursos/infocursos.component';
 import { ResultadoComponent } from './alumno/resultado/resultado.component';
 
 
@@ -71,7 +72,6 @@ import { ResultadoComponent } from './alumno/resultado/resultado.component';
     CursosaComponent,
     HeaderAComponent,
     InstructorComponent,
-    CursosaComponent,
     HomeIComponent,
     VerEncuestaComponent,
     AreaComponent,
@@ -80,6 +80,7 @@ import { ResultadoComponent } from './alumno/resultado/resultado.component';
     AnswerSurveyComponent,
     RecursoComponent,
     EvaluacionComponent,
+    InfocursosComponent,
     ResultadoComponent,
   ],
   imports: [
