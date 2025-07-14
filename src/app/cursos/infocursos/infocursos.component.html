@@ -1,20 +1,20 @@
 <div id="container-wrapper" class="container topalumno">
     <div class="container">
-        <div class="row">
+        <div class="row" class="infoTituloCat">
             <div class="col">
                 <h1 class="title-enc" >{{nombrearea}}</h1>
                 <br><br>
                 
             </div>
         </div>
-        <div class="row">
+        <div class="row" class="infoCursosInicio">
             <div class="col-5 row-img">
                 <div class="img-cursos">
                     <img  src="{{baseUrl}}{{icono}}" >
                 </div>
                 
             </div>
-            <div class="col-7">
+            <div class="col-7" class="textosInfoCurso">
                 <h3 class="title-enc" >{{nombrecurso}}</h3>
                 <p class="text-enc" style="white-space: pre-line;" >{{descripcionCurso}}</p>
                 <div class="modulos-list" *ngFor="let modulo of modulos; let i = index">
@@ -28,7 +28,7 @@
                     
                 </div>
         
-                <button  class="btn btn-primary enlace-ct link-temario" style="background-color: #00b0ff; border-radius: 1em;" routerLink="/ingresar/" > Inscribirse</button>
+                <button  class="btn btn-primary enlace-ct link-temario" style="background-color: #00b0ff; border-radius: 1em; color: #fff; border-color: #007bff;"  routerLink="/ingresar/" > Inscribirse</button>
             </div>
         </div>
         <div class="row">
