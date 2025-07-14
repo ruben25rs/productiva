@@ -9,6 +9,7 @@ import { Recurso } from '../../interfaces/Recurso';
 import { InscripcionService } from '../../services/inscripcion.service';
 import { Inscripcion } from '../../interfaces/Inscripcion';
 import { Cursos } from '../../interfaces/Cursos';
+import { Areacursos } from '../../interfaces/Areacursos';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -29,6 +30,7 @@ export class TemarioComponent {
   public modulos: Modulos[] = [];
   public recursos: Recurso[] = [];
   public curso?: Cursos;
+  public areacurso?: Areacursos;
   public activarInscripcion = false;
 
   public baseUrl: string = appsettings.urlImg;
@@ -45,9 +47,11 @@ export class TemarioComponent {
 
         if (data.value.length > 0) {
           this.curso = data['value_c']
+          this.areacurso = data['value_a']
           this.modulos = data['value']
           
-          console.log(this.modulos)
+          console.log(this.curso)
+          console.log(this.areacurso)
         }
 
       }, error:(error) =>{

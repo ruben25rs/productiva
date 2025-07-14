@@ -38,15 +38,15 @@ export class DetallecursoComponent {
     this.recursosService.listaRecursosId(Number(this.idCurso), this.idUser).subscribe({
       next: (data) =>{
         
-        
 
         if (data.value.length > 0) {
           this.curso = data['value_c']
           this.modulos = data['value']
           this.activarExamen = data['examen']
           console.log(this.modulos)
+          
         }
-
+      console.log(this.curso)
       }, error:(error) =>{
         console.log(error.message); 
       }
