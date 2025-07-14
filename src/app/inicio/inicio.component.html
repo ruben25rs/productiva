@@ -5,7 +5,7 @@
 		<div class="mySlides fade" style="display: none;">
 			<img src="assets/img/slider1.jpg" style="width:100%">
 			<div class="text1" id="text1">
-				<a href="indexcontacto.html">
+				<a href="/contacto">
 					<button id="btncontactanos">CONTÁCTANOS</button>
 				</a>
 			</div>
@@ -15,7 +15,7 @@
 			<!-- <div class="numbertext">2 / 3</div> -->
 			<img src="assets/img/slider2.jpg" style="width:100%">
 			<div class="text2" id="text2">
-				<a href="indexcursos.html">
+				<a routerLink="/cursos">
 					<button id="btncursos">VER CURSOS</button>
 				</a>
 			</div>
@@ -25,11 +25,11 @@
 			<!-- <div class="numbertext">3 / 3</div> -->
 			<img src="assets/img/slider3.jpg" style="width:100%">
 			<div class="text3" id="text3">
-				<a href="indexcontacto.html">
+				<a  routerLink="/contacto">
 					<button id="btncontactanos2">CONTÁCTANOS</button>
-				</a></div><a href="indexcontacto.html">
+				</a></div><a  routerLink="/contacto">
 					
-				</a></div><a href="indexcontacto.html">
+				</a></div><a routerLink="/contacto">
 				</a><a class="prev" onclick="plusSlides(-1)">❮</a>
 				<a class="next" onclick="plusSlides(1)">❯</a>
 
@@ -83,7 +83,7 @@
 <h2 *ngIf="userLoginOn" class="alert alert-success">Usuario Autenticado</h2>
 <h2 id="parrafo4bienvenida">La plataforma que centraliza el conocimiento y crecimiento profesional</h2>
 <div class="divvercursos">
-	<a href="indexcursos.html" type="button" class="btnvercursos">VER CURSOS</a>
+	<a routerLink="/cursos" type="button" class="btnvercursos">VER CURSOS</a>
 </div>
 <div class="banersinicio">
 	<img src="assets/img/banerazul.jpg">
