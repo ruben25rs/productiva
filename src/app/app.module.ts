@@ -36,6 +36,7 @@ import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.componen
 import { AreaComponent } from './alumno/area/area.component';
 import { TemarioComponent } from './alumno/temario/temario.component';
 import { HeaderIComponent } from './header-i/header-i.component';
+import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { HeaderIComponent } from './header-i/header-i.component';
     AreaComponent,
     TemarioComponent,
     HeaderIComponent,
+    AnswerSurveyComponent,
   ],
   imports: [
     BrowserModule,

@@ -23,6 +23,8 @@ import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.componen
 import { AreaComponent } from './alumno/area/area.component';
 import { TemarioComponent } from './alumno/temario/temario.component';
 
+import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.component';
+
 
 const routes: Routes = [
   //{ path: '',   redirectTo: '/inicio', pathMatch: 'full' },
@@ -91,6 +93,10 @@ const routes: Routes = [
       {
         path:'',
         component: HomeIComponent
+      },
+      {
+        path: 'answer-survey/:id',
+        component: AnswerSurveyComponent
       },
     ]
   },
