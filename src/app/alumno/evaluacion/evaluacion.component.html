@@ -1,11 +1,49 @@
 <div id="container-wrapper" class="container topalumno">
     <div class="container">
     	<div class="row">
-    		<div class="col">
-    			<h1 class="title-enc" >Evaluación:</h1>
+    		<div class="col" >
+    			<h1 class="title-enc" >Evaluación: {{examen['nombre']}}</h1>
     			<br><br>
     		</div>
     	</div>
+        <div class="row">
+            <div class="col" >
+                <form [formGroup]="formulario" (ngSubmit)="enviar()">
+                  <div class="pregunta" *ngFor="let p of examen.preguntas; let i = index">
+                    <fieldset class="pregunta-fieldset">
+                        <legend class="pregunta-legend">{{ i + 1 }}.- {{ p.pregunta }}</legend>
+                    
+
+                        <div class="respuestas">
+                          <div class="tipo-p" *ngIf="p.tipo == 'radio'">
+                            <div class="respuesta" *ngFor="let r of p.respuestas">
+                              <input
+                                type="radio"
+                                [id]="'respuesta_' + r.id"
+                                [formControlName]="'respuesta_' + p.id"
+                                [value]="r.id"
+                              >
+                              <label [for]="'respuesta_' + r.id">{{ r.respuesta }}</label>
+                            </div>
+
+                            <!-- Mensaje de error -->
+                            <div *ngIf="formulario.get('respuesta_' + p.id)?.touched && formulario.get('respuesta_' + p.id)?.invalid" class="error-mensaje">
+                              Debes responder esta pregunta.
+                            </div>
+                          </div>
+                        </div>
+                    </fieldset>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-exa" style="text-transform: uppercase;">Enviar examen</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <br>
+            <br>
+            <br>
+        </div>
     	
     </div>
 </div>

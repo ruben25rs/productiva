@@ -1,17 +1,56 @@
  .topalumno{
-      padding-top: 120px;
-      min-height: 740px;
-  }
-  
-  h1.title-enc {
-      color: #172d91;
-      font-size: 40px;
-  }
-  h3.title-enc {
-      color: #172d91;
-      font-size: 30px;
-  }
-  h4.title-enc {
-      color: #172d91;
-      font-size: 22px;
-  }
+  padding-top: 120px;
+  min-height: 740px;
+}
+
+h1.title-enc {
+  color: #172d91;
+  font-size: 40px;
+}
+h3.title-enc {
+  color: #172d91;
+  font-size: 30px;
+}
+h4.title-enc {
+  color: #172d91;
+  font-size: 22px;
+}
+
+.pregunta-fieldset {
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  background-color: #f9f9f9;
+}
+
+
+
+.respuesta {
+  margin: 10px 0;
+}
+button.btn.btn-primary.btn-exa {
+    padding: 5px 35px;
+    font-size: 18px;
+}
+
+
+.respuestas {
+    margin-top: -18px;
+}
+.pregunta-legend {
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+    padding: 0 5px;
+    line-height: initial;
+}
+label{
+    margin-left: 8px;
+    font-size: 15px;
+}
+.error-mensaje {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
