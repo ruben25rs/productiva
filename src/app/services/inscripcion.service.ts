@@ -30,6 +30,10 @@ export class InscripcionService {
         );
     }
 
+    inscribirse(id:Number, idalumno:Number) : Observable<any>{
+        return  this.http.get<any>(`${this.baseUrl}inscripcionc/`+id+`/`+idalumno)
+    }
+
     inscritosCurso(id:Number, idalumno:Number) : Observable<ResponseInscripcion>{
         return  this.http.get<ResponseInscripcion>(`${this.baseUrl}inscripcion/inscritosCurso/`+{id}+`/`+{idalumno})
     }

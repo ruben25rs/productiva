@@ -22,9 +22,15 @@ import { InstructorComponent } from './instructor/instructor.component';
 import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.component';
 import { AreaComponent } from './alumno/area/area.component';
 import { TemarioComponent } from './alumno/temario/temario.component';
+<<<<<<< HEAD
 
 import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.component';
 
+=======
+import { DetallecursoComponent } from './alumno/detallecurso/detallecurso.component';
+import { RecursoComponent } from './alumno/recurso/recurso.component';
+import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
+>>>>>>> origin/master
 
 const routes: Routes = [
   //{ path: '',   redirectTo: '/inicio', pathMatch: 'full' },
@@ -79,9 +85,21 @@ const routes: Routes = [
         path: 'area/:id',
         component: AreaComponent,
       },
-       {
+      {
         path: 'temario/:id',
         component: TemarioComponent,
+      },
+      {
+        path: 'detallecurso/:id',
+        component: DetallecursoComponent,
+      },
+      {
+        path: 'recurso/:id',
+        component: RecursoComponent,
+      },
+      {
+        path: 'evaluacion/:id',
+        component: EvaluacionComponent,
       },
     ]
   },

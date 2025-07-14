@@ -228,19 +228,3 @@ img.img-check {
     border-radius: 1.5em;
     text-decoration: none;
 }
-.img-cursos{
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-}
-.img-cursos img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.inscrito{
-    padding: 4px 30px;
-}
-.link-temario {
-    padding: 4px 30px;
-}

@@ -33,10 +33,14 @@ h4.title-curso {
 }
 .link-ct{
   color: #000;
+  
 }
 .link-temario:hover{
   color: #e37218;
 }
 .text-ct {
     height: 100px;
+}
+.inscrito{
+  background-color: #028bc8;
 }

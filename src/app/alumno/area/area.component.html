@@ -17,7 +17,10 @@
                         </div>
                         <a routerLink="/alumno/temario/{{curso.id}}/" class="link-ct enlace-ct link-temario" > Ver temario del curso</a>
                         <p></p>
-                        <a routerLink="/alumno/temario/{{curso.id}}/" class="btn btn-primary enlace-ct link-temario" style="background-color: #00b0ff; border-radius: 1em;"> Inscribirse</a>
+
+                        <a *ngIf="curso.inscrito!=0" class="btn btn-primary enlace-ct link-temario inscrito
+                        " style=" border-radius: 1em;"> Inscrito</a>
+                        <button *ngIf="curso.inscrito==0" (click)="inscribirse(curso.id)" class="btn btn-primary enlace-ct link-temario" style="background-color: #00b0ff; border-radius: 1em;"> Inscribirse</button>
                     </div>
                 </div>
             </div>

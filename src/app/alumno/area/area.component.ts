@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { InscripcionService } from '../../services/inscripcion.service';
 import { Cursos } from '../../interfaces/Cursos'; 
+import { Inscripcion } from '../../interfaces/Inscripcion';
 import { CursosService } from '../../services/cursos.service';
 import { appsettings } from '../../settings/appsettings';
 import { Router } from '@angular/router';
@@ -17,13 +19,19 @@ export class AreaComponent {
   
 
   private cursosService = inject(CursosService);
+  private inscripcionService = inject(InscripcionService);
 
   public cursos: Cursos[] = []
+  public inscripcion: Inscripcion[] = [];
   public baseUrl: string = appsettings.urlImg;
 
+<<<<<<< HEAD
     public totalcursos: number = 0;
     public nombrearea: string = '';
      public idarea: number = 0;
+=======
+  idUser: Number = Number(sessionStorage.getItem("id"))
+>>>>>>> origin/master
 
   constructor(private route: ActivatedRoute, private router: Router) {
 
@@ -32,7 +40,7 @@ export class AreaComponent {
 
 
   listar(){
-    this.cursosService.listaCursos(String(this.idArea)).subscribe({
+    this.cursosService.listaCursosa(String(this.idArea), this.idUser).subscribe({
       next: (data) =>{
 
         console.log(data['value'])
@@ -60,6 +68,27 @@ export class AreaComponent {
     return chunked_arr;
   }
 
+
+  inscribirse(id:any){
+
+    this.inscripcionService.inscribirse(id, this.idUser).subscribe({
+      next: (data) =>{
+        console.log(data)
+        this.listar()
+
+      }, error:(error) =>{
+        console.log(error.message); 
+      },
+      complete: () => {
+        console.info("Inscripcion completo");
+          //this.router.navigateByUrl('/panel');
+          //window.location.href="/panel";
+        
+
+
+      }
+    })
+  }
 
   ngOnInit(){       
     this.idArea = String(this.route.snapshot.paramMap.get('id'));

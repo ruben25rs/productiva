@@ -1,0 +1,17 @@
+ .topalumno{
+      padding-top: 120px;
+      min-height: 740px;
+  }
+  
+  h1.title-enc {
+      color: #172d91;
+      font-size: 40px;
+  }
+  h3.title-enc {
+      color: #172d91;
+      font-size: 30px;
+  }
+  h4.title-enc {
+      color: #172d91;
+      font-size: 22px;
+  }

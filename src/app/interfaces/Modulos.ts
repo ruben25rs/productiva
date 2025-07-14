@@ -4,4 +4,5 @@ export interface Modulos {
      idmodulo:number,
      nombremodulo:string,
      descripcion:string,
+     recursos:[],
 }

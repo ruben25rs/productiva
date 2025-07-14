@@ -13,7 +13,6 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { FooterComponent } from './footer/footer.component';
 import { IngresarComponent } from './ingresar/ingresar.component';
 import { ContactoComponent } from './contacto/contacto.component';
-import { DetallecursoComponent } from './detallecurso/detallecurso.component';
 import { ScriptsComponent } from './scripts/scripts.component';
 import { HeaderPComponent } from './header-p/header-p.component';
 import { PanelComponent } from './panel/panel.component';
@@ -29,6 +28,7 @@ import { ListarCursosComponent } from './cursos/listar-cursos/listar-cursos.comp
 import { AlumnoComponent } from './alumno/alumno.component';
 import { HomeAComponent } from './alumno/homeA/homeA.component';
 import { HeaderAComponent } from './header-a/header-a.component';
+import { DetallecursoComponent } from './alumno/detallecurso/detallecurso.component';
 import { InstructorComponent } from './instructor/instructor.component';
 import { CursosaComponent } from './alumno/cursosa/cursosa.component';
 import { HomeIComponent } from './instructor/homeI/homeI.component';
@@ -36,7 +36,12 @@ import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.componen
 import { AreaComponent } from './alumno/area/area.component';
 import { TemarioComponent } from './alumno/temario/temario.component';
 import { HeaderIComponent } from './header-i/header-i.component';
+<<<<<<< HEAD
 import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.component';
+=======
+import { RecursoComponent } from './alumno/recurso/recurso.component';
+import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
+>>>>>>> origin/master
 
 @NgModule({
   declarations: [
@@ -71,7 +76,12 @@ import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.
     AreaComponent,
     TemarioComponent,
     HeaderIComponent,
+<<<<<<< HEAD
     AnswerSurveyComponent,
+=======
+    RecursoComponent,
+    EvaluacionComponent,
+>>>>>>> origin/master
   ],
   imports: [
     BrowserModule,

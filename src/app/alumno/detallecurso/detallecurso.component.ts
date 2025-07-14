@@ -3,35 +3,32 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { appsettings } from '../../settings/appsettings';
 import { RecursosService } from '../../services/recursos.service';
-import { CursosService } from '../../services/cursos.service';
+import { IntentosService } from '../../services/intentos.service';
 import { Modulos } from '../../interfaces/Modulos';
 import { Recurso } from '../../interfaces/Recurso';
-import { InscripcionService } from '../../services/inscripcion.service';
-import { Inscripcion } from '../../interfaces/Inscripcion';
 import { Cursos } from '../../interfaces/Cursos';
+import { Intento } from '../../interfaces/Intento';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-temario',
-  templateUrl: './temario.component.html',
-  styleUrls: ['./temario.component.css']
+  selector: 'app-detallecurso',
+  templateUrl: './detallecurso.component.html',
+  styleUrls: ['./detallecurso.component.css']
 })
-export class TemarioComponent {
-    
+export class DetallecursoComponent {
+
   idCurso?: Number;
   idUser: Number = Number(sessionStorage.getItem("id"))
 
   private recursosService = inject(RecursosService);
-  private cursosService = inject(CursosService);
-  private inscripcionService = inject(InscripcionService);
+  private intentosService = inject(IntentosService);
 
-  public inscripcion: Inscripcion[] = [];
   public modulos: Modulos[] = [];
   public recursos: Recurso[] = [];
+  public intento: Intento[] = [];
   public curso?: Cursos;
-  public activarInscripcion = false;
-
-  public baseUrl: string = appsettings.urlImg;
+  public activarExamen = false;
+  public banderaIntentos = false;
 
   constructor(private route: ActivatedRoute, private router:Router) { 
   }
@@ -46,7 +43,7 @@ export class TemarioComponent {
         if (data.value.length > 0) {
           this.curso = data['value_c']
           this.modulos = data['value']
-          
+          this.activarExamen = data['examen']
           console.log(this.modulos)
         }
 
@@ -56,39 +53,35 @@ export class TemarioComponent {
     })
   }
 
-  validar_inscripcion(){
-    this.cursosService.inscritoU(Number(this.idCurso), this.idUser).subscribe({
-      next: (data) =>{
-
-        console.log(data['value'])
-        this.activarInscripcion = data['value']
-        
-
-      }, error:(error) =>{
-        console.log(error.message); 
-      }
-    })
-  }
-
-  inscribirse(){
-
-    this.inscripcionService.inscribirse(Number(this.idCurso), this.idUser).subscribe({
+  visto_recurso(idRecurso:any){
+    
+    this.recursosService.vistoRecursoId(idRecurso, this.idUser).subscribe({
       next: (data) =>{
         console.log(data)
-        this.validar_inscripcion()
+        this.listarRecursos()
+        window.open('/alumno/recurso/' + idRecurso, '_blank');
       }, error:(error) =>{
         console.log(error.message); 
-      },
-      complete: () => {
-        console.info("Inscripcion completo");
-          //this.router.navigateByUrl('/panel');
-          //window.location.href="/panel";
-        
-
-
       }
     })
   }
+
+  validar_intento(){
+    this.intentosService.validarIntento(Number(this.idCurso), this.idUser).subscribe({
+      next: (data) =>{
+        console.log(data)
+        if (data['intento']!=true) {
+          this.router.navigateByUrl('/alumno/evaluacion/'+this.idCurso);
+        }else{
+          this.banderaIntentos = data['intento']
+        }
+        
+      }, error:(error) =>{
+        console.log(error.message); 
+      }
+    })
+  }
+  
 
 
   ngOnInit(): void {
@@ -96,7 +89,6 @@ export class TemarioComponent {
     this.idCurso = Number(this.route.snapshot.paramMap.get('id'));
 
     this.listarRecursos()
-    this.validar_inscripcion()
 
     
   }  

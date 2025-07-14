@@ -3,6 +3,8 @@ import { AccesoService } from './services/acceso.service';
 import { UsuariosService } from './services/usuarios.service';
 import { Usuarios } from './interfaces/Usuarios';
 import { Token } from '@angular/compiler';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -19,11 +21,25 @@ export class AppComponent {
   banderaInvitado:boolean=false;
   tipoUser:number = 0;
 
-  constructor(public accesoService:AccesoService) { 
+  mostrarHeaderFooter: boolean = true;
+
+  constructor(private router: Router, public accesoService:AccesoService) {
+    this.router.events
+      .pipe(
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd) // 👈 Filtro con tipado
+      )
+      .subscribe((event) => {
+        const ruta = event.urlAfterRedirects;
+
+        // 👉 Agrega aquí las rutas donde quieras ocultar header/footer
+        this.mostrarHeaderFooter = !(
+          ruta.includes('/recurso')
+        );
+      });
   }
 
-private usuarioServices = inject(UsuariosService);
-public usuario: Usuarios[] = []
+  private usuarioServices = inject(UsuariosService);
+  public usuario: Usuarios[] = []
 
 
   ngOnInit(): void {
