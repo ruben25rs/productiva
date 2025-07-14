@@ -1,0 +1,48 @@
+ .topalumno{
+  padding-top: 120px;
+  height: 100vh;
+}
+
+h1.title-enc {
+  color: #172d91;
+  font-size: 40px;
+  text-align: center;
+}
+h3.title-enc {
+  color: #172d91;
+  font-size: 30px;
+}
+h4.title-enc {
+  color: #172d91;
+  font-size: 22px;
+}
+
+.pregunta-fieldset {
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  background-color: #f9f9f9;
+}
+
+.table-bordered thead th, .table-bordered thead td {
+    border-bottom-width: 2px;
+    font-size: 17px;
+    background-color: #1d264f;
+    color: #fff;
+}
+.table-striped tbody  {
+    background-color: rgba(0, 0, 0, 0.05);
+    font-size: 15px;
+}
+
+a.btn.btn-primary.btn-regresar {
+    font-size: 18px;
+    padding: 5px 30px;
+    border-radius: 2em;
+}
+.btns{
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+}

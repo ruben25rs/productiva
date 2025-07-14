@@ -71,7 +71,7 @@ export class DetallecursoComponent {
       next: (data) =>{
         console.log(data)
         if (data['intento']!=true) {
-          this.router.navigateByUrl('/alumno/evaluacion/'+this.idCurso);
+          this.router.navigateByUrl('/alumno/evaluacion/'+this.idCurso+'/'+data['value'].id);
         }else{
           this.banderaIntentos = data['intento']
         }

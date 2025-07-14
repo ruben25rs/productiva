@@ -15,6 +15,8 @@ import { appsettings } from '../../settings/appsettings';
 export class EvaluacionComponent {
 
   idCurso?: Number;
+  idIntento?: Number;
+  idUser: Number = Number(sessionStorage.getItem("id"))
 
   private examenService = inject(ExamenService);
 
@@ -30,34 +32,40 @@ export class EvaluacionComponent {
   }
 
   enviar() {
-    // const preguntas = this.examen['preguntas']
-
-    // // Resetear errores
-    // this.errores = {};
-
-    // let todoValido = true;
-
-    // preguntas.forEach((p: Pregunta) => {
-    //   if (!this.respuestasSeleccionadas[p.id]) {
-    //     this.errores[p.id] = true;
-    //     todoValido = false;
-    //   }
-    // });
-
-    if (this.formulario.invalid) {
-      this.formulario.markAllAsTouched();
-      return;
-    }
-
     // Construir arreglo a enviar
     const respuestas = this.examen.preguntas.map((p: any) => ({
       pregunta_id: p.id,
       respuesta_id: this.formulario.get('respuesta_' + p.id)?.value
     }));
+    
+    if (this.formulario.valid) {
+     
 
+      this.examenService.registrar(respuestas, Number(this.idIntento)).subscribe({
+        next: (data) => {
+          console.log('Calificación recibida:', data.calificacion);
+
+          
+        },
+        error: (error) => {
+          console.error('Error al enviar respuestas:', error);
+        },
+        complete: () => {
+          window.open('/alumno/resultados/' + this.idIntento, '_blank');
+          
+          this.router.navigate(['/alumno/homeA/'+this.idUser]);
+        }
+      });
+
+      
+
+    }else{
+      this.formulario.markAllAsTouched();
+    }
     console.log('Enviando respuestas:', respuestas);
 
-    // this.miServicio.enviarRespuestas(respuestas).subscribe(...)
+
+    
   }
 
   seleccionarRespuesta(preguntaId: number, respuestaId: number) {
@@ -74,7 +82,8 @@ export class EvaluacionComponent {
 
 
   ngOnInit(): void {
-    this.idCurso = Number(this.route.snapshot.paramMap.get('id'));
+    this.idCurso = Number(this.route.snapshot.paramMap.get('cursoId'));
+    this.idIntento = Number(this.route.snapshot.paramMap.get('intentoId'));
 
     this.examenService.listarExamen(Number(this.idCurso)).subscribe({
       next: (data) =>{
@@ -99,7 +108,7 @@ export class EvaluacionComponent {
 
     
 
-    console.log(this.idCurso)
+    console.log(this.idCurso +"-"+ this.idIntento)
     
   }  
 
