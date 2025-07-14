@@ -25,13 +25,13 @@ export class AreaComponent {
   public inscripcion: Inscripcion[] = [];
   public baseUrl: string = appsettings.urlImg;
 
-<<<<<<< HEAD
+
     public totalcursos: number = 0;
     public nombrearea: string = '';
      public idarea: number = 0;
-=======
+
   idUser: Number = Number(sessionStorage.getItem("id"))
->>>>>>> origin/master
+
 
   constructor(private route: ActivatedRoute, private router: Router) {
 

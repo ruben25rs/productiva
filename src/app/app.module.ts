@@ -36,12 +36,12 @@ import { VerEncuestaComponent } from './panel/ver-encuesta/ver-encuesta.componen
 import { AreaComponent } from './alumno/area/area.component';
 import { TemarioComponent } from './alumno/temario/temario.component';
 import { HeaderIComponent } from './header-i/header-i.component';
-<<<<<<< HEAD
+
 import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.component';
-=======
+
 import { RecursoComponent } from './alumno/recurso/recurso.component';
 import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
->>>>>>> origin/master
+
 
 @NgModule({
   declarations: [
@@ -76,12 +76,9 @@ import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
     AreaComponent,
     TemarioComponent,
     HeaderIComponent,
-<<<<<<< HEAD
     AnswerSurveyComponent,
-=======
     RecursoComponent,
     EvaluacionComponent,
->>>>>>> origin/master
   ],
   imports: [
     BrowserModule,
