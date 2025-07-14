@@ -118,7 +118,7 @@ export class AlumnosComponent {
   editarU(id:number){
     this.getUser(id)
   }
-
+ 
   actualizar(){
     if(this.editForm.valid){
       this.usuariosService.editUser(this.editForm.value).subscribe({

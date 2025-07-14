@@ -94,7 +94,7 @@ const routes: Routes = [
         component: RecursoComponent,
       },
       {
-        path: 'evaluacion/:id',
+        path: 'evaluacion/:cursoId/:intentoId',
         component: EvaluacionComponent,
       },
     ]
