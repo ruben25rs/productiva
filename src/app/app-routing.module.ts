@@ -26,6 +26,7 @@ import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.
 import { DetallecursoComponent } from './alumno/detallecurso/detallecurso.component';
 import { RecursoComponent } from './alumno/recurso/recurso.component';
 import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
+import { ResultadoComponent } from './alumno/resultado/resultado.component';
 
 
 const routes: Routes = [
@@ -96,6 +97,10 @@ const routes: Routes = [
       {
         path: 'evaluacion/:cursoId/:intentoId',
         component: EvaluacionComponent,
+      },
+      {
+        path: 'resultados/:intentoId',
+        component: ResultadoComponent,
       },
     ]
   },

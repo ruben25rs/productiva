@@ -1,0 +1,46 @@
+<div id="container-wrapper" class="container topalumno">
+    <div class="container">
+    	<div class="row">
+    		<div class="col" >
+    			<h1 class="title-enc" >Resultados de: {{resultados.examen}}</h1>
+    			<br><br>
+    		</div>
+    	</div>
+        <div class="row">
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped table-hover">
+					<thead>
+						<tr>
+							<th scope="col">Usuario</th>
+							<th scope="col">Preguntas</th>
+							<th scope="col">Correctas</th>
+							<th scope="col">Incorrectas</th>
+							<th scope="col">Estado</th> 
+							<th scope="col">Resultado</th>
+							<th scope="col">Intentos</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{resultados.alumno}}</td>
+							<td>{{resultados.total_preguntas}}</td>
+							<td>{{resultados.aciertos}}</td>
+							<td>{{resultados.errores}}</td>
+							<td>{{resultados.status}}</td>
+							<td>{{resultados.estado}}</td>
+							<td>{{resultados.total_intentos}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+        <div class="row" >
+        	<div class="btns">
+        		<a routerLink="/alumno/detallecurso/{{idCurso}}" class="btn btn-primary btn-regresar">REGRESAR AL CURSO</a>
+        	</div>
+            <br><br>
+            
+        </div>
+    	
+    </div>
+</div>

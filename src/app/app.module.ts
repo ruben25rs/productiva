@@ -41,6 +41,7 @@ import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.
 
 import { RecursoComponent } from './alumno/recurso/recurso.component';
 import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
+import { ResultadoComponent } from './alumno/resultado/resultado.component';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
     AnswerSurveyComponent,
     RecursoComponent,
     EvaluacionComponent,
+    ResultadoComponent,
   ],
   imports: [
     BrowserModule,

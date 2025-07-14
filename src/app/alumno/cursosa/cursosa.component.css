@@ -1,11 +1,11 @@
-@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap';
 @font-face {
 	font-family: Acumin;
-	src: url(fuentes/AcuminVariableConcept.ttf);
+	src: url("fuentes/AcuminVariableConcept.ttf");
 }
 @font-face {
 	font-family: MonserratBold;
-	src: url(fuentes/Montserrat-Bold.ttf);
+	src: url("fuentes/Montserrat-Bold.ttf");
 }
 * {
 	padding: 0;

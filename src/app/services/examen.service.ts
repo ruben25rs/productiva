@@ -18,7 +18,7 @@ export class ExamenService {
     }   
 
     registrar(respuestas: any[], intentoId: number):Observable<any>{
-        return this.http.post<any>(this.baseUrl+"encuesta",{intento_id: intentoId, respuestas: respuestas }).pipe(
+        return this.http.post<any>(this.baseUrl+"examen",{intento_id: intentoId, respuestas: respuestas }).pipe(
           tap((examendata) => {
 
 
@@ -27,6 +27,10 @@ export class ExamenService {
         map((examendata)=> examendata),
           catchError(this.handleError)
         );
+    }
+
+    resultadosI(intentoId: number):Observable<any>{
+        return this.http.get<any>(this.baseUrl+"examen/resultados/"+intentoId)
     }
 
     private handleError(error:HttpErrorResponse){

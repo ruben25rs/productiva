@@ -16,6 +16,7 @@ export class EvaluacionComponent {
 
   idCurso?: Number;
   idIntento?: Number;
+  idUser: Number = Number(sessionStorage.getItem("id"))
 
   private examenService = inject(ExamenService);
 
@@ -40,14 +41,21 @@ export class EvaluacionComponent {
     if (this.formulario.valid) {
      
 
-      // this.examenService.registrar(respuestas, Number(this.idIntento)).subscribe({
-      //   next: (data) => {
-      //     console.log('Calificación recibida:', data.calificacion);
-      //   },
-      //   error: (error) => {
-      //     console.error('Error al enviar respuestas:', error);
-      //   }
-      // });
+      this.examenService.registrar(respuestas, Number(this.idIntento)).subscribe({
+        next: (data) => {
+          console.log('Calificación recibida:', data.calificacion);
+
+          
+        },
+        error: (error) => {
+          console.error('Error al enviar respuestas:', error);
+        },
+        complete: () => {
+          window.open('/alumno/resultados/' + this.idIntento, '_blank');
+          
+          this.router.navigate(['/alumno/homeA/'+this.idUser]);
+        }
+      });
 
       
 

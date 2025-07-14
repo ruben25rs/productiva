@@ -31,7 +31,7 @@ export class CursosComponent {
     this.areacursosService.listaC().subscribe({
      next: (data) =>{
       
-      console.log(data['value'])
+      console.log(data)
 
       if (data.value.length > 0) {
         this.cursos = data['value']
