@@ -236,9 +236,10 @@ img.img-check {
     height: 100%;
     overflow: hidden;
     position: relative;
+    text-align: end;
 }
 .img-cursos img{
-    width: 100%;
+    width: 60%;
     height: 100%;
     object-fit: cover;
 }
@@ -261,7 +262,7 @@ p.text-enc {
 }
 @media (min-width: 1200px) {
     .container, .container-sm, .container-md, .container-lg, .container-xl {
-        max-width: 1000px;
+        max-width: 1200px;
     }
 }
 .numModulo{
@@ -276,7 +277,21 @@ p.text-enc {
     color: #000;
     font-weight: 600;
 }
-.headermenu {
-    background-color: #1d264f;
+.infoCursosInicio{
+    display: flex;
+    justify-content: center;
+}
+.textosInfoCurso{
+    margin-left: 3%;
+    width: 80%;
+}
+.infoTituloCat{
+    margin-left: 24%;
+}
+
+.btnInscribirseInfo{
+    background-color: #00b0ff;
+    border-radius: 1em;
     color: #fff;
+    border-color: #007bff;
 }

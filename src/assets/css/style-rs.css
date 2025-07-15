@@ -340,11 +340,7 @@ section#hero {
 .filacentrada {
     text-align: center;
 }
-.filacentrada2 {
-    text-align: center;
-	display: inline-block;
-    width: 25%;
-}
+
 .celdacategoria {
     height: auto;
 	width: 23%;

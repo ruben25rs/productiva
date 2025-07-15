@@ -51,7 +51,7 @@ export class AppComponent {
         if (this.userLoginOn==true) {
           this.tipoUser = Number(sessionStorage.getItem("tipoUser"))
         }
-        console.log(sessionStorage.getItem("tipoUser")+"uuuu")
+        console.log(sessionStorage.getItem("tipoUser")+"Tipe User")
 
 /*         this.accesoService.currentUserInfo.subscribe({
           next:(userData) => {

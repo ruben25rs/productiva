@@ -26,7 +26,9 @@ import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.
 import { DetallecursoComponent } from './alumno/detallecurso/detallecurso.component';
 import { RecursoComponent } from './alumno/recurso/recurso.component';
 import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
+import { InfocursosComponent } from './cursos/infocursos/infocursos.component';
 import { ResultadoComponent } from './alumno/resultado/resultado.component';
+
 
 
 const routes: Routes = [
@@ -45,6 +47,12 @@ const routes: Routes = [
     path: 'curso/:id',
     component: ListarCursosComponent,
     data: { title: 'Listar Cursos' }
+  },
+  {
+     path: 'infocursos/:id/:nombrearea',
+    component: InfocursosComponent,
+    data: { title: 'Información Cursos' }
+    
   },
   {
     path: 'nosotros',
