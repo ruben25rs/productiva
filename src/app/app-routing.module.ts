@@ -29,6 +29,8 @@ import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
 import { InfocursosComponent } from './cursos/infocursos/infocursos.component';
 import { ResultadoComponent } from './alumno/resultado/resultado.component';
 import { CertificadoComponent } from './alumno/certificado/certificado.component';
+import { PublicGuard } from './guards/public.guard';
+import { AuthGuard  } from './guards/auth.guard';
 
 
 
@@ -37,143 +39,175 @@ const routes: Routes = [
   {
     path: '', 
     component: InicioComponent,
+    canActivate: [PublicGuard],
     data: { title: 'Inicio' }
   },
   {
     path: 'cursos',
     component: CursosComponent,
+    canActivate: [PublicGuard],
     data: { title: 'Cursos' }
   },
   {
     path: 'curso/:id',
     component: ListarCursosComponent,
+    canActivate: [PublicGuard],
     data: { title: 'Listar Cursos' }
   },
   {
-     path: 'infocursos/:id',
+    path: 'infocursos/:id',
     component: InfocursosComponent,
+    canActivate: [PublicGuard],
     data: { title: 'Información Cursos' }
     
   },
   {
     path: 'nosotros',
     component: NosotrosComponent,
+    canActivate: [PublicGuard],
     data: { title: 'Nosotros' }
   },
   {
     path: 'contacto',
     component: ContactoComponent,
+    canActivate: [PublicGuard],
     data: { title: 'Contacto' }
   },
   {
     path:'ingresar',
     component: IngresarComponent,
+    canActivate: [PublicGuard],
     data: {title: 'Ingresar'}
   },
   {
     path: 'alumno',
     component: AlumnoComponent,
-    data: { title: 'Alumno' },
+    canActivateChild: [AuthGuard],
+    data: { title: 'Alumno', rol: '3' },
     children: [
       {
         path:'',
-        component: HomeAComponent
+        component: HomeAComponent,
+        data: { rol: '3'}
       },
       {
         path:'homeA/:id',
-        component: HomeAComponent
+        component: HomeAComponent,
+        data: { rol: '3'}
       },
       {
         path:'cursosa',
-        component: CursosaComponent
+        component: CursosaComponent,
+        data: { rol: '3'}
       },
       {
         path: 'area/:id',
         component: AreaComponent,
+        data: { rol: '3'}
       },
       {
         path: 'temario/:id',
         component: TemarioComponent,
+        data: { rol: '3'}
       },
       {
         path: 'detallecurso/:id',
         component: DetallecursoComponent,
+        data: { rol: '3'}
       },
       {
         path: 'recurso/:id',
         component: RecursoComponent,
+        data: { rol: '3'}
       },
       {
         path: 'evaluacion/:cursoId/:intentoId',
         component: EvaluacionComponent,
+        data: { rol: '3'}
       },
       {
         path: 'resultados/:intentoId',
         component: ResultadoComponent,
+        data: { rol: '3'}
       },
       {
         path: 'certificado/:id',
         component: CertificadoComponent,
+        data: { rol: '3'}
       },
     ]
   },
   {
     path: 'instructor',
     component: InstructorComponent, 
-    data: { title: 'Instructor' },
+    canActivateChild: [AuthGuard],
+    data: { title: 'Instructor', rol:'2' },
     children: [
       {
         path:'',
-        component: HomeIComponent
+        component: HomeIComponent,
+        data: { rol: '2'}
       },
       {
         path: 'answer-survey/:id',
-        component: AnswerSurveyComponent
+        component: AnswerSurveyComponent,
+        data: { rol: '2'}
       },
     ]
   },
   {
     path:'panel',
     component: PanelComponent,
-    data: {title: 'Panel'},
+    canActivateChild: [AuthGuard],
+    data: {title: 'Panel', rol:'1'},
     children: [
       {
         path:'',
-        component: HomeComponent
+        component: HomeComponent,
+        data: { rol: '1'}
       },
       {
         path:'capacitador',
-        component: CapacitadorComponent
+        component: CapacitadorComponent,
+        data: { rol: '1'}
       },
       {
         path:'alumnos',
-        component: AlumnosComponent
+        component: AlumnosComponent,
+        data: { rol: '1'}
       },
       {
         path:'encuesta',
-        component: EncuestaComponent
+        component: EncuestaComponent,
+        data: { rol: '1'}
       },
       {
         path:'encuesta/:id',
-        component: EncuestaComponent
+        component: EncuestaComponent,
+        data: { rol: '1'}
       },
       {
         path:'ver-encuesta/:id',
-        component: VerEncuestaComponent
+        component: VerEncuestaComponent,
+        data: { rol: '1'}
       },
       {
         path:'administrar',
-        component: AdministrarComponent
+        component: AdministrarComponent,
+        data: { rol: '1'}
       },
       {
         path:'contacto',
-        component: ContactopComponent
+        component: ContactopComponent,
+        data: { rol: '1'}
       },
     ]
   },
   {
     path: '**', 
-  component: InicioComponent}
+    component: InicioComponent,
+    canActivate: [PublicGuard],
+  }
 ];
 
 @NgModule({

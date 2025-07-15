@@ -49,6 +49,15 @@ export class AccesoService {
           catchError(this.handleError)
           );
      }
+
+     getRutaPorRol(rol: string, idUser?: string): string {
+       switch (rol) {
+         case '1': return '/panel';
+         case '2': return '/instructor';
+         case '3': return `/alumno/homeA/${idUser}`;
+         default: return '/ingresar';  // fallback
+       }
+     }
      register(credentials:ResponseAcceso):Observable<any>{
           return this.http.post<any>(this.baseUrl+"register",credentials).pipe(
           tap( (userData) => {
