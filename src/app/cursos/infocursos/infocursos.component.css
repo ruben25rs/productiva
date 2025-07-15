@@ -240,8 +240,6 @@ img.img-check {
 }
 .img-cursos img{
     width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 .inscrito{
     padding: 4px 30px;
