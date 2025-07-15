@@ -1,8 +1,8 @@
 p #texto{
     text-align: center;
     color: white;
-  }
-  div#div_file{
+}
+div#div_file{
   text-align: center;
   color: white;
 }
@@ -27,9 +27,9 @@ div#div_file{
     height: 2em;
     background-color: #00b0ff;
     -webkit-border-radius:5px;
-  }
-  
-  input#file1{
+}
+
+input#file1{
     position: absolute;
     top: 0px;
     left: 0px;
@@ -38,97 +38,97 @@ div#div_file{
     width: 100%;
     height: 100%;
     opacity: 0;
-  
-  
-  }
-  div#div_file{
-      position: relative;
-      padding: 5px;
-      width: 100%;
-      height: 39px;
-      background-color: #00b0ff;
-      -webkit-border-radius: 5px;
-      font-size: 17px;
-      color: #fff;
-      margin-bottom: 5px;
-  }
-  #divguardarfoto {
-      text-align: -webkit-center;
-  }
-  
-  h3.u-text {
-      font-size: 50px;
-      text-transform: uppercase;
-  }
-  .u-text-3 {
-      font-size: 20px;
-      color: #000;
-      font-weight: 400;
-  }
-  .bi-pencil{
-      cursor: pointer;
-  }
-  
-  
-  .topalumno{
-      padding-top: 120px;
-      min-height: 740px;
-  }
-  .row.perfil-ct {
-      width: 90%;
-      margin: auto;
-      position: relative;
-  }
-  .curso-ct{
-      width: 90%;
-      margin: auto;
-      position: relative;
-      background-color: #f6f6f6;
-      padding: 30px;
-      margin: 15px auto;
-  }
-  .img-ct{
+    
+    
+}
+div#div_file{
+  position: relative;
+  padding: 5px;
+  width: 100%;
+  height: 39px;
+  background-color: #00b0ff;
+  -webkit-border-radius: 5px;
+  font-size: 17px;
+  color: #fff;
+  margin-bottom: 5px;
+}
+#divguardarfoto {
+  text-align: -webkit-center;
+}
+
+h3.u-text {
+  font-size: 50px;
+  text-transform: uppercase;
+}
+.u-text-3 {
+  font-size: 20px;
+  color: #000;
+  font-weight: 400;
+}
+.bi-pencil{
+  cursor: pointer;
+}
+
+
+.topalumno{
+  padding-top: 120px;
+  min-height: 740px;
+}
+.row.perfil-ct {
+  width: 90%;
+  margin: auto;
+  position: relative;
+}
+.curso-ct{
+  width: 90%;
+  margin: auto;
+  position: relative;
+  background-color: #f6f6f6;
+  padding: 30px;
+  margin: 15px auto;
+}
+.img-ct{
     width: 100%;
     height: auto;
-  }
-  .enlace-ct{
-      text-decoration: none;
-      font-size: 17px;
-      text-transform: uppercase;
+}
+.enlace-ct{
+  text-decoration: none;
+  font-size: 17px;
+  text-transform: uppercase;
   
-  }
-  span.btn.btn-primary.btn-custom {
-      padding: 5px 35px;
-      font-size: 17px;
-      border-radius: 1.3em;
-      margin-right: 20px;
-      color: #00b0ff;
-  }
-  img.ic-encuesta {
-      width: 25px;
-  }
-  
-  h1.title-enc {
-      color: #172d91;
-      font-size: 40px;
-  }
-  h3.title-enc {
-      color: #172d91;
-      font-size: 30px;
-  }
-  h4.title-enc {
-      color: #172d91;
-      font-size: 22px;
-  }
-  .buttons-enc{
-      padding-top: 6px;
-  }
-  button.btn {
-      font-size: 17px;
-  }
-  p.descripcion {
-      font-size: 17px;
-  }
+}
+span.btn.btn-primary.btn-custom {
+  padding: 5px 35px;
+  font-size: 17px;
+  border-radius: 1.3em;
+  margin-right: 20px;
+  color: #00b0ff;
+}
+img.ic-encuesta {
+  width: 25px;
+}
+
+h1.title-enc {
+  color: #172d91;
+  font-size: 40px;
+}
+h3.title-enc {
+  color: #172d91;
+  font-size: 30px;
+}
+h4.title-enc {
+  color: #172d91;
+  font-size: 22px;
+}
+.buttons-enc{
+  padding-top: 6px;
+}
+button.btn {
+  font-size: 17px;
+}
+p.descripcion {
+  font-size: 17px;
+}
 
 #divguardarfoto {
     text-align: -webkit-center;
@@ -226,7 +226,7 @@ img.img-check {
     margin-top: -30px;
 }
 .btn-examen
- {
+{
     font-size: 20px;
     padding: 5px 35px;
     border-radius: 1.5em;
@@ -239,8 +239,6 @@ img.img-check {
 }
 .img-cursos img{
     width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 .inscrito{
     padding: 4px 30px;
