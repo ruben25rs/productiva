@@ -6,6 +6,7 @@ import { Pregunta } from '../../interfaces/Pregunta';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { appsettings } from '../../settings/appsettings';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-evaluacion',
@@ -51,9 +52,10 @@ export class EvaluacionComponent {
           console.error('Error al enviar respuestas:', error);
         },
         complete: () => {
-          window.open('/alumno/resultados/' + this.idIntento, '_blank');
-          
-          this.router.navigate(['/alumno/homeA/'+this.idUser]);
+          // this.router.navigateByUrl('/alumno/resultados/' + this.idIntento);
+          this.router.navigate(['/alumno/resultados', this.idIntento], { replaceUrl: true });
+
+          // this.router.navigate(['/alumno/homeA/'+this.idUser]);
         }
       });
 

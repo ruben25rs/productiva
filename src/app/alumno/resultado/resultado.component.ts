@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExamenService } from '../../services/examen.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-resultado',
@@ -19,7 +20,7 @@ export class ResultadoComponent {
 
   public resultados: any = {}
 
-  constructor(private route: ActivatedRoute, private router:Router) { 
+  constructor(private route: ActivatedRoute, private router:Router, private location: Location) { 
   }
 
 
@@ -43,6 +44,8 @@ export class ResultadoComponent {
     this.idIntento = Number(this.route.snapshot.paramMap.get('intentoId'));
 
     this.resultadosI()
+
+    this.location.replaceState('/alumno/resultados/' + this.idIntento);
   }
 
 }
