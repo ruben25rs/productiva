@@ -18,6 +18,12 @@ export class IntentosService {
         return  this.http.get<any>(`${this.baseUrl}intento/`+idCurso+'/'+idUser)
     }
 
+
+    aprobadoIntento(idCurso:Number, idUser:Number) : Observable<any>{
+        return  this.http.get<any>(`${this.baseUrl}aprobintento/`+idCurso+'/'+idUser)
+    }
+
+
     
 
 }

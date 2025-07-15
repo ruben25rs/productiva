@@ -29,6 +29,7 @@ export class DetallecursoComponent {
   public curso?: Cursos;
   public activarExamen = false;
   public banderaIntentos = false;
+  public aprobadoIntento = false;
 
   constructor(private route: ActivatedRoute, private router:Router) { 
   }
@@ -81,6 +82,19 @@ export class DetallecursoComponent {
       }
     })
   }
+  aprobado_intento(){
+    this.intentosService.aprobadoIntento(Number(this.idCurso), this.idUser).subscribe({
+      next: (data) =>{
+        console.log(data)
+        
+          this.aprobadoIntento = data['aprobado']
+        
+        
+      }, error:(error) =>{
+        console.log(error.message); 
+      }
+    })
+  }
   
 
 
@@ -89,6 +103,7 @@ export class DetallecursoComponent {
     this.idCurso = Number(this.route.snapshot.paramMap.get('id'));
 
     this.listarRecursos()
+    this.aprobado_intento()
 
     
   }  

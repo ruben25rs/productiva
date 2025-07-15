@@ -65,6 +65,9 @@ img#logoinicio {
     padding: 15px 30px;
     display: block;
 }
+.headermenu:hover {
+    text-decoration: none !important;
+}
 .headermenucursos {
     font-size: 1em;
     letter-spacing: 0.16rem;

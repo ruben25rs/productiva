@@ -33,6 +33,15 @@ export class ExamenService {
         return this.http.get<any>(this.baseUrl+"examen/resultados/"+intentoId)
     }
 
+    certificadoBlob(idCurso:Number, idUser:Number): Observable<Blob> {
+        return this.http.get(`${this.baseUrl}reconocimiento/`+idCurso+"/"+idUser, {
+            responseType: 'blob'  // 
+        });
+    }
+    certificadoPdf(idCurso:Number, idUser:Number): Observable<any> {
+        return this.http.get<any>(`${this.baseUrl}reconocimiento/`+idCurso+"/"+idUser);
+    }
+
     private handleError(error:HttpErrorResponse){
           if(error.status===0){
                console.error('Se ha producio un error ', error.error);

@@ -45,7 +45,7 @@ export class ResultadoComponent {
 
     this.resultadosI()
 
-    this.location.replaceState('/alumno/resultados/' + this.idIntento);
+    
   }
 
 }

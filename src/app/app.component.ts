@@ -33,7 +33,8 @@ export class AppComponent {
 
         // 👉 Agrega aquí las rutas donde quieras ocultar header/footer
         this.mostrarHeaderFooter = !(
-          ruta.includes('/recurso')
+          ruta.includes('/recurso')||
+          ruta.includes('/certificado')
         );
       });
   }

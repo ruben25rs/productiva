@@ -6,7 +6,6 @@ import { Pregunta } from '../../interfaces/Pregunta';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { appsettings } from '../../settings/appsettings';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-evaluacion',

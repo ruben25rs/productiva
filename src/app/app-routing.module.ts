@@ -28,6 +28,7 @@ import { RecursoComponent } from './alumno/recurso/recurso.component';
 import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
 import { InfocursosComponent } from './cursos/infocursos/infocursos.component';
 import { ResultadoComponent } from './alumno/resultado/resultado.component';
+import { CertificadoComponent } from './alumno/certificado/certificado.component';
 
 
 
@@ -49,7 +50,7 @@ const routes: Routes = [
     data: { title: 'Listar Cursos' }
   },
   {
-     path: 'infocursos/:id/:nombrearea',
+     path: 'infocursos/:id',
     component: InfocursosComponent,
     data: { title: 'Información Cursos' }
     
@@ -109,6 +110,10 @@ const routes: Routes = [
       {
         path: 'resultados/:intentoId',
         component: ResultadoComponent,
+      },
+      {
+        path: 'certificado/:id',
+        component: CertificadoComponent,
       },
     ]
   },

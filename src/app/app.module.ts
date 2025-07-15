@@ -43,6 +43,7 @@ import { RecursoComponent } from './alumno/recurso/recurso.component';
 import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
 import { InfocursosComponent } from './cursos/infocursos/infocursos.component';
 import { ResultadoComponent } from './alumno/resultado/resultado.component';
+import { CertificadoComponent } from './alumno/certificado/certificado.component';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import { ResultadoComponent } from './alumno/resultado/resultado.component';
     EvaluacionComponent,
     InfocursosComponent,
     ResultadoComponent,
+    CertificadoComponent,
   ],
   imports: [
     BrowserModule,

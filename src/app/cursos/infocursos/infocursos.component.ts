@@ -10,7 +10,6 @@ import { InscripcionService } from '../../services/inscripcion.service';
 import { Inscripcion } from '../../interfaces/Inscripcion';
 import { Cursos } from '../../interfaces/Cursos';
 import { Areacursos } from '../../interfaces/Areacursos';
-import { ModulosService } from '../../services/modulos.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -19,68 +18,55 @@ import Swal from 'sweetalert2';
   styleUrls: ['./infocursos.component.css']
 })
 export class InfocursosComponent {
-   
-
+    
   idCurso?: Number;
-  nombrearea: string = "";
-  icono: string = "";
-nombrecurso: string = "";
-descripcionCurso: string = "";
-  idUser: Number = Number(sessionStorage.getItem("id"))
-  public baseUrl: string = appsettings.urlImg;
+
   private recursosService = inject(RecursosService);
-  public modulosService = inject(ModulosService);
-public cursosService = inject(CursosService);
-  public inscripcion: Inscripcion[] = [];
+  private cursosService = inject(CursosService);
+
   public modulos: Modulos[] = [];
   public recursos: Recurso[] = [];
-  public cursos: Cursos[] = [];
+  public curso?: Cursos;
   public areacurso?: Areacursos;
   public activarInscripcion = false;
 
+  public baseUrl: string = appsettings.urlImg;
+
   constructor(private route: ActivatedRoute, private router:Router) { 
-    console.log("ENTRO A INFOCURSOS COMPONENTE")
   }
-  
-listarModulos(){
-  this.modulosService.listarModulosId(Number(this.idCurso)).subscribe({
-    next: (data) => {
-      if (data.value.length > 0) {
-        this.modulos = data.value;
-        console.log(this.modulos);
+
+
+  listarRecursos(){
+    this.recursosService.listaRecursos(Number(this.idCurso)).subscribe({
+      next: (data) =>{
+        
+        
+
+        if (data.value.length > 0) {
+          this.curso = data['value_c']
+          this.areacurso = data['value_a']
+          this.modulos = data['value']
+          
+          console.log(this.curso)
+          console.log(this.areacurso)
+        }
+
+      }, error:(error) =>{
+        console.log(error.message); 
       }
-    } ,     
-error: (error) => {
-      console.log(error.message);
-    }
-  });
+    })
+  }
 
-}
 
-listarCursos(){
-  this.cursosService.listaCursosId(Number(this.idCurso)).subscribe({
-    next: (data) => {
-      if (data.value.length > 0) {
-        this.cursos = data['value'];
-       this.icono = data['value'][0].icono;
-       this.nombrecurso = data['value'][0].nombrecurso;
-        this.descripcionCurso = data['value'][0].descripcion;
-      }   
-    },
-    error: (error) => {
-      console.log(error.message);
-    }
-  });
-}
-    ngOnInit(): void {
+
+
+  ngOnInit(): void {
     //this.cargar_table()
     this.idCurso = Number(this.route.snapshot.paramMap.get('id'));
-      this.nombrearea = this.route.snapshot.paramMap.get('nombrearea') || '';
-  this.listarCursos();
-   this.listarModulos()
+
+    this.listarRecursos()
 
     
   }  
-
 
 }

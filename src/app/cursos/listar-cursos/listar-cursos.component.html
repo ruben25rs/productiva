@@ -1,31 +1,32 @@
 <!-- Service Section -->
+<link rel="stylesheet" href="/assets/plugins/bootstrap4/css/bootstrap.css">
 <section id="hero" class="services ">
 	<div class="services container-s">
 		
-		  <div class="col">
-                <h1 class="section-title" *ngIf="(cursos.length>0)"> <span>{{cursos[0].nombrearea}}</span></h1>
-                
-            </div>
-		<div class="row-cursos-list-rs">
-			<div class="curso-item-rs" *ngFor="let curso of cursos;">
-				<!-- <img src="{{baseUrl}}{{curso.icono}}">
-				<h4 class="">{{curso.nombrecurso}}</h4> -->
-				 <img src="{{baseUrl}}{{curso.icono}}" class="img-cursos"  alt="Icono del curso"> 
-                    <div class="buttons-curso">
-                        <div class="text-ct" >
-                            <h4 class="title-curso">{{curso.nombrecurso}}</h4> 
-                        </div>
-                       <a routerLink="/infocursos/{{curso.id}}/{{cursos[0].nombrearea}}" class="link-ct enlace-ct link-temario" > Ver temario del curso</a>
-                        <p></p>
-
-               <!--          <a *ngIf="curso.inscrito!=0" class="btn btn-primary enlace-ct link-temario inscrito
-                        " style=" border-radius: 1em;"> Inscrito</a> -->
-                        <button  class="btn btn-primary enlace-ct link-temario" 
-								style="background-color: #00b0ff; border-radius: 1em;" routerLink="/ingresar/" >
-							 Inscribirse</button>
-                    </div>
-			</div>
-			
+		<div id="container-wrapper" class="container ">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col">
+		                <h1 class="section-title" *ngIf="(cursos.length>0)"> <span>{{cursos[0].nombrearea}}</span></h1>
+		                <br>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-3 col-lg-3 col-md-4" *ngFor="let curso of cursos;">
+		                <div class="curso-item">
+		                    <img src="{{baseUrl}}{{curso.icono}}" class="img-cursos"  alt="Icono del curso"> 
+		                    <div class="buttons-curso">
+		                        <div class="text-ct" >
+		                            <h4 class="title-curso">{{curso.nombrecurso}}</h4> 
+		                        </div>
+		                        <a routerLink="/infocursos/{{curso.id}}/" class="link-ct enlace-ct link-temario" > Ver temario del curso</a>
+		                        <p></p>
+		                        <a routerLink="/ingresar" class="btn btn-primary enlace-ct link-temario" style="background-color: #00b0ff; border-radius: 1em; color: #fff"> Inscribirse</a>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
 		</div>
 	</div>
 </section>

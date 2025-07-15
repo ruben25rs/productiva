@@ -1,4 +1,3 @@
-
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
 import { appsettings } from '../../settings/appsettings';
@@ -134,7 +133,7 @@ cursoxalumno(){
        this.totalinscritos = this.totalinscritos +1
       this.cInscrito = cursosinscritos['value']
 
-     console.info("Cursos inscritos: " + cursosinscritos['value']);
+     console.info(this.cInscrito);
 
     }, error:(error) =>{
         console.log(error.message);   

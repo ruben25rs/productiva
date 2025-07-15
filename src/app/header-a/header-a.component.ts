@@ -10,7 +10,7 @@ import { User } from '../interfaces/User';
 export class HeaderAComponent {
 
   currentUrl: string = '';
-public user: Array<any> = []
+  public user: Array<any> = []
   idUser: Number = Number(sessionStorage.getItem("id"))
 
   constructor(private router: Router) {
@@ -18,9 +18,7 @@ public user: Array<any> = []
       this.currentUrl = this.router.url;
     });
 
-     window.addEventListener('beforeunload', () => {
-      sessionStorage.clear();
-    });
+    
 
   }
   

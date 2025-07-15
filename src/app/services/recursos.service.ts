@@ -22,6 +22,10 @@ export class RecursosService {
     listaRecursosId(idCurso:Number, idUser:Number) : Observable<any>{
         return  this.http.get<any>(`${this.baseUrl}recursos/`+idCurso+'/'+idUser)
     }
+
+    listaRecursos(idCurso:Number) : Observable<any>{
+        return  this.http.get<any>(`${this.baseUrl}recursosall/`+idCurso)
+    }
     listaCursosAll() : Observable<ResponseRecursos>{
         return  this.http.get<ResponseRecursos>(`${this.baseUrl}cursos/listar/`)
     }
