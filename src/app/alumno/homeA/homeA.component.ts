@@ -170,7 +170,9 @@ cursoxalumno(){
           console.log('ID recibido:', this.id);
         });
   } */
- 
+
+  
+     
 ngOnInit(): void {
 
     console.log(this.idUser)
@@ -178,6 +180,7 @@ ngOnInit(): void {
     this.showUsuer();
     this.inscritosCurso()
     this.cursoxalumno();
+    //this.guardarsesionInicio()
  
   }
   
