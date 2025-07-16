@@ -1,0 +1,17 @@
+.content {
+    padding: 20px;
+    padding-top: 100px;
+}
+.options-rs{
+    margin-bottom: 4px;
+}
+
+h5{
+    font-size: 17px;
+}
+.card-title {
+    float: left;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+}
