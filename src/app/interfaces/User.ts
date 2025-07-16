@@ -13,5 +13,7 @@ export interface User {
     empresa:string;
     tipousuario_id: number;
     profile: string;
+    inicio_sesion?:Date;
+    final_sesion?:Date;
    
 }
