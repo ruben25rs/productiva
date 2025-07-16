@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="/assets/css/style-rs.css">
 <link rel="stylesheet" href="/assets/css/all.min.css">
 <link rel="stylesheet" href="/assets/main.css">
+
 <section id="header">
     <div class="header container-fluid">
         <div class="nav-bar">
@@ -20,7 +21,7 @@
                         <a routerLink="/instructor" id="miperfil" routerLinkActive="active-link" class="headermenu">MI PERFIL</a>
                     </li>
                     <li>
-                        <a routerLink="../inicio/ " routerLinkActive="active-link" class="headermenu">SALIR</a>
+                        <a (click)="logout()" routerLink="/"  class="headermenu">SALIR</a>
                     </li>
                     
                 </ul>

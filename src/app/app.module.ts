@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'; 
+
 import {ReactiveFormsModule} from '@angular/forms';
 import * as $ from 'jquery';
 
@@ -44,7 +45,7 @@ import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
 import { InfocursosComponent } from './cursos/infocursos/infocursos.component';
 import { ResultadoComponent } from './alumno/resultado/resultado.component';
 import { CertificadoComponent } from './alumno/certificado/certificado.component';
-
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,14 @@ import { CertificadoComponent } from './alumno/certificado/certificado.component
     ReactiveFormsModule,
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+      
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

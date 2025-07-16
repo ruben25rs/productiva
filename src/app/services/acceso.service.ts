@@ -22,27 +22,26 @@ export class AccesoService {
 
      currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
      currentUserData: BehaviorSubject<String> =new BehaviorSubject<String>("");
-     currentUserInfo: BehaviorSubject<String> = new BehaviorSubject<String>("");
 
      constructor() { 
           this.currentUserLoginOn=new BehaviorSubject<boolean>(sessionStorage.getItem("token")!=null);
           this.currentUserData=new BehaviorSubject<String>(sessionStorage.getItem("token") || "");
-          this.currentUserInfo=new BehaviorSubject<String>(sessionStorage.getItem("token") || "");
 
-          this.validarPathname();
+          
      }
 
      login(credentials:ResponseAcceso):Observable<any>{
           return this.http.post<any>(this.baseUrl+"login",credentials).pipe(
           tap( (userData) => {
                
-               console.log(userData.data.token)
-               console.log(userData.data.id)
                sessionStorage.setItem("token", userData.data.token);
                sessionStorage.setItem("id", userData.data.id);
                sessionStorage.setItem("tipoUser", userData.data.tipouser);
 
                this.currentUserData.next(userData.data.token);
+
+               const payload = JSON.parse(atob(userData.data.token.split('.')[1]));
+               console.log(payload);
                this.currentUserLoginOn.next(true);
           }),
           map((userData)=> userData.data.token),
@@ -72,6 +71,7 @@ export class AccesoService {
 
      logout():void{
          sessionStorage.removeItem("token");
+         sessionStorage.clear()
          this.currentUserLoginOn.next(false);
      }
 
@@ -85,59 +85,18 @@ export class AccesoService {
           return throwError(()=> new Error('Algo falló. Por favor intente nuevamente.'));
      }
 
-     validarPathname(){
-
-          
-
-          switch (location.pathname) {
-               case "/panel":
-               // code
-                    this.banderaPathname=true
-               break;
-            case "/panel/alumnos":
-               // code
-                    this.banderaPathname=true
-               break;
-            case "/panel/capacitador":
-               // code
-                    this.banderaPathname=true
-               break;
-            case "/panel/encuesta":
-               // code
-                    this.banderaPathname=true
-               break;
-            case "/panel/administrar":
-               // code
-                    this.banderaPathname=true
-               break;
-            case "/panel/contacto":
-               // code
-                    this.banderaPathname=true
-               break;
-          case "/alumno/homeA":
-               // code
-                    this.banderaPathname=true
-                    this.banderaAlumno=true
-               break;
-            
-          }
-
-     }
+   
 
      get userData():Observable<String>{
-          return this.currentUserData.asObservable();
+         return this.currentUserData.asObservable();
      }
 
      get userLoginOn(): Observable<boolean>{
-          return this.currentUserLoginOn.asObservable();
+         return this.currentUserLoginOn.asObservable();
      }
-    
 
      get userToken():String{
-          return this.currentUserData.value;
-     }
-     get banderaPath():boolean{
-          return this.banderaPathname;
+         return this.currentUserData.value;
      }
      
 

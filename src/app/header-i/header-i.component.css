@@ -3,8 +3,9 @@
   color: #fff;
 }
 .headermenu {
-    padding: 18px 120px;
+    padding: 18px 70px;
     display: block;
+    text-decoration: none;
 }
 .navbar {
     display: flex;
@@ -15,5 +16,8 @@
 }
 
 img#logoinicio {
-    width: 165px;
+    width: 150px;
+}
+section#header {
+    background-color: #fff;
 }
