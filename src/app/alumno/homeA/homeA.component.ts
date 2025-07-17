@@ -36,10 +36,21 @@ constructor(private route: ActivatedRoute) {} */
   public rutatemp : string="";
 
 
-  public totalinscritos : number = 0;
-  public totalterminados: number = 0;
-  public totalmodulos: number = 0;
-  public totalrecursos: number = 0;
+  public cursostotal : any = {};
+
+
+  editForm=this.formBuilder.group({
+    id:[''],
+    nombre:['',[Validators.required]],
+    apellido_p:['',Validators.required],
+    apellido_m:['',Validators.required],
+    email:['',Validators.required],
+    password:[''],
+    telefono:['',Validators.required],
+    genero:['',Validators.required],
+    fecha_alta:['',Validators.required],
+    empresa_id:[''],
+  })
 
 
   idUser: Number = Number(sessionStorage.getItem("id"))
@@ -71,6 +82,90 @@ constructor(private route: ActivatedRoute) {} */
     })
   }
 
+  getUser(id:number){
+    this.usuariosService.getUsers(id).subscribe({
+      next: (user) =>{
+        console.log(user)
+        this.editForm.controls.id.setValue(user.value.id)
+        this.editForm.controls.nombre.setValue(user.value.nombre)
+        this.editForm.controls.apellido_p.setValue(user.value.apellido_p)
+        this.editForm.controls.apellido_m.setValue(user.value.apellido_m)
+        this.editForm.controls.email.setValue(user.value.email)
+        this.editForm.controls.telefono.setValue(user.value.telefono)
+        this.editForm.controls.genero.setValue(user.value.genero.toString())
+        this.editForm.controls.fecha_alta.setValue(user.value.fecha_alta)
+        this.editForm.controls.empresa_id.setValue(user.value.empresa)
+
+      }, error:(error) =>{
+        console.log(error.message); 
+      }
+    })
+  }
+  actualizar(){
+    if(this.editForm.valid){
+      this.usuariosService.editUser(this.editForm.value).subscribe({
+        next: (user) =>{
+          console.log(user)
+          this.editForm.controls.id.setValue(user.value.id)
+          this.editForm.controls.nombre.setValue(user.value.nombre)
+          this.editForm.controls.apellido_p.setValue(user.value.apellido_p)
+          this.editForm.controls.apellido_m.setValue(user.value.apellido_m)
+          this.editForm.controls.email.setValue(user.value.email)
+          this.editForm.controls.telefono.setValue(user.value.telefono)
+          this.editForm.controls.genero.setValue(user.value.genero.toString())
+          this.editForm.controls.fecha_alta.setValue(user.value.fecha_alta)
+          this.editForm.controls.empresa_id.setValue(user.value.empresa)
+
+        }, error:(error) =>{
+          console.log(error.message); 
+        },
+        complete: () => {
+          console.info("Update completo");
+          //this.router.navigateByUrl('/panel');
+          //window.location.href="/panel";
+          location.reload()
+          
+          
+        }
+      })
+    }else{
+      this.editForm.markAllAsTouched();
+    }
+  }
+
+  get nombre()
+  {
+    return this.editForm.controls.nombre;
+  }
+  get apellido_p()
+  {
+    return this.editForm.controls.apellido_p;
+  }
+  get apellido_m()
+  {
+    return this.editForm.controls.apellido_m;
+  }
+  get email()
+  {
+    return this.editForm.controls.email;
+  }
+  get telefono()
+  {
+    return this.editForm.controls.telefono;
+  }
+  get password()
+  {
+    return this.editForm.controls.password;
+  }
+  get genero()
+  {
+    return this.editForm.controls.genero;
+  }
+  get fecha_alta()
+  {
+    return this.editForm.controls.fecha_alta;
+  }
+  
   onFileChange(event: any) {
     const file = event.target.files[0];
     if (file) {
@@ -80,60 +175,16 @@ constructor(private route: ActivatedRoute) {} */
     }
   }
 
-inscritosCurso(){
 
-  this.areacursosService.listaC().subscribe({
-     next: (data) =>{
-      
-      for (let i = 1; i < data.value.length; i++) {
-
-       this.inscripcionService.inscritosCurso(data['value'][i].id, this.idUser).subscribe({
-        next: (inscritos) =>{
-              
-          //this.Inscripcion = inscritos['value']
-          this.totalmodulos= inscritos['value'].length;
-
-         
-        }, error:(error) =>{
-          console.log(error.message); 
-        }
-      })
-     
-      
-       this.inscripcionService.inscritosRecursos(data['value'][i].id, this.idUser).subscribe({
-        next: (terminados) =>{  
-          
-          this.totalrecursos = terminados['value'].length;
-         // console.log("total RECURSOS.."+this.totalrecursos)
-        }
-        , error:(error) =>{
-          console.log(error.message); 
-        } 
-      })
-
-    }//final for
-
-      if (this.totalmodulos== this.totalrecursos) {
-        this.totalterminados = this.totalterminados + 1;
-    
-      }
-      //Final  CURSOS
-    }, error:(error) =>{
-      console.log(error.message); 
-    }
-  })
-  
-
-
-}
 cursoxalumno(){ 
  
   this.inscripcionService.cursosxalumno(this.idUser).subscribe({
     next: (cursosinscritos) =>{  
-       this.totalinscritos = this.totalinscritos +1
+       
       this.cInscrito = cursosinscritos['value']
+      this.cursostotal = cursosinscritos['value_totales']
 
-     console.info(this.cInscrito);
+     console.info(this.cursostotal['total_inscritos']);
 
     }, error:(error) =>{
         console.log(error.message);   
@@ -178,7 +229,6 @@ ngOnInit(): void {
     console.log(this.idUser)
    
     this.showUsuer();
-    this.inscritosCurso()
     this.cursoxalumno();
     //this.guardarsesionInicio()
  

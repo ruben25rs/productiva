@@ -1,10 +1,10 @@
 <div id="container-wrapper" class="container topalumno">
     <div class="container">
         <div class="row  perfil-ct u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
-            <div class="col-3" *ngFor="let user of usuarios;">
+            <div class="col-12 col-sm-4   col-md-3 col-lg-3" *ngFor="let user of usuarios;">
                 <form [formGroup]="imgForm">
 
-                    <img  src="{{baseUrl}}{{user.profile}}"  alt="Vista previa" width="200"><br><br><br>          
+                    <img  src="{{baseUrl}}{{user.profile}}"  alt="Vista previa" width="200" class="imgperfil"><br><br><br>          
                     <div id="divguardarfoto">
                         <div id="div_file">
 
@@ -16,10 +16,12 @@
                     </div>
                 </form>
             </div>
-            <div class="col-9" *ngFor="let user of usuarios;">
+            <div class="col-12 col-sm-8   col-md-9 col-lg-9" *ngFor="let user of usuarios;">
                 <h3 class="u-text u-text-2 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity;animation-duration: 1500ms;">
                     {{user.nombre}} {{user.apellido_p}}
-                    <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16"  data-toggle="modal" data-target="#modalEdit" ><path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/></svg>
+                    <a (click)="getUser(user.id)" data-toggle="modal" data-target="#editusuario"  style="cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16"  data-toggle="modal" data-target="#modalEdit" ><path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/></svg>
+                    </a > 
                 </h3>
                 <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
                 Correo: {{user.email}}</p>
@@ -27,11 +29,11 @@
                 Empresa: {{user.empresa}}</p>
                 <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
                     <img src="/assets/img/alumno/docusin.svg" id="iconoinscritos" style="width:30px; height: 30px;">
-                    Cursos Inscritos: {{totalinscritos}}
+                    Cursos Inscritos: {{cursostotal['total_inscritos']}}
                 </p>
                 <p class="u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
                     <img src="/assets/img/alumno/docu.png" id="iconofinalizados" style="width:30px; height: 30px;">
-                    Cursos Finalizados: {{totalterminados}}
+                    Cursos Finalizados: {{cursostotal['total_finalizados']}}
                 </p>
             </div>
         </div>
@@ -40,10 +42,10 @@
             <div class="col-12" *ngIf="(cInscrito.length==0)">Por el momento no se ha inscrito a ningun curso</div>
         </div>
         <div class="row curso-ct" *ngFor="let cursoinscrito of cInscrito;" >
-            <div class="col-4">
+            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                 <img src="{{baseUrl}}{{cursoinscrito.icono}}"alt=""  class="img-ct">
             </div>
-            <div class="col-8">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-8">
                 <h4 class="title-enc" style="color: #000; margin: 20px 0"> {{cursoinscrito.nombrecurso}}</h4>
                 <span class="btn btn-primary btn-custom">
                     <a routerLink="/alumno/detallecurso/{{cursoinscrito.id}}" 
@@ -52,5 +54,113 @@
                 <a  id={{cursoinscrito.id}} class="enlace-ct" style="color: #000;">Eliminar</a>
             </div>
         </div>
+        <div class="row">
+        <div class="modal fade" id="editusuario"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #563d7c !important;">
+                        <h6 class="modal-title" style="color: #fff; text-align: center;">
+                            Modificar Información.
+                        </h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form [formGroup]="editForm">
+                        <input type="hidden" name="idusuario" >
+                        <input type="hidden" name="tiposuario"   >
+                        <div class="modal-body" id="cont_modal">
+                            <div class="form-group">
+                                <label for="nombre" class="col-form-label">Nombre(s):</label>
+                                <input formControlName="nombre" type="text" name="nombre" class="form-control" value="nombre">
+                                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="text-danger">
+                                    <div *ngIf="nombre.errors?.['required']">
+                                      El nombre es requerido.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido_p" class="col-form-label">Apellido Paterno:</label>
+                                <input formControlName="apellido_p" type="text" name="apellido_p" class="form-control"  >
+                                <div *ngIf="apellido_p.invalid && (apellido_p.dirty || apellido_p.touched)" class="text-danger">
+                                    <div *ngIf="apellido_p.errors?.['required']">
+                                      El apellido paterno es requerido.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido_m" class="col-form-label">Apellido Materno:</label>
+                                <input formControlName="apellido_m" type="text" name="apellido_m" class="form-control"  >
+                                <div *ngIf="apellido_m.invalid && (apellido_m.dirty || apellido_m.touched)" class="text-danger">
+                                    <div *ngIf="apellido_m.errors?.['required']">
+                                      El apellido materno es requerido.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-form-label">Correo:</label>
+                                <input formControlName="email" type="email" name="email" class="form-control" >
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                                    <div *ngIf="email.errors?.['required']">
+                                      El email es requerido.
+                                    </div>
+                                    <div *ngIf="email.errors?.['email']">
+                                      El email debe tener un formato válido.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-form-label">Password:</label>
+                                <input formControlName="password" type="password" name="password" class="form-control"  >
+                                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                                    <div *ngIf="password.errors?.['required']">
+                                      El password es requerido.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono" class="col-form-label">Telefono:</label>
+                                <input formControlName="telefono" type="number" name="telefono" class="form-control"  >
+                                <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="text-danger">
+                                    <div *ngIf="telefono.errors?.['required']">
+                                      El telefono es requerido.
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="radio" formControlName="genero" value=0> Femenino<br>
+                                <input type="radio" formControlName="genero" value=1 > Masculino<br>
+                                <input type="radio" formControlName="genero" value=2> No especificar<br>
+                                <div *ngIf="genero.invalid && (genero.dirty || genero.touched)" class="text-danger">
+                                    <div *ngIf="genero.errors?.['required']">
+                                      El genero es requerido.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="fecha_alta">Fecha de alta</label>
+                                <input formControlName="fecha_alta" type="date" name="fecha_alta" class="form-control" >
+                                <div *ngIf="fecha_alta.invalid && (fecha_alta.dirty || fecha_alta.touched)" class="text-danger">
+                                    <div *ngIf="fecha_alta.errors?.['required']">
+                                      La fecha es requerido.
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="col-form-label" for="empresa_id">Empresa</label>
+                                <select formControlName="empresa_id" name="empresa" id="empresa" class="form-control">
+                                    <option>Empresa procedente</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary"   (click)="actualizar()">Guardar Cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </div>

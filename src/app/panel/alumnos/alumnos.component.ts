@@ -70,11 +70,19 @@ public tiempo_conexion: any;
         
      next: (data) =>{
 
-        //console.log(data['value'])
+        console.log(data)
         //console.log(data.value.length)
       
       if (data.value.length > 0) {
+<<<<<<< HEAD
          for (let i = 1; i < data.value.length; i++) {
+=======
+        this.usuarios = data['value']
+        console.log(data['value'][0].inicio_sesion)
+//formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-US')
+      const fecha1 =new Date(data['value'][0].inicio_sesion) // Fecha inicial
+      const fecha2 = new Date(data['value'][0].final_sesion) // Fecha final
+>>>>>>> origin/master
 
        this.usuarios = data['value']
         //formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-US')
