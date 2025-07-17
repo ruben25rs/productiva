@@ -963,8 +963,9 @@ section#hero {
 	}
 	.celdacategoria {
 	    height: auto;
-	    display: flex;
+	    display: inline-block;
 	    margin-top: 5%;
+	    width: 31%;
 	}
 	#texto1cursos {
 	    font-size: 250%;
@@ -1129,6 +1130,11 @@ section#hero {
 	}
 	#valores {
 	    font-size: 10.5px;
+	}
+	.celdacategoria {
+	    height: auto;
+	    display: inline-block;
+	    width: 100%;
 	}
 
 }

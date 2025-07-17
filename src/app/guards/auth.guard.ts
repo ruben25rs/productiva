@@ -13,13 +13,11 @@ export class AuthGuard implements CanActivateChild {
     const idUser = sessionStorage.getItem('id')!;
     const rolEsperado = route.data['rol'];
 
-    console.log(tipoUsuario)
-    console.log(idUser)
-    console.log(rolEsperado+"rol")
+
     
 
     if (tipoUsuario && tipoUsuario === rolEsperado) {
-      console.log('aprobo')
+      
       
       return true;
     }
