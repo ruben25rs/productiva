@@ -1,5 +1,6 @@
 import { CInscrito } from "./CInscrito";
 
 export interface ResponseCInscritos {
-     value:CInscrito[]
+     value:CInscrito[],
+     value_totales:Array<any>
 }

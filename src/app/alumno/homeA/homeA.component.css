@@ -207,6 +207,16 @@ button.btn {
 p.descripcion {
     font-size: 17px;
 }
+.form-group input {
+    width: 100%;
+    border-radius: 0;
+}
+h6.modal-title {
+    font-size: 17px;
+}
+label.col-form-label {
+    font-size: 14px;
+}
 @media(max-width: 576px){
     .imgperfil{
         width: 140px;
