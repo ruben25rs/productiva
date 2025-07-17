@@ -1004,6 +1004,10 @@ section#hero {
 	#logopiecursos {
 		padding: 0;
 	}
+	.col-3 {
+		flex: 0 0 100% !important;
+		max-width: 100% !important;
+	}
 	
 }
 @media(max-width: 580px){
