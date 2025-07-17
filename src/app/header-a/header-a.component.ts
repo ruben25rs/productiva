@@ -16,7 +16,9 @@ export class HeaderAComponent {
   public user: Array<any> = []
   userLoginOn:boolean=false;
 
-  idUser: Number = Number(sessionStorage.getItem("id"))
+  inicio_sesion: Date= new Date
+  idUser: number = Number(sessionStorage.getItem("id"))
+  public tiempo_conexion=0;
   //listar usuarios maestros
 private usuarioServices = inject(UsuariosService);
   constructor(private router: Router, public accesoService:AccesoService) {
@@ -30,24 +32,50 @@ private usuarioServices = inject(UsuariosService);
      
        const date = new Date();
        const formattedDate:string = date.toString();
-      let fecha = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-US')
+       let fecha = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-US')
        console.log("sesion final = " +fecha);
-      
+     
       const formData = new FormData();
       formData.append('id', this.idUser.toString());
-      formData.append('final_sesion',fecha);
-  
-     
-  
-      this.usuarioServices.sesionfinal(formData).subscribe({
-        next: (data) => { 
-          console.log(data);
-     
+            formData.append('final_sesion',fecha);
+        this.usuarioServices.showUserProfile(this.idUser).subscribe({
+        next: (data) =>{
+        
+          console.log("inicio sesion = " + data['value'][0].inicio_sesion);
+          
+          if (data.value.length > 0) {
+            this.inicio_sesion = new Date(data['value'][0].inicio_sesion);
+
+             //Obtener la diferencia en milisegundos
+            const diferenciaMs = new Date(fecha).getTime() - this.inicio_sesion.getTime();
+            // Convertir milisegundos a horas
+            const diferenciaHoras = diferenciaMs / (1000 * 60 * 60);
+            this.tiempo_conexion=diferenciaHoras;
+            formData.append('tiempo_conexion', this.tiempo_conexion.toString());
+            console.log("tiempo de conexion: " + this.tiempo_conexion);
+             
+               this.usuarioServices.sesionfinal(formData).subscribe({
+                next: (data) => { 
+                  console.log(data);
+
+                }
+                , error:(error) =>{
+                  console.log(error.message); 
+                } 
+            }) 
+        
+          }
+
+        }, error:(error) =>{
+            console.log(error.message); 
         }
-        , error:(error) =>{
-          console.log(error.message); 
-        } 
-    })
+      })
+     
+
+            
+          
+
+      
     } 
 
   ngOnInit(): void {
