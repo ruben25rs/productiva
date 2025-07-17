@@ -966,10 +966,14 @@ section#hero {
 	#capacitorestitle {
 	    font-size: 25px;
 	}
+	.filacentrada{
+		text-align: -webkit-center;
+	}
 	.celdacategoria {
 	    height: auto;
 	    display: flex;
 	    margin-top: 5%;
+		width: 80%;
 	}
 	#texto1cursos {
 	    font-size: 250%;
