@@ -77,5 +77,29 @@ export class UsuariosService {
         );
     }
     
+   sesioninicio(request:any):Observable<any>{
+        return this.http.post<any>(this.baseUrl+"usuario/sesioninicio/", request).pipe(
+        tap( (userData) => {
+               
+            console.log(userData)
+              
+        }),
+        map((userData)=> userData),
+        catchError(this.handleError)
+        );
+    }
+
+    sesionfinal(request:any):Observable<any>{
+        return this.http.post<any>(this.baseUrl+"usuario/sesionfinal/", request).pipe(
+        tap( (userData) => {
+               
+            console.log(userData)
+              
+        }),
+        map((userData)=> userData),
+        catchError(this.handleError)
+        );
+    }
+            
 
 }

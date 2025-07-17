@@ -11,10 +11,8 @@ import { Router } from '@angular/router';
   ]
 })
 export class HeaderPComponent {
-
-  idUser: Number = Number(sessionStorage.getItem("id"))
   userLoginOn:boolean=false;
-
+ 
 
   constructor(private router: Router, public accesoService:AccesoService) {}
 

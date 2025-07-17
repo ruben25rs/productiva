@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core'; 
+import { Component, ElementRef, ViewChild, AfterViewInit, inject  } from '@angular/core'; 
+import {formatDate} from '@angular/common';
 import { FormBuilder, Validators, AbstractControl, FormControl, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccesoService } from '../services/acceso.service';
@@ -127,15 +128,17 @@ public usuario: Usuarios[] = []
         complete: () => {
           console.info("Login completo");
 
-
+        
           
           this.usuarioServices.getDatosLogin(String(this.email.value)).subscribe({
             next: (data) =>{
              
-            console.log(data['value'][0].tipousuario_id);
+            //console.log(data['value'][0].tipousuario_id);
+            this.guardarsesionInicio(data['value'][0].id);
+
               if (data.value.length > 0) {
                // this.usuario = data['value']
-               switch (data['value'][0].tipousuario_id) {
+              switch (data['value'][0].tipousuario_id) {
                  case 1:
                    this.router.navigateByUrl('/panel');
                    break;
@@ -145,7 +148,7 @@ public usuario: Usuarios[] = []
                   case 3: 
                       this.router.navigate(["/alumno/homeA", data['value'][0].id]); 
                     break; 
-               }
+               } 
                  
               }
             }, error:(error) =>{
@@ -163,7 +166,6 @@ public usuario: Usuarios[] = []
       alert("Error al ingresar los datos.");
     }
   }
-
   register(){
     if(this.regForm.valid){
       this.accesoService.register(this.regForm.value as ResponseAcceso).subscribe({
@@ -189,12 +191,6 @@ public usuario: Usuarios[] = []
   }
 
 
-
-
- 
- 
-
-
   ConfirmedValidator(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
@@ -213,6 +209,31 @@ public usuario: Usuarios[] = []
     };
   }
 
+
+
+guardarsesionInicio(idUser: number){
+   
+     const date = new Date();
+     const formattedDate:string = date.toString();
+    let fecha = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-US')
+     console.log("Date inciio session = " +fecha);
+    
+    const formData = new FormData();
+    formData.append('id', String(idUser));
+    formData.append('inicio_sesion',fecha);
+
+   
+
+    this.usuarioServices.sesioninicio(formData).subscribe({
+      next: (data) => { 
+        console.log(data);
+   
+      }
+      , error:(error) =>{
+        console.log(error.message); 
+      } 
+  })
+  } 
 
   ngOnInit(){    
 
