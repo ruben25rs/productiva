@@ -11,6 +11,8 @@ import { Areacursos } from '../../interfaces/Areacursos';
 import { Inscripcion } from 'src/app/interfaces/Inscripcion';
 import { InscripcionService } from 'src/app/services/inscripcion.service';
 import { CInscrito } from 'src/app/interfaces/CInscrito';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-home',
@@ -63,18 +65,18 @@ constructor(private route: ActivatedRoute) {} */
   })
 
   constructor(private formBuilder:FormBuilder) { 
-  
+
   }
 
 
   showUsuer(){
-      this.usuariosService.showUserProfile(this.idUser).subscribe({
+    this.usuariosService.showUserProfile(this.idUser).subscribe({
       next: (data) =>{
         this.rutatemp = this.baseUrl + data['value'][0].profile;
         
         if (data.value.length > 0) {
           this.usuarios = data['value']
-        
+
         }
       }, error:(error) =>{
           //console.log(error.message); 
@@ -171,26 +173,26 @@ constructor(private route: ActivatedRoute) {} */
     if (file) {
       this.selectedFile = file;
       this.imgForm.patchValue({ profile: file });
-       
+
     }
   }
 
 
-cursoxalumno(){ 
- 
-  this.inscripcionService.cursosxalumno(this.idUser).subscribe({
-    next: (cursosinscritos) =>{  
-       
-      this.cInscrito = cursosinscritos['value']
-      this.cursostotal = cursosinscritos['value_totales']
+  cursoxalumno(){ 
 
-     console.info(this.cursostotal['total_inscritos']);
+    this.inscripcionService.cursosxalumno(this.idUser).subscribe({
+      next: (cursosinscritos) =>{  
 
-    }, error:(error) =>{
+        this.cInscrito = cursosinscritos['value']
+        this.cursostotal = cursosinscritos['value_totales']
+
+        console.info(cursosinscritos);
+
+      }, error:(error) =>{
         console.log(error.message);   
-    }
-  })
-}
+      }
+    })
+  }
 
   
   subirimagen(){
@@ -200,38 +202,57 @@ cursoxalumno(){
     formData.append('profile', this.selectedFile!);
 
     this.usuariosService.subirImage(formData).subscribe({
-        next: (user) =>{
-          console.log(user)
-          
+      next: (user) =>{
+        console.log(user)
 
-        }, error:(error) =>{
-          console.log(error.message); 
-        },
-        complete: () => {
-          console.info("Update completo");
-          
-          this.showUsuer();
-          
-        }
-      })
+
+      }, error:(error) =>{
+        console.log(error.message); 
+      },
+      complete: () => {
+        console.info("Update completo");
+
+        this.showUsuer();
+
+      }
+    })
   }
- /*  obtenerparametro() {
-      this.route.params.subscribe(params => {
-      this.id=params['id'];
-          console.log('ID recibido:', this.id);
-        });
-  } */
 
+  eliminarcurso_alumno(idinscripcion:any){
+
+    Swal.fire({
+      title: '¿Estás seguro de eliminar el curso?',
+      text: 'No podrás revertir esta acción',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, borrar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.inscripcionService.eliminarInscripcion(idinscripcion).subscribe({
+          next: (encuesta) =>{
+            
+          }, error:(error) =>{
+          },
+          complete: () => {
+            this.cursoxalumno();
+          }
+        })
+        
+      }
+    });
+
+  }
   
-     
-ngOnInit(): void {
+
+  ngOnInit(): void {
 
     console.log(this.idUser)
-   
+
     this.showUsuer();
     this.cursoxalumno();
     //this.guardarsesionInicio()
- 
+
   }
   
 }
