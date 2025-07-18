@@ -5,5 +5,6 @@ export interface CInscrito {
     ruta?:string;
     icono?:string;
     areacurso_id?:number;
+    idi:number;
      
 }

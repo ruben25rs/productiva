@@ -51,7 +51,7 @@
                     <a routerLink="/alumno/detallecurso/{{cursoinscrito.id}}" 
                     class="enlace-ct" style="color: #fff;">Continuar</a>
                 </span>
-                <a  id={{cursoinscrito.id}} class="enlace-ct" style="color: #000;">Eliminar</a>
+                <a   (click)=eliminarcurso_alumno(cursoinscrito.idi) class="enlace-ct" style="color: #000; cursor:pointer;">Eliminar</a>
             </div>
         </div>
         <div class="row">
@@ -110,15 +110,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="password" class="col-form-label">Password:</label>
-                                <input formControlName="password" type="password" name="password" class="form-control"  >
-                                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
-                                    <div *ngIf="password.errors?.['required']">
-                                      El password es requerido.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label for="telefono" class="col-form-label">Telefono:</label>
                                 <input formControlName="telefono" type="number" name="telefono" class="form-control"  >
                                 <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="text-danger">
@@ -134,15 +125,6 @@
                                 <div *ngIf="genero.invalid && (genero.dirty || genero.touched)" class="text-danger">
                                     <div *ngIf="genero.errors?.['required']">
                                       El genero es requerido.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label" for="fecha_alta">Fecha de alta</label>
-                                <input formControlName="fecha_alta" type="date" name="fecha_alta" class="form-control" >
-                                <div *ngIf="fecha_alta.invalid && (fecha_alta.dirty || fecha_alta.touched)" class="text-danger">
-                                    <div *ngIf="fecha_alta.errors?.['required']">
-                                      La fecha es requerido.
                                     </div>
                                 </div>
                             </div>

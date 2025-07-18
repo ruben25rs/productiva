@@ -6,7 +6,7 @@ import { Inscripcion } from '../../interfaces/Inscripcion';
 import { CursosService } from '../../services/cursos.service';
 import { appsettings } from '../../settings/appsettings';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-area',
@@ -80,12 +80,14 @@ export class AreaComponent {
         console.log(error.message); 
       },
       complete: () => {
-        console.info("Inscripcion completo");
-          //this.router.navigateByUrl('/panel');
-          //window.location.href="/panel";
-        
-
-
+        Swal.fire({
+          title: 'Se inscribio al curso correctamente',
+          icon: 'success',
+          timer: 3000,               // 🔹 Cierra automáticamente en 3 segundos
+        }).then(() => {
+          // Redirigir después de cerrar
+          this.router.navigate(['/alumno/homeA/'+this.idUser]); // Si usas Router
+        });
       }
     })
   }
