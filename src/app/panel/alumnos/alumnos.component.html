@@ -46,7 +46,11 @@
 								</span>
 							</ng-template>
 						</td>
-						<td>{{user.empresa}}</td>
+						<td>
+							<div *ngIf="(user.empresa==null)">N/A</div>
+							<div *ngIf="(user.empresa!=null)">{{user.empresa}}</div>
+							
+						</td>
 						<td>
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editusuario" (click)="editarU(user.id)" style="margin-bottom: 2px;">
 								Modificar
