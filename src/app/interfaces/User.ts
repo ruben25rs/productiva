@@ -15,5 +15,6 @@ export interface User {
     profile: string;
     inicio_sesion:Date;
     final_sesion:Date;
+    tiempo_conexion_texto:string;
    
 }

@@ -37,7 +37,7 @@ constructor(private route: ActivatedRoute) {} */
   public  id:number =1; 
   public rutatemp : string="";
 
-
+  fechaActual: Date = new Date();
   public cursostotal : any = {};
 
 
@@ -253,6 +253,12 @@ constructor(private route: ActivatedRoute) {} */
     this.cursoxalumno();
     //this.guardarsesionInicio()
 
+    this.fechaActual = new Date();
+
+    console.log(this.fechaActual)
+
   }
+
+  
   
 }

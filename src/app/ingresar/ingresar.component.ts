@@ -25,7 +25,7 @@ export class IngresarComponent implements AfterViewInit{
     (c: AbstractControl) => Validators.required(c),
     Validators.pattern(
       /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/
-    ),
+      ),
   ]);
 
   password2 = new FormControl(null, [
@@ -37,7 +37,7 @@ export class IngresarComponent implements AfterViewInit{
     (c: AbstractControl) => Validators.required(c),
     Validators.pattern(
       /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/
-    ),
+      ),
   ]);
 
   nombre = new FormControl(null, [(c: AbstractControl) => Validators.required(c)]);
@@ -54,19 +54,19 @@ export class IngresarComponent implements AfterViewInit{
   })
 
   regForm=this.formBuilder.group(
-    {
-      nombre: this.nombre,
-      empresa:this.empresa,
-      email:this.email,
-      terminos: this.terminos,
-      tipousuario_id: [3],
-      password: this.password,
-      c_password: this.c_password,
-      estatus: 1,
-    },
-    {
-      validator: this.ConfirmedValidator('password', 'c_password'),
-    }
+  {
+    nombre: this.nombre,
+    empresa:this.empresa,
+    email:this.email,
+    terminos: this.terminos,
+    tipousuario_id: [3],
+    password: this.password,
+    c_password: this.c_password,
+    estatus: 1,
+  },
+  {
+    validator: this.ConfirmedValidator('password', 'c_password'),
+  }
   )
 
   @ViewChild("loginBtn") loginBtn!: ElementRef;
@@ -108,8 +108,8 @@ export class IngresarComponent implements AfterViewInit{
 
 
   //listar usuarios maestros
-private usuarioServices = inject(UsuariosService);
-public usuario: Usuarios[] = []
+  private usuarioServices = inject(UsuariosService);
+  public usuario: Usuarios[] = []
 
 
 
@@ -128,34 +128,34 @@ public usuario: Usuarios[] = []
         complete: () => {
           console.info("Login completo");
 
-        
+          
           
           this.usuarioServices.getDatosLogin(String(this.email.value)).subscribe({
             next: (data) =>{
              
             //console.log(data['value'][0].tipousuario_id);
-            this.guardarsesionInicio(data['value'][0].id);
+              this.guardarsesionInicio(data['value'][0].id);
 
               if (data.value.length > 0) {
                // this.usuario = data['value']
-              switch (data['value'][0].tipousuario_id) {
-                 case 1:
-                   this.router.navigateByUrl('/panel');
-                   break;
-                 case 2: 
-                    this.router.navigateByUrl('/instructor');
-                   break; 
-                  case 3: 
-                      this.router.navigate(["/alumno/homeA", data['value'][0].id]); 
-                    break; 
-               } 
-                 
-              }
-            }, error:(error) =>{
-              console.log(error.message); 
+                switch (data['value'][0].tipousuario_id) {
+                case 1:
+                 this.router.navigateByUrl('/panel');
+                 break;
+               case 2: 
+                this.router.navigateByUrl('/instructor');
+                break; 
+              case 3: 
+                this.router.navigate(["/alumno/homeA", data['value'][0].id]); 
+                break; 
+              } 
+              
             }
-          })
-        
+          }, error:(error) =>{
+            console.log(error.message); 
+          }
+        })
+          
           this.loginForm.reset();
         }
       })
@@ -198,54 +198,54 @@ public usuario: Usuarios[] = []
       if (
         matchingControl.errors &&
         !matchingControl.errors
-      ) {
+        ) {
         return;
-      }
-      if (control.value !== matchingControl.value) {
-        matchingControl.setErrors({ confirmedValidator: true });
-      } else {
-        matchingControl.setErrors(null);
-      }
-    };
-  }
+    }
+    if (control.value !== matchingControl.value) {
+      matchingControl.setErrors({ confirmedValidator: true });
+    } else {
+      matchingControl.setErrors(null);
+    }
+  };
+}
 
 
 
 guardarsesionInicio(idUser: number){
-   
-     const date = new Date();
-     const formattedDate:string = date.toString();
-    let fecha = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-US')
-     console.log("Date inciio session = " +fecha);
-    
-    const formData = new FormData();
-    formData.append('id', String(idUser));
-    formData.append('inicio_sesion',fecha);
+ 
+  const date = new Date();
+  const formattedDate:string = date.toString();
+  let fecha = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-US')
+  console.log("Date inciio session = " +fecha);
+  
+  const formData = new FormData();
+  formData.append('id', String(idUser));
+  formData.append('inicio_sesion',fecha);
 
-   
+  
 
-    this.usuarioServices.sesioninicio(formData).subscribe({
-      next: (data) => { 
-        console.log(data);
-   
-      }
-      , error:(error) =>{
-        console.log(error.message); 
-      } 
+  this.usuarioServices.sesioninicio(formData).subscribe({
+    next: (data) => { 
+      console.log(data);
+      
+    }
+    , error:(error) =>{
+      console.log(error.message); 
+    } 
   })
-  } 
+} 
 
-  ngOnInit(){    
-
-  
-
-  }
-
-  ngAfterViewInit(){
-
-  }
+ngOnInit(){    
 
   
+
+}
+
+ngAfterViewInit(){
+
+}
+
+
 
 
 }
