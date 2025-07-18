@@ -5,6 +5,8 @@ import { Usuarios } from './interfaces/Usuarios';
 import { Token } from '@angular/compiler';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { IdleService } from './services/idle.service';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +24,9 @@ export class AppComponent {
   tipoUser:number = 0;
 
   mostrarHeaderFooter: boolean = true;
+  userId: Number = Number(sessionStorage.getItem("id"))
 
-  constructor(private router: Router, public accesoService:AccesoService) {
+  constructor(private router: Router, public accesoService:AccesoService, private idleService: IdleService) {
     this.router.events
       .pipe(
         filter((event): event is NavigationEnd => event instanceof NavigationEnd) // 👈 Filtro con tipado
@@ -41,6 +44,10 @@ export class AppComponent {
 
   private usuarioServices = inject(UsuariosService);
   public usuario: Usuarios[] = []
+
+
+
+  
 
 
   ngOnInit(): void {
