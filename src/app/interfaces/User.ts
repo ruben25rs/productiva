@@ -16,5 +16,6 @@ export interface User {
     inicio_sesion:Date;
     final_sesion:Date;
     tiempo_conexion_texto:string;
+    tiempo_conexion?:number;
    
 }

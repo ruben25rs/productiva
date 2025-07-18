@@ -67,28 +67,15 @@ public tiempo_conexion: any;
   
 
     this.usuariosService.listaUsersA().subscribe({
+        
      next: (data) =>{
 
         console.log(data)
         //console.log(data.value.length)
       if (data.value.length > 0) {
+
         this.usuarios = data['value']
-        console.log(data['value'][0].inicio_sesion)
-//formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-US')
-      const fecha1 =new Date(data['value'][0].inicio_sesion) // Fecha inicial
-      const fecha2 = new Date(data['value'][0].final_sesion) // Fecha final
-
-    // Obtener la diferencia en milisegundos
-    const diferenciaMs = fecha2.getTime() - fecha1.getTime();
-
-    // Convertir milisegundos a horas
-    const diferenciaHoras = diferenciaMs / (1000 * 60 * 60);
-
-   
-       
-        this.tiempo_conexion =diferenciaHoras
-        console.log("tiempo de conexion = " + diferenciaMs);
-         console.log(`Diferencia en horas: ${diferenciaHoras}`);
+     
         //--------------------------
       
       }
