@@ -1,6 +1,7 @@
 import { Component, inject, ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormArray, Validators, FormGroup} from '@angular/forms';
 import { QuestionService } from '../../services/question.service';
+import { EncuestaService } from '../../services/encuesta.service';
 import { ResponseQuestions } from '../../interfaces/ResponseQuestions';
 import { Questions } from '../../interfaces/Questions';
 import { Encuestas } from '../../interfaces/Encuestas';
@@ -15,154 +16,139 @@ import { minOptionsRequired } from './options.valid';
   styleUrls: ['./answer-survey.component.css']
 })
 export class AnswerSurveyComponent {
-   idEncuesta?: number
 
-   
-   
-     private questionService = inject(QuestionService);
-     public questions: Questions[] = [];
-     public encuesta?: Encuestas;
-   
-     userId: Number = Number(sessionStorage.getItem("id"))
-   
-   
-     
-     questionForm!: FormGroup;
-   
-   
-     constructor(private formBuilder:FormBuilder, private route: ActivatedRoute, private cd: ChangeDetectorRef, private router:Router) { 
-     }
-   
+ iddEncuesta?: number
 
-   listar(id:number){
-    this.questionService.listarQuestions(id).subscribe({
-      next: (data) =>{
-        console.log(data['value'])
-        if (data.value.length > 0) {
-          this.questions = data['value']
-        }
-        this.encuesta = data['value_enc']
+ private questionService = inject(QuestionService);
+ private encuestaService = inject(EncuestaService);
+ public questions: Questions[] = [];
 
-      }, error:(error) =>{
-        console.log(error.message); 
+ public encuesta?: Encuestas;
+
+ userId: Number = Number(sessionStorage.getItem("id"))
+
+ questionForm: FormGroup = this.formBuilder.group({});
+
+ respuestas: { [key: number]: any } = {};
+ formularioEnviado = false;
+
+
+ constructor(private formBuilder:FormBuilder, private route: ActivatedRoute, private cd: ChangeDetectorRef, private router:Router) { 
+ }
+
+
+ listar(id:number){
+  this.questionService.listarQuestions(id).subscribe({
+    next: (data) =>{
+      console.log(data['value'])
+      if (data.value.length > 0) {
+        this.questions = data['value']
       }
-    })
+      this.encuesta = data['value_enc']
 
+    }, error:(error) =>{
+      console.log(error.message); 
+    }
+  })
+
+}
+
+trackByPreguntaId(index: number, pregunta: any) {
+  return pregunta.id;
+}
+
+get question()
+{
+  return this.questionForm.get('question');
+} 
+get type()
+{
+  return this.questionForm.get('type');
+} 
+get options()
+{
+  return this.questionForm.get('options');
+} 
+
+get opciones(): FormArray {
+  return this.questionForm.get('options') as FormArray;
+}
+get answer_id(): FormArray{
+  return this.questionForm.get('answer_id') as FormArray;
+}
+
+
+enviar(){
+  this.formularioEnviado = true;
+
+    // Validar todas las preguntas
+  const faltantes = this.questions.filter((p) => {
+    const r = this.respuestas[p.id];
+    if (p.type === 'checkbox') {
+      return !r || r.length === 0;
+    }
+    return !r || r === '';
+  });
+
+  if (faltantes.length > 0) {
+
+    return;
   }
-  agregar_preg(){
-    if(this.questionForm.valid){
-      this.questionService.registrar(this.questionForm.value as ResponseQuestions).subscribe({
-        next: (questionData) =>{
-          console.log(questionData)
 
-        }, error:(error) =>{
-          console.log(error.message); 
-        },
-        complete: () => {
-          console.info("Registro completo");
-          Swal.fire({
-            toast: true,
-            position: 'top-end',
-            icon: 'success',
-            title: 'Pregunta Agregada',
-            showConfirmButton: false,
-            timer: 3000
-          });
-          this.listar(Number(this.idEncuesta))
-          this.questionForm.reset()
-          this.opciones.clear()
-          ///this.cerrarModal()
-        }
-      })
-    }else{
-      this.questionForm.markAllAsTouched();
+    // Transformar respuestas
+  const respuestasArray = Object.entries(this.respuestas).map(([pregunta_id, respuesta]) => ({
+    pregunta_id: +pregunta_id,
+    respuesta
+  }));
+
+  console.log('Respuestas listas para enviar:', respuestasArray);
+    // Aquí POST a tu API
+
+  this.encuestaService.respuestasEnc(respuestasArray, Number(this.iddEncuesta)).subscribe({
+    next: (data) => {
+
+      console.log(data);
+
+    },
+    error: (error) => {
+      console.error('Error al enviar respuestas:', error);
+    },
+    complete: () => {
+       
+      this.router.navigate(['/instructor']);
+      
     }
+  });
+}
+
+onChangeRespuesta(preguntaId: number, valor: any) {
+  this.respuestas[preguntaId] = valor;
+
+  console.log(preguntaId+" ---- "+valor)
+}
+
+onChangeCheckbox(preguntaId: number, opcion: string, event: Event) {
+  if (!this.respuestas[preguntaId]) {
+    this.respuestas[preguntaId] = [];
   }
-  mostrar_preg(id:any){
-      this.questionService.listarQuestion(id).subscribe({
-        next: (questionData) =>{
-          console.log(questionData)
-          this.questionForm.get('id')?.setValue(questionData.value.id);
-          this.questionForm.get('question')?.setValue(questionData.value.question);
-          this.questionForm.get('type')?.setValue(questionData.value.type);
-  
-          this.opciones.clear(); // Limpia cualquier opción anterior
-  
-          questionData.value.options.forEach((op: string) => {
-            this.opciones.push(this.formBuilder.control(op, Validators.required));
-          });
-  
-            
-        }, error:(error) =>{
-          console.log(error.message); 
-        },
-        complete: () => {
-          
-  
-        }
-      })
-    }
-  
-    get question()
-    {
-      return this.questionForm.get('question');
-    } 
-    get type()
-    {
-      return this.questionForm.get('type');
-    } 
-    get options()
-    {
-      return this.questionForm.get('options');
-    } 
-  
-    get opciones(): FormArray {
-      return this.questionForm.get('options') as FormArray;
-    }
-  
-    esConOpciones(): boolean {
-      const tipo = this.questionForm.get('type')?.value;
-      return tipo === 'radio' || tipo === 'checkbox';
-    }
-  
-    agregarOpcion() {
-      this.opciones.push(this.formBuilder.control('', Validators.required));
-      this.cd.detectChanges();
-    }
-  
-    eliminarOpcion(index: number) {
-      this.opciones.removeAt(index);
-      this.cd.detectChanges();
-    }
-  
-    // cerrarModal() {
-    //   $('#pregunta').modal('hide');
-    // }
-  
-  
-    ngOnInit(){  
-      this.idEncuesta = Number(this.route.snapshot.paramMap.get('id'));
-      this.questionForm=this.formBuilder.group({
-        id:[''],
-        question:['',[Validators.required]],                                                                                                                          
-        type:['',[Validators.required]],
-        options: this.formBuilder.array([],minOptionsRequired(() => this.questionForm?.get('type')?.value)),
-        encuesta_id:[this.idEncuesta],
-      })     
-   // Cuando cambia el tipo, limpiamos o revalidamos
-    this.questionForm.get('type')?.valueChanges.subscribe(() => {
-      const tipo = this.questionForm.get('type')?.value;
-
-      if (tipo === 'radio' || tipo === 'checkbox') {
-        if (this.opciones.length === 0) this.agregarOpcion();
-      } else {
-        this.opciones.clear();
-      }
-
-      this.opciones.updateValueAndValidity();
-    });
-
-    this.listar(this.idEncuesta)
+  const checked = (event.target as HTMLInputElement).checked;
+  if (checked) {
+    this.respuestas[preguntaId].push(opcion);
+  } else {
+    this.respuestas[preguntaId] = this.respuestas[preguntaId].filter((o: string) => o !== opcion);
   }
+  console.log(preguntaId+" ---- "+opcion)
+
+}
+
+
+ngOnInit(){  
+  this.iddEncuesta = Number(this.route.snapshot.paramMap.get('id'));
+  
+  
+  
+
+  this.listar(this.iddEncuesta)
+}
 
 }

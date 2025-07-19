@@ -52,6 +52,8 @@ export class QuestionService {
 
      
 
+     
+
      private handleError(error:HttpErrorResponse){
           if(error.status===0){
                console.error('Se ha producio un error ', error.error);

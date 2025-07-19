@@ -1,7 +1,7 @@
 export interface Questions {
-     id?:number;
-     question?:string;
-     type:string;
-     options:string;
+     id:number;
+     question:string;
+     type: 'radio' | 'checkbox' | 'text';
+     options:string[];
      encuesta_id: string;
 }

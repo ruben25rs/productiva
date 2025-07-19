@@ -52,6 +52,19 @@ export class EncuestaService {
           );
      }
 
+
+     respuestasEnc(respuestas: any[], idDetalle: number):Observable<any>{
+        return this.http.post<any>(this.baseUrl+"encuesta/respuestas",{detalle_id: idDetalle, respuestas: respuestas }).pipe(
+          tap((examendata) => {
+
+
+
+        }),
+        map((examendata)=> examendata),
+          catchError(this.handleError)
+        );
+    }
+
      
 
      private handleError(error:HttpErrorResponse){

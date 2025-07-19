@@ -5,7 +5,7 @@
 				<div class="col-md-4">
 					<div class="card card-outline card-primary">
 						<div class="card-header">
-							<h3 class="card-title">Detalles de Encuestas</h3>
+							<h3 class="card-title">Detalles de Encuesta</h3>
 						</div>
 						<div class="card-body p-0 py-2">
 							<div class="container-fluid" >
@@ -14,7 +14,6 @@
 								<small>{{encuesta?.descripcion}}</small>
 								<p>Inicio:: <b>{{encuesta?.start_date}}</b></p>
 								<p>Fin: <b>{{encuesta?.end_date}}</b></p>
-								<p>Han tomado: <b></b></p>
 
 							</div>
 							<hr class="border-primary">
@@ -29,245 +28,65 @@
 								<button class="btn btn-block btn-sm btn-default btn-flat border-success new_question" type="button" data-target="#pregunta" data-toggle="modal"><i class="fa fa-plus" ></i> Agregar nueva pregunta</button>
 							</div> -->
 						</div>
-						<form action="" id="manage-sort">
+						<form  [formGroup]="questionForm" id="manage-sort" (ngSubmit)="enviar()">
 							<div class="card-body ui-sortable">
-								<div class="callout callout-info" *ngFor="let question of questions; let i = index">
+								<div class="callout callout-info" *ngFor="let question of questions; trackBy: trackByPreguntaId">
 										
 									<h5>{{question.question}}</h5>	
 									<div class="col-md-12">
-										<input type="hidden" name="" value="">	
 										<div class="icheck-primary" *ngIf="question.type === 'radio'">
-											<div *ngFor="let opt of question.options" class="options-rs">
-												<input type="radio" id="{{opt}}" name="answer[{{i+1}}]" value="">
-												<label for="{{opt}}">{{opt}}</label>
-											</div>
-										</div>
-										<div class="icheck-primary" *ngIf="question.type === 'checkbox'">
-											<div *ngFor="let opt of question.options" class="options-rs">
-												<input type="checkbox" id="{{opt}}_chk" name="answer[][]" value="">
-												<label for="{{opt}}_chk">{{opt}}</label>
-											</div>
-										</div>
-										<div class="form-group" *ngIf="question.type === 'text'">
-											<textarea name="answer" id="" cols="30" rows="4" class="form-control" placeholder="Escribe algo aqui.." ></textarea>
-										</div>
+									      <div *ngFor="let opcion of question.options">
+									        <input
+									          type="radio"
+									          [id]="'pregunta_' + question.id + '_' + opcion"
+									          [name]="'pregunta_' + question.id"
+									          [value]="opcion"
+									          (change)="onChangeRespuesta(question.id, opcion)"
+									          required
+									        />
+									        <label [for]="'pregunta_' + question.id + '_' + opcion">{{ opcion }}</label>
+									      </div>
+									      <div *ngIf="formularioEnviado && !respuestas[question.id]" class="text-danger">
+									        Debes seleccionar una opción.
+									      </div>
+									    </div>
+										<!-- Para tipo checkbox -->
+									    <div class="icheck-primary" *ngIf="question.type === 'checkbox'">
+									      <div *ngFor="let opcion of question.options; let i = index">
+									        <input
+									          type="checkbox"
+									          [id]="'pregunta_' + question.id + '_' + i"
+									          [name]="'pregunta_' + question.id + '_' + i"
+									          [value]="opcion"
+									          (change)="onChangeCheckbox(question!.id, opcion, $event)"
+									        />
+									        <label [for]="'pregunta_' + question.id + '_' + i">{{ opcion }}</label>
+									      </div>
+									      <div *ngIf="formularioEnviado && (!respuestas[question.id] || respuestas[question.id].length === 0)" class="text-danger">
+									        Debes seleccionar al menos una opción.
+									      </div>
+									    </div>
+										<!-- Para tipo text -->
+									    <div class="form-group" *ngIf="question.type === 'text'">
+									      <textarea
+									        [name]="'pregunta_' + question.id"
+									        (input)="onChangeRespuesta(question!.id, $any($event.target).value)"
+									      ></textarea>
+									      <div *ngIf="formularioEnviado && (!respuestas[question.id] || respuestas[question.id].trim() === '')" class="text-danger">
+									        Debes escribir una respuesta.
+									      </div>
+									    </div>
+
 									</div>	
 								</div>
+								<button type="submit" class="btn btn-primary btn-exa" style="text-transform: uppercase;">Enviar respuesta</button>
 							</div>
+
 						</form>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="modal fade" id="pregunta" #pregunta  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-xl">
-						<div class="modal-content">
-							<div class="modal-header" style="background-color: #563d7c !important;">
-								<h6 class="modal-title" style="color: #fff; text-align: center;">
-									Nueva pregunta.
-								</h6>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<form [formGroup]="questionForm">
-								<div class="modal-body" id="cont_modal">
-									<div class="row">
-										
-										<div class="col-sm-6 border-right">
-											<div class="form-group">
-												<label for="question" class="col-form-label">Pregunta:</label>
-												<textarea formControlName="question" type="text" name="question" class="form-control"  cols="30" rows="4"> </textarea>
-												<div *ngIf="question && question.invalid && (question.dirty || question.touched)" class="text-danger">
-													<div *ngIf="question.errors?.['required']">
-														Escriba una pregunta.
-													</div>
-												</div>
-											</div>
-											<div class="form-group">
-												<label for="type" class="col-form-label">Tipo de Respuesta:</label>
-												<select formControlName="type" class="form-control">
-													<option value="text">Texto</option>
-													<option value="radio">Opción única (radio)</option>
-													<option value="checkbox">Opción múltiple (checkbox)</option>
-												</select>
-												<div *ngIf="type && type.invalid && (type.dirty || type.touched)" class="text-danger">
-													<div *ngIf="type.errors?.['required']">
-														El nombre es requerido.
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<b>Vista Previa</b>
-
-											<div class="preview">
-												<div *ngIf="type && type.errors?.['required']">
-													<b>Porfavor Selecciona el tipo de pregunta</b>
-													<p></p>
-												</div>
-												<div class="callout callout-info">
-													<div *ngIf="questionForm.get('type')?.value === 'text'">
-														<label>Respuesta:</label>
-														<textarea name="frm_opt" disabled cols="30" rows="10" class="form-control"  placeholder="Escribe algo aqui.d.."></textarea>
-													</div>
-													<!-- Radio -->
-													<div *ngIf="questionForm.get('type')?.value === 'radio'">
-														<div class="icheck-primary" *ngFor="let opt of opciones.controls">
-															<div class="options-rs">
-																<input type="radio" disabled>
-																<label >{{ opt.value }}</label>
-															</div>
-														</div>
-													</div>
-
-													<!-- Checkbox -->
-													<div *ngIf="questionForm.get('type')?.value === 'checkbox'">
-														<div class="icheck-primary" *ngFor="let opt of opciones.controls">
-															<div class="options-rs">
-																<input type="checkbox" disabled>
-																<label >{{ opt.value }}</label>
-															</div>
-														</div>
-													</div>
-													<div *ngIf="esConOpciones()">
-														<label>Opciones:</label>
-														<div formArrayName="options" class="block-valid">
-															<div *ngFor="let opt of opciones.controls; let i = index">
-																<div class="input-group mb-3">
-																	<input  class="form-control"  [formControlName]="i" aria-describedby="basic-addon2">
-																	<button type="button" class="btn btn-danger btn-flat delete_survey" (click)="eliminarOpcion(i)"><i class="fas fa-trash"></i></button>
-																</div>
-
-															</div>
-														</div>
-														<button type="button" (click)="agregarOpcion()" class="btn btn-primary">Agregar opción</button>
-													</div>
-													
-
-												</div>
-												<div *ngIf="opciones && opciones.invalid && questionForm.get('options')?.touched" class="error text-danger">
-												    Debes agregar al menos una opción.
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-								
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-									< <button type="submit" class="btn btn-primary"  (click)="agregar_preg()">Salvar</button> 
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="modal fade" id="pregunta_edit" #pregunta_edit  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-xl">
-						<div class="modal-content">
-							<div class="modal-header" style="background-color: #563d7c !important;">
-								<h6 class="modal-title" style="color: #fff; text-align: center;">
-									Actualizar pregunta.
-								</h6>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<form [formGroup]="questionForm">
-								<div class="modal-body" id="cont_modal">
-									<div class="row">
-										
-										<div class="col-sm-6 border-right">
-											<div class="form-group">
-												<label for="question" class="col-form-label">Pregunta:</label>
-												<textarea formControlName="question" type="text" name="question" class="form-control"  cols="30" rows="4"> </textarea>
-												<div *ngIf="question && question.invalid && (question.dirty || question.touched)" class="text-danger">
-													<div *ngIf="question.errors?.['required']">
-														Escriba una pregunta.
-													</div>
-												</div>
-											</div>
-											<div class="form-group">
-												<label for="type" class="col-form-label">Tipo de Respuesta:</label>
-												<select formControlName="type" class="form-control">
-													<option value="text">Texto</option>
-													<option value="radio">Opción única (radio)</option>
-													<option value="checkbox">Opción múltiple (checkbox)</option>
-												</select>
-												<div *ngIf="type && type.invalid && (type.dirty || type.touched)" class="text-danger">
-													<div *ngIf="type.errors?.['required']">
-														El nombre es requerido.
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<b>Vista Previa</b>
-
-											<div class="preview">
-												<div *ngIf="type && type.errors?.['required']">
-													<b>Porfavor Selecciona el tipo de pregunta</b>
-													<p></p>
-												</div>
-												<div class="callout callout-info">
-													<div *ngIf="questionForm.get('type')?.value === 'text'">
-														<label>Respuesta:</label>
-														<textarea name="frm_opt" disabled cols="30" rows="10" class="form-control"  placeholder="Escribe algo aqui.d.."></textarea>
-													</div>
-													<!-- Radio -->
-													<div *ngIf="questionForm.get('type')?.value === 'radio'">
-														<div class="icheck-primary" *ngFor="let opt of opciones.controls">
-															<div class="options-rs">
-																<input type="radio" disabled>
-																<label >{{ opt.value }}</label>
-															</div>
-														</div>
-													</div>
-
-													<!-- Checkbox -->
-													<div *ngIf="questionForm.get('type')?.value === 'checkbox'">
-														<div class="icheck-primary" *ngFor="let opt of opciones.controls">
-															<div class="options-rs">ddd
-																<input type="checkbox" disabled>
-																<label >{{ opt.value }}</label>
-															</div>
-														</div>
-													</div>
-													<div *ngIf="esConOpciones()">
-														<label>Opciones:</label>
-														<div formArrayName="options" class="block-valid">
-															<div *ngFor="let opt of opciones.controls; let i = index">
-																<div class="input-group mb-3">
-																	<input  class="form-control"  [formControlName]="i" aria-describedby="basic-addon2">
-																	<button type="button" class="btn btn-danger btn-flat delete_survey" (click)="eliminarOpcion(i)"><i class="fas fa-trash"></i></button>
-																</div>
-
-															</div>
-														</div>
-														<button type="button" (click)="agregarOpcion()" class="btn btn-primary">Agregar opción</button>
-													</div>
-													
-
-												</div>
-												<div *ngIf="opciones && opciones.invalid && questionForm.get('options')?.touched" class="error text-danger">
-												    Debes agregar al menos una opción.
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-								
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-									<!-- <button type="submit" class="btn btn-primary"  (click)="actualizar_preg()">Salvar</button> -->
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </section>

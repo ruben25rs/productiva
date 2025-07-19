@@ -6,4 +6,5 @@ export interface Encuestas {
      end_date: string,
      user_id: string,
      estatus: number,
+     ide: number,
 }
