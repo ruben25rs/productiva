@@ -72,7 +72,8 @@ export class VerEncuestaComponent {
             timer: 3000
           });
           this.listar(Number(this.idEncuesta))
-          this.questionForm.reset()
+          this.questionForm.get('question')?.setValue('')
+          this.questionForm.get('type')?.setValue('')
           this.opciones.clear()
           this.cerrarModal()
         }
@@ -101,7 +102,8 @@ export class VerEncuestaComponent {
             timer: 3000
           });
           this.listar(Number(this.idEncuesta))
-          this.questionForm.reset()
+          this.questionForm.get('question')?.setValue('')
+          this.questionForm.get('type')?.setValue('')
           this.opciones.clear()
           $('#pregunta_edit').modal('hide');
         }
