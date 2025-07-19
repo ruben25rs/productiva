@@ -23,6 +23,9 @@ export class QuestionService {
      listarQuestions(id:any) : Observable<ResponseQuestions>{
           return  this.http.get<ResponseQuestions>(`${this.baseUrl}questions/listar/`+id)
      }
+     listarQuestionsEnc(id:any) : Observable<ResponseQuestions>{
+          return  this.http.get<ResponseQuestions>(`${this.baseUrl}questions/listarenc/`+id)
+     }
      eliminarQuestion(id:any) : Observable<ResponseQuestions>{
           return  this.http.get<ResponseQuestions>(`${this.baseUrl}question/eliminar/`+id)
      }

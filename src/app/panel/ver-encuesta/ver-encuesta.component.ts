@@ -38,7 +38,7 @@ export class VerEncuestaComponent {
 
 
   listar(id:number){
-    this.questionService.listarQuestions(id).subscribe({
+    this.questionService.listarQuestionsEnc(id).subscribe({
       next: (data) =>{
         console.log(data['value'])
         if (data.value.length > 0) {
