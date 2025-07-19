@@ -82,8 +82,12 @@ h4.title-curso {
   background-color: #028bc8;
 }
 
-@media(max-width: 768px){
-  .text-ct[_ngcontent-ng-c1765844896] {
-    height: 75px;
+@media(max-width: 576px){
+  .text-ct {
+    height: auto;
+  }
+  .curso-item{
+    height: auto;
+    text-align: center;
   }
 }
