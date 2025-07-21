@@ -1,0 +1,43 @@
+
+  <section id="formulario" >
+    
+    <div class="container">
+        <div class="login-register">
+            <div class="nav-buttons">
+                <button id="loginBtn" class='active' >Inserte correo asociado </button>
+                
+            </div>
+<!--             <div class="form-group">
+
+                    <form  method="post"  id="forgotform">
+                    
+                        <label for="email">Email</label>
+                    <input type="text"   >
+                        <input type="submit" value="enviar" class="submit"  (click)="clickme()" >
+                    </form>
+                
+                
+                <div id="olvideregresar">
+                <a routerLink="/ingresar">Regresar</a>
+                </div>
+            </div> -->
+            <form [formGroup]="forgotForm" (ngSubmit)="onSubmit()">
+                <label for="email">Correo electrónico:</label>
+                <input id="email" formControlName="email" type="email" />
+                <div *ngIf="submitted && forgotForm.controls.email.invalid">
+                    <small *ngIf="forgotForm.controls.email.errors?.required">El correo es obligatorio.</small>
+                    <small *ngIf="forgotForm.controls.email.errors?.email">Correo no válido.</small>
+                </div>
+
+                <button type="submit">Enviar enlace</button>
+
+                <p *ngIf="successMessage">{{ successMessage }}</p>
+                <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+            </form>
+            <div id="olvideregresar">
+                <a routerLink="/ingresar">Regresar</a>
+            </div>
+
+         </div>
+    </div>
+</section >

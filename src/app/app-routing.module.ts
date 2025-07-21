@@ -31,7 +31,7 @@ import { ResultadoComponent } from './alumno/resultado/resultado.component';
 import { CertificadoComponent } from './alumno/certificado/certificado.component';
 import { PublicGuard } from './guards/public.guard';
 import { AuthGuard  } from './guards/auth.guard';
-
+import { ForgotComponent } from './forgot/forgot.component';
 
 
 const routes: Routes = [
@@ -78,6 +78,11 @@ const routes: Routes = [
     component: IngresarComponent,
     canActivate: [PublicGuard],
     data: {title: 'Ingresar'}
+  },
+  {path: 'forgot', 
+    component: ForgotComponent,
+     canActivate: [PublicGuard], 
+     data: { title: 'Recuperar Contraseña' }
   },
   {
     path: 'alumno',

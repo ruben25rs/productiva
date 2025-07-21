@@ -46,6 +46,7 @@ import { InfocursosComponent } from './cursos/infocursos/infocursos.component';
 import { ResultadoComponent } from './alumno/resultado/resultado.component';
 import { CertificadoComponent } from './alumno/certificado/certificado.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { ForgotComponent } from './forgot/forgot.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     InfocursosComponent,
     ResultadoComponent,
     CertificadoComponent,
+    ForgotComponent,
   ],
   imports: [
     BrowserModule,
