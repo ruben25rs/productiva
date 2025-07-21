@@ -44,7 +44,7 @@ div#div_file{
   div#div_file{
       position: relative;
       padding: 5px;
-      width: 100%;
+      width: 80%;
       height: 39px;
       background-color: #00b0ff;
       -webkit-border-radius: 5px;
@@ -217,6 +217,10 @@ h6.modal-title {
 label.col-form-label {
     font-size: 14px;
 }
+.imgperfil{
+    width: 80%;
+}
+
 @media(max-width: 576px){
     .imgperfil{
         width: 140px;
