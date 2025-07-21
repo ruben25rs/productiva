@@ -193,7 +193,7 @@ form#registerform {
 a {
     text-decoration: none;
     color: inherit;
-    padding-left: ;
+    /*padding-left: ;*/
 
 }
 .ng-valid:not(form).ng-touched   {
@@ -202,6 +202,7 @@ a {
 
 .ng-invalid:not(form).ng-touched  {
     border-left: 5px; /* red */
+    color: white;
 }
 
 
