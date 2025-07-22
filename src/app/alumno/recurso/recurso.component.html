@@ -3,7 +3,9 @@
 		<video class="video" autoplay controls [src]="rutaRecurso"></video>
 	</div>
 	<div  *ngIf="(recurso.archivo=='pdf')" class="pdf-container">
-		<iframe *ngIf="pdfUrl" [src]="pdfUrl" width="100%" height="100%" class="iframe"></iframe>
+		<!-- <iframe *ngIf="pdfUrl" [src]="pdfUrl" width="100%" height="100%" class="iframe"></iframe> -->
+		<!-- <app-pdf-viewer [pdfUrl]="pdfUrl"></app-pdf-viewer> -->
+		<app-pdfjs-viewer [apiUrl]="pdfApiUrl"></app-pdfjs-viewer>
 	</div>
 	
 </div>

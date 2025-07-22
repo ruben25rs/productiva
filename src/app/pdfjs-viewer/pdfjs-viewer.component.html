@@ -1,0 +1,14 @@
+<div *ngIf="isLoading">Cargando PDF...</div>
+
+<div class="pdf-controls" *ngIf="!isLoading">
+ <!--  <button (click)="zoomOut()">- Zoom</button>
+  <button (click)="zoomIn()">+ Zoom</button> -->
+</div>
+
+<div class="pdf-scroll-container" *ngIf="!isLoading">
+  <canvas *ngFor="let page of pages"
+          #pageCanvas
+          class="pdf-page"
+          [attr.data-page]="page">
+  </canvas>
+</div>

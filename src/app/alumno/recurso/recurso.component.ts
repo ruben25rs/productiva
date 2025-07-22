@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { appsettings } from '../../settings/appsettings';
 
+import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
@@ -24,7 +25,11 @@ export class RecursoComponent {
 
   public rutaRecurso: string = "";
 
-  pdfUrl!: SafeResourceUrl;
+  pdfUrl!: string;
+  // pdfUrl!: SafeResourceUrl;
+  // pdfApiUrl!: string;
+  pdfApiUrl!: string;
+  // pdfApiUrl = 'https://api.carasoftweb.com/public/img/cursos/recurso/recurso4.pdf';
 
   constructor(private route: ActivatedRoute, private router:Router, private sanitizer: DomSanitizer) { 
   }
@@ -34,17 +39,13 @@ export class RecursoComponent {
       next: (data) =>{
         this.recurso = data['value'];
         
-
-        if (data['value'].archivo=="pdf") {
-          this.recursosService.listaRecursoblobId(Number(this.idRecurso)).subscribe(blob => {
-            const blobUrl = URL.createObjectURL(blob);
-            this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(blobUrl);
-          });
-        }else{
-          this.rutaRecurso=this.baseUrl +(data['value'].ruta)
+        if (this.recurso?.archivo === "pdf") {
+          // Si el PDF viene como blob desde el backend
+          this.pdfApiUrl = this.baseUrl + this.recurso?.ruta;
+        } else {
+          this.rutaRecurso = this.baseUrl + this.recurso?.ruta; // string
         }
-        console.log(data)
-
+        console.log(this.pdfApiUrl)
       }, error:(error) =>{
         console.log(error.message); 
       }

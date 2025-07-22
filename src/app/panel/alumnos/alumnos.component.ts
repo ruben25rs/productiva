@@ -29,7 +29,7 @@ export class AlumnosComponent {
   public user: Array<any> = []
   public baseUrl: string = appsettings.urlImg;
   resultado:any;
-public tiempo_conexion: any;  
+  public tiempo_conexion: any;  
 
 
   editForm=this.formBuilder.group({

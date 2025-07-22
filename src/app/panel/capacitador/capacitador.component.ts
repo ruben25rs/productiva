@@ -3,10 +3,14 @@ import { FormBuilder, Validators} from '@angular/forms';
 import { UsuariosService } from '../../services/usuarios.service';
 import { User } from '../../interfaces/User';
 import { EncuestaService } from '../../services/encuesta.service';
+import { CursosService } from '../../services/cursos.service';
 import { ResponseEncuestas } from '../../interfaces/ResponseEncuestas';
 import { DetalleencuestaService } from '../../services/detalleencuesta.service';
+import { DetallecursosService } from '../../services/detallecursos.service';
 import { ResponseDetalleencuestas } from '../../interfaces/ResponseDetalleencuestas';
+import { ResponseInscripcion } from '../../interfaces/ResponseInscripcion';
 import { Encuestas } from '../../interfaces/Encuestas';
+import { Cursos } from '../../interfaces/Cursos'; 
 import { appsettings } from '../../settings/appsettings';
 
 import  * as functRS  from '../../../assets/js/funcionesrs';
@@ -23,9 +27,12 @@ export class CapacitadorComponent {
 
   private usuariosService = inject(UsuariosService);
   private encuestaService = inject(EncuestaService);
+  private cursosService = inject(CursosService);
   private detalleencuestaService = inject(DetalleencuestaService);
+  private detallecursosService = inject(DetallecursosService);
   
   public encuestas: Encuestas[] = [];
+  public cursos: Cursos[] = [];
   public usuarios: User[] = []
   public user: Array<any> = []
   public baseUrl: string = appsettings.urlImg;
@@ -50,6 +57,13 @@ export class CapacitadorComponent {
     id:[''],
     encuesta_id:['',[Validators.required]],
     usuario_id:['']
+  })
+
+
+  cursoForm=this.formBuilder.group({
+    id:[''],
+    curso_id:['',[Validators.required]],
+    user_id:[''],
   })
 
   constructor(private formBuilder:FormBuilder) { 
@@ -204,6 +218,49 @@ export class CapacitadorComponent {
     }
   }
 
+  asignarUser(id:any){
+    this.cursoForm.controls.user_id.setValue(id)
+
+    this.cursosService.listaCursosAll().subscribe({
+      next: (cursosData) =>{
+
+        console.log(cursosData['value'])
+        if (cursosData.value.length > 0) {
+          this.cursos = cursosData['value']
+        }
+
+      }, error:(error) =>{
+        console.log(error.message); 
+      }
+    })
+
+
+  }
+
+  agregarCurso(){
+    if(this.cursoForm.valid){
+      this.detallecursosService.registrar(this.cursoForm.value as ResponseInscripcion).subscribe({
+        next: (cursosData) =>{
+          console.log(cursosData)
+          
+
+        }, error:(error) =>{
+          console.log(error.message); 
+        },
+        complete: () => {
+          console.info("Inscripcion completo");
+          //this.router.navigateByUrl('/panel');
+          //window.location.href="/panel";
+          location.reload()
+          
+          
+        }
+      })
+    }else{
+      this.cursoForm.markAllAsTouched();
+    }
+  }
+
   
   get nombre()
   {
@@ -240,6 +297,11 @@ export class CapacitadorComponent {
   get encuesta_id()
   {
     return this.detEncForm.controls.encuesta_id;
+  }
+
+  get curso_id()
+  {
+    return this.cursoForm.controls.curso_id;
   }
   
 
