@@ -3,10 +3,13 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": ["jquery"]
+    "types": ["jquery"],
+    "skipLibCheck": true
   },
   "files": [
-    "src/main.ts"
+    "src/main.ts",
+    "src/typings.d.ts",
+    "src/custom-typings.d.ts"
   ],
   "include": [
     "src/**/*.d.ts"

@@ -7,6 +7,9 @@ p #texto{
   color: white;
 }
 
+.imgperfil{
+    width: 80%;
+}
 
 input#file1{
   position: absolute;
@@ -44,7 +47,7 @@ div#div_file{
   div#div_file{
       position: relative;
       padding: 5px;
-      width: 100%;
+      width: 80%;
       height: 39px;
       background-color: #00b0ff;
       -webkit-border-radius: 5px;
@@ -217,6 +220,7 @@ h6.modal-title {
 label.col-form-label {
     font-size: 14px;
 }
+
 @media(max-width: 576px){
     .imgperfil{
         width: 140px;

@@ -23,7 +23,11 @@
     "useDefineForClassFields": false,
     "lib": [
       "ES2022",
-      "dom"
+      "dom",
+      "es2017",
+      "dom",
+      "es2015.collection",
+      "es2015.iterable"
     ],
     "types": []
   },

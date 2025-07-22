@@ -9,7 +9,7 @@ import {formatDate} from '@angular/common';
 })
 export class IdleService {
   private timeout: any;
-  private idleTime = 5 * 60 * 1000; // 5 minutos
+  private idleTime = 5 * 60 * 1000; // 15 minutos
   private usuarioServices = inject(UsuariosService);
   userId: Number = Number(sessionStorage.getItem("id"))
 

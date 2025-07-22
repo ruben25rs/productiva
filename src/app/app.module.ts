@@ -4,6 +4,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import {ReactiveFormsModule} from '@angular/forms';
 import * as $ from 'jquery';
+// import { PdfViewerModule } from './pdf-viewer/pdf-viewer.module';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { SafePipe } from './safe.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,8 +49,12 @@ import { InfocursosComponent } from './cursos/infocursos/infocursos.component';
 import { ResultadoComponent } from './alumno/resultado/resultado.component';
 import { CertificadoComponent } from './alumno/certificado/certificado.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+<<<<<<< HEAD
 import { ForgotComponent } from './forgot/forgot.component';
 import { RecoveryComponent } from './recovery/recovery.component';
+=======
+import { PdfjsViewerComponent } from './pdfjs-viewer/pdfjs-viewer.component';
+>>>>>>> origin/master
 
 @NgModule({
   declarations: [
@@ -87,17 +94,26 @@ import { RecoveryComponent } from './recovery/recovery.component';
     InfocursosComponent,
     ResultadoComponent,
     CertificadoComponent,
+<<<<<<< HEAD
     ForgotComponent,
     RecoveryComponent,
    
+=======
+    SafePipe,
+    PdfjsViewerComponent
+>>>>>>> origin/master
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
     FormsModule
 
+=======
+    PdfViewerModule
+>>>>>>> origin/master
   ],
   providers: [
     {

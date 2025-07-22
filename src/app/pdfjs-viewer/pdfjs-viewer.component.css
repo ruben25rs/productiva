@@ -1,0 +1,13 @@
+.pdf-scroll-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-x: hidden; 
+  align-items: center;
+}
+
+.pdf-page {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
