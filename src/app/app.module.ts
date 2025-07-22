@@ -49,12 +49,10 @@ import { InfocursosComponent } from './cursos/infocursos/infocursos.component';
 import { ResultadoComponent } from './alumno/resultado/resultado.component';
 import { CertificadoComponent } from './alumno/certificado/certificado.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-<<<<<<< HEAD
 import { ForgotComponent } from './forgot/forgot.component';
 import { RecoveryComponent } from './recovery/recovery.component';
-=======
 import { PdfjsViewerComponent } from './pdfjs-viewer/pdfjs-viewer.component';
->>>>>>> origin/master
+
 
 @NgModule({
   declarations: [
@@ -94,26 +92,18 @@ import { PdfjsViewerComponent } from './pdfjs-viewer/pdfjs-viewer.component';
     InfocursosComponent,
     ResultadoComponent,
     CertificadoComponent,
-<<<<<<< HEAD
     ForgotComponent,
     RecoveryComponent,
-   
-=======
     SafePipe,
     PdfjsViewerComponent
->>>>>>> origin/master
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
-    FormsModule
-
-=======
+    FormsModule,
     PdfViewerModule
->>>>>>> origin/master
   ],
   providers: [
     {

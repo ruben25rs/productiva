@@ -63,8 +63,17 @@ export class UsuariosService {
      getDatosLogin(email:string) : Observable<any>{
         return  this.http.get<any>(`${this.baseUrl}usuarios/getDatosLogin/`+email)
     }
-    recoverypass(email:string) : Observable<any>{
-        return  this.http.get<any>(`${this.baseUrl}usuarios/recoverypass/`+email)
+    recoverypass(request:any) : Observable<any>{
+        return  this.http.put<any>(`${this.baseUrl}AuthController/enlace/`, request).pipe(
+         tap( (userData) => {
+               
+            console.log(userData)
+              
+        }),
+        map((userData)=> userData),
+        catchError(this.handleError)
+        );
+
     }
 
 

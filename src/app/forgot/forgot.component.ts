@@ -14,25 +14,42 @@ export class ForgotComponent {
  private accesoService = inject(AccesoService);
   private usuarioServices = inject(UsuariosService);
   public usuario: Usuarios[] = []
-   miEmail = new FormControl('');
-
+  email = new FormControl('');
+editForm=this.formBuilder.group({
+    email:['',Validators.required]
+  })
+ constructor(private formBuilder:FormBuilder) { 
+  }
 
 
   clickme() {
  
 
-              this.usuarioServices.recoverypass(String(this.miEmail.valueOf)).subscribe({
+              this.usuarioServices.recoverypass((this.editForm.value)).subscribe({
               next: (data) =>{
               
                   //console.log(data['value'][0].tipousuario_id);
               
                   if (data.value.length > 0) {
-                     console.log('Se envio un correo de validacion al corre:', this.miEmail.value);
+                     console.log('Se envio un correo de validacion al corre:', this.email.value);
                   
                 }
             }, error:(error) =>{
               console.log(error.message); 
             }
           })
-  }
+  } 
+
+  // onSubmit() {
+  //   this.enviado = true;
+
+  //   if (this.form.invalid) return;
+
+  //   const email = this.form.value.email;
+
+  //   this.usuarioServices.recoverypass(email).subscribe({
+  //     next: () => this.mensaje = 'Se ha enviado un enlace de recuperación a tu correo.',
+  //     error: () => this.mensaje = 'Error al enviar el enlace. Intenta más tarde.'
+  //   });
+  // }
 }

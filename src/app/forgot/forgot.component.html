@@ -9,13 +9,25 @@
             </div>
              <div class="form-group">
 
-                    <form  method="post"  id="forgotform">
+                    <form   [formGroup]="editForm">
                     
-                        <label for="email">Email</label>
-                     <input type="text" [formControl]="miEmail"  >
+                     <label for="email">Email</label>
+                     <input  formControlName="email" type="email" name="email" class="form-control" >
                         <input type="submit" value="enviar" class="submit"  (click)="clickme()" >
+                    </form> 
+                  <!--   <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div>
+                            <label for="email">Correo electrónico:</label>
+                            <input id="email" formControlName="email" type="email">
+                                <div *ngIf="enviado && form.controls.email.invalid">
+                                    <small *ngIf="form.controls.email.errors?.['required']">El correo es obligatorio.</small>
+                                    <small *ngIf="form.controls.email.errors?.['email']">Correo no válido.</small>
+                                </div>
+                        </div>
+
+                        <button type="submit">Enviar enlace</button>
                     </form>
-                
+ -->
                 
                 <div id="olvideregresar">
                 <a routerLink="/ingresar">Regresar</a>
