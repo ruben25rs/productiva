@@ -39,7 +39,7 @@ import { TemarioComponent } from './alumno/temario/temario.component';
 import { HeaderIComponent } from './header-i/header-i.component';
 
 import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.component';
-
+import { FormsModule } from '@angular/forms';
 import { RecursoComponent } from './alumno/recurso/recurso.component';
 import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
 import { InfocursosComponent } from './cursos/infocursos/infocursos.component';
@@ -87,12 +87,14 @@ import { ForgotComponent } from './forgot/forgot.component';
     ResultadoComponent,
     CertificadoComponent,
     ForgotComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule
 
   ],
   providers: [

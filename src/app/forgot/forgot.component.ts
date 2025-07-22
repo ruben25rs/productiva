@@ -14,27 +14,25 @@ export class ForgotComponent {
  private accesoService = inject(AccesoService);
   private usuarioServices = inject(UsuariosService);
   public usuario: Usuarios[] = []
-  miEmail: string = '';
-
-  
+   miEmail = new FormControl('');
 
 
 
   clickme() {
-    alert('¡Función clickme() llamada!');
+    console.log('Valor:', this.miEmail.value);
 
-              this.usuarioServices.getDatosLogin(String(this.miEmail.valueOf)).subscribe({
-            next: (data) =>{
-             
-            //console.log(data['value'][0].tipousuario_id);
-             
-              if (data.value.length > 0) {
-               
+          //     this.usuarioServices.getDatosLogin(String(this.miEmail.valueOf)).subscribe({
+          //     next: (data) =>{
               
-            }
-          }, error:(error) =>{
-            console.log(error.message); 
-          }
-        })
+          //     //console.log(data['value'][0].tipousuario_id);
+              
+          //         if (data.value.length > 0) {
+                  
+                  
+          //       }
+          //   }, error:(error) =>{
+          //     console.log(error.message); 
+          //   }
+          // })
   }
 }
