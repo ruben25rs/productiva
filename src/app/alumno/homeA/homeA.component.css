@@ -7,6 +7,9 @@ p #texto{
   color: white;
 }
 
+.imgperfil{
+    width: 80%;
+}
 
 input#file1{
   position: absolute;
@@ -216,9 +219,6 @@ h6.modal-title {
 }
 label.col-form-label {
     font-size: 14px;
-}
-.imgperfil{
-    width: 80%;
 }
 
 @media(max-width: 576px){

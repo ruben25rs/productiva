@@ -2,9 +2,9 @@
 	<div class="container">
 		<div class="row  perfil-ct u-text u-text-3 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="will-change: transform, opacity; animation-duration: 1500ms;">
 			<div class="col-3" *ngFor="let user of usuarios;">
-				<form [formGroup]="imgForm">
+				<form [formGroup]="imgForm" style="text-align: center;">
 
-					<img  src="{{baseUrl}}{{user.profile}}"  alt="Vista previa" width="200"><br><br><br>          
+					<img  src="{{baseUrl}}{{user.profile}}"  alt="Vista previa" width="200" class="imgperfil"><br><br>          
 					<div id="divguardarfoto">
 
 						<div id="div_file">

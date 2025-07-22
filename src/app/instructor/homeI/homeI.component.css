@@ -2,6 +2,9 @@ p #texto{
   text-align: center;
   color: white;
 }
+.imgperfil{
+    width: 80%;
+}
 div#div_file{
   position: relative;
   padding: 0.5em;
@@ -26,7 +29,7 @@ input#file1{
 div#div_file{
     position: relative;
     padding: 5px;
-    width: 100%;
+    width: 80%;
     height: 39px;
     background-color: #00b0ff;
     -webkit-border-radius: 5px;
