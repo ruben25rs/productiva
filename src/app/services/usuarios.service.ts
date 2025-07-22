@@ -63,6 +63,9 @@ export class UsuariosService {
      getDatosLogin(email:string) : Observable<any>{
         return  this.http.get<any>(`${this.baseUrl}usuarios/getDatosLogin/`+email)
     }
+    recoverypass(email:string) : Observable<any>{
+        return  this.http.get<any>(`${this.baseUrl}usuarios/recoverypass/`+email)
+    }
 
 
     subirImage(request:any):Observable<any>{

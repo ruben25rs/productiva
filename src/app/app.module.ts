@@ -47,6 +47,7 @@ import { ResultadoComponent } from './alumno/resultado/resultado.component';
 import { CertificadoComponent } from './alumno/certificado/certificado.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { ForgotComponent } from './forgot/forgot.component';
+import { RecoveryComponent } from './recovery/recovery.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { ForgotComponent } from './forgot/forgot.component';
     ResultadoComponent,
     CertificadoComponent,
     ForgotComponent,
+    RecoveryComponent,
    
   ],
   imports: [

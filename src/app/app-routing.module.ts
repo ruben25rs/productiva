@@ -32,6 +32,7 @@ import { CertificadoComponent } from './alumno/certificado/certificado.component
 import { PublicGuard } from './guards/public.guard';
 import { AuthGuard  } from './guards/auth.guard';
 import { ForgotComponent } from './forgot/forgot.component';
+import { RecoveryComponent } from './recovery/recovery.component';
 
 
 const routes: Routes = [
@@ -79,10 +80,16 @@ const routes: Routes = [
     canActivate: [PublicGuard],
     data: {title: 'Ingresar'}
   },
-  {path: 'forgot', 
+  {
+    path: 'forgot', 
     component: ForgotComponent,
      canActivate: [PublicGuard], 
      data: { title: 'Recuperar Contraseña' }
+  },
+  {
+    path: 'recovery/:token',
+    component: RecoveryComponent, 
+    data: { title: 'Recuperar Contraseña' }
   },
   {
     path: 'alumno',

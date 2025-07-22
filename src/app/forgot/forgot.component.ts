@@ -19,20 +19,20 @@ export class ForgotComponent {
 
 
   clickme() {
-    console.log('Valor:', this.miEmail.value);
+ 
 
-          //     this.usuarioServices.getDatosLogin(String(this.miEmail.valueOf)).subscribe({
-          //     next: (data) =>{
+              this.usuarioServices.recoverypass(String(this.miEmail.valueOf)).subscribe({
+              next: (data) =>{
               
-          //     //console.log(data['value'][0].tipousuario_id);
+                  //console.log(data['value'][0].tipousuario_id);
               
-          //         if (data.value.length > 0) {
+                  if (data.value.length > 0) {
+                     console.log('Se envio un correo de validacion al corre:', this.miEmail.value);
                   
-                  
-          //       }
-          //   }, error:(error) =>{
-          //     console.log(error.message); 
-          //   }
-          // })
+                }
+            }, error:(error) =>{
+              console.log(error.message); 
+            }
+          })
   }
 }
