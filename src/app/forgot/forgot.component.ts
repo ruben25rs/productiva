@@ -23,12 +23,19 @@ editForm=this.formBuilder.group({
 
 
   clickme() {
- 
+    const emailValue: string = this.editForm.get('email')?.value ?? '';
+    this.usuarioServices.getDatosLogin(emailValue).subscribe({
+      next: (data) => {
+        this.usuario = data;
+        console.log('Datos de login obtenidos:', this.usuario);
+      },
+      error: (error) => {   
 
-              this.usuarioServices.recoverypass((this.editForm.value)).subscribe({
+        console.error('Error al obtener los datos de login:', error);
+      }
+    });
+              /* this.usuarioServices.recoverypass((this.editForm.value)).subscribe({
               next: (data) =>{
-              
-                  //console.log(data['value'][0].tipousuario_id);
               
                   if (data.value.length > 0) {
                      console.log('Se envio un correo de validacion al corre:', this.email.value);
@@ -37,7 +44,7 @@ editForm=this.formBuilder.group({
             }, error:(error) =>{
               console.log(error.message); 
             }
-          })
+          }) */
   } 
 
   // onSubmit() {
