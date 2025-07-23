@@ -75,7 +75,18 @@ export class UsuariosService {
         );
 
     }
+    changepass(request:any) : Observable<any>{
+        return  this.http.put<any>(`${this.baseUrl}AuthController/cambiar/`, request).pipe(
+         tap( (userData) => {
+               
+            console.log(userData)
+              
+        }),
+        map((userData)=> userData),
+        catchError(this.handleError)
+        );
 
+    }
 
     subirImage(request:any):Observable<any>{
         return this.http.post<any>(this.baseUrl+"usuario/updateimg/", request).pipe(

@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import { AccesoService } from '../services/acceso.service';
 import { Usuarios } from '../interfaces/Usuarios';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-forgot',
   templateUrl: './forgot.component.html',
@@ -26,25 +26,47 @@ editForm=this.formBuilder.group({
     const emailValue: string = this.editForm.get('email')?.value ?? '';
     this.usuarioServices.getDatosLogin(emailValue).subscribe({
       next: (data) => {
-        this.usuario = data;
-        console.log('Datos de login obtenidos:', this.usuario);
+        //this.usuario = data;
+        console.log('Datos de usuario obtenidos:', data.value.length);
+        if (data.value.length > 0) {
+
+            this.usuarioServices.recoverypass((this.editForm.value)).subscribe({
+                          next: (data) =>{
+                          
+                              if (data.value.length > 0) {
+                                Swal.fire({
+                                        title: "Correo enviado",
+                                         text: "Se envio un correo de validacion al correo: "+this.email.value,
+                                        icon: "success",
+                                        draggable: true
+                                      });
+                                console.log('Se envio un correo de validacion al correo:', this.email.value);
+                              
+                            }
+                        }, error:(error) =>{
+                          console.log(error.message); 
+                        }
+                      }) 
+          
+        }else {
+                Swal.fire({
+                          toast: true,
+                          position: 'top-end',
+                          icon: 'error',
+                          title: 'No se encontraron datos de usuario para el correo: '+ emailValue,
+                          showConfirmButton: false,
+                          timer: 3000
+                        });
+          console.log('No se encontraron datos de usuario para el correo:', emailValue);
+        }
+        
       },
       error: (error) => {   
 
         console.error('Error al obtener los datos de login:', error);
       }
     });
-              /* this.usuarioServices.recoverypass((this.editForm.value)).subscribe({
-              next: (data) =>{
-              
-                  if (data.value.length > 0) {
-                     console.log('Se envio un correo de validacion al corre:', this.email.value);
-                  
-                }
-            }, error:(error) =>{
-              console.log(error.message); 
-            }
-          }) */
+               
   } 
 
   // onSubmit() {

@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { UsuariosService } from '../services/usuarios.service';
+import { FormControl } from '@angular/forms';
+import { AccesoService } from '../services/acceso.service';
+import { Usuarios } from '../interfaces/Usuarios';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
@@ -10,10 +16,38 @@ import { Router } from '@angular/router';
 })
 export class RecoveryComponent {
   token?: string | null;
+  private usuarioServices = inject(UsuariosService);
 
-   constructor(private route: ActivatedRoute, private router:Router) { 
+  editForm=this.formBuilder.group({
+    token:['',Validators.required],
+    email:['',Validators.required],
+    password:['', Validators.required],
+    password_confirmation:['',Validators.required]
+  })
+   constructor(private route: ActivatedRoute, private router:Router,private formBuilder:FormBuilder) { 
     }
 
+actualizarPass() {
+
+      this.usuarioServices.changepass(this.editForm.value).subscribe({
+                    next: (data) =>{
+                      Swal.fire({
+                                  title: "Contraseña Actualizada",
+                                    text: "Se actualizo correctamente",
+                                  icon: "success",
+                                  draggable: true
+                                });
+                                
+                               this.router.navigateByUrl('/ingresar'); 
+                                
+                      
+                    }, error:(error) =>{
+                        console.log(error.message); 
+                    }
+      }) 
+                              
+
+}
 
 
     ngOnInit(): void {

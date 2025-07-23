@@ -9,14 +9,14 @@
             </div>
                 <div class="form-group">
 
-                    <form method="post" id="forgotform">
+                    <form method="post" id="forgotform" [formGroup]="editForm">
                         <!-- <label for="id" >Token</label> -->
-                        <input type="text" id="id" name="id" value={{token}} hidden>
+                        <input type="text" id="id" name="id" formControlName="token" value={{token}} hidden>
                         <label for="pass">Nueva Contraseña</label>
-                        <input type="password" id="contrasena" name="contrasena">
+                        <input type="password" id="contrasena" name="contrasena" formControlName="password">
                         <label for="pass">Confirme Contraseña</label>
-                        <input type="password" id="contrasenad" name="contrasenad">
-                        <input type="submit" value="Cambiar Contraseña" class="submit">
+                        <input type="password" id="contrasenad" name="contrasenad" formControlName="password_confirmation">
+                        <input type="submit" value="Cambiar Contraseña" class="submit" (click)="actualizarPass()" >
                     </form>
                         
                         <div id="regresar">
