@@ -52,6 +52,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { ForgotComponent } from './forgot/forgot.component';
 import { RecoveryComponent } from './recovery/recovery.component';
 import { PdfjsViewerComponent } from './pdfjs-viewer/pdfjs-viewer.component';
+import { ReporteEncuestaComponent } from './panel/reporte-encuesta/reporte-encuesta.component';
+import { ReportesComponent } from './panel/reportes/reportes.component';
 
 
 @NgModule({
@@ -95,7 +97,9 @@ import { PdfjsViewerComponent } from './pdfjs-viewer/pdfjs-viewer.component';
     ForgotComponent,
     RecoveryComponent,
     SafePipe,
-    PdfjsViewerComponent
+    PdfjsViewerComponent,
+    ReporteEncuestaComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,
