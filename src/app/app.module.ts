@@ -50,6 +50,8 @@ import { ResultadoComponent } from './alumno/resultado/resultado.component';
 import { CertificadoComponent } from './alumno/certificado/certificado.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { PdfjsViewerComponent } from './pdfjs-viewer/pdfjs-viewer.component';
+import { ReporteEncuestaComponent } from './panel/reporte-encuesta/reporte-encuesta.component';
+import { ReportesComponent } from './panel/reportes/reportes.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,9 @@ import { PdfjsViewerComponent } from './pdfjs-viewer/pdfjs-viewer.component';
     ResultadoComponent,
     CertificadoComponent,
     SafePipe,
-    PdfjsViewerComponent
+    PdfjsViewerComponent,
+    ReporteEncuestaComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,

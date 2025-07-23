@@ -31,7 +31,8 @@ import { ResultadoComponent } from './alumno/resultado/resultado.component';
 import { CertificadoComponent } from './alumno/certificado/certificado.component';
 import { PublicGuard } from './guards/public.guard';
 import { AuthGuard  } from './guards/auth.guard';
-
+import { ReporteEncuestaComponent } from './panel/reporte-encuesta/reporte-encuesta.component';
+import { ReportesComponent } from './panel/reportes/reportes.component';
 
 
 const routes: Routes = [
@@ -189,6 +190,16 @@ const routes: Routes = [
       {
         path:'ver-encuesta/:id',
         component: VerEncuestaComponent,
+        data: { rol: '1'}
+      },
+      {
+        path:'reportes',
+        component: ReportesComponent,
+        data: { rol: '1'}
+      },
+      {
+        path:'reporte-encuesta/:id',
+        component: ReporteEncuestaComponent,
         data: { rol: '1'}
       },
       {

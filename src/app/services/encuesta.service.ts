@@ -17,6 +17,10 @@ export class EncuestaService {
      constructor() { 
           
      }
+     getEstadisticas(encuestaId: number): Observable<any> {
+         return this.http.get<any>(`${this.baseUrl}encuestas/`+encuestaId+"/estadisticas")
+     }
+
      listarEncuesta(id:any) : Observable<any>{
           return  this.http.get<any>(`${this.baseUrl}encuesta/listar/`+id)
      }
