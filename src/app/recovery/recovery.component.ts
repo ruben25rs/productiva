@@ -1,8 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { UsuariosService } from '../services/usuarios.service';
-import { FormControl } from '@angular/forms';
-import { AccesoService } from '../services/acceso.service';
-import { Usuarios } from '../interfaces/Usuarios';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
@@ -18,18 +15,22 @@ export class RecoveryComponent {
   token?: string | null;
   private usuarioServices = inject(UsuariosService);
 
-  editForm=this.formBuilder.group({
-    token:['',Validators.required],
+editForm=this.formBuilder.group({
+    token:[''],
     email:['',Validators.required],
     password:['', Validators.required],
     password_confirmation:['',Validators.required]
   })
+  
    constructor(private route: ActivatedRoute, private router:Router,private formBuilder:FormBuilder) { 
+    
     }
 
 actualizarPass() {
-
-      this.usuarioServices.changepass(this.editForm.value).subscribe({
+const datosParaGuardar = this.editForm.value;
+console.log(datosParaGuardar);
+  
+       this.usuarioServices.changepass(this.editForm.value).subscribe({
                     next: (data) =>{
                       Swal.fire({
                                   title: "Contraseña Actualizada",
@@ -37,14 +38,14 @@ actualizarPass() {
                                   icon: "success",
                                   draggable: true
                                 });
-                                
+                               
                                this.router.navigateByUrl('/ingresar'); 
                                 
                       
                     }, error:(error) =>{
                         console.log(error.message); 
                     }
-      }) 
+      })  
                               
 
 }
@@ -55,7 +56,7 @@ actualizarPass() {
     this.token = this.route.snapshot.paramMap.get('token');
     console.log('token es igual: '+this.token); 
     
-
+  this.editForm.controls.token.setValue(this.token)
     
   }  
 }

@@ -41,6 +41,7 @@ editForm=this.formBuilder.group({
                                         title: "Correo enviado",
                                          text: "Se envio un correo de validacion al correo: "+this.email.value,
                                         icon: "success",
+                                        timer: 1500,
                                         draggable: true
                                       });
                                    

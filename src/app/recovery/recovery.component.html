@@ -10,8 +10,8 @@
                 <div class="form-group">
 
                     <form method="post" id="forgotform" [formGroup]="editForm">
-                        <!-- <label for="id" >Token</label> -->
-                        <input type="text" id="id" name="id" formControlName="token" value={{token}} hidden>
+                        <label for="id" >Token</label> 
+                        <input type="text" id="token" name="token"  formControlName="token" class="form-control" >
                         <label for="email">Email</label>
                         <input  formControlName="email" type="email" name="email" class="form-control" >
                         <label for="pass">Nueva Contraseña</label>
