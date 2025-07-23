@@ -42,16 +42,19 @@ import { TemarioComponent } from './alumno/temario/temario.component';
 import { HeaderIComponent } from './header-i/header-i.component';
 
 import { AnswerSurveyComponent } from './instructor/answer-survey/answer-survey.component';
-
+import { FormsModule } from '@angular/forms';
 import { RecursoComponent } from './alumno/recurso/recurso.component';
 import { EvaluacionComponent } from './alumno/evaluacion/evaluacion.component';
 import { InfocursosComponent } from './cursos/infocursos/infocursos.component';
 import { ResultadoComponent } from './alumno/resultado/resultado.component';
 import { CertificadoComponent } from './alumno/certificado/certificado.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { ForgotComponent } from './forgot/forgot.component';
+import { RecoveryComponent } from './recovery/recovery.component';
 import { PdfjsViewerComponent } from './pdfjs-viewer/pdfjs-viewer.component';
 import { ReporteEncuestaComponent } from './panel/reporte-encuesta/reporte-encuesta.component';
 import { ReportesComponent } from './panel/reportes/reportes.component';
+
 
 @NgModule({
   declarations: [
@@ -91,6 +94,8 @@ import { ReportesComponent } from './panel/reportes/reportes.component';
     InfocursosComponent,
     ResultadoComponent,
     CertificadoComponent,
+    ForgotComponent,
+    RecoveryComponent,
     SafePipe,
     PdfjsViewerComponent,
     ReporteEncuestaComponent,
@@ -101,6 +106,7 @@ import { ReportesComponent } from './panel/reportes/reportes.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     PdfViewerModule
   ],
   providers: [

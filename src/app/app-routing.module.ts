@@ -33,6 +33,8 @@ import { PublicGuard } from './guards/public.guard';
 import { AuthGuard  } from './guards/auth.guard';
 import { ReporteEncuestaComponent } from './panel/reporte-encuesta/reporte-encuesta.component';
 import { ReportesComponent } from './panel/reportes/reportes.component';
+import { ForgotComponent } from './forgot/forgot.component';
+import { RecoveryComponent } from './recovery/recovery.component';
 
 
 const routes: Routes = [
@@ -79,6 +81,17 @@ const routes: Routes = [
     component: IngresarComponent,
     canActivate: [PublicGuard],
     data: {title: 'Ingresar'}
+  },
+  {
+    path: 'forgot', 
+    component: ForgotComponent,
+     canActivate: [PublicGuard], 
+     data: { title: 'Recuperar Contraseña' }
+  },
+  {
+    path: 'recovery/:token',
+    component: RecoveryComponent, 
+    data: { title: 'Recuperar Contraseña' }
   },
   {
     path: 'alumno',

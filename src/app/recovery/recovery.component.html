@@ -1,0 +1,32 @@
+   <!-- Formulario -->
+  <section id="formulario">
+    
+    <div class="container">
+        <div class="login-register">
+            <div class="nav-buttons">
+                <button id="loginBtn" class='active' >Inserte Nueva Contraseña </button>
+                
+            </div>
+                <div class="form-group">
+
+                    <form method="post" id="forgotform" [formGroup]="editForm">
+                        <!-- <label for="id" >Token</label> -->
+                        <input type="text" id="id" name="id" formControlName="token" value={{token}} hidden>
+                        <label for="email">Email</label>
+                        <input  formControlName="email" type="email" name="email" class="form-control" >
+                        <label for="pass">Nueva Contraseña</label>
+                        <input type="password" id="password" name="password" formControlName="password" class="form-control">
+                        <label for="pass">Confirme Contraseña</label>
+                        <input type="password" id="password_confirmation" name="password_confirmation" formControlName="password_confirmation" class="form-control">
+                        <input type="submit" value="Cambiar Contraseña" class="submit" (click)="actualizarPass()" >
+                    </form>
+                        
+                        <div id="regresar">
+                            <a routerLink="/inicio">Regresar</a>
+                        </div>
+                </div>
+
+        </div>
+    </div>
+</section>
+<!-- End formulario -->
