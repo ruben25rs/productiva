@@ -12,10 +12,12 @@
                     <form method="post" id="forgotform" [formGroup]="editForm">
                         <!-- <label for="id" >Token</label> -->
                         <input type="text" id="id" name="id" formControlName="token" value={{token}} hidden>
+                        <label for="email">Email</label>
+                        <input  formControlName="email" type="email" name="email" class="form-control" >
                         <label for="pass">Nueva Contraseña</label>
-                        <input type="password" id="contrasena" name="contrasena" formControlName="password">
+                        <input type="password" id="password" name="password" formControlName="password" class="form-control">
                         <label for="pass">Confirme Contraseña</label>
-                        <input type="password" id="contrasenad" name="contrasenad" formControlName="password_confirmation">
+                        <input type="password" id="password_confirmation" name="password_confirmation" formControlName="password_confirmation" class="form-control">
                         <input type="submit" value="Cambiar Contraseña" class="submit" (click)="actualizarPass()" >
                     </form>
                         

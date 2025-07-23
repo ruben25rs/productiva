@@ -25,12 +25,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.css"
               
             ],
             "scripts": [
               "src/assets/js/bootstrap.bundle.min.js"
             ]
+            
           },
           "configurations": {
             "production": {
@@ -69,7 +70,11 @@
               "browserTarget": "productiva:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          }
+          
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -103,4 +108,5 @@
   "cli": {
     "analytics": "0ffd52f6-dbdf-4d72-9c10-2b463ee7c327"
   }
+  
 }

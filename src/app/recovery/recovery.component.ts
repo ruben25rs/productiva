@@ -53,7 +53,7 @@ actualizarPass() {
     ngOnInit(): void {
     //this.cargar_table()
     this.token = this.route.snapshot.paramMap.get('token');
-    console.log('token es igual'+this.token); 
+    console.log('token es igual: '+this.token); 
     
 
     

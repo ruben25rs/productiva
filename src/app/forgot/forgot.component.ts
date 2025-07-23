@@ -34,13 +34,16 @@ editForm=this.formBuilder.group({
                           next: (data) =>{
                           
                               if (data.value.length > 0) {
+                               
+                                console.log('Se envio un correo de validacion al correo:', this.email.value);
+                                
                                 Swal.fire({
                                         title: "Correo enviado",
                                          text: "Se envio un correo de validacion al correo: "+this.email.value,
                                         icon: "success",
                                         draggable: true
                                       });
-                                console.log('Se envio un correo de validacion al correo:', this.email.value);
+                                   
                               
                             }
                         }, error:(error) =>{
