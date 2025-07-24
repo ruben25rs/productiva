@@ -26,7 +26,7 @@ editForm=this.formBuilder.group({
     const emailValue: string = this.editForm.get('email')?.value ?? '';
     this.usuarioServices.getDatosLogin(emailValue).subscribe({
       next: (data) => {
-        //this.usuario = data;
+        //this.usuario = data;listo rubej
         console.log('Datos de usuario obtenidos:', data.value.length);
         if (data.value.length > 0) {
 
