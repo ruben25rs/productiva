@@ -33,6 +33,9 @@ export class UsuariosService {
     userEstatus(id:number) : Observable<any>{
         return  this.http.get<any>(`${this.baseUrl}usuario/estatus/`+id)
     }
+    getEmpresas(){
+        return  this.http.get<any>(`${this.baseUrl}empresas/all`)
+    }
     
 
    

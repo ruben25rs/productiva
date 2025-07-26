@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { AreacursosService } from '../../services/areacursos.service';
 import { Areacursos } from '../../interfaces/Areacursos';
-
+import { Empresa } from '../../interfaces/Empresa';
 import { Inscripcion } from 'src/app/interfaces/Inscripcion';
 import { InscripcionService } from 'src/app/services/inscripcion.service';
 import { CInscrito } from 'src/app/interfaces/CInscrito';
@@ -32,6 +32,7 @@ constructor(private route: ActivatedRoute) {} */
   public user: Array<any> = []
   public Inscripcion: Inscripcion[] = [];
   public cInscrito: CInscrito[] = [];
+  public empresas: Empresa[] = []
 
   public baseUrl: string = appsettings.urlImg;
   public  id:number =1; 
@@ -96,7 +97,7 @@ constructor(private route: ActivatedRoute) {} */
         this.editForm.controls.telefono.setValue(user.value.telefono)
         this.editForm.controls.genero.setValue(user.value.genero.toString())
         this.editForm.controls.fecha_alta.setValue(user.value.fecha_alta)
-        this.editForm.controls.empresa_id.setValue(user.value.empresa)
+        this.editForm.controls.empresa_id.setValue(user.value.empresa_id)
 
       }, error:(error) =>{
         console.log(error.message); 
@@ -116,7 +117,7 @@ constructor(private route: ActivatedRoute) {} */
           this.editForm.controls.telefono.setValue(user.value.telefono)
           this.editForm.controls.genero.setValue(user.value.genero.toString())
           this.editForm.controls.fecha_alta.setValue(user.value.fecha_alta)
-          this.editForm.controls.empresa_id.setValue(user.value.empresa)
+          this.editForm.controls.empresa_id.setValue(user.value.empresa_id)
 
         }, error:(error) =>{
           console.log(error.message); 
@@ -133,6 +134,17 @@ constructor(private route: ActivatedRoute) {} */
     }else{
       this.editForm.markAllAsTouched();
     }
+  }
+
+  getEmpresas(){
+    this.usuariosService.getEmpresas().subscribe({
+      next: (data) =>{
+        this.empresas = data['value']
+        console.log(data)
+      }, error:(error) =>{
+          //console.log(error.message); 
+      }
+    })
   }
 
   get nombre()
@@ -248,7 +260,7 @@ constructor(private route: ActivatedRoute) {} */
   ngOnInit(): void {
 
     console.log(this.idUser)
-
+    this.getEmpresas();
     this.showUsuer();
     this.cursoxalumno();
     //this.guardarsesionInicio()

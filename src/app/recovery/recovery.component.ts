@@ -28,7 +28,6 @@ editForm=this.formBuilder.group({
 
 actualizarPass() {
 const datosParaGuardar = this.editForm.value;
-console.log(datosParaGuardar);
   
        this.usuarioServices.changepass(this.editForm.value).subscribe({
                     next: (data) =>{
@@ -54,7 +53,6 @@ console.log(datosParaGuardar);
     ngOnInit(): void {
     //this.cargar_table()
     this.token = this.route.snapshot.paramMap.get('token');
-    console.log('token es igual: '+this.token); 
     
   this.editForm.controls.token.setValue(this.token)
     

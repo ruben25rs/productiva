@@ -11,6 +11,7 @@ export interface Usuarios {
     profile: string;
     estatus: number;
     empresa: number;
+    empresa_id: number;
     codigo: string;
     
     

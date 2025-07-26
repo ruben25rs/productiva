@@ -11,6 +11,7 @@ export interface User {
     genero?:number;
     email:string;
     empresa:string;
+    empresa_id:string;
     tipousuario_id: number;
     profile: string;
     inicio_sesion:Date;

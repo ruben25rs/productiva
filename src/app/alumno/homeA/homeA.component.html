@@ -131,8 +131,9 @@
                             </div>
                             <div>
                                 <label class="col-form-label" for="empresa_id">Empresa</label>
-                                <select formControlName="empresa_id" name="empresa" id="empresa" class="form-control">
-                                    <option>Empresa procedente</option>
+                                <select formControlName="empresa_id" name="empresa_id" id="empresa_id" class="form-control">
+                                    <option value="" disabled selected>Selecciona una opción</option>
+                                    <option *ngFor="let empresa of empresas" value="{{empresa.id}}">{{empresa.nombre}}</option>
                                 </select>
                             </div>
                         </div>

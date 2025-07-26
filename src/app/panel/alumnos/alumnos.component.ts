@@ -5,6 +5,7 @@ import { InscripcionService } from '../../services/inscripcion.service';
 import { ResponseInscripcion } from '../../interfaces/ResponseInscripcion';
 import { CursosService } from '../../services/cursos.service';
 import { User } from '../../interfaces/User';
+import { Empresa } from '../../interfaces/Empresa';
 import { Inscripcion } from '../../interfaces/Inscripcion';
 import { Cursos } from '../../interfaces/Cursos'; 
 import { appsettings } from '../../settings/appsettings';
@@ -23,6 +24,7 @@ export class AlumnosComponent {
   private inscripcionService = inject(InscripcionService);
 
   public usuarios: User[] = []
+  public empresas: Empresa[] = []
 
   public cursos: Cursos[] = [];
   public inscripcion: Inscripcion[] = [];
@@ -97,7 +99,7 @@ export class AlumnosComponent {
         this.editForm.controls.telefono.setValue(user.value.telefono)
         this.editForm.controls.genero.setValue(user.value.genero.toString())
         this.editForm.controls.fecha_alta.setValue(user.value.fecha_alta)
-        this.editForm.controls.empresa_id.setValue(user.value.empresa)
+        this.editForm.controls.empresa_id.setValue(user.value.empresa_id)
 
       }, error:(error) =>{
         console.log(error.message); 
@@ -191,6 +193,16 @@ export class AlumnosComponent {
       }
     })
   }
+  getEmpresas(){
+    this.usuariosService.getEmpresas().subscribe({
+      next: (data) =>{
+        this.empresas = data['value']
+        console.log(data)
+      }, error:(error) =>{
+          //console.log(error.message); 
+      }
+    })
+  }
 
   
   get nombre()
@@ -233,6 +245,7 @@ export class AlumnosComponent {
 
   ngOnInit(): void {
     //this.cargar_table()
+    this.getEmpresas()
     this.listar()
     functRS.hola()
     console.log(functRS.userdatatable())

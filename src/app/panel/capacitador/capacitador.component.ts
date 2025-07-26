@@ -11,6 +11,7 @@ import { ResponseDetalleencuestas } from '../../interfaces/ResponseDetalleencues
 import { ResponseInscripcion } from '../../interfaces/ResponseInscripcion';
 import { Encuestas } from '../../interfaces/Encuestas';
 import { Cursos } from '../../interfaces/Cursos'; 
+import { Empresa } from '../../interfaces/Empresa';
 import { appsettings } from '../../settings/appsettings';
 
 import  * as functRS  from '../../../assets/js/funcionesrs';
@@ -35,6 +36,7 @@ export class CapacitadorComponent {
   public cursos: Cursos[] = [];
   public usuarios: User[] = []
   public user: Array<any> = []
+  public empresas: Empresa[] = []
   public baseUrl: string = appsettings.urlImg;
   resultado:any
 
@@ -105,7 +107,7 @@ export class CapacitadorComponent {
         this.editForm.controls.telefono.setValue(user.value.telefono)
         this.editForm.controls.genero.setValue(user.value.genero.toString())
         this.editForm.controls.fecha_alta.setValue(user.value.fecha_alta)
-        this.editForm.controls.empresa_id.setValue(user.value.empresa)
+        this.editForm.controls.empresa_id.setValue(user.value.empresa_id)
 
       }, error:(error) =>{
         console.log(error.message); 
@@ -261,6 +263,17 @@ export class CapacitadorComponent {
     }
   }
 
+  getEmpresas(){
+    this.usuariosService.getEmpresas().subscribe({
+      next: (data) =>{
+        this.empresas = data['value']
+        console.log(data)
+      }, error:(error) =>{
+          //console.log(error.message); 
+      }
+    })
+  }
+
   
   get nombre()
   {
@@ -307,6 +320,7 @@ export class CapacitadorComponent {
 
   ngOnInit(): void {
     //this.cargar_table()
+    this.getEmpresas()
     this.listar()
     this.listar_enc()
     functRS.hola()
